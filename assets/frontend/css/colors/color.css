@@ -74,7 +74,7 @@ h2.ongoing-title:hover,
 .caro-meta > h4,
 .donation-appeal > h3 span
 {
-	color:#189f97;	
+	color:#1c6295	
 }
 
 
@@ -177,16 +177,16 @@ header.style4 .social-links > li a:hover,
 .owl-nav .owl-prev:hover,
 .owl-nav .owl-next:hover
 {
-	background:#189f97;	
+	background:#1c6295;	
 }
 
 .jp-current,
 .accordion-title.active
 {
-	background-color:#189f97 !important;	
+	background-color:#1c6295 !important;	
 }
 .progress-bar{
-	background-color:#189f97;	
+	background-color:#1c6295;	
 }
 
 
@@ -211,7 +211,7 @@ header.style4 .social-links > li a:hover,
 .anouncment-meta li a:hover,
 .drop-caps.style6 > span
 {
-	border-color:#189f97;
+	border-color:#1c6295
 }
 
 .ziehharmonika.style3 .accordion-title.active{
@@ -221,19 +221,19 @@ header.style4 .social-links > li a:hover,
 
 .main-menu > ul > li ul li:hover,
 .main-menu > div > ul > li ul li:hover{
-	border-bottom-color:#189f97;
+	border-bottom-color:#1c6295
 }
 
 
 .required-amount::before,
 #nprogress .spinner-icon{
-	border-left-color:#189f97;	
+	border-left-color:#1c6295	
 }
 #nprogress .spinner-icon,
 .ziehharmonika .active .arrowDown
 {
-	border-top-color:#189f97;		
+	border-top-color:#1c6295		
 }
 footer.strip:before{
-	border-right-color:	#189f97;
+	border-right-color:	#1c6295
 }

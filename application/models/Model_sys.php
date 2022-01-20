@@ -161,26 +161,6 @@ class Model_sys extends CI_Model {
         $this->db->delete('muser');
     }
 
-    public function listDataUsers($param)
-    {
-        $nama = $this->session->userdata('id');
-        $kategori = $this->session->userdata('kategori');
-        $role = $this->session->userdata('role');
-        $id = $this->db->escape_str($nama);
-        if ($role == '10') {
-            $query = $this->db->query(" select
-                                        m.*,
-                                        k.nama as nama_kotakab,
-                                        r.role_desc as role_desc
-                                        from muser m
-                                        INNER JOIN kabupaten_kota k on k.id = m.kotaKab
-                                        INNER JOIN role r on r.id_role = m.role where m.id != '".$id."' order by m.id desc")->result();
-        }else{
-            $query = $this->db->query("select * from pangan where created_by = '".$id."' order by id desc")->result();
-        }
-        return $query;
-    }
-
     public function loadkota($param)
     {
         $nama = $this->session->userdata('id');
@@ -205,6 +185,21 @@ class Model_sys extends CI_Model {
     public function loaduser($id)
     {
         $query    = $this->db->query("select * from muser where id = $id order by id desc")->result();
+
+        return $query;
+    }
+
+    public function getdatausers($param)
+    {
+        $nama = $this->session->userdata('id');
+        $kategori = $this->session->userdata('kategori');
+        $role = $this->session->userdata('role');
+        $id = $this->db->escape_str($nama);
+        $query = $this->db->query(" select
+                                        m.*,
+                                        r.role_desc as role_desc
+                                        from muser m
+                                        INNER JOIN role r on r.id_role = m.role where m.id != '".$id."' order by m.id desc")->result();
 
         return $query;
     }

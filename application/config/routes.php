@@ -53,3 +53,11 @@ $route['default_controller'] = 'frontend';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+$route['^(login)(/:any)?$'] = "views/$0";
+$route['^(dashboard)(/:any)?$'] = "views/$0";
+$route['users'] = 'views/listusers';
+$route['^(logout)(/:any)?$'] = "auth/$0";
+$route['^(register)(/:any)?$'] = "auth/$0";
+
+$route['getdata'] = 'jsondata/getdata';
+$route['^(deleteuser)(/:any)?$'] = 'sys/$0';

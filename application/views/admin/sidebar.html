@@ -1,54 +1,62 @@
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-light-lightblue elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link">
+      <img src="assets/img/logo/ISWMP-Black-e1625063553563.png" alt="AdminLTE Logo" class="brand-image" style="opacity: .8">
+      <span class="brand-text font-weight-light"></span>
+    </a>
 
-    <!-- Main sidebar -->
-			<div class="sidebar sidebar-main sidebar-default sidebar-fixed">
-				<div class="sidebar-content">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="assets/img/users/default.jpg" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">{{name}}</a>
+        </div>
+      </div>
 
-					<!-- User menu -->
-					<div class="sidebar-user-material">
-						<div class="category-content">
-							<div class="sidebar-user-material-content">
-								<a href="#"><img src="{{base_url}}assets/ltr/images/placeholder.jpg" class="img-circle img-responsive" alt=""></a>
-								<h6 style="color:black;">Kang Admin</h6>
-								<span class="text-size-small" style="color:black;">Bandung, Indonesia</span>
-							</div>
-														
-							<div class="sidebar-user-material-menu">
-								<a href="#user-nav" data-toggle="collapse"><span style="color:black;">My account</span> <i class="caret"></i></a>
-							</div>
-						</div>
-						
-						<div class="navigation-wrapper collapse" id="user-nav">
-							<ul class="navigation">
-								<li><a href="#"><i class="icon-user-plus"></i> <span>My profile</span></a></li>
-								<li><a href="#"><i class="icon-cog5"></i> <span>Account settings</span></a></li>
-								<li id="logout-btn"><a href="{{base_url}}logout"><i class="icon-switch2"></i> <span>Logout</span></a></li>
-							</ul>
-						</div>
-					</div>
-					<!-- /user menu -->
+      <!-- SidebarSearch Form -->
+      <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+          </div>
+        </div>
+      </div>
 
-
-					<!-- Main navigation -->
-					<div class="sidebar-category sidebar-category-visible">
-						<div class="category-content no-padding">
-							<ul class="navigation navigation-main navigation-accordion">
-
-								<!-- Main -->
-                <li class="active"><a href="{{base_url}}Dashboard"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
-                {% if logs.kategori == "superAdmin" %}
-								<li><a href="{{base_url}}listPangan"><i class=" icon-list3"></i> <span>Pangan Berkualitas <span class="label bg-blue-400">1.6</span></span></a></li>
-                
-                <li><a href="{{base_url}}listUser"><i class="icon-people"></i> <span>Management User</span></a></li>
-                {% else %}
-				{% endif %}
-				<li><a data-toggle="modal" data-target="#modal_theme_primary"><i class="icon-info22"></i> <span>Tentang Aplikasi</span></a></li>
-
-								<!-- /main -->
-							</ul>
-						</div>
-					</div>
-					<!-- /main navigation -->
-
-				</div>
-			</div>
-			<!-- /main sidebar -->
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item" id="dashboard">
+            <a href="dashboard" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Dashboard
+              </p>
+            </a>
+            
+          </li>
+          <li class="nav-item" id="users" >
+            <a href="users" class="nav-link">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                Users
+                <span class="right badge badge-danger">New</span>
+              </p>
+            </a>
+          </li>
+          
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>

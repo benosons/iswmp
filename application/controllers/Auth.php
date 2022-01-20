@@ -40,7 +40,6 @@ class Auth extends CI_Controller {
 
 	}
 
-
 	public function index()
 	{
 		if ($this->logged)
@@ -51,6 +50,7 @@ class Auth extends CI_Controller {
 				redirect("/");
 			}
 		} else {
+			
 			if($_POST){
 				$params = (object)$this->input->post();
 				$valid = $this->Model_auth->loginAuth($params->username, $params->password);
@@ -77,7 +77,7 @@ class Auth extends CI_Controller {
 				$this->content['message'] = $message;
 				$this->content['code'] = $code;
 			}
-			$this->twig->display("admin/login.html", $this->content);
+			$this->twig->display("admin/login/index-login.html", $this->content);
 		}
 
 	}
