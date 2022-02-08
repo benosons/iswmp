@@ -16,4 +16,10 @@ class Model_data extends CI_Model {
         return $query;
     }
 
+    public function getfile($id, $type)
+    {
+        $query = $this->db->query("select * from data_file where id_parent = '$id' and type = '$type' order by id asc")->result();
+        return $query;
+    }
+
 }

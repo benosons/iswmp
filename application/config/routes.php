@@ -55,9 +55,16 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['^(login)(/:any)?$'] = "views/$0";
 $route['^(dashboard)(/:any)?$'] = "views/$0";
+$route['^(foto)(/:any)?$'] = "views/$0";
+$route['^(video)(/:any)?$'] = "views/$0";
+// FE
+$route['^(photos)(/:any)?$'] = "views/$0";
+$route['^(Videos)(/:any)?$'] = "views/$0";
+
 $route['users'] = 'views/listusers';
 $route['^(logout)(/:any)?$'] = "auth/$0";
 $route['^(register)(/:any)?$'] = "auth/$0";
 
 $route['getdata'] = 'jsondata/getdata';
+$route['getglobal'] = 'jsondata/getglobal';
 $route['^(deleteuser)(/:any)?$'] = 'sys/$0';

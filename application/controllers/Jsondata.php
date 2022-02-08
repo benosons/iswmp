@@ -115,6 +115,50 @@ class Jsondata extends CI_Controller {
 		}
 	}
 
+	public function getglobal()
+	{
+		try
+		{
+				
+				$post = (object)$this->input->post();
+				$param =  $post->param;
+				$type =  $post->type;
+				
+				$result = $this->Model_data->getdata($param);
+				foreach ($result as $key => $value) {
+					$files = $this->Model_data->getfile($value->id, $type);
+					if(!empty($files)){
+						$result[$key]->files = $files;
+					}
+					// if(!file_exists(base_url().$value->img)){
+					// 	$result[$key]->img = base_url().'assets/img/users/default.jpg';
+					// }
+					
+				}
+					if($result){
+						$response = [
+							'status'   => 'sukses',
+							'code'     => '1',
+							'data' 		 => $result
+						];
+					}else{
+						$response = [
+						    'status'   => 'gagal',
+						    'code'     => '0',
+						    'data'     => 'tidak ada data',
+						];
+					}
+
+				header('Content-Type: application/json');
+				echo json_encode($response);
+				exit;
+			}
+		catch (Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+
 	public function updateUser()
 	{
 		$params = (object)$this->input->post();

@@ -90,4 +90,42 @@ class Views extends CI_Controller {
 		}
 	}
 
+	public function foto()
+	{
+		if ($this->logged) {
+			if($this->role == '10'){
+				$this->content['script'] = $this->data['base_url'].'assets/js/action/admin/galeri/foto.js';
+				$this->twig->display('admin/galeri/foto.html', $this->content);
+			}else{
+				redirect("dashboard");
+			}
+		}else{
+			redirect("logout");
+		}
+	}
+
+	public function photos()
+	{
+		$this->twig->display('frontend/photos.html', $this->content);
+	}
+
+	public function videos()
+	{
+		$this->twig->display('frontend/videos.html', $this->content);
+	}
+
+	public function video()
+	{
+		if ($this->logged) {
+			if($this->role == '10'){
+				$this->content['script'] = $this->data['base_url'].'assets/js/action/admin/galeri/video.js';
+				$this->twig->display('admin/galeri/video.html', $this->content);
+			}else{
+				redirect("dashboard");
+			}
+		}else{
+			redirect("logout");
+		}
+	}
+
 }
