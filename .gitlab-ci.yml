@@ -1,0 +1,11 @@
+# Auto Deploy CodeIgniter with Gitlab by Kang Sunu
+# https://www.kangsunu.web.id/2020/03/auto-deploy-codeigniter-dengan-gitlab.html
+heroku:
+  stage: deploy
+  only:
+    - master
+  script:
+    - apt-get update -qy
+    - apt-get install -y ruby
+    - gem install dpl
+    - dpl --provider=heroku --app=$HEROKU_APP --api-key=$HEROKU_API_KEY
