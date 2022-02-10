@@ -103,11 +103,47 @@ class Views extends CI_Controller {
 			redirect("logout");
 		}
 	}
+	
+	public function tujuan()
+	{
+		$this->twig->display('frontend/tujuan.html', $this->content);
+	}
+
+	public function indikator()
+	{
+		$this->twig->display('frontend/indikator.html', $this->content);
+	}
+
+	public function implementasi()
+	{
+		$this->twig->display('frontend/implementasi.html', $this->content);
+	}
+
+	public function strategi()
+	{
+		$this->twig->display('frontend/strategi.html', $this->content);
+	}
+
+	public function keluaran()
+	{
+		$this->twig->display('frontend/keluaran.html', $this->content);
+	}
+
+	public function owp()
+	{
+		$this->twig->display('frontend/owp.html', $this->content);
+	}
+
+	public function about()
+	{
+		$this->twig->display('frontend/about.html', $this->content);
+	}
 
 	public function photos()
 	{
 		$this->twig->display('frontend/photos.html', $this->content);
 	}
+
 
 	public function videos()
 	{

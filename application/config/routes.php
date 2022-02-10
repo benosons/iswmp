@@ -58,6 +58,13 @@ $route['^(dashboard)(/:any)?$'] = "views/$0";
 $route['^(foto)(/:any)?$'] = "views/$0";
 $route['^(video)(/:any)?$'] = "views/$0";
 // FE
+$route['^(about)(/:any)?$'] = "views/$0";
+$route['^(tujuan)(/:any)?$'] = "views/$0";
+$route['^(indikator)(/:any)?$'] = "views/$0";
+$route['^(implementasi)(/:any)?$'] = "views/$0";
+$route['^(strategi)(/:any)?$'] = "views/$0";
+$route['^(keluaran)(/:any)?$'] = "views/$0";
+$route['^(owp)(/:any)?$'] = "views/$0";
 $route['^(photos)(/:any)?$'] = "views/$0";
 $route['^(Videos)(/:any)?$'] = "views/$0";
 
