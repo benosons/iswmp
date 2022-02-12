@@ -130,6 +130,63 @@ class Jsondata extends CI_Controller {
 					if(!empty($files)){
 						$result[$key]->files = $files;
 					}
+
+					if(isset($value->create_by)){
+						$user = $this->Model_data->getwhere("*", "muser", "id = '$value->create_by'");
+						$result[$key]->username = $user[0]->name;
+					}
+
+					// if(!file_exists(base_url().$value->img)){
+					// 	$result[$key]->img = base_url().'assets/img/users/default.jpg';
+					// }
+					
+				}
+					if($result){
+						$response = [
+							'status'   => 'sukses',
+							'code'     => '1',
+							'data' 		 => $result
+						];
+					}else{
+						$response = [
+						    'status'   => 'gagal',
+						    'code'     => '0',
+						    'data'     => 'tidak ada data',
+						];
+					}
+
+				header('Content-Type: application/json');
+				echo json_encode($response);
+				exit;
+			}
+		catch (Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+
+	public function getglobalwhere()
+	{
+		try
+		{
+				
+				$post = (object)$this->input->post();
+				$param =  $post->param;
+				$type =  $post->type;
+				$id =  $post->id;
+				
+				$result = $this->Model_data->getwhere("*", $param, "id = '$id'");
+				foreach ($result as $key => $value) {
+					$files = $this->Model_data->getfile($value->id, $type);
+					if(!empty($files)){
+						$result[$key]->files = $files;
+					}
+
+					if(isset($value->create_by)){
+						$user = $this->Model_data->getwhere("*", "muser", "id = '$value->create_by'");
+						$result[$key]->username = $user[0]->name;
+					}
+
 					// if(!file_exists(base_url().$value->img)){
 					// 	$result[$key]->img = base_url().'assets/img/users/default.jpg';
 					// }
@@ -384,6 +441,76 @@ class Jsondata extends CI_Controller {
 			header('Content-Type: application/json');
 			echo json_encode(array("status" => FALSE));
 		}
+
+	}
+
+	public function savedataberita(){
+		try
+		{
+
+			$params = (object)$this->input->post();
+			$id = $params->id;
+
+			$params->create_by	 = $this->session->userdata('id');
+			$params->update_by	 = $this->session->userdata('id');
+			$params->create_date = date("Y-m-d H:i:s");
+			$params->update_date = date("Y-m-d H:i:s");
+			
+			$id = $this->Model_data->createdata('data_berita', $params);
+			
+			if($id){
+				if(!empty($_FILES)){
+					$files = $_FILES['files'];
+					$count = count($_FILES['files']['name']);
+					$public		= FCPATH.'public';
+					$tipe		= './assets/upload/berita';
+					$date 		= date('Y/m/d');
+				
+					for ($i=0; $i < $count; $i++) { 
+
+						$name = $files['name'][$i];
+						$file = $files['tmp_name'][$i];
+						$type = $files['type'][$i];
+						$size = $files['size'][$i];
+						$size = $files['size'][$i];
+						$caption = $params->caption[$i];
+
+						$path = $tipe.'/'.$date;
+						if (!is_dir($path)) {
+							mkdir($path, 0777, TRUE);
+						}
+						move_uploaded_file($file, $path.'/'.$name);
+
+						$data_file = [
+								'id_parent' => $id,
+								'type' => 'berita',
+								'path' => $path,
+								'size' => $size,
+								'extension' => $type,
+								'filename' => $name,
+								'create_date' => date("Y-m-d H:i:s"),
+								'update_date' => date("Y-m-d H:i:s")
+							];
+							$this->Model_data->createdata('data_file', $data_file);
+						}
+				}
+			}
+
+			$response = [
+				'status'   => 'sukses',
+				'code'     => '0',
+				'data' 	   => 'terkirim'
+		];
+		header('Content-Type: application/json');
+		echo json_encode($response);
+		exit;
+
+		}
+		catch (\Exception $e)
+		{
+			die($e->getMessage());
+		}
+		
 
 	}
 

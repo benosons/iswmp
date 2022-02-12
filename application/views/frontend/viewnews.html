@@ -1,0 +1,242 @@
+{% extends "frontend/layout.html" %} {% block content %}
+
+<section>
+    <div class="gap no-bottom blackish low-opacity">
+        <div class="bg-image"><img src="assets/img/resources/pagetop.jpg" alt=""></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="page-top">
+                        <ul class="bread-crumb">
+                            <li><a href="/" title="">Beranda</a></li>
+                            <li>Berita</li>
+                            <li>Detail Berita</li>
+                        </ul>
+                        <h2 class="page-title"><span>Detail Berita</span></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- page top -->
+<input type="text" value="{{id}}" id="id_news" hidden>
+
+<section>
+    <div class="gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-9">
+                    <div class="detail-page">
+                        <div class="single-avatar fadein">
+                            <img src="assets/img/resources/blog-detail.jpg" id="image-news" alt="">
+                        </div>
+                        <div class="detail-meta">
+                            <ul class="post-time">
+                                <li><i class="ion-calendar"></i><a href="single-blog.html#" title="" id="date-news">13 January, 2019</a></li>
+                                <li><i class="ion-person"></i>By <a href="single-blog.html#" title="" id="by-news">LifeAid</a></li>
+                            </ul>
+                            <h1 id="judul-news"></h1>
+                            <p id="isi-news">
+                                 
+                            </p>
+                            
+                            <div class="tags-in fromright">
+                                <span><i class="ion-bookmark"></i>tags in</span>
+                                <ul class="tags-cloud">
+                                    <li><a href="single-blog.html#" title="" id="tag-news">Charity</a></li>
+                                </ul>
+                            </div><!-- author -->
+                            <div class="post-comments fadein">
+                                <span class="comments-title">60 <i>Comments</i></span>
+                                <ul>
+                                    <li>
+                                        <div class="comment">
+                                            <img alt="" src="assets/img/resources/comment-1.jpg">
+                                            <div class="comment-detail">
+                                                <h4><a title="" href="single-blog.html#">John Valley</a></h4>
+                                                <i>AT 13 January 2019</i>
+                                                <p>
+                                                    Even the all-powerful Pointing has no control about the blind texts it is an 
+                                                    almost unorthographic life One small line of blind text by the name. 
+                                                </p>
+                                                <a title="" href="single-blog.html#" class="reply" data-ripple="">Reply</a>
+                                            </div>
+                                        </div><!-- Comment -->
+                                        <ul>
+                                            <li>
+                                                <div class="comment">
+                                                    <img alt="" src="assets/img/resources/comment-2.jpg">
+                                                    <div class="comment-detail">
+                                                        <h4><a title="" href="single-blog.html#"> Erika J. Tate</a></h4>
+                                                        <i>AT 13 January 2019</i>
+                                                        <p>
+                                                            Even the all-powerful Pointing has no control about the blind texts it is an 
+                                                            almost unorthographic life One small line of blind text by the name. 
+                                                        </p>
+                                                        <a title="" href="single-blog.html#" class="reply" data-ripple="">Reply</a>
+                                                    </div>
+                                                </div><!-- Comment -->
+                                            </li>
+                                        </ul>											
+                                    </li>
+                                    <li>
+                                        <div class="comment">
+                                            <img alt="" src="assets/img/resources/comment-3.jpg">
+                                            <div class="comment-detail">
+                                                <h4><a title="" href="single-blog.html#">john deo</a></h4>
+                                                <i>AT 13 January 2019</i>
+                                                <p>
+                                                    Even the all-powerful Pointing has no control about the blind texts it is an 
+                                                    almost unorthographic life One small line of blind text by the name. 
+                                                </p>
+                                                <a title="" href="single-blog.html#" class="reply" data-ripple="">Reply</a>
+                                            </div>
+                                        </div><!-- Comment -->
+                                    </li>
+                                </ul>
+                            </div><!-- comments section -->
+                            <div class="gap2 no-bottom">
+                                <span class="comments-title">post <i>Comments</i></span>
+                                <div class="contact-form">
+                                    <form method="post" action="http://wpkixx.com/html/lifeaid/contact.php" id="contactform">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <input placeholder="first name *" id="name" type="text">
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <input placeholder="email *" id="email" type="email">
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <input placeholder="cause title *" type="text">
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <textarea name="s" id="comments" cols="30" rows="8" placeholder="message *"></textarea>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <button type="submit" id="submit" data-ripple="">submit</button>
+                                                <img src="assets/img/ajax-loader.gif" class="loader" alt="">
+                                            </div>
+                                        </div>	
+                                    </form>
+                                </div>
+                            </div><!-- contact form -->
+                        </div>
+                    </div>	
+                </div><!-- blog single -->
+                <div class="col-sm-12 col-md-3">
+                    <aside>
+                        <div class="widget fadein">
+                            <div class="search">
+                                <form>
+                                    <input type="text" placeholder="search...">
+                                    <button><i class="ion-search"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="widget fadein">
+                            <h4 class="widget-title">Category</h4>
+                            <ul class="category">
+                                <li><a href="single-blog.html#" title="">Charity & Fund Raising</a><span>23</span></li>
+                                <li><a href="single-blog.html#" title="">Hungery Children</a><span>45</span></li>
+                                <li><a href="single-blog.html#" title="">Donation For Food</a><span>567</span></li>
+                                <li><a href="single-blog.html#" title="">UpComing Events & Causes</a><span>10</span></li>
+                                <li><a href="single-blog.html#" title="">Children Education</a><span>08</span></li>
+                            </ul>
+                        </div><!-- search -->
+                        <div class="widget fadein">
+                            <h4 class="widget-title">latest posts</h4>
+                            <ul class="latest posts">
+                                <li>
+                                    <div class="latest-avatar">
+                                        <a href="single-blog.html#" title="">
+                                            <img src="assets/img/resources/latest-post-1.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="latest-meta">
+                                        <h2><a href="single-blog.html#" title="">Food For Africa Chilren</a></h2>
+                                        <span class="postdate">13 January, 2019</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="latest-avatar">
+                                        <a href="single-blog.html#" title="">
+                                            <img src="assets/img/resources/latest-post-2.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="latest-meta">
+                                        <h2><a href="single-blog.html#" title="">Food For Africa Chilren</a></h2>
+                                        <span class="postdate">13 January, 2019</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="latest-avatar">
+                                        <a href="single-blog.html#" title="">
+                                            <img src="assets/img/resources/latest-post-3.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="latest-meta">
+                                        <h2><a href="single-blog.html#" title="">Food For Africa Chilren</a></h2>
+                                        <span class="postdate">13 January, 2019</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div><!-- latest posts -->
+                        <div class="widget fadein">
+                            <h4 class="widget-title">tags cloud</h4>
+                            <ul class="tags-cloud">
+                                <li><a href="single-blog.html#" title="">Charity</a></li>
+                                <li><a href="single-blog.html#" title="">Fund Raising</a></li>
+                                <li><a href="single-blog.html#" title="">Food</a></li>
+                                <li><a href="single-blog.html#" title="">Hungry Children</a></li>
+                                <li><a href="single-blog.html#" title="">Events</a></li>
+                            </ul>
+                        </div><!-- tags -->
+                        <div class="widget fadein">
+                            <h4 class="widget-title">Supporters</h4>
+                            <ul class="latest posts sporters">
+                                <li>
+                                    <div class="latest-avatar">
+                                        <a href="single-blog.html#" title="">
+                                            <img src="assets/img/resources/sporter-1.jpg" alt="">
+                                            <span>£670</span>
+                                        </a>
+                                    </div>
+                                    <div class="latest-meta">
+                                        <h2><a href="single-blog.html#" title="">john smith</a></h2>
+                                        <p>Love and best wishes Maggie & Ian Blackhorse</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="latest-avatar">
+                                        <a href="single-blog.html#" title="">
+                                            <img src="assets/img/resources/sporter-2.jpg" alt="">
+                                            <span>£670</span>
+                                        </a>
+                                    </div>
+                                    <div class="latest-meta">
+                                        <h2><a href="single-blog.html#" title="">donald trump</a></h2>
+                                        <p>Love and best wishes Maggie & Ian Blackhorse</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="latest-avatar">
+                                        <a href="single-blog.html#" title="">
+                                            <img src="assets/img/resources/sporter-3.jpg" alt="">
+                                            <span>£670</span>
+                                        </a>
+                                    </div>
+                                    <div class="latest-meta">
+                                        <h2><a href="single-blog.html#" title="">jhon deo</a></h2>
+                                        <p>Love and best wishes Maggie & Ian Blackhorse</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div><!-- sporters -->
+                    </aside>
+                </div><!-- side widgets -->
+            </div>
+        </div>
+    </div>
+</section><!-- single detail page with sidebar -->
+
+{% endblock %}

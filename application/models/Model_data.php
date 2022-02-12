@@ -22,4 +22,19 @@ class Model_data extends CI_Model {
         return $query;
     }
 
+    public function createdata($table, $params = NULL)
+    {
+        $this->db->insert($table, $params);
+        $insert_id = $this->db->insert_id();
+        return $insert_id;
+    }
+
+    public function getwhere($field, $from, $where)
+    {
+        $query = $this->db->query("select $field from $from where $where order by id asc")->result();
+        return $query;
+    }
+
+    
+
 }

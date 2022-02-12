@@ -57,6 +57,7 @@ $route['^(login)(/:any)?$'] = "views/$0";
 $route['^(dashboard)(/:any)?$'] = "views/$0";
 $route['^(foto)(/:any)?$'] = "views/$0";
 $route['^(video)(/:any)?$'] = "views/$0";
+$route['^(berita)(/:any)?$'] = "views/$0";
 // FE
 $route['^(about)(/:any)?$'] = "views/$0";
 $route['^(tujuan)(/:any)?$'] = "views/$0";
@@ -65,8 +66,11 @@ $route['^(implementasi)(/:any)?$'] = "views/$0";
 $route['^(strategi)(/:any)?$'] = "views/$0";
 $route['^(keluaran)(/:any)?$'] = "views/$0";
 $route['^(owp)(/:any)?$'] = "views/$0";
+$route['^(news)(/:any)?$'] = "views/$0";
 $route['^(photos)(/:any)?$'] = "views/$0";
 $route['^(Videos)(/:any)?$'] = "views/$0";
+$route['^(viewnews)(/:any)?$'] = "views/$0";
+$route['404'] = "views/page404";
 
 $route['users'] = 'views/listusers';
 $route['^(logout)(/:any)?$'] = "auth/$0";
@@ -74,4 +78,6 @@ $route['^(register)(/:any)?$'] = "auth/$0";
 
 $route['getdata'] = 'jsondata/getdata';
 $route['getglobal'] = 'jsondata/getglobal';
+$route['getglobalwhere'] = 'jsondata/getglobalwhere';
+$route['savedataberita'] = 'jsondata/savedataberita';
 $route['^(deleteuser)(/:any)?$'] = 'sys/$0';

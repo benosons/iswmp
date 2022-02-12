@@ -103,6 +103,20 @@ class Views extends CI_Controller {
 			redirect("logout");
 		}
 	}
+
+	public function berita()
+	{
+		if ($this->logged) {
+			if($this->role == '10'){
+				$this->content['script'] = $this->data['base_url'].'assets/js/action/admin/berita/berita.js';
+				$this->twig->display('admin/berita/berita.html', $this->content);
+			}else{
+				redirect("dashboard");
+			}
+		}else{
+			redirect("logout");
+		}
+	}
 	
 	public function tujuan()
 	{
@@ -134,6 +148,20 @@ class Views extends CI_Controller {
 		$this->twig->display('frontend/owp.html', $this->content);
 	}
 
+	public function news()
+	{
+		$this->content['script'] = $this->data['base_url'].'assets/js/action/frontend/berita.js';
+		$this->twig->display('frontend/news.html', $this->content);
+	}
+
+	public function viewnews()
+	{
+		
+		$this->content['script'] = $this->data['base_url'].'assets/js/action/frontend/berita.js';
+		$this->content['id'] = $this->input->get('id');
+		$this->twig->display('frontend/viewnews.html', $this->content);
+	}
+
 	public function about()
 	{
 		$this->twig->display('frontend/about.html', $this->content);
@@ -148,6 +176,11 @@ class Views extends CI_Controller {
 	public function videos()
 	{
 		$this->twig->display('frontend/videos.html', $this->content);
+	}
+
+	public function page404()
+	{
+		$this->twig->display('frontend/error/404.html', $this->content);
 	}
 
 	public function video()

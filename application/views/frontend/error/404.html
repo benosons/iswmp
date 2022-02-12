@@ -1,0 +1,59 @@
+{% extends "frontend/layout.html" %} {% block content %}
+<div class="site-layout">
+	
+    <section>
+    	<div class="gap vh100">
+        <div class="bg-image"><img src="assets/img/resources/404.jpg" alt=""></div>
+            <div class="container">
+                <div class="col-sm-12">
+                    <div class="error">
+                    	<h4><span>Page not found</span> we can't seems to find the page you are looking for <span>original.</span></h4>
+                        <h2>You are on the wrong way Error <span>!</span></h2>
+                        <span>404</span>
+                        <a href="/" title="" class="button med-btn" data-ripple="">Kembali <i class="ion ion-home"></i></a>
+                    </div>
+        		</div>
+            </div>	
+        </div>
+    </section><!-- error 404 page -->
+    
+    <div class="side-panel">
+                <div class="panel-icon"><p><i class="ion ion-settings"></i></p></div>
+                <div class="layout">
+                    <h6>Header Setting</h6>
+                    <div class="header-seting">
+                        
+                        <a href="404.html#" class="sticky" title="">STICKY</a>
+                        <a href="404.html#" class="non-sticky" title="">NORMAL</a>
+                    </div>
+                </div>
+                <h6>color variations</h6>
+                <div class="colors">
+                    <a href="404.html#" class="color1" onclick="setActiveStyleSheet('default'); return false;"></a>
+                    <a href="404.html#" class="color2" onclick="setActiveStyleSheet('color1'); return false;"></a>
+                    <a href="404.html#" class="color3" onclick="setActiveStyleSheet('color2'); return false;"></a>
+                    <a href="404.html#" class="color4" onclick="setActiveStyleSheet('color3'); return false;"></a>
+                    <a href="404.html#" class="color5" onclick="setActiveStyleSheet('color4'); return false;"></a>
+                    <a href="404.html#" class="color6" onclick="setActiveStyleSheet('color5'); return false;"></a>
+                    <a href="404.html#" class="color7" onclick="setActiveStyleSheet('color6'); return false;"></a>
+                    <a href="404.html#" class="color8" onclick="setActiveStyleSheet('color7'); return false;"></a>
+                    <a href="404.html#" class="color9" onclick="setActiveStyleSheet('color8'); return false;"></a>
+                </div>
+                <h6>template Layout Styles</h6>
+                <div class="screen-size">
+                    <a class="boxed-style" title="">BOXED</a>
+                    <a class="full-style" title="">WIDESCREEN</a>
+                </div>
+            
+                <h6>Bakground Pictures / pattern</h6>
+                <div class="colors">
+                    <a href="404.html#" title="" class="pictures pat1"></a>
+                    <a href="404.html#" title="" class="pictures pat2"></a>
+                    <a href="404.html#" title="" class="pictures pat3"></a>
+                    <a href="404.html#" title="" class="pictures pat4"></a>
+                </div>
+                
+            </div><!-- Side Panel -->
+    
+</div>
+{% endblock %}
