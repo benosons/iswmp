@@ -48,7 +48,7 @@ function loaddata(){
                                     <li><span>date-</span> <a href="blog-listing-rightbar.html#" title="">`+str+`</a></li>
                                     <li><span>by-</span> <a href="blog-listing-rightbar.html#" title="">`+username+`</a></li>
                                 </ul>
-                                <h2><a href="/viewnews?id=`+id+`" title="">`+judul+`</a></h2>
+                                <h2><a href="viewnews?id=`+id+`" title="">`+judul+`</a></h2>
                                 <p>
                                     `+intro+`...
                                 </p>
@@ -59,7 +59,7 @@ function loaddata(){
                                                 <li><a href="" title="">`+tag+`</a></li>
                                             </ul>
                                 </div>
-                                <a href="/viewnews?id=`+id+`" title="" class="button-small" data-ripple="">continue</a>
+                                <a href="viewnews?id=`+id+`" title="" class="button-small" data-ripple="">continue</a>
                             </div>
                         </div>`;         
             }
