@@ -35,6 +35,37 @@ class Model_data extends CI_Model {
         return $query;
     }
 
+    public function updateberita($params = NULL)
+    {
+        $valid = true;
+       
+        $this->db->set('stat', $params->stat);
+        $this->db->set('update_by', $params->update_by);
+        $this->db->set('update_date', $params->update_date);
+        $this->db->where('id', $params->id);
+        $this->db->update('data_berita');
+        
+        return $valid;
+
+    }
+
+    public function updatedataberita($params = NULL)
+    {
+        $valid = true;
+       
+        $this->db->set('judul', $params->judul);
+        $this->db->set('tag', $params->tag);
+        $this->db->set('isi', $params->isi);
+        $this->db->set('stat', $params->stat);
+        $this->db->set('update_by', $params->update_by);
+        $this->db->set('update_date', $params->update_date);
+        $this->db->where('id', $params->id);
+        $this->db->update('data_berita');
+        
+        return $valid;
+
+    }
+
     
 
 }

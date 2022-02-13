@@ -20,7 +20,7 @@ $(function () {
 
   var st = true;
   window.img = '';
-  $("input[data-bootstrap-switch]").each(function(){
+  $("#stat").each(function(){
     // $(this).bootstrapSwitch('state', $(this).prop('checked'));
     $(this).bootstrapSwitch({
       onSwitchChange: function(e, state) {
@@ -40,6 +40,11 @@ $(function () {
   $('#berita > a').attr('class','nav-link active');
 
   $('#add-berita').on('click', function(){
+    $('#judul').val('');
+    $("#tag").select2("val", "0");
+    $('#isi').summernote('reset');
+    $('#blah_1').attr('src', 'assets/img/no-image.png');
+
     $('#modal-default').modal({
       show: true
     });
@@ -58,6 +63,26 @@ $(function () {
   $("[name='image_input']").on('change',function() {
     readURL(this);
   });
+
+
+  $("#stat").bootstrapSwitch();
+
+  $("#stat").on('switchChange.bootstrapSwitch', function (event, state) {
+    
+  });
+
+  
+$(".select2bs4").change(function () {
+    if($(".select2bs4 option:selected").length > 1) {
+
+    }
+});
+
+$("#tag").keyup(function () {
+alert();
+});
+
+
 
 });
 
@@ -117,6 +142,14 @@ function loaddata(){
                             var year = mydate.getFullYear();
                             var str = date+'/'+month+'/'+year;
 
+                            var stat = row.stat;
+                            if(stat == 1){
+                              var st = 'Publish'
+                              var tex = 'text-success';
+                            }else{
+                              var st = 'No Publish'
+                              var tex = 'text-danger';
+                            }
                             var $rowData = '';
                                   $rowData += `<div class="card">
                                   <div class="card-body">
@@ -129,25 +162,14 @@ function loaddata(){
                                         <span class="text-muted"> `+str+`</span>
                                       </p>
                                     </div>
-                                    <!-- /.d-flex ->
                                     <div class="d-flex justify-content-between">
-                                      <p class="text-inf text-sm">
-                                        <i class="far fa-calendar-alt"></i>
-                                      </p>
-                                      <p class="d-flex flex-column">
-                                        <span class="text-muted">Tahun </span>
-                                      </p>
-                                    </div>
-                                    <!- /.d-flex -->
-                                    <div class="d-flex justify-content-between">
-                                      <p class="text-success text-sm">
+                                      <p class="`+tex+` text-sm">
                                         <i class="fas fa-sign-in-alt"></i>
                                       </p>
                                       <p class="d-flex flex-column ">
-                                        <span class="text-muted">Tayang</span>
+                                        <span class="text-muted">`+st+`</span>
                                       </p>
                                     </div>
-                                    <!-- /.d-flex -->
                                   </div>
                                 </div>`;
 
@@ -157,6 +179,17 @@ function loaddata(){
                       },
                       {
                           mRender: function (data, type, row){
+                              var stat = row.stat;
+                              var file = ''
+                              for( var key in row.files ) {
+                                file = row.files[key].path+'/'+row.files[key].filename;
+                              }
+                              
+                              if(stat == 1){
+                                var st = `<a class="dropdown-item" href="#" onclick="updatepublish(`+row.id+`,0)"><i class="fas fa-sign-out-alt"></i> No Publish</a>`
+                              }else{
+                                var st = `<a class="dropdown-item" href="#" onclick="updatepublish(`+row.id+`,1)"><i class="fas fa-sign-out-alt"></i> Publish</a>`;
+                              }
                               var $rowData = '';
                                   $rowData += `
                                   <div class="btn-group">
@@ -165,10 +198,10 @@ function loaddata(){
                                     <span class="sr-only">Toggle Dropdown</span>
                                   </button>
                                   <div class="dropdown-menu" role="menu">
-                                    <a class="dropdown-item" href="#"><i class="far fa-edit"></i> Edit</a>
+                                    <a class="dropdown-item" href="#" onclick="editdong('`+row.id+`','`+row.judul+`','`+row.tag+`','`+row.isi+`','`+file+`')"><i class="far fa-edit"></i> Edit</a>
                                     <a class="dropdown-item" href="#"><i class="far fa-trash-alt"></i> Hapus</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Tidak Tayang</a>
+                                    `+st+`
                                   </div>
                                 </div>`;
 
@@ -216,7 +249,14 @@ function loaddata(){
       var judul = $('#judul').val();
       var tag = $('#tag').val();
       var isi = $('#isi').val();
-      var stat = $('#stat').val();
+      var stat;
+      switch (st) {
+        case false:
+            stat = '0';
+          break;
+        default:
+            stat = '1'
+      }
 
       var formData = new FormData();
       formData.append('id', id);
@@ -224,7 +264,7 @@ function loaddata(){
       formData.append('tag', tag);
       formData.append('isi', isi);
       formData.append('stat', stat);
-
+      
       var iscapt = [];
       for (let index = 0; index < $("[name='image_input']").length; index++) {
         var src = $("[name='image_input']")[index].files[0];
@@ -232,18 +272,10 @@ function loaddata(){
         formData.append('files[]', src);
       }
       
-      var stat;
-        switch (st) {
-          case false:
-              stat = '0';
-            break;
-          default:
-              stat = '1'
-        }
 
         if(id){
-          var baseurl = 'updateUser';
-          var msg = 'Update User';
+          var baseurl = 'updatedataberita';
+          var msg = 'Update Berita';
 
         }else{
           var baseurl = 'savedataberita';
@@ -274,25 +306,17 @@ function loaddata(){
           });
     };
 
-function edituser(id, username, password, status, role, name, foto){
-  $('#add-users').trigger('click');
-  $('.modal-title').html('Edit User');
+function editdong(id, judul, tag, isi, path){
+  $('#add-berita').trigger('click');
+  $('.modal-title').html('<i class="fas fa-newspaper"></i> Edit Berita');
   $('#id').val(id);
-  $('#name').val(name);
-  $('#username').val(username);
-  $('#username').attr('disabled', true);
-  $('#password').val(password);
-  $('#password').attr('disabled', true);
-  let fot = foto.split("/");
-  $('label[for="foto-user"]').text(fot[fot.length - 1]);
-  $('#blah').attr('src', foto);
-  $("#stat").bootstrapSwitch('state', status == '1' ? true : false);
+  $('#judul').val(judul);
+  $("#tag").select2({
+    theme: 'bootstrap4'
+    }).val([tag]).trigger("change");
+  $('#isi').summernote('code', isi);
+  $('#blah_1').attr('src', path)
 
-  if(role == '10'){
-    $("#super-admin").attr('checked', true).trigger('click');
-  }else{
-    $("#admin").attr('checked', true).trigger('click');
-  }
 }
 
 function deleteData(id)
@@ -405,4 +429,33 @@ function modaldetail(id,username,role,status,name,foto){
 
     function pilihgambar(ini){
       readURL(ini);
+    }
+
+    function updatepublish(id,stat){
+      var formData = new FormData();
+      formData.append('id', id);
+      formData.append('stat', stat);
+      
+      $.ajax({
+        type: 'post',
+        url: 'updateberita',
+        dataType: 'json',
+        cache: false,
+        contentType: false,
+        processData: false,
+        data: formData,
+        async:false,
+          success: function(result){
+            Swal.fire({
+              title: 'Sukses!',
+              text: 'Berita telah di publish',
+              icon: 'success',
+              showConfirmButton: false,
+              timer: 1500
+            });
+
+            $('#modal-default').modal('hide');
+            loaddata();
+          }
+        });
     }

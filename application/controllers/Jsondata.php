@@ -514,4 +514,29 @@ class Jsondata extends CI_Controller {
 
 	}
 
+	public function updateberita()
+	{
+
+		$params = (object)$this->input->post();
+		$params->update_by	 = $this->session->userdata('id');
+		$params->update_date = date("Y-m-d H:i:s");
+		$data = $this->Model_data->updateberita($params);
+		header('Content-Type: application/json');
+		echo json_encode(array("status" => TRUE));
+
+	}
+
+	public function updatedataberita()
+	{
+
+		$params = (object)$this->input->post();
+		$params->update_by	 = $this->session->userdata('id');
+		$params->update_date = date("Y-m-d H:i:s");
+		$data = $this->Model_data->updatedataberita($params);
+		header('Content-Type: application/json');
+		echo json_encode(array("status" => TRUE));
+
+	}
+
+
 }

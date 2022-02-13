@@ -80,4 +80,6 @@ $route['getdata'] = 'jsondata/getdata';
 $route['getglobal'] = 'jsondata/getglobal';
 $route['getglobalwhere'] = 'jsondata/getglobalwhere';
 $route['savedataberita'] = 'jsondata/savedataberita';
+$route['updateberita'] = 'jsondata/updateberita';
+$route['updatedataberita'] = 'jsondata/updatedataberita';
 $route['^(deleteuser)(/:any)?$'] = 'sys/$0';
