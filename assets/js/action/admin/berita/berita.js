@@ -49,6 +49,7 @@ $(function () {
       show: true
     });
     $('#id').val('');
+    $('#idfile').val('');
     $('.modal-title').html('<i class="fas fa-newspaper"></i> Tambah Berita');
     $('#blah').attr('src', 'assets/img/no-image.png');
   });
@@ -183,6 +184,7 @@ function loaddata(){
                               var file = ''
                               for( var key in row.files ) {
                                 file = row.files[key].path+'/'+row.files[key].filename;
+                                idfile = row.files[key].id;
                               }
                               
                               if(stat == 1){
@@ -198,7 +200,7 @@ function loaddata(){
                                     <span class="sr-only">Toggle Dropdown</span>
                                   </button>
                                   <div class="dropdown-menu" role="menu">
-                                    <a class="dropdown-item" href="#" onclick="editdong('`+row.id+`','`+row.judul+`','`+row.tag+`','`+row.isi+`','`+file+`')"><i class="far fa-edit"></i> Edit</a>
+                                    <a class="dropdown-item" href="#" onclick="editdong('`+row.id+`','`+row.judul+`','`+row.tag+`','`+row.isi+`','`+file+`','`+idfile+`')"><i class="far fa-edit"></i> Edit</a>
                                     <a class="dropdown-item" href="#"><i class="far fa-trash-alt"></i> Hapus</a>
                                     <div class="dropdown-divider"></div>
                                     `+st+`
@@ -245,6 +247,7 @@ function loaddata(){
     function savedata(st){
       var img = window.img;
       var id = $('#id').val();
+      var idfile = $('#idfile').val();
 
       var judul = $('#judul').val();
       var tag = $('#tag').val();
@@ -274,6 +277,7 @@ function loaddata(){
       
 
         if(id){
+          formData.append('idfile', idfile);
           var baseurl = 'updatedataberita';
           var msg = 'Update Berita';
 
@@ -306,16 +310,17 @@ function loaddata(){
           });
     };
 
-function editdong(id, judul, tag, isi, path){
+function editdong(id, judul, tag, isi, path, idfile){
   $('#add-berita').trigger('click');
   $('.modal-title').html('<i class="fas fa-newspaper"></i> Edit Berita');
   $('#id').val(id);
+  $('#idfile').val(idfile);
   $('#judul').val(judul);
   $("#tag").select2({
     theme: 'bootstrap4'
     }).val([tag]).trigger("change");
   $('#isi').summernote('code', isi);
-  $('#blah_1').attr('src', path)
+  $('#blah_1').attr('src', path);
 
 }
 
@@ -355,7 +360,7 @@ function deleteData(id)
           showConfirmButton: false,
           timer: 1500
         });
-        loaddatauser();
+        loaddata();
       }
     });
   }
