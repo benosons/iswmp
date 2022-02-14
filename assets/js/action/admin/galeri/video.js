@@ -56,16 +56,8 @@ $(function () {
     $('label[for="foto-user"]').text('Pilih Foto');
   });
 
-  $('#save-user').on('click', function(){
-    if(!$('#name').val()){
-      $('#name').attr('class', 'form-control is-invalid');
-    }else if(!$('#username').val()){
-      $('#username').attr('class', 'form-control is-invalid');
-    }else if(!$('#password').val()){
-      $('#password').attr('class', 'form-control is-invalid');
-    }else{
-      saveUser(st);
-    }
+  $('#save-video').on('click', function(){
+    savedata(st);
   });
 
   $('#name').keyup(function(){$(this).attr('class', 'form-control')});
@@ -123,131 +115,168 @@ function loadkota(){
 
     function loaddata(){
 
-        $.ajax({
-            type: 'post',
-            dataType: 'json',
-            url: 'getdata',
-            data : {
-                    param      : 'berita',
-             },
-            success: function(result){
-              
-              if(result.code == 1){
-                    var dt = $('#listberita').DataTable({
-                      destroy: true,
-                      paging: true,
-                      lengthChange: false,
-                      searching: true,
-                      ordering: true,
-                      info: true,
-                      autoWidth: false,
-                      responsive: false,
-                      pageLength: 10,
-                      aaData: result.data,
-                        aoColumns: [
-                            { 'mDataProp': 'id'},
-                            { 'mDataProp': 'img'},
-                            { 'mDataProp': 'username'},
-                            { 'mDataProp': 'role_desc'},
-                            { 'mDataProp': 'status'},
-                            { 'mDataProp': 'islogin'},
-                            { 'mDataProp': 'id'},
-                            // { 'mDataProp': 'role'},
-                        ],
-                        order: [[0, 'ASC']],
-                        aoColumnDefs:[
-                          // {
-                          //   targets: [7],
-                          //   visible: false
-                          // },
-                            {
-                                mRender: function (data, type, row){
-                                    var $rowData = '';
-                                        $rowData += `
-                                                  <div class="row">
-                                                    <div class="col-md-4">
-                                                      <button onclick="modaldetail('`+row.id+`','`+row.username+`','`+row.role_desc+`','`+row.status+`','`+row.name+`','`+row.img+`')" type="button" class="btn btn-block btn-success btn-xs"><i class="far fa-eye"></i></button>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                      <button onclick="edituser('`+row.id+`','`+row.username+`','`+row.password+`','`+row.status+`','`+row.role+`','`+row.name+`','`+row.img+`')" type="button" class="btn btn-block btn-warning btn-xs"><i class="far fa-edit"></i></button>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                      <button onclick="deleteData(`+row.id+`)" type="button" class="btn btn-block btn-danger btn-xs"><i class="fas fa-trash-alt"></i></button>
-                                                    </div>
-                                                  </div>
-                                                    `;
-
-                                    return $rowData;
-                                },
-                                aTargets: [6]
-                            },
-                            {
-                                mRender: function (data, type, row){
+      $.ajax({
+          type: 'post',
+          dataType: 'json',
+          url: 'getglobal',
+          data : {
+                  param       : 'data_video',
+                  type        : 'video',
+           },
+          success: function(result){
+            
+            if(result.code == 1){
+                  var dt = $('#listvideo').DataTable({
+                    destroy: true,
+                    paging: true,
+                    lengthChange: false,
+                    searching: true,
+                    ordering: true,
+                    info: true,
+                    autoWidth: false,
+                    responsive: false,
+                    pageLength: 10,
+                    aaData: result.data,
+                      aoColumns: [
+                          { 'mDataProp': 'id', 'width':'5%'},
+                          { 'mDataProp': 'id'},
+                          { 'mDataProp': 'judul'},
+                          { 'mDataProp': 'date'},
+                          { 'mDataProp': 'id'},
+                      ],
+                      order: [[0, 'ASC']],
+                      aoColumnDefs:[
+                          {
+                              mRender: function (data, type, row){
                                   var $rowData = '';
-                                  if(row.islogin == 1){
-                                        $rowData +=`<span class="badge badge-success right">Online</span>`;
-                                      }else{
-                                        $rowData +=`<span class="badge badge-default right">Offline</span>`;
-                                      }
-
-                                    return $rowData;
-                                },
-                                aTargets: [5]
-                            },
-                            {
-                                mRender: function (data, type, row){
+                                  $rowData += `<img width="100%" src="http://img.youtube.com/vi/`+row.code+`/0.jpg" alt="">`;
+                                  
+                                  return $rowData;
+                              },
+                              aTargets: [1]
+                          },
+                          {
+                              mRender: function (data, type, row){
                                   var $rowData = '';
-                                  if(row.status == 1){
-                                        $rowData +=`<span class="badge badge-primary right">Aktif</span>`;
-                                      }else{
-                                        $rowData +=`<span class="badge badge-warning right">Non Aktif</span>`;
-                                      }
-
-                                    return $rowData;
-                                },
-                                aTargets: [4]
-                            },
-                            {
-                                mRender: function (data, type, row){
-                                  var $rowData = '<img src="'+row.img+'" style="width: 35px;"></img>';
-                                    return $rowData;
-                                },
-                                aTargets: [1]
-                            }
-                        ],
-
-                        fnRowCallback: function(nRow, aData, iDisplayIndex, iDisplayIndexFull){
-                            var index = iDisplayIndexFull + 1;
-                            $('td:eq(0)', nRow).html(' '+index);
-                            return  ;
-                        },
-
-                        fnInitComplete: function () {
-                            var that = this;
-                            var td ;
-                            var tr ;
-
-                            this.$('td').click( function () {
-                                td = this;
-                            });
-                            this.$('tr').click( function () {
-                                tr = this;
-                            });
-
-
-                            $('#listproj_filter input').bind('keyup', function (e) {
-                                return this.value;
-                            });
-
-                        }
-                    });
-                }
-
-            }
-        });
+                                  $rowData += `<a target="blank_" href="`+row.url+`">`+row.judul+`</a>`;
+                                  
+                                  return $rowData;
+                              },
+                              aTargets: [2]
+                          },
+                          {
+                              mRender: function (data, type, row){
+                                var mydate = new Date(row.create_date);
+                                var date = ("0" + mydate.getDate()).slice(-2);
+                                var month = ("0" + (mydate.getMonth() + 1)).slice(-2);
+                                var year = mydate.getFullYear();
+                                var str = date+'/'+month+'/'+year;
+    
+                                var stat = row.stat;
+                                if(stat == 1){
+                                  var st = 'Publish'
+                                  var tex = 'text-success';
+                                }else{
+                                  var st = 'No Publish'
+                                  var tex = 'text-danger';
+                                }
+                                var $rowData = '';
+                                      $rowData += `<div class="card">
+                                      <div class="card-body">
+                                      
+                                        <div class="d-flex justify-content-between">
+                                          <p class="text-primary text-sm">
+                                            <i class="far fa-calendar-alt"></i>
+                                          </p>
+                                          <p class="d-flex flex-column">
+                                            <span class="text-muted"> `+str+`</span>
+                                          </p>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                          <p class="`+tex+` text-sm">
+                                            <i class="fas fa-sign-in-alt"></i>
+                                          </p>
+                                          <p class="d-flex flex-column ">
+                                            <span class="text-muted">`+st+`</span>
+                                          </p>
+                                        </div>
+                                      </div>
+                                    </div>`;
+    
+                                  return $rowData;
+                              },
+                              aTargets: [3]
+                          },
+                          {
+                              mRender: function (data, type, row){
+                                  var stat = row.stat;
+                                  
+                                  if(stat == 1){
+                                    var st = `<a class="dropdown-item" href="#" onclick="updatepublish(`+row.id+`,0)"><i class="fas fa-sign-out-alt"></i> No Publish</a>`
+                                  }else{
+                                    var st = `<a class="dropdown-item" href="#" onclick="updatepublish(`+row.id+`,1)"><i class="fas fa-sign-out-alt"></i> Publish</a>`;
+                                  }
+                                  var $rowData = '';
+                                      $rowData += `
+                                      <div class="btn-group">
+                                      <button type="button" class="btn btn-info">Action</button>
+                                      <button type="button" class="btn btn-info dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                      </button>
+                                      <div class="dropdown-menu" role="menu">
+                                        <a class="dropdown-item" href="#" onclick="editdong('`+row.id+`','`+row.judul+`')"><i class="far fa-edit"></i> Edit</a>
+                                        <a class="dropdown-item" href="#"><i class="far fa-trash-alt"></i> Hapus</a>
+                                        <div class="dropdown-divider"></div>
+                                        `+st+`
+                                      </div>
+                                    </div>`;
+    
+                                  return $rowData;
+                              },
+                              aTargets: [4]
+                          }
+                      ],
+    
+                      fnRowCallback: function(nRow, aData, iDisplayIndex, iDisplayIndexFull){
+                          var index = iDisplayIndexFull + 1;
+                          $('td:eq(0)', nRow).html(' '+index);
+                          return  ;
+                      },
+    
+                      fnInitComplete: function () {
+                          var that = this;
+                          var td ;
+                          var tr ;
+    
+                          this.$('td').click( function () {
+                              td = this;
+                          });
+                          this.$('tr').click( function () {
+                              tr = this;
+                          });
+    
+    
+                          $('#listproj_filter input').bind('keyup', function (e) {
+                              return this.value;
+                          });
+    
+                      }
+                  });
+              }
+    
+          }
+      });
     }
 
-    function saveUser(st){
+    function savedata(st){
+
+      var formData = new FormData();
+      formData.append('id', $('#id').val());
+      formData.append('judul', $('#judul').val());
+      formData.append('url', $('#url').val());
+      
+      formData.append('code', getId($('#url').val()));
+      
       var img = window.img;
       var stat;
         switch (st) {
@@ -263,24 +292,19 @@ function loadkota(){
           var msg = 'Update User';
 
         }else{
-          var baseurl = 'saveUser';
-          var msg = 'Tambah User';
+          var baseurl = 'savevideo';
+          var msg = 'Tambah Video';
         }
 
         $.ajax({
-            type: 'post',
-            dataType: 'json',
-            url: baseurl,
-            data : {
-                    id            : $('#id').val(),
-                    name          : $('#name').val(),
-                    username      : $('#username').val(),
-                    password      : $('#password').val(),
-                    status        : stat,
-                    kotaKab       : $("#kota-kab option:selected").val(),
-                    role          : $("input[name='role']:checked").val(),
-                    img           : img,
-             },
+          type: 'post',
+          url: baseurl,
+          dataType: 'json',
+          cache: false,
+          contentType: false,
+          processData: false,
+          data: formData,
+          async:false,
             success: function(result){
               Swal.fire({
                 title: 'Sukses!',
@@ -291,7 +315,7 @@ function loadkota(){
               });
 
               $('#modal-default').modal('hide');
-              loaddatauser();
+              // loaddatauser();
             }
           });
         };
@@ -449,3 +473,12 @@ function cekusername(uname){
     function pilihgambar(ini){
       readURL(ini);
     }
+
+    function getId(url) {
+      const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+      const match = url.match(regExp);
+  
+      return (match && match[2].length === 11)
+        ? match[2]
+        : null;
+  }

@@ -79,7 +79,7 @@ $(".select2bs4").change(function () {
     }
 });
 
-$("#tag").keyup(function () {
+$("#tag").on('keyup',function () {
 alert();
 });
 

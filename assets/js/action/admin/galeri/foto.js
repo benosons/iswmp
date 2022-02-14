@@ -33,6 +33,10 @@ $(function () {
   $('#modal-default').on('show.bs.modal', function(){
   })
 
+  $("[name='image_input']").on('change',function() {
+    readURL(this);
+  });
+
   $('.bootstrap-switch-handle-on').html('Ya');
   $('.bootstrap-switch-handle-off').html('Tidak');
 
@@ -87,7 +91,7 @@ function loaddata(){
                 pageLength: 10,
                 aaData: result.data,
                   aoColumns: [
-                      { 'mDataProp': 'id'},
+                      { 'mDataProp': 'id', 'width':'5%'},
                       { 'mDataProp': 'id'},
                       { 'mDataProp': 'judul'},
                       { 'mDataProp': 'bulan'},
@@ -111,37 +115,48 @@ function loaddata(){
                           aTargets: [1]
                       },
                       {
-                          mRender: function (data, type, row){
-                            var month = ['bulan','Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September','Oktober', 'November', 'Desember'];
-                              var $rowData = '';
-                                  $rowData += `<div class="card">
-                                  <div class="card-body">
-                                  
-                                    <div class="d-flex justify-content-between">
-                                      <p class="text-inf text-sm">
-                                        <i class="far fa-calendar-alt"></i>
-                                      </p>
-                                      <p class="d-flex flex-column">
-                                        <span class="text-muted">Tahun `+row.tahun+`</span>
-                                      </p>
-                                    </div>
-                                    <!-- /.d-flex -->
-                                    <div class="d-flex justify-content-between">
-                                      <p class="text-success text-sm">
-                                        <i class="fas fa-sign-in-alt"></i>
-                                      </p>
-                                      <p class="d-flex flex-column ">
-                                        <span class="text-muted">Tayang</span>
-                                      </p>
-                                    </div>
-                                    <!-- /.d-flex -->
-                                  </div>
-                                </div>`;
+                        mRender: function (data, type, row){
+                          var mydate = new Date(row.create_date);
+                          var date = ("0" + mydate.getDate()).slice(-2);
+                          var month = ("0" + (mydate.getMonth() + 1)).slice(-2);
+                          var year = mydate.getFullYear();
+                          var str = date+'/'+month+'/'+year;
 
-                              return $rowData;
-                          },
-                          aTargets: [3]
-                      },
+                          var stat = row.stat;
+                          if(stat == 1){
+                            var st = 'Publish'
+                            var tex = 'text-success';
+                          }else{
+                            var st = 'No Publish'
+                            var tex = 'text-danger';
+                          }
+                          var $rowData = '';
+                                $rowData += `<div class="card">
+                                <div class="card-body">
+                                
+                                  <div class="d-flex justify-content-between">
+                                    <p class="text-primary text-sm">
+                                      <i class="far fa-calendar-alt"></i>
+                                    </p>
+                                    <p class="d-flex flex-column">
+                                      <span class="text-muted"> `+str+`</span>
+                                    </p>
+                                  </div>
+                                  <div class="d-flex justify-content-between">
+                                    <p class="`+tex+` text-sm">
+                                      <i class="fas fa-sign-in-alt"></i>
+                                    </p>
+                                    <p class="d-flex flex-column ">
+                                      <span class="text-muted">`+st+`</span>
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>`;
+
+                            return $rowData;
+                        },
+                        aTargets: [3]
+                    },
                       {
                           mRender: function (data, type, row){
                               var $rowData = '';
@@ -201,24 +216,18 @@ function savedata(st){
   var img = window.img;
   var id = $('#id').val();
   var judul = $('#judul').val();
-  var sektor = $('#sektor').val();
-  var tahun = $('#tahun').val();
-  var status = $('#stat').val();
+  var stat = $('#stat').val();
 
   var formData = new FormData();
   formData.append('id', id);
   formData.append('judul', judul);
-  formData.append('sektor', sektor);
-  formData.append('tahun', tahun);
-  formData.append('status', status);
+  formData.append('stat', stat);
 
   var iscapt = [];
   for (let index = 0; index < $("[name='image_input']").length; index++) {
     var src = $("[name='image_input']")[index].files[0];
-    var cap = $("[name='caption']")[index].value;
     
     formData.append('files[]', src);
-    formData.append('caption[]', cap);
   }
   
   var stat;
@@ -258,7 +267,7 @@ function savedata(st){
           });
 
           $('#modal-default').modal('hide');
-          // loaddatauser();
+          loaddata();
         }
       });
     };
@@ -387,28 +396,29 @@ function cekusername(uname){
       var count = $("#gambar-container").children().length + 1;
 
       var elemen = `<div class="col-md-4">
-      <div class="card card-light card-outline">
-        <div class="card-tools">
-          <a onclick="$(this).parent().parent().parent().remove()" class="btn btn-tool">
-            <i class="fas fa-times"></i>
-          </a>
-        </div>
-        <div class="card-body">
-          <div class="form-group">
-            <label></label>
-            <div class="text-center">
-                <img id="blah_`+count+`" name="images" class="img-fluid" src="assets/img/no-image.png" alt="picture">
-                <canvas hidden id="myCanvas_`+count+`"/>
-            </div>
-            <div class="custom-file" style="margin-bottom: 10px;margin-top: 10px;">
-              <input type="file" class="custom-file-input" id="image_`+count+`" name="image_input" onChange="pilihgambar(this)">
-              <label class="custom-file-label" for="image_`+count+`">Pilih foto</label>
-            </div>
-          <input id="caption_`+count+`" name="caption" type="text" class="form-control" placeholder="Caption">
-          </div>
-        </div>
-      </div>
-    </div>`;
+                      <div class="card card-light card-outline">
+                        <div class="card-tools">
+                          <a onclick="$(this).parent().parent().parent().remove()" class="btn btn-tool">
+                            <i class="fas fa-times"></i>
+                          </a>
+                        </div>
+                        <div class="card-body">
+                          <div class="form-group">
+                            <label></label>
+                            <div class="text-center">
+                                <img id="blah_`+count+`" name="images" class="img-fluid" src="assets/img/no-image.png" alt="picture">
+                                <canvas hidden id="myCanvas_`+count+`"/>
+                            </div>
+                            <div class="custom-file" style="margin-bottom: 10px;margin-top: 10px;">
+                              <input type="file" class="custom-file-input" id="image_`+count+`" name="image_input" onChange="pilihgambar(this)">
+                              <label class="custom-file-label" for="image_`+count+`">Pilih foto</label>
+                            </div>
+                          <input id="caption_`+count+`" name="caption" type="text" class="form-control" placeholder="Caption">
+                          </div>
+                        </div>
+                      </div>
+                    </div>`;
+
     $("#gambar-container").append(elemen);
       
     }
