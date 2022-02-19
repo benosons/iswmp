@@ -68,7 +68,7 @@ $route['^(keluaran)(/:any)?$'] = "views/$0";
 $route['^(owp)(/:any)?$'] = "views/$0";
 $route['^(news)(/:any)?$'] = "views/$0";
 $route['^(photos)(/:any)?$'] = "views/$0";
-$route['^(Videos)(/:any)?$'] = "views/$0";
+$route['^(videos)(/:any)?$'] = "views/$0";
 $route['^(viewnews)(/:any)?$'] = "views/$0";
 $route['404'] = "views/page404";
 
