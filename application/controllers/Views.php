@@ -178,6 +178,12 @@ class Views extends CI_Controller {
 		$this->twig->display('frontend/videos.html', $this->content);
 	}
 
+	public function jadwal()
+	{
+		$this->content['script'] = $this->data['base_url'].'assets/js/action/frontend/jadwal.js';
+		$this->twig->display('frontend/jadwal.html', $this->content);
+	}
+
 	public function page404()
 	{
 		$this->twig->display('frontend/error/404.html', $this->content);
