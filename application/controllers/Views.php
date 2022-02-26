@@ -200,6 +200,11 @@ class Views extends CI_Controller {
 		}
 	}
 
+	public function report()
+	{
+		$this->twig->display('frontend/report.html', $this->content);
+	}
+
 	public function page404()
 	{
 		$this->twig->display('frontend/error/404.html', $this->content);
