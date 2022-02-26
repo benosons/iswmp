@@ -71,6 +71,8 @@ $route['^(photos)(/:any)?$'] = "views/$0";
 $route['^(videos)(/:any)?$'] = "views/$0";
 $route['^(viewnews)(/:any)?$'] = "views/$0";
 $route['^(jadwal)(/:any)?$'] = "views/$0";
+$route['^(keuangan)(/:any)?$'] = "views/$0";
+$route['^(progres)(/:any)?$'] = "views/$0";
 $route['404'] = "views/page404";
 
 $route['users'] = 'views/listusers';

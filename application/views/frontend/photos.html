@@ -1,5 +1,17 @@
 {% extends "frontend/layout.html" %} {% block content %}
 
+<style>
+    .crop {
+        width: 200px;
+        height: 150px;
+        overflow: hidden;
+    }
+
+    .crop img {
+        height: 300px;
+    }
+</style>
+
 <section>
     <div class="gap no-bottom blackish low-opacity">
         <div class="bg-image"><img src="assets/img/resources/pagetop.jpg" alt=""></div>
@@ -77,6 +89,6 @@
             </div>
         </div>
     </div>
-</section><!-- gallery simple style -->
+</section>
 
 {% endblock %}

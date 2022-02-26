@@ -1,0 +1,45 @@
+{% extends "frontend/layout.html" %} {% block content %}
+<link rel="stylesheet" type="text/css" href="{{base_url}}assets/frontend/evo-calendar/css/evo-calendar.css"/>
+<link rel="stylesheet" type="text/css" href="{{base_url}}assets/frontend/evo-calendar/css/evo-calendar.orange-coral.min.css"/>
+
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap" rel="stylesheet">
+
+<style>
+    .calendar-year p {
+        color: #fff !important;
+    }
+</style>
+<section>
+    <div class="gap no-bottom blackish low-opacity">
+        <div class="bg-image"><img src="assets/img/resources/pagetop.jpg" alt=""></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="page-top">
+                        <ul class="bread-crumb">
+                            <li><a href="about-us.html#" title="">Beranda</a></li>
+                            <li>Progres Keuangan</li>
+                            <li>Progres Keuangan Triwulan</li>
+                        </ul>
+                        <h2 class="page-title">Progres <span>Keuangan Triwulan</span></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- page top title with bread crumb -->
+
+<section>
+    <div class="gap">
+        <div class="container">
+                
+            <div class="row">
+                <iframe src="https://www.monitoring-iswmp.com/summary?param=1" width="900" height="700" allow="fullscreen"></iframe>
+            </div>
+        </div>
+    </div>
+</section><!-- volunteer info section -->
+
+{% endblock %}

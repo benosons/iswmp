@@ -184,6 +184,22 @@ class Views extends CI_Controller {
 		$this->twig->display('frontend/jadwal.html', $this->content);
 	}
 
+	public function keuangan()
+	{
+		if($this->input->get('param') == 'bulanan'){
+			$this->twig->display('frontend/bulanan.html', $this->content);
+		}else if($this->input->get('param') == 'triwulan'){
+			$this->twig->display('frontend/triwulan.html', $this->content);
+		}
+	}
+
+	public function progres()
+	{
+		if($this->input->get('param') == '2021'){
+			$this->twig->display('frontend/progres_2021.html', $this->content);
+		}
+	}
+
 	public function page404()
 	{
 		$this->twig->display('frontend/error/404.html', $this->content);
