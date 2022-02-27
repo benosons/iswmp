@@ -180,8 +180,22 @@ class Views extends CI_Controller {
 
 	public function jadwal()
 	{
-		$this->content['script'] = $this->data['base_url'].'assets/js/action/frontend/jadwal.js';
-		$this->twig->display('frontend/jadwal.html', $this->content);
+
+		if($this->role){
+			if ($this->logged) {
+				if($this->role == '10'){
+					$this->content['script'] = $this->data['base_url'].'assets/js/action/admin/jadwal.js';
+					$this->twig->display('admin/jadwal.html', $this->content);
+				}else{
+					redirect("dashboard");
+				}
+			}else{
+				redirect("logout");
+			}
+		}else{
+			$this->content['script'] = $this->data['base_url'].'assets/js/action/frontend/jadwal.js';
+			$this->twig->display('frontend/jadwal.html', $this->content);
+		}
 	}
 
 	public function keuangan()

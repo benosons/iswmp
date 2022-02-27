@@ -514,6 +514,38 @@ class Jsondata extends CI_Controller {
 
 	}
 
+	public function savedatajadwal(){
+		try
+		{
+
+			$params = (object)$this->input->post();
+			$id = $params->id;
+
+			$params->create_by	 = $this->session->userdata('id');
+			$params->update_by	 = $this->session->userdata('id');
+			$params->create_date = date("Y-m-d H:i:s");
+			$params->update_date = date("Y-m-d H:i:s");
+			
+			$id = $this->Model_data->createdata('data_jadwal', $params);
+
+			$response = [
+				'status'   => 'sukses',
+				'code'     => '0',
+				'data' 	   => 'terkirim'
+		];
+		header('Content-Type: application/json');
+		echo json_encode($response);
+		exit;
+
+		}
+		catch (\Exception $e)
+		{
+			die($e->getMessage());
+		}
+		
+
+	}
+
 	public function updateberita()
 	{
 

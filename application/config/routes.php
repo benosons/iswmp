@@ -88,4 +88,5 @@ $route['updateberita'] = 'jsondata/updateberita';
 $route['updatedataberita'] = 'jsondata/updatedataberita';
 $route['savedatafoto'] = 'jsondata/savedatafoto';
 $route['savevideo'] = 'jsondata/savevideo';
+$route['savedatajadwal'] = 'jsondata/savedatajadwal';
 $route['^(deleteuser)(/:any)?$'] = 'sys/$0';
