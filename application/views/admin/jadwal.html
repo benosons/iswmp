@@ -83,7 +83,12 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label>Tanggal</label>
-                <input id="tanggal" name="jadwal-input" type="date" class="form-control" placeholder="...">
+                <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
+                  <input type="text" id="tanggal" class="form-control datetimepicker-input" data-target="#reservationdatetime"/>
+                  <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
+                      <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                  </div>
+              </div>
               </div>
             </div>
             <div class="col-md-12">

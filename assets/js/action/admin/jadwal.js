@@ -8,6 +8,11 @@ $(function () {
     }
   });
 
+  $('#reservationdatetime').datetimepicker({
+      format : 'MM/DD/YYYY HH:mm',
+      icons: { time: 'far fa-clock' }
+    });
+
   $('.select2').select2();
   $('.select2bs4').select2({
     theme: 'bootstrap4'
@@ -229,7 +234,7 @@ function loaddata(){
 
       var event = $('#event').val();
       var tanggal = $('#tanggal').val();
-      var isi = $('#isi').val();
+      
       var stat;
       switch (st) {
         case false:
