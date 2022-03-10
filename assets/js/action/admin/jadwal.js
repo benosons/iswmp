@@ -279,8 +279,8 @@ function loaddata(){
               });
 
               // $('#modal-default').modal('hide');
-              location.reload()
               // loaddatauser();
+              loaddata();
             }
           });
     };
