@@ -278,7 +278,8 @@ function loaddata(){
                 timer: 1500
               });
 
-              $('#modal-default').modal('hide');
+              // $('#modal-default').modal('hide');
+              location.reload()
               // loaddatauser();
             }
           });
