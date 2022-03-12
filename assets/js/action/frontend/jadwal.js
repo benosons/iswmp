@@ -1,6 +1,14 @@
 console.log('You are running jQuery version: ' + $.fn.jquery);
 $(function () {    
     loaddata();
+
+    // selectEvent
+    $('#calendar').on('selectEvent', function(event, activeEvent) {
+        
+        $('#myModal').modal('show');
+        $('#event').html(activeEvent.name);
+        $('.modal-title').html(activeEvent.date);
+    });
 })
 
 function loaddata(){
