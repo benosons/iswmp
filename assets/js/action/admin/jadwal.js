@@ -45,18 +45,14 @@ $(function () {
   $('#jadwal > a').attr('class','nav-link active');
 
   $('#add-jadwal').on('click', function(){
-    $('#judul').val('');
-    $("#tag").select2("val", "0");
-    $('#isi').summernote('reset');
-    $('#blah_1').attr('src', 'assets/img/no-image.png');
 
     $('#modal-default').modal({
       show: true
     });
     $('#id').val('');
-    $('#idfile').val('');
-    $('.modal-title').html('<i class="fas fa-calendar-alt"></i> Tambah Jadwal');
-    $('#blah').attr('src', 'assets/img/no-image.png');
+    $('#tanggal').val('');
+    $('#event').val('');
+
   });
 
   $('#save-jadwal').on('click', function(){
@@ -133,7 +129,7 @@ function loaddata(){
                             var year = mydate.getFullYear();
                             var str = date+'/'+month+'/'+year;
 
-                            var stat = row.stat;
+                            var stat = row.status;
                             if(stat == 1){
                               var st = 'Publish'
                               var tex = 'text-success';
@@ -170,8 +166,8 @@ function loaddata(){
                       },
                       {
                           mRender: function (data, type, row){
-                              var stat = row.stat;
-                              
+                              var stat = row.status;
+                              console.log(stat);
                               if(stat == 1){
                                 var st = `<a class="dropdown-item" href="#" onclick="updatepublish(`+row.id+`,0)"><i class="fas fa-sign-out-alt"></i> No Publish</a>`
                               }else{
@@ -185,8 +181,8 @@ function loaddata(){
                                     <span class="sr-only">Toggle Dropdown</span>
                                   </button>
                                   <div class="dropdown-menu" role="menu">
-                                    <a class="dropdown-item" href="#" onclick="editdong('`+row.id+`','`+row.event+`','`+row.jadwal+`','`+row.status+`')"><i class="far fa-edit"></i> Edit</a>
-                                    <a class="dropdown-item" href="#"><i class="far fa-trash-alt"></i> Hapus</a>
+                                    <a class="dropdown-item" href="#" onclick="editdong('`+row.id+`','`+row.event+`','`+row.tanggal+`','`+row.status+`')"><i class="far fa-edit"></i> Edit</a>
+                                    <a class="dropdown-item" href="#" onclick="deleteData(`+row.id+`)"><i class="far fa-trash-alt"></i> Hapus</a>
                                     <div class="dropdown-divider"></div>
                                     `+st+`
                                   </div>
@@ -251,9 +247,8 @@ function loaddata(){
       formData.append('status', stat);
 
         if(id){
-          formData.append('idfile', idfile);
-          var baseurl = 'updatedataberita';
-          var msg = 'Update Berita';
+          var baseurl = 'updatedatajadwal';
+          var msg = 'Update Jadwal';
 
         }else{
           var baseurl = 'savedatajadwal';
@@ -278,24 +273,18 @@ function loaddata(){
                 timer: 1500
               });
 
-              // $('#modal-default').modal('hide');
-              // loaddatauser();
+              $('#modal-default').modal('hide');
               loaddata();
             }
           });
     };
 
-function editdong(id, judul, tag, isi, path, idfile){
-  $('#add-berita').trigger('click');
-  $('.modal-title').html('<i class="fas fa-newspaper"></i> Edit Berita');
+function editdong(id,event,tanggal,status){
+  $('#add-jadwal').trigger('click');
+  $('.modal-title').html('<i class="fas fa-calendar-alt"></i> Edit Jadwal');
   $('#id').val(id);
-  $('#idfile').val(idfile);
-  $('#judul').val(judul);
-  $("#tag").select2({
-    theme: 'bootstrap4'
-    }).val([tag]).trigger("change");
-  $('#isi').summernote('code', isi);
-  $('#blah_1').attr('src', path);
+  $('#event').val(event);
+  $('#tanggal').val(tanggal);
 
 }
 
@@ -310,7 +299,7 @@ function deleteData(id)
   });
 
   swalWithBootstrapButtons.fire({
-    title: 'Anda Yakin, hapus user ini?',
+    title: 'Anda yakin, hapus jadwal ini?',
     text: "",
     icon: 'warning',
     showCancelButton: true,
@@ -322,7 +311,7 @@ function deleteData(id)
     $.ajax({
       type: 'post',
       dataType: 'json',
-      url: 'deleteuser',
+      url: 'deletejadwal',
       data : {
               id    : id,
             },
@@ -330,7 +319,7 @@ function deleteData(id)
       {
         Swal.fire({
           title: 'Sukses!',
-          text: 'Hapus User',
+          text: 'Hapus Jadwal',
           icon: 'success',
           showConfirmButton: false,
           timer: 1500
@@ -418,7 +407,7 @@ function modaldetail(id,username,role,status,name,foto){
       
       $.ajax({
         type: 'post',
-        url: 'updateberita',
+        url: 'updatejadwalstat',
         dataType: 'json',
         cache: false,
         contentType: false,

@@ -49,6 +49,20 @@ class Model_data extends CI_Model {
 
     }
 
+    public function updatejadwalstat($params = NULL)
+    {
+        $valid = true;
+       
+        $this->db->set('status', $params->stat);
+        $this->db->set('update_by', $params->update_by);
+        $this->db->set('update_date', $params->update_date);
+        $this->db->where('id', $params->id);
+        $this->db->update('data_jadwal');
+        
+        return $valid;
+
+    }
+
     public function updatedataberita($params = NULL)
     {
         $valid = true;
@@ -61,6 +75,22 @@ class Model_data extends CI_Model {
         $this->db->set('update_date', $params->update_date);
         $this->db->where('id', $params->id);
         $this->db->update('data_berita');
+        
+        return $valid;
+
+    }
+
+    public function updatedatajadwal($params = NULL)
+    {
+        $valid = true;
+       
+        $this->db->set('event', $params->event);
+        $this->db->set('tanggal', $params->tanggal);
+        $this->db->set('status', $params->status);
+        $this->db->set('update_by', $params->update_by);
+        $this->db->set('update_date', $params->update_date);
+        $this->db->where('id', $params->id);
+        $this->db->update('data_jadwal');
         
         return $valid;
 
@@ -83,6 +113,12 @@ class Model_data extends CI_Model {
 
     }
 
+    public function deletejadwal($id)
+    {
+        // $idx = $this->db->escape_str($id);
+        $this->db->where('id', $id->id);
+        $this->db->delete('data_jadwal');
+    }
     
 
 }
