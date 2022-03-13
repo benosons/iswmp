@@ -43,6 +43,16 @@ class Views extends CI_Controller {
 
 	}
 
+	public function index()
+	{
+		if ($this->logged)
+		{
+			redirect("dashboard");
+		}else{
+			$this->twig->display('frontend/error/404.html', $this->content);
+		}
+	}
+
 
 	public function login()
 	{

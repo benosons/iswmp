@@ -312,7 +312,7 @@ function loaddata(){
               });
 
               $('#modal-default').modal('hide');
-              // loaddatauser();
+              loaddata();
             }
           });
     };
