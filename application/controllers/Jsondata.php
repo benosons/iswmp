@@ -743,4 +743,24 @@ class Jsondata extends CI_Controller {
 		echo json_encode(array("status" => TRUE));
 	}
 
+	public function deletefoto()
+	{
+
+		$params = (object)$this->input->post();
+		
+		$this->Model_data->deletefoto($params);
+		header('Content-Type: application/json');
+		echo json_encode(array("status" => TRUE));
+	}
+
+	public function deletevideo()
+	{
+
+		$params = (object)$this->input->post();
+		
+		$this->Model_data->deletevideo($params);
+		header('Content-Type: application/json');
+		echo json_encode(array("status" => TRUE));
+	}
+
 }

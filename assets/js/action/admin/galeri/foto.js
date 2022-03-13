@@ -52,8 +52,10 @@ $(function () {
       show: true
     });
     $('#id').val('');
+    $('#judul').val('');
+    $('.custom-file-label').html('');
     $('.modal-title').html('<i class="fas fa-photo-video"></i> Tambah Foto');
-    $('#blah').attr('src', 'assets/img/no-image.png');
+    $('#blah_1').attr('src', 'assets/img/no-image.png');
     $('label[for="foto-user"]').text('Pilih Foto');
   });
 
@@ -133,7 +135,14 @@ function loaddata(){
                           var $rowData = '';
                                 $rowData += `<div class="card">
                                 <div class="card-body">
-                                
+                                    <div class="d-flex justify-content-between">
+                                    <p class="text-success text-sm">
+                                      <i class="far fa-user"></i>
+                                    </p>
+                                    <p class="d-flex flex-column">
+                                      <span class="text-muted"> `+row.username+`</span>
+                                    </p>
+                                  </div>
                                   <div class="d-flex justify-content-between">
                                     <p class="text-primary text-sm">
                                       <i class="far fa-calendar-alt"></i>
@@ -167,8 +176,7 @@ function loaddata(){
                                     <span class="sr-only">Toggle Dropdown</span>
                                   </button>
                                   <div class="dropdown-menu" role="menu" x-placement="top-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(68px, -165px, 0px);">
-                                    <a class="dropdown-item" href="#"><i class="far fa-edit"></i> Edit</a>
-                                    <a class="dropdown-item" href="#"><i class="far fa-trash-alt"></i> Hapus</a>
+                                    <a class="dropdown-item" href="#" onclick="deleteData(`+row.id+`)"><i class="far fa-trash-alt"></i> Hapus</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Tidak Tayang</a>
                                   </div>
@@ -304,7 +312,7 @@ function deleteData(id)
   });
 
   swalWithBootstrapButtons.fire({
-    title: 'Anda Yakin, hapus user ini?',
+    title: 'Anda yakin, hapus foto ini?',
     text: "",
     icon: 'warning',
     showCancelButton: true,
@@ -316,7 +324,7 @@ function deleteData(id)
     $.ajax({
       type: 'post',
       dataType: 'json',
-      url: 'deleteuser',
+      url: 'deletefoto',
       data : {
               id    : id,
             },
@@ -324,12 +332,12 @@ function deleteData(id)
       {
         Swal.fire({
           title: 'Sukses!',
-          text: 'Hapus User',
+          text: 'Hapus Foto',
           icon: 'success',
           showConfirmButton: false,
           timer: 1500
         });
-        loaddatauser();
+        loaddata();
       }
     });
   }

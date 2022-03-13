@@ -91,5 +91,7 @@ $route['savedatafoto'] = 'jsondata/savedatafoto';
 $route['savevideo'] = 'jsondata/savevideo';
 $route['savedatajadwal'] = 'jsondata/savedatajadwal';
 $route['deletejadwal'] = 'jsondata/deletejadwal';
+$route['deletefoto'] = 'jsondata/deletefoto';
+$route['deletevideo'] = 'jsondata/deletevideo';
 $route['updatejadwalstat'] = 'jsondata/updatejadwalstat';
 $route['^(deleteuser)(/:any)?$'] = 'sys/$0';

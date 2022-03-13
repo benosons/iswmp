@@ -169,6 +169,7 @@ class Views extends CI_Controller {
 
 	public function photos()
 	{
+		$this->content['script'] = $this->data['base_url'].'assets/js/action/frontend/photos.js';
 		$this->twig->display('frontend/photos.html', $this->content);
 	}
 

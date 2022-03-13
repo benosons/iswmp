@@ -140,7 +140,14 @@ function loaddata(){
                             var $rowData = '';
                                   $rowData += `<div class="card">
                                   <div class="card-body">
-                                  
+                                      <div class="d-flex justify-content-between">
+                                      <p class="text-success text-sm">
+                                        <i class="far fa-user"></i>
+                                      </p>
+                                      <p class="d-flex flex-column">
+                                        <span class="text-muted"> `+row.username+`</span>
+                                      </p>
+                                    </div>
                                     <div class="d-flex justify-content-between">
                                       <p class="text-primary text-sm">
                                         <i class="far fa-calendar-alt"></i>
