@@ -94,4 +94,5 @@ $route['deletejadwal'] = 'jsondata/deletejadwal';
 $route['deletefoto'] = 'jsondata/deletefoto';
 $route['deletevideo'] = 'jsondata/deletevideo';
 $route['updatejadwalstat'] = 'jsondata/updatejadwalstat';
+$route['deleteberita'] = 'jsondata/deleteberita';
 $route['^(deleteuser)(/:any)?$'] = 'sys/$0';

@@ -187,6 +187,9 @@ function loaddata(){
                       },
                       {
                           mRender: function (data, type, row){
+                            var id_file = row.files[0].id;
+                            var path = row.files[0].path+'/'+row.files[0].filename;
+                            
                               var stat = row.stat;
                               var file = ''
                               for( var key in row.files ) {
@@ -208,7 +211,7 @@ function loaddata(){
                                   </button>
                                   <div class="dropdown-menu" role="menu">
                                     <a class="dropdown-item" href="#" onclick="editdong('`+row.id+`','`+row.judul+`','`+row.tag+`','`+row.isi+`','`+file+`','`+idfile+`')"><i class="far fa-edit"></i> Edit</a>
-                                    <a class="dropdown-item" href="#"><i class="far fa-trash-alt"></i> Hapus</a>
+                                    <a class="dropdown-item" href="#" onclick="deleteData(`+row.id+`, `+id_file+`, '`+path+`')"><i class="far fa-trash-alt"></i> Hapus</a>
                                     <div class="dropdown-divider"></div>
                                     `+st+`
                                   </div>
@@ -331,7 +334,7 @@ function editdong(id, judul, tag, isi, path, idfile){
 
 }
 
-function deleteData(id)
+function deleteData(id, id_file, path)
 {
   const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
@@ -342,7 +345,7 @@ function deleteData(id)
   });
 
   swalWithBootstrapButtons.fire({
-    title: 'Anda Yakin, hapus user ini?',
+    title: 'Anda yakin, hapus berita ini?',
     text: "",
     icon: 'warning',
     showCancelButton: true,
@@ -354,15 +357,17 @@ function deleteData(id)
     $.ajax({
       type: 'post',
       dataType: 'json',
-      url: 'deleteuser',
+      url: 'deleteberita',
       data : {
               id    : id,
+              id_file    : id_file,
+              path    : path,
             },
       success: function(data)
       {
         Swal.fire({
           title: 'Sukses!',
-          text: 'Hapus User',
+          text: 'Hapus Berita',
           icon: 'success',
           showConfirmButton: false,
           timer: 1500
