@@ -99,15 +99,16 @@ class Model_data extends CI_Model {
     public function updatefile($params = NULL)
     {
         $valid = true;
-       
-        $this->db->set('type', $params->type);
-        $this->db->set('path', $params->path);
-        $this->db->set('size', $params->size);
-        $this->db->set('extension', $params->extension);
-        $this->db->set('filename', $params->filename);
-        $this->db->set('update_date', $params->update_date);
-        $this->db->where('id', $params->idfile);
+        
+        $this->db->set('type', $params['type']);
+        $this->db->set('path', $params['path']);
+        $this->db->set('size', $params['size']);
+        $this->db->set('extension', $params['extension']);
+        $this->db->set('filename', $params['filename']);
+        $this->db->set('update_date', $params['update_date']);
+        $this->db->where('id', $params['id']);
         $this->db->update('data_file');
+        
         
         return $valid;
 
