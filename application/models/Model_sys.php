@@ -2,8 +2,8 @@
 class Model_sys extends CI_Model {
 
     var $table = 'muser';
-    var $column = array('username','kategori','kotaKab'); //set column field database for datatable searchable just firstname , lastname , address are searchable
-    var $column_search = array('username','kategori','kotaKab');
+    var $column = array('username','kategori'); //set column field database for datatable searchable just firstname , lastname , address are searchable
+    var $column_search = array('username','kategori');
     var $order = array('id' => 'desc'); // default order
 
     function __construct(){
@@ -92,14 +92,12 @@ class Model_sys extends CI_Model {
         $this->db->set("name", $params->name);
         $this->db->set("username", $params->username);
         $this->db->set("password", md5($params->password));
-        $this->db->set("kotaKab", $params->kotaKab);
-        $this->db->set("kategori", 'admin');
         $this->db->set("created_by", $this->session->userdata('username'));
         $this->db->set("created_at", date("Y-m-d H:i:s"));
         $this->db->set("role", $params->role);
         $this->db->set("islogin", 0);
         $this->db->set("status", $params->status);
-        $this->db->set("foto", $params->foto);
+        // $this->db->set("foto", $params->foto);
         $valid = $this->db->insert('muser');
 
         return $valid;
@@ -111,8 +109,6 @@ class Model_sys extends CI_Model {
         $valid = true;
         $this->db->set("username", $params->username_regis);
         $this->db->set("password", md5($params->password_regis));
-        $this->db->set("kotaKab", $params->kota_kab_regis);
-        $this->db->set("kategori", 'user');
         $this->db->set("created_by", '');
         $this->db->set("created_at", date("Y-m-d H:i:s"));
         $this->db->set("role", '30');
@@ -139,7 +135,6 @@ class Model_sys extends CI_Model {
         // }
         $this->db->set("username", $params->username);
         $this->db->set("name", $params->name);
-        $this->db->set("kotaKab", $params->kotaKab);
         $this->db->set("updated_by", $this->session->userdata('username'));
         $this->db->set("updated_at", date("Y-m-d H:i:s"));
         $this->db->set("role", $params->role);
@@ -297,7 +292,6 @@ class Model_sys extends CI_Model {
 
         $this->db->set("username", $params->username);
         $this->db->set("name", $params->name);
-        $this->db->set("kotaKab", $params->kotaKab);
         $this->db->set("updated_by", $this->session->userdata('username'));
         $this->db->set("updated_at", date("Y-m-d H:i:s"));
         $this->db->set("no_telp", $params->no_telp);

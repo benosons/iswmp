@@ -123,7 +123,7 @@
 
             <div class="form-group">
               <div class="icheck-primary d-inline">
-                <input type="radio" id="super-admin" name="role" value="10" >
+                <input type="radio" id="super-admin" name="role" value="10" checked>
                 <label for="super-admin">
                   Admin
                 </label>
@@ -135,9 +135,21 @@
                 </label>
               </div> -->
               <div class="icheck-primary d-inline">
-                <input type="radio" id="user" name="role" value="30" checked>
-                <label for="user">
-                  User
+                <input type="radio" id="npmc" name="role" value="40" >
+                <label for="npmc">
+                  NPMC ISWMP
+                </label>
+              </div>
+              <div class="icheck-primary d-inline">
+                <input type="radio" id="ipci" name="role" value="50" >
+                <label for="ipci">
+                  IPCI ISWMP
+                </label>
+              </div>
+              <div class="icheck-primary d-inline">
+                <input type="radio" id="ipceb" name="role" value="60" >
+                <label for="ipceb">
+                  IPCEB ISWMP
                 </label>
               </div>
             </div>
@@ -145,7 +157,7 @@
           </div>
 
         </div>
-        <div class="row">
+        <div class="row" hidden>
           <div class="col-md-6">
             <div class="custom-file" style="margin-bottom: 10px;margin-top: 10px;">
               <input type="file" class="custom-file-input" id="foto-user" name="user-input">

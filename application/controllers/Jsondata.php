@@ -216,6 +216,60 @@ class Jsondata extends CI_Controller {
 		}
 	}
 
+	public function getglobalwhereby()
+	{
+		try
+		{
+				
+				$post = (object)$this->input->post();
+				$param =  $post->param;
+				$type =  $post->type;
+				$id =  $post->id;
+				if($this->role == '10'){
+					$result = $this->Model_data->getdata($param);
+				}else{
+					$result = $this->Model_data->getwhere("*", $param, "create_by = '".$this->session->userdata('id')."'");
+				}
+				foreach ($result as $key => $value) {
+					$files = $this->Model_data->getfile($value->id, $type);
+					if(!empty($files)){
+						$result[$key]->files = $files;
+					}
+
+					if(isset($value->create_by)){
+						$user = $this->Model_data->getwhere("*", "muser", "id = '$value->create_by'");
+						$result[$key]->username = $user[0]->name;
+					}
+
+					// if(!file_exists(base_url().$value->img)){
+					// 	$result[$key]->img = base_url().'assets/img/users/default.jpg';
+					// }
+					
+				}
+					if($result){
+						$response = [
+							'status'   => 'sukses',
+							'code'     => '1',
+							'data' 		 => $result
+						];
+					}else{
+						$response = [
+						    'status'   => 'gagal',
+						    'code'     => '0',
+						    'data'     => 'tidak ada data',
+						];
+					}
+
+				header('Content-Type: application/json');
+				echo json_encode($response);
+				exit;
+			}
+		catch (Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+
 	public function updateUser()
 	{
 		$params = (object)$this->input->post();

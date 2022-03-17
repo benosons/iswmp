@@ -88,11 +88,11 @@ alert();
 });
 
 function loaddata(){
-
+  
   $.ajax({
       type: 'post',
       dataType: 'json',
-      url: 'getglobal',
+      url: 'getglobalwhereby',
       data : {
               param       : 'data_berita',
               type        : 'berita',

@@ -83,6 +83,7 @@ $route['^(register)(/:any)?$'] = "auth/$0";
 $route['getdata'] = 'jsondata/getdata';
 $route['getglobal'] = 'jsondata/getglobal';
 $route['getglobalwhere'] = 'jsondata/getglobalwhere';
+$route['getglobalwhereby'] = 'jsondata/getglobalwhereby';
 $route['savedataberita'] = 'jsondata/savedataberita';
 $route['updateberita'] = 'jsondata/updateberita';
 $route['updatedataberita'] = 'jsondata/updatedataberita';
@@ -95,4 +96,8 @@ $route['deletefoto'] = 'jsondata/deletefoto';
 $route['deletevideo'] = 'jsondata/deletevideo';
 $route['updatejadwalstat'] = 'jsondata/updatejadwalstat';
 $route['deleteberita'] = 'jsondata/deleteberita';
+$route['^(deleteuser)(/:any)?$'] = 'sys/$0';
+
+$route['^(saveUser)(/:any)?$'] = 'sys/$0';
+$route['^(updateUser)(/:any)?$'] = 'sys/$0';
 $route['^(deleteuser)(/:any)?$'] = 'sys/$0';

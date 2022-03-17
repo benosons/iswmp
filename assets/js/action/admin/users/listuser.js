@@ -288,8 +288,12 @@ function edituser(id, username, password, status, role, name, foto){
 
   if(role == '10'){
     $("#super-admin").attr('checked', true).trigger('click');
-  }else{
-    $("#admin").attr('checked', true).trigger('click');
+  }else if(role == '40'){
+    $("#npmc").attr('checked', true).trigger('click');
+  }else if(role == '50'){
+    $("#ipci").attr('checked', true).trigger('click');
+  }else if(role == '60'){
+    $("#ipceb").attr('checked', true).trigger('click');
   }
 }
 
