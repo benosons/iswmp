@@ -101,8 +101,10 @@ function loaddataberita(){
               var year = mydate.getFullYear();
               var str = date+'/'+month+'/'+year;
             
-
-            $('#list-'+index+'-href, #list-'+index+'-title, #list-'+index+'-continue').attr("href",'viewnews?id='+id)
+            console.log(index);
+            $('#list-'+index+'-href').attr("href",'viewnews?id='+id)
+            $('#list-'+index+'-title').attr("href",'viewnews?id='+id)
+            $('#list-'+index+'-continue').attr("href",'viewnews?id='+id)
             $('#list-'+index+'-src').attr("src",path+`/`+filename)
             $('#list-'+index+'-date').html(str)
             $('#list-'+index+'-username').html(username)
