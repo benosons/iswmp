@@ -1,5 +1,5 @@
 console.log('You are running jQuery version: ' + $.fn.jquery);
-$(function () {    
+$( document ).ready(function() { 
     loaddata();
 
     // selectEvent

@@ -52,9 +52,11 @@ class Frontend extends CI_Controller {
 			if($this->role == '10' || $this->role == '20'){
 				redirect("dashboard");
 			}else{
+				$this->content['script'] = $this->data['base_url'].'assets/js/action/frontend/index.js';
 				$this->twig->display("frontend/index.html", $this->content);
 			}
 		}else{
+			$this->content['script'] = $this->data['base_url'].'assets/js/action/frontend/index.js';
 			$this->twig->display("frontend/index.html", $this->content);
 		}
 
