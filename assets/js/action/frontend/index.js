@@ -83,6 +83,8 @@ function loaddataberita(){
           let code = result.code;
           let data = result.data;
           var elem = "";
+          elem += '<div class="owl-stage-outer">'
+          elem += '<div class="owl-stage">'
           for (let index = 0; index < data.length; index++) {
               let id = data[index]['id'];
               let path = data[index]['files'][0]['path'];
@@ -97,10 +99,9 @@ function loaddataberita(){
               var month = ("0" + (mydate.getMonth() + 1)).slice(-2);
               var year = mydate.getFullYear();
               var str = date+'/'+month+'/'+year;
-                elem += '<div class="owl-stage-outer">'
-                elem += '<div class="owl-stage">'
-                elem += `<div class="owl-item" style="width: 380px; margin-right: 30px;">
-                        <div class="blog-listing fadein">
+                
+                elem += '<div class="owl-item" style="width: 380px; margin-right: 30px;">'
+                elem += `<div class="blog-listing fadein">
                             <div class="cause-avatar">
                                 <a href="single-blog.html" title=""><img src="`+path+`/`+filename+`" alt=""></a>
                             </div>
@@ -120,11 +121,13 @@ function loaddataberita(){
                                 </ul>
                                 <a href="viewnews?id=`+id+`" title="" class="button-small" data-ripple="">continue</a>
                             </div>
-                        </div>
                         </div>`
                 elem += '</div>'
-                elem += '</div>'
+                
+                
           }
+          elem += '</div>'
+          elem += '</div>'
 
           $('#berita-beranda').append(elem);
       }
