@@ -1,3 +1,4 @@
+$( document ).ready(function() {
     loaddata();
     loaddataberita();
 
@@ -8,6 +9,8 @@
         $('#event').html(activeEvent.name);
         $('.modal-title').html(activeEvent.date);
     });
+})
+
 
 function loaddata(){
   $.ajax({
@@ -85,7 +88,8 @@ function loaddataberita(){
           var elem = "";
           elem += '<div class="owl-stage-outer">'
           elem += '<div class="owl-stage">'
-          for (let index = 0; index < 5; index++) {
+          for (let index = 0; index < data.length; index++) {
+                
               let id = data[index]['id'];
               let path = data[index]['files'][0]['path'];
               let filename = data[index]['files'][0]['filename'];
@@ -101,19 +105,14 @@ function loaddataberita(){
               var year = mydate.getFullYear();
               var str = date+'/'+month+'/'+year;
             
-            console.log(index);
-            $('#list-'+index+'-href').attr("href",'viewnews?id='+id)
-            $('#list-'+index+'-title').attr("href",'viewnews?id='+id)
-            $('#list-'+index+'-continue').attr("href",'viewnews?id='+id)
-            $('#list-'+index+'-src').attr("src",path+`/`+filename)
-            $('#list-'+index+'-date').html(str)
-            $('#list-'+index+'-username').html(username)
-            // $('#list-1-title').attr("href",'viewnews?id='+id)
-            $('#list-'+index+'-title').html(judul)
-            $('#list-'+index+'-intro').html(intro)
-            // $('#list-1-continue').
-
-
+            $('[name="list-'+index+'-href"]').attr("href",'viewnews?id='+id)
+            $('[name="list-'+index+'-title"]').attr("href",'viewnews?id='+id)
+            $('[name="list-'+index+'-continue"]').attr("href",'viewnews?id='+id)
+            $('[name="list-'+index+'-src"]').attr("src",path+`/`+filename)
+            $('[name="list-'+index+'-date"]').html(str)
+            $('[name="list-'+index+'-username"]').html(username)
+            $('[name="list-'+index+'-title"]').html(judul)
+            $('[name="list-'+index+'-intro"]').html(intro)
 
                 elem += '<div class="owl-item" style="width: 380px; margin-right: 30px;">'
                 elem += `<div class="blog-listing fadein">
