@@ -102,7 +102,7 @@ function loaddataberita(){
               var str = date+'/'+month+'/'+year;
             
 
-            $('#list-'+index+'-href, #list-1-title, #list-1-continue').attr("href",'viewnews?id='+id)
+            $('#list-'+index+'-href, #list-'+index+'-title, #list-'+index+'-continue').attr("href",'viewnews?id='+id)
             $('#list-'+index+'-src').attr("src",path+`/`+filename)
             $('#list-'+index+'-date').html(str)
             $('#list-'+index+'-username').html(username)

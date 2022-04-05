@@ -41,7 +41,7 @@ function loaddataberita(){
 
                 elem += `<div class="blog-listing fadein">
                             <div class="avatar-listing">
-                                <a href="single-blog.html" title=""><img src="`+path+`/`+filename+`" alt=""></a>
+                                <a href="viewnews?id=`+id+`" title=""><img src="`+path+`/`+filename+`" alt=""></a>
                             </div>
                             <div class="listing-meta">
                                 <ul class="post-date">
