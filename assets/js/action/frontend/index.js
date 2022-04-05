@@ -1,4 +1,3 @@
-$(function () {    
     loaddata();
     loaddataberita();
 
@@ -9,7 +8,6 @@ $(function () {
         $('#event').html(activeEvent.name);
         $('.modal-title').html(activeEvent.date);
     });
-})
 
 function loaddata(){
   $.ajax({
@@ -100,7 +98,7 @@ function loaddataberita(){
               var year = mydate.getFullYear();
               var str = date+'/'+month+'/'+year;
                       
-                elem += `<div class="blog-listing fadein">
+                elem += `<div class="blog-listing fadein" style="width: 380px; margin-right: 30px;">
                       <div class="cause-avatar">
                           <a href="single-blog.html" title=""><img src="`+path+`/`+filename+`" alt=""></a>
                       </div>
