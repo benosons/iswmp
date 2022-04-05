@@ -93,13 +93,26 @@ function loaddataberita(){
               let username = data[index]['username'];
               let tag = data[index]['tag'];
               let intro = data[index]['isi'].substring(0, 200);
+
               var mydate = new Date(data[index]['create_date']);
               
               var date = ("0" + mydate.getDate()).slice(-2);
               var month = ("0" + (mydate.getMonth() + 1)).slice(-2);
               var year = mydate.getFullYear();
               var str = date+'/'+month+'/'+year;
-                
+            
+
+            $('#list-'+index+'-href, #list-1-title, #list-1-continue').attr("href",'viewnews?id='+id)
+            $('#list-'+index+'-src').attr("src",path+`/`+filename)
+            $('#list-'+index+'-date').html(str)
+            $('#list-'+index+'-username').html(username)
+            // $('#list-1-title').attr("href",'viewnews?id='+id)
+            $('#list-'+index+'-title').html(judul)
+            $('#list-'+index+'-intro').html(intro)
+            // $('#list-1-continue').
+
+
+
                 elem += '<div class="owl-item" style="width: 380px; margin-right: 30px;">'
                 elem += `<div class="blog-listing fadein">
                             <div class="cause-avatar">
@@ -128,8 +141,9 @@ function loaddataberita(){
           }
           elem += '</div>'
           elem += '</div>'
+          
 
-          $('#berita-beranda').append(elem);
+        //   $('#berita-beranda').append(elem);
       }
   })
   }
