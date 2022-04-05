@@ -1,16 +1,16 @@
 console.log('You are running jQuery version: ' + $.fn.jquery);
-$(function () {
+$( document ).ready(function() {
     const idnews = $('#id_news').val();
 
     if(!idnews){
-        loaddata();
+        loaddataberita();
     }else{
         loaddatawhere(idnews);
     }
 
 })
 
-function loaddata(){
+function loaddataberita(){
 
     $.ajax({
         type: 'post',
