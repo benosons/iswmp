@@ -97,28 +97,33 @@ function loaddataberita(){
               var month = ("0" + (mydate.getMonth() + 1)).slice(-2);
               var year = mydate.getFullYear();
               var str = date+'/'+month+'/'+year;
-                      
-                elem += `<div class="blog-listing fadein" style="width: 380px; margin-right: 30px;">
-                      <div class="cause-avatar">
-                          <a href="single-blog.html" title=""><img src="`+path+`/`+filename+`" alt=""></a>
-                      </div>
-                      <div class="listing-meta" style="padding-left:1px">
-                          <ul class="post-date">
-                              <li><span>at-</span> <a href="blog-listing-leftbar.html#" title="">`+str+`</a></li>
-                              <li><span>by-</span> <a href="blog-listing-leftbar.html#" title="">`+username+`</a></li>
-                          </ul>
-                          <h2><a href="viewnews?id=`+id+`" title="">`+judul+`</a></h2>
-                          <p>
-                            `+intro+`...
-                          </p>
-                          <ul class="socials">
-                              <li><a href="blog-listing-leftbar.html#" title=""><i class="ion-social-facebook"></i></a></li>
-                              <li><a href="blog-listing-leftbar.html#" title=""><i class="ion-social-twitter"></i></a></li>
-                              <li><a href="blog-listing-leftbar.html#" title=""><i class="ion-social-googleplus"></i></a></li>
-                          </ul>
-                          <a href="viewnews?id=`+id+`" title="" class="button-small" data-ripple="">continue</a>
-                      </div>
-                  </div>`
+                elem += '<div class="owl-stage-outer">'
+                elem += '<div class="owl-stage">'
+                elem += `<div class="owl-item" style="width: 380px; margin-right: 30px;">
+                        <div class="blog-listing fadein">
+                            <div class="cause-avatar">
+                                <a href="single-blog.html" title=""><img src="`+path+`/`+filename+`" alt=""></a>
+                            </div>
+                            <div class="listing-meta" style="padding-left:1px">
+                                <ul class="post-date">
+                                    <li><span>at-</span> <a href="blog-listing-leftbar.html#" title="">`+str+`</a></li>
+                                    <li><span>by-</span> <a href="blog-listing-leftbar.html#" title="">`+username+`</a></li>
+                                </ul>
+                                <h2><a href="viewnews?id=`+id+`" title="">`+judul+`</a></h2>
+                                <p>
+                                    `+intro+`...
+                                </p>
+                                <ul class="socials">
+                                    <li><a href="blog-listing-leftbar.html#" title=""><i class="ion-social-facebook"></i></a></li>
+                                    <li><a href="blog-listing-leftbar.html#" title=""><i class="ion-social-twitter"></i></a></li>
+                                    <li><a href="blog-listing-leftbar.html#" title=""><i class="ion-social-googleplus"></i></a></li>
+                                </ul>
+                                <a href="viewnews?id=`+id+`" title="" class="button-small" data-ripple="">continue</a>
+                            </div>
+                        </div>
+                        </div>`
+                elem += '</div>'
+                elem += '</div>'
           }
 
           $('#berita-beranda').append(elem);
