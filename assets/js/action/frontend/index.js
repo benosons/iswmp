@@ -85,7 +85,7 @@ function loaddataberita(){
           var elem = "";
           elem += '<div class="owl-stage-outer">'
           elem += '<div class="owl-stage">'
-          for (let index = 0; index < data.length; index++) {
+          for (let index = 0; index < 5; index++) {
               let id = data[index]['id'];
               let path = data[index]['files'][0]['path'];
               let filename = data[index]['files'][0]['filename'];
