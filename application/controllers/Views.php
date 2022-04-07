@@ -119,6 +119,20 @@ class Views extends CI_Controller {
 		}
 	}
 
+	public function laporan()
+	{
+		if ($this->logged) {
+			if($this->role == '10'){
+				$this->content['script'] = $this->data['base_url'].'assets/js/action/admin/laporan/laporan.js';
+				$this->twig->display('admin/laporan/laporan.html', $this->content);
+			}else{
+				redirect("dashboard");
+			}
+		}else{
+			redirect("logout");
+		}
+	}
+
 	public function berita()
 	{
 		if ($this->logged) {
@@ -233,6 +247,7 @@ class Views extends CI_Controller {
 
 	public function report()
 	{
+		$this->content['script'] = $this->data['base_url'].'assets/js/action/frontend/laporan.js';
 		$this->twig->display('frontend/report.html', $this->content);
 	}
 

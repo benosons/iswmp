@@ -1,0 +1,202 @@
+{% extends "admin/layout.html" %} {% block content %}
+<style>
+  .custom-file-label::after {
+    width: 100%;
+  }
+</style>
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1><i class="nav-icon fas fa-file"></i> Laporan </h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Laporan</a></li>
+          <li class="breadcrumb-item active">List Laporan</li>
+        </ol>
+      </div>
+    </div>
+  </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+  <!-- Default box -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="card card-navy card-outline">
+          <div class="card-header">
+            <h3 class="card-title"></h3>
+
+            <div class="card-tools">
+              <div class="input-group input-group-sm">
+                  <div class="btn btn-info" id="add-laporan">
+                    <i class="fas fa-plus"></i><span> Tambah Laporan</span>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <input id="param" value="User" hidden>
+            <table class="table table-bordered table-hover" id="listlaporan">
+                <thead>
+                    <tr>
+                        <th>
+                            No
+                        </th>
+                        <th>
+                            Judul
+                        </th>
+                        <th>
+                            Deskripsi
+                        </th>
+                        <th>
+                            Tanggal
+                        </th>
+                        <th>
+                            Jenis Laporan
+                        </th>
+                        <th>
+                            Download
+                        </th>
+                        <th>
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="modal fade" id="modal-default">
+  <div class="modal-dialog modal-lg card card-danger card-outline">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Detail</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input id="id" hidden>
+        <input id="idfile" hidden>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Judul Laporan</label>
+                <input id="judul" name="laporan-input" type="text" class="form-control" placeholder="judul laporan ...">
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Deskripsi</label>
+                <textarea name="summernote" id="deskripsi">
+                  
+                </textarea>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Tanggal</label>
+                <input id="tanggal" name="laporan-input" type="date" class="form-control" for>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Jenis Laporan</label>
+                <input id="jenis" name="jenis-input" type="text" class="form-control" placeholder="jenis laporan ...">
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Url Google Drive</label>
+                <input id="url" name="url-input" type="text" class="form-control" placeholder="url google drive ...">
+              </div>
+            </div>
+          </div>
+
+        <div class="row">
+
+          <div class="col-md-12">
+            <label>Publikasi</label>
+            <div class="form-group">
+              <input id="stat" type="checkbox" name="user-input" checked data-bootstrap-switch data-off-color="danger" data-on-color="success" data-on-label="Ready" data-off-label="Not Ready">
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-primary">Tutup</button> -->
+        <button id="save-laporan" type="button" class="btn btn-success" ><i class="fas fa-check"> </i> Simpan</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+
+<!-- modal detail user -->
+<div class="modal fade" id="modal-detail">
+  <div class="modal-dialog modal-sm card card-danger card-outline">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Detail</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="card-body box-profile">
+            <div class="text-center">
+              <img id="detail-foto" class="profile-user-img img-fluid img-circle" src="assets/img/users/default.jpg" alt="User profile picture">
+            </div>
+
+            <h3 class="profile-username text-center" id="detail-name">Nina Mcintire</h3>
+
+            <p class="text-muted text-center" id="detail-username">Software Engineer</p>
+
+            <ul class="list-group list-group-unbordered mb-3">
+              <li class="list-group-item">
+                <b>Status</b> <a class="float-right" id="detail-status">543</a>
+              </li>
+              <li class="list-group-item">
+                <b>Jenis User</b> <a class="float-right" id="detail-role">13,287</a>
+              </li>
+            </ul>
+
+            <!-- <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a> -->
+          </div>
+          <!-- /.card-body -->
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-primary">Tutup</button> -->
+        <button type="button" class="btn btn-warning" data-dismiss="modal"><i class="fas fa-times"> </i> Tutup</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.card -->
+
+</section>
+
+<!-- /.content -->
+
+
+{% endblock %}
+{% block js %}
+<script>
+$(function () {
+  bsCustomFileInput.init();
+});
+</script>
+{% endblock %}

@@ -135,6 +135,13 @@ class Model_data extends CI_Model {
         $this->db->delete('data_video');
     }
 
+    public function deletelaporan($id)
+    {
+        // $idx = $this->db->escape_str($id);
+        $this->db->where('id', $id->id);
+        $this->db->delete('data_laporan');
+    }
+
     public function deleteberita($id)
     {
         // $idx = $this->db->escape_str($id);

@@ -74,6 +74,7 @@ $route['^(jadwal)(/:any)?$'] = "views/$0";
 $route['^(keuangan)(/:any)?$'] = "views/$0";
 $route['^(progres)(/:any)?$'] = "views/$0";
 $route['^(report)(/:any)?$'] = "views/$0";
+$route['^(laporan)(/:any)?$'] = "views/$0";
 $route['404'] = "views/page404";
 
 $route['users'] = 'views/listusers';
@@ -91,11 +92,13 @@ $route['updatedatajadwal'] = 'jsondata/updatedatajadwal';
 $route['savedatafoto'] = 'jsondata/savedatafoto';
 $route['savevideo'] = 'jsondata/savevideo';
 $route['savedatajadwal'] = 'jsondata/savedatajadwal';
+$route['saveLaporan'] = 'jsondata/saveLaporan';
 $route['deletejadwal'] = 'jsondata/deletejadwal';
 $route['deletefoto'] = 'jsondata/deletefoto';
 $route['deletevideo'] = 'jsondata/deletevideo';
 $route['updatejadwalstat'] = 'jsondata/updatejadwalstat';
 $route['deleteberita'] = 'jsondata/deleteberita';
+$route['deletelaporan'] = 'jsondata/deletelaporan';
 $route['^(deleteuser)(/:any)?$'] = 'sys/$0';
 
 $route['^(saveUser)(/:any)?$'] = 'sys/$0';
