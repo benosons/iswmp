@@ -281,6 +281,7 @@ function loadkota(){
       formData.append('id', $('#id').val());
       formData.append('judul', $('#judul').val());
       formData.append('url', $('#url').val());
+      formData.append('keterangan', $('#keterangan').val());
       
       formData.append('code', getId($('#url').val()));
       

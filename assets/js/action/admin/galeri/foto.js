@@ -225,11 +225,13 @@ function savedata(st){
   var id = $('#id').val();
   var judul = $('#judul').val();
   var stat = $('#stat').val();
+  var keterangan = $('#keterangan').val();
 
   var formData = new FormData();
   formData.append('id', id);
   formData.append('judul', judul);
   formData.append('stat', stat);
+  formData.append('keterangan', keterangan);
 
   var iscapt = [];
   for (let index = 0; index < $("[name='image_input']").length; index++) {
