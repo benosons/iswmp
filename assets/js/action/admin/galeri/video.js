@@ -232,7 +232,7 @@ function loadkota(){
                                       </button>
                                       <div class="dropdown-menu" role="menu">
                                         <a class="dropdown-item" href="#" onclick="editdong('`+row.id+`','`+row.judul+`')"><i class="far fa-edit"></i> Edit</a>
-                                        <a class="dropdown-item" href="#"><i class="far fa-trash-alt"></i> Hapus</a>
+                                        <a class="dropdown-item" href="#" onclick="deleteData(`+row.id+`)"><i class="far fa-trash-alt"></i> Hapus</a>
                                         <div class="dropdown-divider"></div>
                                         `+st+`
                                       </div>
@@ -360,7 +360,7 @@ function deleteData(id)
   });
 
   swalWithBootstrapButtons.fire({
-    title: 'Anda Yakin, hapus user ini?',
+    title: 'Anda Yakin, hapus video ini?',
     text: "",
     icon: 'warning',
     showCancelButton: true,
@@ -372,7 +372,7 @@ function deleteData(id)
     $.ajax({
       type: 'post',
       dataType: 'json',
-      url: 'deleteuser',
+      url: 'deletevideo',
       data : {
               id    : id,
             },
@@ -380,12 +380,12 @@ function deleteData(id)
       {
         Swal.fire({
           title: 'Sukses!',
-          text: 'Hapus User',
+          text: 'Hapus Video',
           icon: 'success',
           showConfirmButton: false,
           timer: 1500
         });
-        loaddatauser();
+        loaddata();
       }
     });
   }
