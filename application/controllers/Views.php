@@ -191,6 +191,7 @@ class Views extends CI_Controller {
 
 	public function videos()
 	{
+		$this->content['script'] = $this->data['base_url'].'assets/js/action/frontend/videos.js';
 		$this->twig->display('frontend/videos.html', $this->content);
 	}
 

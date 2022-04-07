@@ -20,14 +20,14 @@ function loaddata(){
             for (let index = 0; index < data.length; index++) {
                 elem += `<div class="tab-1 col-sm-4">
                             <div class="gallery-avatar">
-                                <a href="`+data[index]['files'][0]['path']+'/'+data[index]['files'][0]['filename']+`" data-showsocial="false"  class="html5lightbox crop" data-group="set2" title="">
+                                <a target="_blank" href="`+data[index]['files'][0]['path']+'/'+data[index]['files'][0]['filename']+`" data-showsocial="false"  class="html5lightbox crop" data-group="set2" title="">
                                     <img src="`+data[index]['files'][0]['path']+'/'+data[index]['files'][0]['filename']+`" alt="">
                                 </a>
                             </div>
+                            <h4>`+data[index]['judul']+`</h4>
                         </div>`;
 
             }
-            console.log(elem);
             $('.masonry').append(elem);
 
 
