@@ -147,4 +147,8 @@ function loaddataberita(){
         //   $('#berita-beranda').append(elem);
       }
   })
-  }
+}
+
+function viewdata(id){
+    
+}
