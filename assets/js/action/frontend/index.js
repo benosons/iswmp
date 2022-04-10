@@ -1,7 +1,7 @@
 $( document ).ready(function() {
     loaddata();
     loaddataberita();
-
+    $('.peta-detail').hide();
     // selectEvent
     $('#calendar').on('selectEvent', function(event, activeEvent) {
         
@@ -150,5 +150,20 @@ function loaddataberita(){
 }
 
 function viewdata(id){
-    
+    $('.peta-detail').show();
+    $('#data-peta tbody').empty();
+    var element = '';
+    for (let index = 0; index < 5; index++) {
+        element += `<tr>
+                        <td>${index}</td>
+                        <td>Maria Anders</td>
+                        <td>Germany</td>
+                        <td>Germany</td>
+                    </tr>`;
+
+    }
+    $('html, body').animate({
+        scrollTop: $("#data-peta").offset().top
+    }, 1000);
+    $('#data-peta tbody').append(element);
 }
