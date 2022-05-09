@@ -176,6 +176,7 @@ function viewdata(id){
                   aaData: result.data,
                     aoColumns: [
                         { 'mDataProp': 'id', 'width':'5%'},
+                        { 'mDataProp': 'kabupaten'},
                         { 'mDataProp': 'latitude'},
                         { 'mDataProp': 'nama'},
                         { 'mDataProp': 'alamat', 'width':'30%'},
@@ -187,10 +188,18 @@ function viewdata(id){
                     aoColumnDefs:[
                         {
                           mRender: function (data, type, row){
-                            var $rowData = row.latitude +' - '+ row.longitude;
+                            var kab = ['-','Kabupaten Karawang', 'Kabupaten Bekasi', 'Kabupaten Purwakarta', 'Kabupaten Cianjur', 'Kabupaten Sumedang', 'Kota Bandung', 'Kota Cimahi', 'Kabupaten Bandung Barat', 'Kabupaten Bandung'];
+                            var $rowData = kab[row.kabupaten];
                           return $rowData;
                           },
                           aTargets: [1]
+                        },
+                        {
+                          mRender: function (data, type, row){
+                            var $rowData = row.latitude +' - '+ row.longitude;
+                          return $rowData;
+                          },
+                          aTargets: [2]
                         },
                         {
                           mRender: function (data, type, row){
@@ -198,7 +207,7 @@ function viewdata(id){
                             var $rowData = row.alamat +''+ row.desa + ', ' + row.kecamatan + ', ' + kab[row.kabupaten];
                           return $rowData;
                           },
-                          aTargets: [3]
+                          aTargets: [4]
                         },
                         {
                           mRender: function (data, type, row){
@@ -229,7 +238,7 @@ function viewdata(id){
                                             `;
                           return $rowData;
                           },
-                          aTargets: [6]
+                          aTargets: [7]
                         },
                     ],
   
