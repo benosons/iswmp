@@ -1,0 +1,251 @@
+{% extends "admin/layout.html" %} {% block content %}
+<style>
+  .custom-file-label::after {
+    width: 100%;
+  }
+</style>
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1><i class="nav-icon fas fa-map"></i> Peta TPST</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Peta TPST</a></li>
+          <li class="breadcrumb-item active">List Peta TPST</li>
+        </ol>
+      </div>
+    </div>
+  </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+  <!-- Default box -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="card card-navy card-outline">
+          <div class="card-header">
+            <h3 class="card-title"></h3>
+
+            <div class="card-tools">
+              <div class="input-group input-group-sm">
+                  <div class="btn btn-info" id="add-peta">
+                    <i class="fas fa-plus"></i><span> Tambah Peta</span>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <input id="param" value="User" hidden>
+            <table class="table table-bordered table-hover" id="listpeta">
+                <thead>
+                    <tr>
+                        <th>
+                            No
+                        </th>
+                        <th>
+                            LatLong
+                        </th>
+                        <th>
+                            Nama
+                        </th>
+                        <th>
+                            Alamat
+                        </th>
+                        <th>
+                            Kapasitas
+                        </th>
+                        <th>
+                            Luas
+                        </th>
+                        <th>
+                            Progres
+                        </th>
+                        <th>
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="modal fade" id="modal-default">
+  <div class="modal-dialog modal-lg card card-danger card-outline">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Detail</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input id="id" hidden>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Latitude</label>
+                <input id="latitude" name="peta-input" type="text" class="form-control" placeholder="...">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Longitude</label>
+                <input id="longitude" name="peta-input" type="text" class="form-control" placeholder="...">
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Nama TPST</label>
+                <input id="nama" name="peta-input" type="text" class="form-control" placeholder="...">
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Alamat TPST</label>
+                <textarea name="summernote" id="alamat">
+                  
+                </textarea>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Kabupaten</label>
+                <select id="kabupaten" name="peta-input" class="form-control select2bs4">
+                  <option value="0">-Pilih-</option>
+                  <option value="1"> Kabupaten Karawang </option>
+                  <option value="2"> Kabupaten Bekasi </option>
+                  <option value="3"> Kabupaten Purwakarta </option>
+                  <option value="4"> Kabupaten Cianjur </option>
+                  <option value="5"> Kabupaten Sumedang </option>
+                  <option value="6"> Kota Bandung </option>
+                  <option value="7"> Kota Cimahi </option>
+                  <option value="8"> Kabupaten Bandung Barat </option>
+                  <option value="9"> Kabupaten Bandung </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Kecamatan</label>
+                <input id="kecamatan" name="peta-input" type="text" class="form-control" placeholder="...">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Desa</label>
+                <input id="desa" name="peta-input" type="text" class="form-control" placeholder="...">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Kapasitas TPST</label>
+                <input id="kapasitas" name="peta-input" type="text" class="form-control" placeholder="...">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Luas lahan TPST</label>
+                <input id="luas" name="peta-input" type="text" class="form-control" placeholder="...">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Progres Fisik</label>
+                <input id="fisik" name="peta-input" type="text" class="form-control" placeholder="...">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Progres Keuangan</label>
+                <input id="keuangan" name="peta-input" type="text" class="form-control" placeholder="...">
+              </div>
+            </div>
+          </div>
+
+        <div class="row">
+
+          <div class="col-md-12">
+            <label>Publikasi</label>
+            <div class="form-group">
+              <input id="stat" type="checkbox" name="user-input" checked data-bootstrap-switch data-off-color="danger" data-on-color="success" data-on-label="Ready" data-off-label="Not Ready">
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-primary">Tutup</button> -->
+        <button id="save-laporan" type="button" class="btn btn-success" ><i class="fas fa-check"> </i> Simpan</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+
+<!-- modal detail user -->
+<div class="modal fade" id="modal-detail">
+  <div class="modal-dialog modal-sm card card-danger card-outline">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Detail</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="card-body box-profile">
+            <div class="text-center">
+              <img id="detail-foto" class="profile-user-img img-fluid img-circle" src="assets/img/users/default.jpg" alt="User profile picture">
+            </div>
+
+            <h3 class="profile-username text-center" id="detail-name">Nina Mcintire</h3>
+
+            <p class="text-muted text-center" id="detail-username">Software Engineer</p>
+
+            <ul class="list-group list-group-unbordered mb-3">
+              <li class="list-group-item">
+                <b>Status</b> <a class="float-right" id="detail-status">543</a>
+              </li>
+              <li class="list-group-item">
+                <b>Jenis User</b> <a class="float-right" id="detail-role">13,287</a>
+              </li>
+            </ul>
+
+            <!-- <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a> -->
+          </div>
+          <!-- /.card-body -->
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-primary">Tutup</button> -->
+        <button type="button" class="btn btn-warning" data-dismiss="modal"><i class="fas fa-times"> </i> Tutup</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.card -->
+
+</section>
+
+<!-- /.content -->
+
+
+{% endblock %}
+{% block js %}
+<script>
+$(function () {
+  bsCustomFileInput.init();
+});
+</script>
+{% endblock %}

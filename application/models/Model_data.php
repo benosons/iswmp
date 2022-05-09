@@ -95,6 +95,31 @@ class Model_data extends CI_Model {
         return $valid;
 
     }
+    
+    public function updatePeta($params = NULL)
+    {
+        $valid = true;
+       
+        $this->db->set('latitude', $params->latitude);
+        $this->db->set('longitude', $params->longitude);
+        $this->db->set('nama', $params->nama);
+        $this->db->set('alamat', $params->alamat);
+        $this->db->set('kabupaten', $params->kabupaten);
+        $this->db->set('kecamatan', $params->kecamatan);
+        $this->db->set('desa', $params->desa);
+        $this->db->set('kapasitas', $params->kapasitas);
+        $this->db->set('luas', $params->luas);
+        $this->db->set('fisik', $params->fisik);
+        $this->db->set('keuangan', $params->keuangan);
+
+        $this->db->set('update_by', $params->update_by);
+        $this->db->set('update_date', $params->update_date);
+        $this->db->where('id', $params->id);
+        $this->db->update('data_peta');
+        
+        return $valid;
+
+    }
 
     public function updatefile($params = NULL)
     {
@@ -140,6 +165,13 @@ class Model_data extends CI_Model {
         // $idx = $this->db->escape_str($id);
         $this->db->where('id', $id->id);
         $this->db->delete('data_laporan');
+    }
+
+    public function deletepeta($id)
+    {
+        // $idx = $this->db->escape_str($id);
+        $this->db->where('id', $id->id);
+        $this->db->delete('data_peta');
     }
 
     public function deleteberita($id)

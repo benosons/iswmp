@@ -2,13 +2,6 @@
 <style>
     #data-peta {
     font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-    }
-
-    #data-peta td, #data-peta th {
-    border: 1px solid #ddd;
-    padding: 8px;
     }
 
     #data-peta tr:nth-child(even){background-color: #f2f2f2;}
@@ -16,8 +9,6 @@
     #data-peta tr:hover {background-color: #ddd;}
 
     #data-peta th {
-    padding-top: 12px;
-    padding-bottom: 12px;
     text-align: left;
     background-color: #1C6295;
     color: white;
@@ -471,19 +462,33 @@
                 
             </div>
             <div class="peta-detail">
-                <table id="data-peta">
-                    <thead>
-                        <tr>
-                        <th>No</th>
-                        <th>Kabupaten/kota</th>
-                        <th>Progres Fisik</th>
-                        <th>Keterangan</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        
-                    </tbody>
-                  </table>
+                    <table id="data-peta" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>
+                                    No
+                                </th>
+                                <th>
+                                    LatLong
+                                </th>
+                                <th>
+                                    Nama
+                                </th>
+                                <th>
+                                    Alamat
+                                </th>
+                                <th>
+                                    Kapasitas
+                                </th>
+                                <th>
+                                    Luas
+                                </th>
+                                <th>
+                                    Progres
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
             </div>
         </div>
     </div>

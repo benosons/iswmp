@@ -274,6 +274,42 @@ class Jsondata extends CI_Controller {
 		}
 	}
 
+	public function getpetawhere()
+	{
+		try
+		{
+				
+				$post = (object)$this->input->post();
+				$param =  $post->param;
+				$type =  $post->type;
+				$id =  $post->id;
+
+				$result = $this->Model_data->getwhere("*", $param, "kabupaten = '".$id."'");
+				
+					if($result){
+						$response = [
+							'status'   => 'sukses',
+							'code'     => '1',
+							'data' 		 => $result
+						];
+					}else{
+						$response = [
+						    'status'   => 'gagal',
+						    'code'     => '0',
+						    'data'     => 'tidak ada data',
+						];
+					}
+
+				header('Content-Type: application/json');
+				echo json_encode($response);
+				exit;
+			}
+		catch (Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+
 	public function updateUser()
 	{
 		$params = (object)$this->input->post();
@@ -741,6 +777,38 @@ class Jsondata extends CI_Controller {
 
 	}
 
+	public function savePeta(){
+		try
+		{
+
+			$params = (object)$this->input->post();
+			$id = $params->id;
+
+			$params->create_by	 = $this->session->userdata('id');
+			$params->update_by	 = $this->session->userdata('id');
+			$params->create_date = date("Y-m-d H:i:s");
+			$params->update_date = date("Y-m-d H:i:s");
+			
+			$id = $this->Model_data->createdata('data_peta', $params);
+			
+			$response = [
+				'status'   => 'sukses',
+				'code'     => '0',
+				'data' 	   => 'terkirim'
+		];
+		header('Content-Type: application/json');
+		echo json_encode($response);
+		exit;
+
+		}
+		catch (\Exception $e)
+		{
+			die($e->getMessage());
+		}
+		
+
+	}
+
 	public function savedatafoto(){
 		try
 		{
@@ -823,6 +891,19 @@ class Jsondata extends CI_Controller {
 
 	}
 
+	public function updatePeta()
+	{
+
+		$params = (object)$this->input->post();
+		$params->update_by	 = $this->session->userdata('id');
+		$params->update_date = date("Y-m-d H:i:s");
+		$data = $this->Model_data->updatePeta($params);
+
+		header('Content-Type: application/json');
+		echo json_encode(array("status" => TRUE));
+
+	}
+
 	public function deletejadwal()
 	{
 
@@ -849,6 +930,16 @@ class Jsondata extends CI_Controller {
 		$params = (object)$this->input->post();
 		
 		$this->Model_data->deletelaporan($params);
+		header('Content-Type: application/json');
+		echo json_encode(array("status" => TRUE));
+	}
+
+	public function deletepeta()
+	{
+
+		$params = (object)$this->input->post();
+		
+		$this->Model_data->deletepeta($params);
 		header('Content-Type: application/json');
 		echo json_encode(array("status" => TRUE));
 	}

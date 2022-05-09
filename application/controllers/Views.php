@@ -133,6 +133,20 @@ class Views extends CI_Controller {
 		}
 	}
 
+	public function peta()
+	{
+		if ($this->logged) {
+			if($this->role == '10'){
+				$this->content['script'] = $this->data['base_url'].'assets/js/action/admin/peta/peta.js';
+				$this->twig->display('admin/peta/peta.html', $this->content);
+			}else{
+				redirect("dashboard");
+			}
+		}else{
+			redirect("logout");
+		}
+	}
+
 	public function berita()
 	{
 		if ($this->logged) {
