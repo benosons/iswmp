@@ -2,6 +2,7 @@ $( document ).ready(function() {
     loaddata();
     loaddataberita();
     $('.peta-detail').hide();
+    $('.peta-detail-1').hide();
     // selectEvent
     $('#calendar').on('selectEvent', function(event, activeEvent) {
         
@@ -9,6 +10,26 @@ $( document ).ready(function() {
         $('#event').html(activeEvent.name);
         $('.modal-title').html(activeEvent.date);
     });
+
+    $('#tab-jabar').on('click', function (event) {
+        event.preventDefault();
+        
+        $('.tab-active').removeClass('tab-active');
+        $(this).parent().addClass('tab-active');
+        $('#jabar').show();
+        $('#bali').hide();
+    });
+
+    $('#tab-bali').on('click', function (event) {
+        event.preventDefault();
+        
+        $('.tab-active').removeClass('tab-active');
+        $(this).parent().addClass('tab-active');
+        $('#jabar').hide();
+        $('#bali').show();
+
+    });
+    
 })
 
 

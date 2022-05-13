@@ -1,17 +1,73 @@
 {% extends "frontend/layout.html" %} {% block content %}
 <style>
     #data-peta {
-    font-family: Arial, Helvetica, sans-serif;
+        font-family: Arial, Helvetica, sans-serif;
     }
 
-    #data-peta tr:nth-child(even){background-color: #f2f2f2;}
+    #data-peta tr:nth-child(even){
+        background-color: #f2f2f2;
+    }
 
-    #data-peta tr:hover {background-color: #ddd;}
+    #data-peta tr:hover {
+        background-color: #ddd;
+    }
 
     #data-peta th {
-    text-align: left;
-    background-color: #1C6295;
-    color: white;
+        text-align: left;
+        background-color: #1C6295;
+        color: white;
+    }
+
+    .tabs-nav {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .tabs-nav li:first-child a {
+        border-right: 0;
+        -moz-border-radius-topleft: 6px;
+        -webkit-border-top-left-radius: 6px;
+        border-top-left-radius: 6px;
+    }
+    .tabs-nav .tab-active a {
+        background: hsl(120, 11%, 96%);
+        border-bottom-color: hsla(0, 0%, 0%, 0);
+        color: hsl(205.3, 68.4%, 34.7%);
+        cursor: default;
+    }
+    .tabs-nav a {
+        border: 1px solid hsl(210, 6%, 79%);
+        color: hsl(215, 6%, 57%);
+        display: block;
+        font-size: 11px;
+        font-weight: bold;
+        height: 40px;
+        line-height: 44px;
+        text-align: center;
+        text-transform: uppercase;
+        width: 140px;
+    }
+    .tabs-nav li {
+        float: left;
+    }
+    .tabs-stage {
+        border: 1px solid hsl(210, 6%, 79%);
+        -webkit-border-radius: 0 0 6px 6px;
+        -moz-border-radius: 0 0 6px 6px;
+        -ms-border-radius: 0 0 6px 6px;
+        -o-border-radius: 0 0 6px 6px;
+        border-radius: 0 0 6px 6px;
+        border-top: 0;
+        clear: both;
+        margin-bottom: 20px;
+        position: relative;
+        top: -1px;
+        width: 100%;
+    }
+    .tabs-stage p {
+        margin: 0;
+        padding: 20px;
+        color: hsl(0, 0%, 33%);
     }
 </style>
 <section>
@@ -394,104 +450,159 @@
 <section id="">
     <div class="gap">
         <div class="container">
-            <div class="footer-map">
-                <img src="assets/img/iswmp-map.jpeg" alt="">
-                <div class="pointer" style="left:49%; top:11.5%;" onclick="viewdata(1)"> <span></span>
-                    <div class="address-tooltip">
-                        <ul>
-                            <li><i class="ion-ios-location"></i>Kabupaten Karawang</li>
-                        </ul>
+            <ul class="tabs-nav">
+                <li class="tab-active"><a id="tab-jabar" href="#" rel="nofollow">Features</a>
+                </li>
+                <li class=""><a id="tab-bali" href="#" rel="nofollow">Details</a>
+                </li>
+            </ul>
+            <div class="tabs-stage">
+                <div id="jabar" style="display: block;">
+                    <div class="footer-map">
+                        <img src="assets/img/iswmp-jabar.jpeg" alt="">
+                        <div class="pointer" style="left:49%; top:11.5%;" onclick="viewdata(1)"> <span></span>
+                            <div class="address-tooltip">
+                                <ul>
+                                    <li><i class="ion-ios-location"></i>Kabupaten Karawang</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pointer" style="left:44.4%; top:21.5%;" onclick="viewdata(2)"> <span></span>
+                            <div class="address-tooltip">
+                                <ul>
+                                    <li><i class="ion-ios-location"></i>Kabupaten Bekasi</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pointer" style="left:54.8%; top:44%;" onclick="viewdata(3)"> <span></span>
+                            <div class="address-tooltip">
+                                <ul>
+                                    <li><i class="ion-ios-location"></i>Kabupaten Purwakarta</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pointer" style="left:40.5%; top:55.3%;" onclick="viewdata(4)"> <span></span>
+                            <div class="address-tooltip">
+                                <ul>
+                                    <li><i class="ion-ios-location"></i>Kabupaten Cianjur</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pointer" style="left:61%; top:58.3%;" onclick="viewdata(5)"> <span></span>
+                            <div class="address-tooltip">
+                                <ul>
+                                    <li><i class="ion-ios-location"></i>Kabupaten Sumedang</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pointer" style="left:64.7%; top:61%;" onclick="viewdata(6)"> <span></span>
+                            <div class="address-tooltip">
+                                <ul>
+                                    <li><i class="ion-ios-location"></i>Kota Bandung</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pointer" style="left:58.9%; top:64%;" onclick="viewdata(7)"> <span></span>
+                            <div class="address-tooltip">
+                                <ul>
+                                    <li><i class="ion-ios-location"></i>Kota Cimahi</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pointer" style="left:47.6%; top:66.6%;" onclick="viewdata(8)"> <span></span>
+                            <div class="address-tooltip">
+                                <ul>
+                                    <li><i class="ion-ios-location"></i>Kabupaten Bandung Barat</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pointer" style="left:66.7%; top:70.9%;" onclick="viewdata(9)"> <span></span>
+                            <div class="address-tooltip">
+                                <ul>
+                                    <li><i class="ion-ios-location"></i>Kabupaten Bandung</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="peta-detail">
+                            <table id="data-peta" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            No
+                                        </th>
+                                        <th>
+                                            Kabupaten/Kota
+                                        </th>
+                                        <th>
+                                            LatLong
+                                        </th>
+                                        <th>
+                                            Nama
+                                        </th>
+                                        <th>
+                                            Alamat
+                                        </th>
+                                        <th>
+                                            Kapasitas
+                                        </th>
+                                        <th>
+                                            Luas
+                                        </th>
+                                        <th>
+                                            Progres
+                                        </th>
+                                    </tr>
+                                </thead>
+                            </table>
                     </div>
                 </div>
-                <div class="pointer" style="left:44.4%; top:21.5%;" onclick="viewdata(2)"> <span></span>
-                    <div class="address-tooltip">
-                        <ul>
-                            <li><i class="ion-ios-location"></i>Kabupaten Bekasi</li>
-                        </ul>
+                <div id="bali" style="display: none;">
+                    <div class="footer-map">
+                        <img src="assets/img/iswmp-bali.jpeg" alt="">
+                        <div class="pointer" style="left:48.9%; top:42.9%;" onclick="viewdata(1)"> <span></span>
+                            <div class="address-tooltip">
+                                <ul>
+                                    <li><i class="ion-ios-location"></i>Kabupaten</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="peta-detail-1">
+                            <table id="data-peta-1" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            No
+                                        </th>
+                                        <th>
+                                            Kabupaten/Kota
+                                        </th>
+                                        <th>
+                                            LatLong
+                                        </th>
+                                        <th>
+                                            Nama
+                                        </th>
+                                        <th>
+                                            Alamat
+                                        </th>
+                                        <th>
+                                            Kapasitas
+                                        </th>
+                                        <th>
+                                            Luas
+                                        </th>
+                                        <th>
+                                            Progres
+                                        </th>
+                                    </tr>
+                                </thead>
+                            </table>
                     </div>
                 </div>
-                <div class="pointer" style="left:54.8%; top:44%;" onclick="viewdata(3)"> <span></span>
-                    <div class="address-tooltip">
-                        <ul>
-                            <li><i class="ion-ios-location"></i>Kabupaten Purwakarta</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="pointer" style="left:40.5%; top:55.3%;" onclick="viewdata(4)"> <span></span>
-                    <div class="address-tooltip">
-                        <ul>
-                            <li><i class="ion-ios-location"></i>Kabupaten Cianjur</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="pointer" style="left:61%; top:58.3%;" onclick="viewdata(5)"> <span></span>
-                    <div class="address-tooltip">
-                        <ul>
-                            <li><i class="ion-ios-location"></i>Kabupaten Sumedang</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="pointer" style="left:64.7%; top:61%;" onclick="viewdata(6)"> <span></span>
-                    <div class="address-tooltip">
-                        <ul>
-                            <li><i class="ion-ios-location"></i>Kota Bandung</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="pointer" style="left:58.9%; top:64%;" onclick="viewdata(7)"> <span></span>
-                    <div class="address-tooltip">
-                        <ul>
-                            <li><i class="ion-ios-location"></i>Kota Cimahi</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="pointer" style="left:47.6%; top:66.6%;" onclick="viewdata(8)"> <span></span>
-                    <div class="address-tooltip">
-                        <ul>
-                            <li><i class="ion-ios-location"></i>Kabupaten Bandung Barat</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="pointer" style="left:66.7%; top:70.9%;" onclick="viewdata(9)"> <span></span>
-                    <div class="address-tooltip">
-                        <ul>
-                            <li><i class="ion-ios-location"></i>Kabupaten Bandung</li>
-                        </ul>
-                    </div>
-                </div>
-                
-            </div>
-            <div class="peta-detail">
-                    <table id="data-peta" class="table table-bordered table-hover">
-                        <thead>
-                            <tr>
-                                <th>
-                                    No
-                                </th>
-                                <th>
-                                    Kabupaten/Kota
-                                </th>
-                                <th>
-                                    LatLong
-                                </th>
-                                <th>
-                                    Nama
-                                </th>
-                                <th>
-                                    Alamat
-                                </th>
-                                <th>
-                                    Kapasitas
-                                </th>
-                                <th>
-                                    Luas
-                                </th>
-                                <th>
-                                    Progres
-                                </th>
-                            </tr>
-                        </thead>
-                    </table>
             </div>
         </div>
     </div>
