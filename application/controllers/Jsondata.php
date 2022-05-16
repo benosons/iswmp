@@ -283,8 +283,9 @@ class Jsondata extends CI_Controller {
 				$param =  $post->param;
 				$type =  $post->type;
 				$id =  $post->id;
+				$provinsi =  $post->provinsi;
 
-				$result = $this->Model_data->getwhere("*", $param, "kabupaten = '".$id."'");
+				$result = $this->Model_data->getwhere("*", $param, "kabupaten = '$id' and provinsi = '$provinsi'");
 				
 					if($result){
 						$response = [

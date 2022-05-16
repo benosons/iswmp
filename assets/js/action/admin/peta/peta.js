@@ -58,6 +58,7 @@ $(function () {
     $('#luas').val('');
     $('#fisik').val('');
     $('#keuangan').val('');
+    $('#provinsi').val(0).trigger('change');
 
   });
 
@@ -66,6 +67,27 @@ $(function () {
   });
 
   loaddata();
+
+  $('#provinsi').on('change', function(){
+    
+    var opt = '<option value="0">-Pilih-</option>'
+    if(this.value == '1'){
+      opt += `<option value="1"> Kabupaten Karawang </option>
+              <option value="2"> Kabupaten Bekasi </option>
+              <option value="3"> Kabupaten Purwakarta </option>
+              <option value="4"> Kabupaten Cianjur </option>
+              <option value="5"> Kabupaten Sumedang </option>
+              <option value="6"> Kota Bandung </option>
+              <option value="7"> Kota Cimahi </option>
+              <option value="8"> Kabupaten Bandung Barat </option>
+              <option value="9"> Kabupaten Bandung </option>`
+    }else if(this.value == '2'){
+      opt += `<option value="1"> Kabupaten </option>
+`
+    }
+
+    $('#kabupaten').html(opt);
+  })
 
 });
 
@@ -97,6 +119,7 @@ $(function () {
                           { 'mDataProp': 'id', 'width':'5%'},
                           { 'mDataProp': 'latitude'},
                           { 'mDataProp': 'nama'},
+                          { 'mDataProp': 'provinsi'},
                           { 'mDataProp': 'alamat', 'width':'30%'},
                           { 'mDataProp': 'kapasitas', 'width':'10%'},
                           { 'mDataProp': 'luas', 'width':'10%'},
@@ -114,11 +137,18 @@ $(function () {
                           },
                           {
                             mRender: function (data, type, row){
+                              var prov = ['','Jawa Barat', 'Bali']
+                            return prov[row.provinsi];
+                            },
+                            aTargets: [3]
+                          },
+                          {
+                            mRender: function (data, type, row){
                               var kab = ['-','Kabupaten Karawang', 'Kabupaten Bekasi', 'Kabupaten Purwakarta', 'Kabupaten Cianjur', 'Kabupaten Sumedang', 'Kota Bandung', 'Kota Cimahi', 'Kabupaten Bandung Barat', 'Kabupaten Bandung'];
                               var $rowData = row.alamat +''+ row.desa + ', ' + row.kecamatan + ', ' + kab[row.kabupaten];
                             return $rowData;
                             },
-                            aTargets: [3]
+                            aTargets: [4]
                           },
                           {
                             mRender: function (data, type, row){
@@ -151,7 +181,7 @@ $(function () {
                                               </div>`;
                             return $rowData;
                             },
-                            aTargets: [6]
+                            aTargets: [7]
                           },
                           {
                               mRender: function (data, type, row){
@@ -170,7 +200,7 @@ $(function () {
                                         <span class="sr-only">Toggle Dropdown</span>
                                       </button>
                                       <div class="dropdown-menu" role="menu">
-                                        <a class="dropdown-item" href="#" onclick="editdong('`+row.id+`','`+row.latitude+`','`+row.longitude+`','`+row.nama+`','`+row.alamat+`','`+row.kabupaten+`','`+row.kecamatan+`','`+row.desa+`','`+row.kapasitas+`','`+row.luas+`','`+row.fisik+`','`+row.keuangan+`')"><i class="far fa-edit"></i> Edit</a>
+                                        <a class="dropdown-item" href="#" onclick="editdong('`+row.id+`','`+row.latitude+`','`+row.longitude+`','`+row.nama+`','`+row.alamat+`','`+row.kabupaten+`','`+row.kecamatan+`','`+row.desa+`','`+row.kapasitas+`','`+row.luas+`','`+row.fisik+`','`+row.keuangan+`','${row.provinsi}')"><i class="far fa-edit"></i> Edit</a>
                                         <a class="dropdown-item" href="#" onclick="deleteData(`+row.id+`)"><i class="far fa-trash-alt"></i> Hapus</a>
                                         <div class="dropdown-divider"></div>
                                         `+st+`
@@ -179,7 +209,7 @@ $(function () {
     
                                   return $rowData;
                               },
-                              aTargets: [7]
+                              aTargets: [8]
                           }
                       ],
     
@@ -232,6 +262,7 @@ $(function () {
       formData.append('luas', $('#luas').val());
       formData.append('fisik', $('#fisik').val());
       formData.append('keuangan', $('#keuangan').val());
+      formData.append('provinsi', $('#provinsi').val());
             
       var stat;
         switch (st) {
@@ -275,7 +306,7 @@ $(function () {
           });
         };
 
-function editdong(id, latitude, longitude, nama, alamat, kabupaten, kecamatan, desa, kapasitas, luas, fisik, keuangan){
+function editdong(id, latitude, longitude, nama, alamat, kabupaten, kecamatan, desa, kapasitas, luas, fisik, keuangan, provinsi){
   $('#add-peta').trigger('click');
   $('.modal-title').html('Edit Peta TPST');
   $('#id').val(id);
@@ -283,13 +314,17 @@ function editdong(id, latitude, longitude, nama, alamat, kabupaten, kecamatan, d
   $('#longitude').val(longitude);
   $('#nama').val(nama);
   $('#alamat').summernote('code', alamat);
-  $('#kabupaten').val(kabupaten);
   $('#kecamatan').val(kecamatan);
   $('#desa').val(desa);
   $('#kapasitas').val(kapasitas);
   $('#luas').val(luas);
   $('#fisik').val(fisik);
   $('#keuangan').val(keuangan);
+  $('#provinsi').val(provinsi).trigger('change');
+  if($('#provinsi').change()){
+    $('#kabupaten').val(kabupaten);
+  }
+  
 
 }
 
