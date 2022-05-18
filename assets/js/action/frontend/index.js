@@ -316,7 +316,7 @@ function viewdata(id, provinsi){
                     aoColumnDefs:[
                         {
                           mRender: function (data, type, row){
-                            var kab = ['-','Kabupaten Karawang', 'Kabupaten Bekasi', 'Kabupaten Purwakarta', 'Kabupaten Cianjur', 'Kabupaten Sumedang', 'Kota Bandung', 'Kota Cimahi', 'Kabupaten Bandung Barat', 'Kabupaten Bandung'];
+                            var kab = ['-','Kota Denpasar'];
                             var $rowData = kab[row.kabupaten];
                           return $rowData;
                           },
@@ -331,7 +331,7 @@ function viewdata(id, provinsi){
                         },
                         {
                           mRender: function (data, type, row){
-                            var kab = ['-','Kabupaten Karawang', 'Kabupaten Bekasi', 'Kabupaten Purwakarta', 'Kabupaten Cianjur', 'Kabupaten Sumedang', 'Kota Bandung', 'Kota Cimahi', 'Kabupaten Bandung Barat', 'Kabupaten Bandung'];
+                            var kab = ['-','Kota Denpasar'];
                             var $rowData = row.alamat +''+ row.desa + ', ' + row.kecamatan + ', ' + kab[row.kabupaten];
                           return $rowData;
                           },
