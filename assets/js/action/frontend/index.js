@@ -316,7 +316,7 @@ function viewdata(id, provinsi){
                     aoColumnDefs:[
                         {
                           mRender: function (data, type, row){
-                            var kab = ['-','Kota Denpasar'];
+                            var kab = ['-','Kota Denpasar', 'kota satu', 'kota dua'];
                             var $rowData = kab[row.kabupaten];
                           return $rowData;
                           },
