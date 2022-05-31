@@ -1,0 +1,59 @@
+{% extends "frontend/layout.html" %} {% block content %}
+
+<section>
+    <div class="gap no-bottom blackish low-opacity">
+        <div class="bg-image"><img src="assets/img/resources/pagetop.jpg" alt=""></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="page-top">
+                        <ul class="bread-crumb">
+                            <li><a href="gallery-simple.html#" title="">Beranda</a></li>
+                            <li>Lapor</li>
+                        </ul>
+                        <h2 class="page-title">Form <span>Pengaduan</span></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- page top title with bread crumb -->
+
+<section id="contact">
+    <div class="gap nogap">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="heading-2 margin-btm">
+                    </div>
+                    <div class="contact-page">
+                        <div class="contact-form">
+                            <form method="post" action="/savePengaduan" id="contactform">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <input placeholder="Nama *" id="name" type="text" name="name">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input placeholder="Email *" id="email" type="email" name="email">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input placeholder="Instansi *" id="instansi" type="text" name="instansi">
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <textarea id="pengaduan" cols="30" rows="8" placeholder="Pengaduan" name="pengaduan"></textarea>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <button type="submit" id="submit" data-ripple="">submit</button>
+                                        <img src="images/ajax-loader.gif" class="loader" alt="">
+                                    </div>
+                                </div>	
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

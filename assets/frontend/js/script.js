@@ -688,7 +688,7 @@ jQuery(document).ready(function($) {
 		var action = $(this).attr('action');
 		var msg = $('#message');
 		$(msg).hide();
-		var data = 'name=' + $('#name').val() + '&email=' + $('#email').val() + '&phone=' + $('#phone').val() + '&comments=' + $('#comments').val() + 				'verify=' + $('#verify').val() + 'captcha=' + $(".g-recaptcha-response").val();
+		var data = 'name=' + $('#name').val() + '&email=' + $('#email').val() + '&instansi=' + $('#instansi').val() + '&pengaduan=' + $('#pengaduan').val(); //+ '&verify=' + $('#verify').val() + '&captcha=' + $(".g-recaptcha-response").val();
 		$.ajax({
 		type: 'POST',
 		url: action,
@@ -699,14 +699,15 @@ jQuery(document).ready(function($) {
 		},
 		success: function (data) {
 			var msg = $(msg);
-			$('#submit').attr('disabled', false);
-			$('img.loader').fadeOut('slow');
-			msg.empty();
-			msg.html(data);
-			$('#message').slideDown('slow');
-			if (data.indexOf('success') > 0) {
-				$('#contactform').slideUp('slow');
-			}
+            window.location = '/';
+			// $('#submit').attr('disabled', false);
+			// $('img.loader').fadeOut('slow');
+			// msg.empty();
+			// msg.html(data);
+			// $('#message').slideDown('slow');
+			// if (data.indexOf('success') > 0) {
+			// 	$('#contactform').slideUp('slow');
+			// }
 		}
 	});
 		return false;

@@ -217,6 +217,18 @@ class Views extends CI_Controller {
 	}
 
 
+	public function pengaduan()
+	{
+		$this->content['script'] = $this->data['base_url'].'assets/js/action/frontend/pengaduan.js';
+		$this->twig->display('frontend/pengaduan.html', $this->content);
+	}
+
+	public function embedlaporan()
+	{
+		$this->content['script'] = $this->data['base_url'].'assets/js/action/frontend/embedlaporan.js';
+		$this->twig->display('frontend/embedlaporan.html', $this->content);
+	}
+
 	public function videos()
 	{
 		$this->content['script'] = $this->data['base_url'].'assets/js/action/frontend/videos.js';

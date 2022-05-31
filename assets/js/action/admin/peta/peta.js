@@ -83,7 +83,8 @@ $(function () {
               <option value="9"> Kabupaten Bandung </option>`
     }else if(this.value == '2'){
       opt += `<option value="1"> Kota Denpasar </option>
-`
+              <option value="2"> Kota satu </option>
+              <option value="3"> Kota dua </option>`
     }
 
     $('#kabupaten').html(opt);

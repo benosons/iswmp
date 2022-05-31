@@ -810,6 +810,38 @@ class Jsondata extends CI_Controller {
 
 	}
 
+	public function savePengaduan(){
+		try
+		{
+
+			$params = (object)$this->input->post();
+			$id = $params->id;
+			// print_r($params);die;
+			// $params->create_by	 = $this->session->userdata('id');
+			// $params->update_by	 = $this->session->userdata('id');
+			$params->create_date = date("Y-m-d H:i:s");
+			// $params->update_date = date("Y-m-d H:i:s");
+			
+			$id = $this->Model_data->createdata('data_pengaduan', $params);
+			
+			$response = [
+				'status'   => 'sukses',
+				'code'     => '0',
+				'data' 	   => 'terkirim'
+		];
+		header('Content-Type: application/json');
+		echo json_encode($response);
+		exit;
+
+		}
+		catch (\Exception $e)
+		{
+			die($e->getMessage());
+		}
+		
+
+	}
+
 	public function savedatafoto(){
 		try
 		{
