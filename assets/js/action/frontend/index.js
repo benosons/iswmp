@@ -331,7 +331,7 @@ function viewdata(id, provinsi){
                         },
                         {
                           mRender: function (data, type, row){
-                            var kab = ['-','Kota Denpasar'];
+                            var kab = ['-','Kota Denpasar', 'kota satu', 'kota dua'];
                             var $rowData = row.alamat +''+ row.desa + ', ' + row.kecamatan + ', ' + kab[row.kabupaten];
                           return $rowData;
                           },

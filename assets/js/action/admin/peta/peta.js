@@ -145,7 +145,12 @@ $(function () {
                           },
                           {
                             mRender: function (data, type, row){
-                              var kab = ['-','Kabupaten Karawang', 'Kabupaten Bekasi', 'Kabupaten Purwakarta', 'Kabupaten Cianjur', 'Kabupaten Sumedang', 'Kota Bandung', 'Kota Cimahi', 'Kabupaten Bandung Barat', 'Kabupaten Bandung'];
+                              if (row.provinsi == 1){
+                              
+                                var kab = ['-','Kabupaten Karawang', 'Kabupaten Bekasi', 'Kabupaten Purwakarta', 'Kabupaten Cianjur', 'Kabupaten Sumedang', 'Kota Bandung', 'Kota Cimahi', 'Kabupaten Bandung Barat', 'Kabupaten Bandung'];
+                              }else{
+                                var kab = ['-','Kota Denpasar', 'kota satu', 'kota dua'];
+                              }
                               var $rowData = row.alamat +''+ row.desa + ', ' + row.kecamatan + ', ' + kab[row.kabupaten];
                             return $rowData;
                             },
