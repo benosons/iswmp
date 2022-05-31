@@ -219,8 +219,13 @@ class Views extends CI_Controller {
 
 	public function pengaduan()
 	{
-		$this->content['script'] = $this->data['base_url'].'assets/js/action/frontend/pengaduan.js';
-		$this->twig->display('frontend/pengaduan.html', $this->content);
+		if ($this->logged) {
+			$this->content['script'] = $this->data['base_url'].'assets/js/action/admin/pengaduan.js';
+			$this->twig->display('admin/pengaduan.html', $this->content);
+		}else{
+			$this->content['script'] = $this->data['base_url'].'assets/js/action/frontend/pengaduan.js';
+			$this->twig->display('frontend/pengaduan.html', $this->content);
+		}
 	}
 
 	public function embedlaporan()
