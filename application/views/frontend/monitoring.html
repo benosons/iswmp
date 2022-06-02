@@ -1,5 +1,48 @@
 {% extends "frontend/layout.html" %} {% block content %}
+<style>
+    #tab-outer {
+  position:relative;
+  font:normal 12px Arial,Sans-Serif;    
+}
 
+#tab-outer * {
+  margin:0px 0px;
+  padding:0px 0px;    
+}
+
+#tab-wrapper {
+  list-style:none;
+  height:30px;
+}
+
+#tab-wrapper li {
+  margin:0px 0px 0px 2px;
+  float:left;
+  font-weight:bold;
+}
+
+#tab-wrapper li a {
+  display:block;
+  padding:0px 15px;
+  line-height:30px;
+  text-decoration:none;
+  color:white;
+  background-color:#58b9ff; 
+}
+
+#tab-wrapper li.active a {
+  background-color:#1c6295;
+}
+
+#tab-body > div {
+  background-color:#1c6295;
+  color:white;
+  padding:10px 15px;
+  border-bottom:4px solid #1c6295;
+  height:100%; /* Contoh */    
+}
+
+</style>
 <section>
     <div class="gap no-bottom blackish low-opacity">
         <div class="bg-image"><img src="assets/img/resources/pagetop.jpg" alt=""></div>
@@ -19,5 +62,35 @@
     </div>
 </section><!-- page top title with bread crumb -->
 
+<section id="contact">
+    <div class="gap nogap">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="heading-2 margin-btm">
+                    </div>
+                    <div class="contact-page">
+                        <div id="tab-outer">
+                            <ul id="tab-wrapper">
+                                <li><a href="#tab1">TPST Padang Sambian</a></li>
+                                <li><a href="#tab2">TPST Kesiman Kertalangu</a></li>
+                                <li><a href="#tab3">TPST Tahura</a></li>
+                            </ul>
+                            <div id="tab-body">
+                                <div id="tab1">
+                                    <iframe title="Progres ISWMP - Denpasar - Halaman 1" width="1024" height="1060" src="https://app.powerbi.com/view?r=eyJrIjoiNjgwZGY4YTAtNzY3MS00ZTkwLTgxYjAtYzE5MTA2YzJjMjg3IiwidCI6IjYwMWIzZTU5LWRhMmUtNDY4NS1iOWUyLTlhZGQxMzFhNzExZSIsImMiOjEwfQ%3D%3D" frameborder="0" allowFullScreen="true"></iframe>                                </div>
+                                <div id="tab2">
+                                    <iframe title="Progres ISWMP - Denpasar" width="1024" height="1060" src="https://app.powerbi.com/view?r=eyJrIjoiNjgwZGY4YTAtNzY3MS00ZTkwLTgxYjAtYzE5MTA2YzJjMjg3IiwidCI6IjYwMWIzZTU5LWRhMmUtNDY4NS1iOWUyLTlhZGQxMzFhNzExZSIsImMiOjEwfQ%3D%3D&pageName=ReportSection9c10814e5af14045059e" frameborder="0" allowFullScreen="true"></iframe>                                </div>
+                                <div id="tab3">
+                                    <iframe title="Progres ISWMP - Denpasar" width="1024" height="1060" src="https://app.powerbi.com/view?r=eyJrIjoiNjgwZGY4YTAtNzY3MS00ZTkwLTgxYjAtYzE5MTA2YzJjMjg3IiwidCI6IjYwMWIzZTU5LWRhMmUtNDY4NS1iOWUyLTlhZGQxMzFhNzExZSIsImMiOjEwfQ%3D%3D&pageName=ReportSection0907aeaea98f5bcd344f" frameborder="0" allowFullScreen="true"></iframe>                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 {% endblock %}

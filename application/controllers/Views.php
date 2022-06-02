@@ -271,6 +271,7 @@ class Views extends CI_Controller {
 
 	public function monitoring()
 	{
+		$this->content['script'] = $this->data['base_url'].'assets/js/action/frontend/monitoring.js';
 		$this->twig->display('frontend/monitoring.html', $this->content);
 	}
 
