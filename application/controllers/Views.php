@@ -269,6 +269,11 @@ class Views extends CI_Controller {
 		}
 	}
 
+	public function monitoring()
+	{
+		$this->twig->display('frontend/monitoring.html', $this->content);
+	}
+
 	public function progres()
 	{
 		if($this->input->get('param') == '2021'){

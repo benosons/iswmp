@@ -83,8 +83,8 @@ $(function () {
               <option value="9"> Kabupaten Bandung </option>`
     }else if(this.value == '2'){
       opt += `<option value="1"> Kota Denpasar </option>
-              <option value="2"> Kota satu </option>
-              <option value="3"> Kota dua </option>`
+              <option value="2"> Kota Denpasar </option>
+              <option value="3"> Kota Denpasar </option>`
     }
 
     $('#kabupaten').html(opt);
@@ -149,7 +149,7 @@ $(function () {
                               
                                 var kab = ['-','Kabupaten Karawang', 'Kabupaten Bekasi', 'Kabupaten Purwakarta', 'Kabupaten Cianjur', 'Kabupaten Sumedang', 'Kota Bandung', 'Kota Cimahi', 'Kabupaten Bandung Barat', 'Kabupaten Bandung'];
                               }else{
-                                var kab = ['-','Kota Denpasar', 'kota satu', 'kota dua'];
+                                var kab = ['-','Kota Denpasar', 'kota Denpasar', 'kota Denpasar'];
                               }
                               var $rowData = row.alamat +''+ row.desa + ', ' + row.kecamatan + ', ' + kab[row.kabupaten];
                             return $rowData;

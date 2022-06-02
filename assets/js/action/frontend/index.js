@@ -316,7 +316,7 @@ function viewdata(id, provinsi){
                     aoColumnDefs:[
                         {
                           mRender: function (data, type, row){
-                            var kab = ['-','Kota Denpasar', 'kota satu', 'kota dua'];
+                            var kab = ['-','Kota Denpasar', 'kota Denpasar', 'kota Denpasar'];
                             var $rowData = kab[row.kabupaten];
                           return $rowData;
                           },
@@ -331,7 +331,7 @@ function viewdata(id, provinsi){
                         },
                         {
                           mRender: function (data, type, row){
-                            var kab = ['-','Kota Denpasar', 'kota satu', 'kota dua'];
+                            var kab = ['-','Kota Denpasar', 'kota Denpasar', 'kota Denpasar'];
                             var $rowData = row.alamat +''+ row.desa + ', ' + row.kecamatan + ', ' + kab[row.kabupaten];
                           return $rowData;
                           },

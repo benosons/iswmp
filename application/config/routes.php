@@ -78,6 +78,7 @@ $route['^(laporan)(/:any)?$'] = "views/$0";
 $route['^(peta)(/:any)?$'] = "views/$0";
 $route['^(pengaduan)(/:any)?$'] = "views/$0";
 $route['^(embedlaporan)(/:any)?$'] = "views/$0";
+$route['^(monitoring)(/:any)?$'] = "views/$0";
 $route['404'] = "views/page404";
 
 $route['users'] = 'views/listusers';
