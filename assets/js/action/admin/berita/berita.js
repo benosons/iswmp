@@ -196,12 +196,20 @@ function loaddata(){
                                 file = row.files[key].path+'/'+row.files[key].filename;
                                 idfile = row.files[key].id;
                               }
-                              
+                                                            
                               if(stat == 1){
                                 var st = `<a class="dropdown-item" href="#" onclick="updatepublish(`+row.id+`,0)"><i class="fas fa-sign-out-alt"></i> No Publish</a>`
                               }else{
                                 var st = `<a class="dropdown-item" href="#" onclick="updatepublish(`+row.id+`,1)"><i class="fas fa-sign-out-alt"></i> Publish</a>`;
                               }
+
+                              if(row.isi){
+                                var isinya = row.isi.replace(/</g, '~');
+                                var isinya_1 = isinya.replace(/"/g, '`');
+                             }else{
+                              var isinya_1 = ''
+                             }
+                             
                               var $rowData = '';
                                   $rowData += `
                                   <div class="btn-group">
@@ -210,7 +218,7 @@ function loaddata(){
                                     <span class="sr-only">Toggle Dropdown</span>
                                   </button>
                                   <div class="dropdown-menu" role="menu">
-                                    <a class="dropdown-item" href="#" onclick="editdong('`+row.id+`','`+row.judul+`','`+row.tag+`','`+row.isi+`','`+file+`','`+idfile+`')"><i class="far fa-edit"></i> Edit</a>
+                                    <a class="dropdown-item" href="#" onclick="editdong('`+row.id+`','`+row.judul+`','`+row.tag+`','`+isinya_1+`','`+file+`','`+idfile+`')"><i class="far fa-edit"></i> Edit</a>
                                     <a class="dropdown-item" href="#" onclick="deleteData(`+row.id+`, `+id_file+`, '`+path+`')"><i class="far fa-trash-alt"></i> Hapus</a>
                                     <div class="dropdown-divider"></div>
                                     `+st+`
@@ -329,7 +337,11 @@ function editdong(id, judul, tag, isi, path, idfile){
   $("#tag").select2({
     theme: 'bootstrap4'
     }).val([tag]).trigger("change");
-  $('#isi').summernote('code', isi);
+    
+  var isinya = isi.replace(/~/g, '<');
+  var isinya_1 = isinya.replace(/`/g, '"');
+  console.log(isinya_1);
+  $('#isi').summernote('code', isinya_1);
   $('#blah_1').attr('src', path);
 
 }
