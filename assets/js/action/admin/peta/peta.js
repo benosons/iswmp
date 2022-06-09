@@ -198,6 +198,16 @@ $(function () {
                                   }else{
                                     var st = `<a class="dropdown-item" href="#" onclick="updatepublish(`+row.id+`,1)"><i class="fas fa-sign-out-alt"></i> Publish</a>`;
                                   }
+
+                                  console.log(row.alamat);
+
+                                  if(row.isi){
+                                      var alamat = row.alamat.replace(/</g, '~');
+                                      var alamat_1 = alamat.replace(/"/g, '`');
+                                  }else{
+                                    var alamat_1 = ''
+                                  }
+                                  
                                   var $rowData = '';
                                       $rowData += `
                                       <div class="btn-group">
@@ -206,7 +216,7 @@ $(function () {
                                         <span class="sr-only">Toggle Dropdown</span>
                                       </button>
                                       <div class="dropdown-menu" role="menu">
-                                        <a class="dropdown-item" href="#" onclick="editdong('`+row.id+`','`+row.latitude+`','`+row.longitude+`','`+row.nama+`','`+row.alamat+`','`+row.kabupaten+`','`+row.kecamatan+`','`+row.desa+`','`+row.kapasitas+`','`+row.luas+`','`+row.fisik+`','`+row.keuangan+`','${row.provinsi}')"><i class="far fa-edit"></i> Edit</a>
+                                        <a class="dropdown-item" href="#" onclick="editdong('`+row.id+`','`+row.latitude+`','`+row.longitude+`','`+row.nama+`','`+alamat_1+`','`+row.kabupaten+`','`+row.kecamatan+`','`+row.desa+`','`+row.kapasitas+`','`+row.luas+`','`+row.fisik+`','`+row.keuangan+`','${row.provinsi}')"><i class="far fa-edit"></i> Edit</a>
                                         <a class="dropdown-item" href="#" onclick="deleteData(`+row.id+`)"><i class="far fa-trash-alt"></i> Hapus</a>
                                         <div class="dropdown-divider"></div>
                                         `+st+`
@@ -319,7 +329,10 @@ function editdong(id, latitude, longitude, nama, alamat, kabupaten, kecamatan, d
   $('#latitude').val(latitude);
   $('#longitude').val(longitude);
   $('#nama').val(nama);
-  $('#alamat').summernote('code', alamat);
+  var alamatnya = alamat.replace(/~/g, '<');
+  var alamat_1 = alamatnya.replace(/`/g, '"');
+  console.log(alamat);
+  $('#alamat').summernote('code', alamat_1);
   $('#kecamatan').val(kecamatan);
   $('#desa').val(desa);
   $('#kapasitas').val(kapasitas);

@@ -340,7 +340,7 @@ function editdong(id, judul, tag, isi, path, idfile){
     
   var isinya = isi.replace(/~/g, '<');
   var isinya_1 = isinya.replace(/`/g, '"');
-  console.log(isinya_1);
+  
   $('#isi').summernote('code', isinya_1);
   $('#blah_1').attr('src', path);
 
