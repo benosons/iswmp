@@ -133,6 +133,72 @@ class Views extends CI_Controller {
 		}
 	}
 
+	public function kriteria()
+	{
+		if ($this->logged) {
+			if($this->role == '10'){
+				$this->content['script'] = $this->data['base_url'].'assets/js/action/admin/infrastruktur/kriteria.js';
+				$this->twig->display('admin/infrastruktur/kriteria.html', $this->content);
+			}else{
+				redirect("dashboard");
+			}
+		}else{
+			redirect("logout");
+		}
+	}
+	public function persiapan()
+	{
+		if ($this->logged) {
+			if($this->role == '10'){
+				$this->content['script'] = $this->data['base_url'].'assets/js/action/admin/infrastruktur/persiapan.js';
+				$this->twig->display('admin/infrastruktur/persiapan.html', $this->content);
+			}else{
+				redirect("dashboard");
+			}
+		}else{
+			redirect("logout");
+		}
+	}
+	public function pelaksanaan()
+	{
+		if ($this->logged) {
+			if($this->role == '10'){
+				$this->content['script'] = $this->data['base_url'].'assets/js/action/admin/infrastruktur/pelaksanaan.js';
+				$this->twig->display('admin/infrastruktur/pelaksanaan.html', $this->content);
+			}else{
+				redirect("dashboard");
+			}
+		}else{
+			redirect("logout");
+		}
+	}
+	public function operasi()
+	{
+		if ($this->logged) {
+			if($this->role == '10'){
+				$this->content['script'] = $this->data['base_url'].'assets/js/action/admin/infrastruktur/operasi.js';
+				$this->twig->display('admin/infrastruktur/operasi.html', $this->content);
+			}else{
+				redirect("dashboard");
+			}
+		}else{
+			redirect("logout");
+		}
+	}
+	public function evaluasi()
+	{
+		if ($this->logged) {
+			if($this->role == '10'){
+				$this->content['script'] = $this->data['base_url'].'assets/js/action/admin/infrastruktur/evaluasi.js';
+				$this->twig->display('admin/infrastruktur/evaluasi.html', $this->content);
+			}else{
+				redirect("dashboard");
+			}
+		}else{
+			redirect("logout");
+		}
+	}
+
 	public function peta()
 	{
 		if ($this->logged) {

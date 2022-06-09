@@ -79,6 +79,13 @@ $route['^(peta)(/:any)?$'] = "views/$0";
 $route['^(pengaduan)(/:any)?$'] = "views/$0";
 $route['^(embedlaporan)(/:any)?$'] = "views/$0";
 $route['^(monitoring)(/:any)?$'] = "views/$0";
+// infrastruktur
+$route['^(kriteria)(/:any)?$'] = "views/$0";
+$route['^(persiapan)(/:any)?$'] = "views/$0";
+$route['^(pelaksanaan)(/:any)?$'] = "views/$0";
+$route['^(operasi)(/:any)?$'] = "views/$0";
+$route['^(evaluasi)(/:any)?$'] = "views/$0";
+
 $route['404'] = "views/page404";
 
 $route['users'] = 'views/listusers';
