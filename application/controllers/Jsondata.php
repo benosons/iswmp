@@ -169,6 +169,47 @@ class Jsondata extends CI_Controller {
 		}
 	}
 
+	public function getcriteria()
+	{
+		try
+		{
+				
+				$post = (object)$this->input->post();
+				$param =  $post->param;
+				$type =  $post->type;
+				
+				$result = $this->Model_data->getdata($param);
+				foreach ($result as $key => $value) {
+					if(isset($value->create_by)){
+						$user = $this->Model_data->getwhere("*", "muser", "id = '$value->create_by'");
+						$result[$key]->username = $user[0]->name;
+					}
+				}
+
+					if($result){
+						$response = [
+							'status'   => 'sukses',
+							'code'     => '1',
+							'data' 		 => $result
+						];
+					}else{
+						$response = [
+						    'status'   => 'gagal',
+						    'code'     => '0',
+						    'data'     => 'tidak ada data',
+						];
+					}
+
+				header('Content-Type: application/json');
+				echo json_encode($response);
+				exit;
+			}
+		catch (Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+
 	public function getglobalwhere()
 	{
 		try
@@ -937,6 +978,20 @@ class Jsondata extends CI_Controller {
 
 	}
 
+	public function updateCriteria()
+	{
+
+		$params = (object)$this->input->post();
+		$params->update_by	 = $this->session->userdata('id');
+		$params->update_date = date("Y-m-d H:i:s");
+		
+		$data = $this->Model_data->updateCriteria($params);
+
+		header('Content-Type: application/json');
+		echo json_encode(array("status" => TRUE));
+
+	}
+
 	public function deletejadwal()
 	{
 
@@ -977,6 +1032,16 @@ class Jsondata extends CI_Controller {
 		echo json_encode(array("status" => TRUE));
 	}
 
+	public function deletecriteria()
+	{
+
+		$params = (object)$this->input->post();
+		
+		$this->Model_data->deletecriteria($params);
+		header('Content-Type: application/json');
+		echo json_encode(array("status" => TRUE));
+	}
+
 	public function deleteberita()
 	{
 
@@ -997,6 +1062,42 @@ class Jsondata extends CI_Controller {
 		$this->Model_data->deletevideo($params);
 		header('Content-Type: application/json');
 		echo json_encode(array("status" => TRUE));
+	}
+
+	public function saveCriteria(){
+		try
+		{
+
+			$params = (object)$this->input->post();
+			$id = $params->id;
+			$table = $params->table;
+
+			unset($params->id);
+			unset($params->table);
+
+			$params->create_by	 = $this->session->userdata('id');
+			$params->update_by	 = $this->session->userdata('id');
+			$params->create_date = date("Y-m-d H:i:s");
+			$params->update_date = date("Y-m-d H:i:s");
+			
+			$id = $this->Model_data->createdata($table, $params);
+
+			$response = [
+				'status'   => 'sukses',
+				'code'     => '0',
+				'data' 	   => 'terkirim'
+		];
+		header('Content-Type: application/json');
+		echo json_encode($response);
+		exit;
+
+		}
+		catch (\Exception $e)
+		{
+			die($e->getMessage());
+		}
+		
+
 	}
 
 }

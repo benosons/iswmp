@@ -66,9 +66,16 @@
                   <div class="card-body">
                     <div class="tab-content" id="custom-tabs-four-tabContent">
                       <div class="tab-pane fade show active" id="tab_1" role="tabpanel" aria-labelledby="custom-tabs-four-home-tab">
+                          <div class="row">
+                            <div class="col-sm-10">
+                              <h3>1. Profil Usulan Lokasi</h3>
 
-                          <div class="btn btn-success" id="add-data-1">
-                            <i class="fas fa-plus"></i><span> Tambah Data</span>
+                            </div>
+                            <div class="col-sm-2">
+                              <div class="btn btn-success pull-right" id="add-data-1">
+                                <i class="fas fa-plus"></i><span> Tambah Data</span>
+                              </div>
+                            </div>
                           </div>
                           <hr/>
                           <input id="param" value="" hidden>
@@ -91,10 +98,13 @@
                                         Kabupaten/Kota
                                       </th>
                                       <th>
-                                        Deskripsi Urgensi Kegiatan
+                                        Deskripsi Urgensi
                                       </th>
                                       <th>
                                         Jenis Usulan
+                                      </th>
+                                      <th>
+                                        
                                       </th>
                                   </tr>
                               </thead>
@@ -102,8 +112,16 @@
 
                       </div>
                       <div class="tab-pane fade" id="tab_2" role="tabpanel" aria-labelledby="custom-tabs-four-profile-tab">
-                        <div class="btn btn-success" id="add-data-2">
-                          <i class="fas fa-plus"></i><span> Tambah Data</span>
+                        <div class="row">
+                          <div class="col-sm-10">
+                            <h3>2. Rencana Pembagian Dukungan Kegiatan</h3>
+
+                          </div>
+                          <div class="col-sm-2">
+                            <div class="btn btn-success pull-right" id="add-data-2">
+                              <i class="fas fa-plus"></i><span> Tambah Data</span>
+                            </div>
+                          </div>
                         </div>
                         <hr/>
                         <input id="param" value="" hidden>
@@ -111,7 +129,7 @@
                             <thead>
                                 <tr>
                                     <th>
-                                        No
+                                      No
                                     </th>
                                     <th>
                                       Studi FS
@@ -197,118 +215,69 @@
 </div>
 </div>
 
-<div class="modal fade" id="modal-default">
-  <div class="modal-dialog modal-lg card card-danger card-outline">
+<div class="modal fade" id="modal-kriteria">
+  <div class="modal-dialog modal-lg card card-primary card-outline">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">Detail</h4>
+        <h3 class="modal-title">1. Profil Usulan Lokasi</h3>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <input id="id" hidden>
-        <input id="idfile" hidden>
+        <input id="id_profile" hidden>
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <label>Judul Laporan</label>
-                <input id="judul" name="laporan-input" type="text" class="form-control" placeholder="judul laporan ...">
+                <label>TPST <code>*</code>:</label>
+                <input id="tpst" name="profile-input" type="text" class="form-control" placeholder="TPST ...">
               </div>
             </div>
             <div class="col-md-12">
               <div class="form-group">
-                <label>Deskripsi</label>
-                <textarea name="summernote" id="deskripsi">
+                <label>NAMA DESA/KELURAHAN <code>*</code>:</label>
+                <input id="desa" name="profile-input" type="text" class="form-control" placeholder="Desa/ Kelurahan ...">
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>NAMA KECAMATAN <code>*</code>:</label>
+                <input id="kecamatan" name="profile-input" type="text" class="form-control" placeholder="Kecamatan ...">
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>NAMA KABUPATEN/KOTA <code>*</code>:</label>
+                <input id="kabupaten" name="profile-input" type="text" class="form-control" placeholder="Kabupaten/ Kota ...">
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>URAIAN <code>*</code>:</label>
+                <textarea class="summernote" name="profile-input" id="uraian" name="profile-input" >
                   
                 </textarea>
               </div>
             </div>
             <div class="col-md-12">
               <div class="form-group">
-                <label>Tanggal</label>
-                <input id="tanggal" name="laporan-input" type="date" class="form-control" for>
+                <label>DIREKTIF/NON-DIREKTIF <code>*</code>:</label>
+                <input id="direktif" name="profile-input" type="text" class="form-control" placeholder="Direktif/ Non-direktif ...">
               </div>
             </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>Jenis Laporan</label>
-                <input id="jenis" name="jenis-input" type="text" class="form-control" placeholder="jenis laporan ...">
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>Url Google Drive</label>
-                <input id="url" name="url-input" type="text" class="form-control" placeholder="url google drive ...">
-              </div>
-            </div>
+            
           </div>
-
-        <div class="row">
-
-          <div class="col-md-12">
-            <label>Publikasi</label>
-            <div class="form-group">
-              <input id="stat" type="checkbox" name="user-input" checked data-bootstrap-switch data-off-color="danger" data-on-color="success" data-on-label="Ready" data-off-label="Not Ready">
-            </div>
-          </div>
-
-        </div>
 
       </div>
       <div class="modal-footer">
         <!-- <button type="button" class="btn btn-primary">Tutup</button> -->
-        <button id="save-laporan" type="button" class="btn btn-success" ><i class="fas fa-check"> </i> Simpan</button>
+        <button id="save-data-1" type="button" class="btn btn-success"><i class="fas fa-check"> </i> Simpan</button>
       </div>
     </div>
     <!-- /.modal-content -->
   </div>
   <!-- /.modal-dialog -->
 </div>
-
-<!-- modal detail user -->
-<div class="modal fade" id="modal-detail">
-  <div class="modal-dialog modal-sm card card-danger card-outline">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Detail</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-          <div class="card-body box-profile">
-            <div class="text-center">
-              <img id="detail-foto" class="profile-user-img img-fluid img-circle" src="assets/img/users/default.jpg" alt="User profile picture">
-            </div>
-
-            <h3 class="profile-username text-center" id="detail-name">Nina Mcintire</h3>
-
-            <p class="text-muted text-center" id="detail-username">Software Engineer</p>
-
-            <ul class="list-group list-group-unbordered mb-3">
-              <li class="list-group-item">
-                <b>Status</b> <a class="float-right" id="detail-status">543</a>
-              </li>
-              <li class="list-group-item">
-                <b>Jenis User</b> <a class="float-right" id="detail-role">13,287</a>
-              </li>
-            </ul>
-
-            <!-- <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a> -->
-          </div>
-          <!-- /.card-body -->
-      </div>
-      <div class="modal-footer">
-        <!-- <button type="button" class="btn btn-primary">Tutup</button> -->
-        <button type="button" class="btn btn-warning" data-dismiss="modal"><i class="fas fa-times"> </i> Tutup</button>
-      </div>
-    </div>
-    <!-- /.modal-content -->
-  </div>
-  <!-- /.modal-dialog -->
-</div>
-<!-- /.card -->
 
 </section>
 

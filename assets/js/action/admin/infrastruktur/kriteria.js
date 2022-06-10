@@ -1,12 +1,18 @@
 $(function () {
 
   console.log('You are running jQuery version: ' + $.fn.jquery);
-  $('[name="summernote"]').summernote({
+  $('.summernote').summernote({
     height: 200,   //set editable area's height
     codemirror: { // codemirror options
       theme: 'monokai'
-    }
+    },
+    toolbar:{},
+    disableResizeEditor: true,
+    focus: true
   });
+
+  $('.note-editable').attr('name','profile-input');
+
   $('.select2').select2();
   $('.select2bs4').select2({
     theme: 'bootstrap4'
@@ -19,7 +25,6 @@ $(function () {
     format: 'L'
   });
 
-  var st = true;
   window.img = '';
   $("input[data-bootstrap-switch]").each(function(){
     // $(this).bootstrapSwitch('state', $(this).prop('checked'));
@@ -29,14 +34,10 @@ $(function () {
       }
     });
   });
-
-  $('#listvideo').DataTable();
   
+  $('#save-data-1').attr('disabled', true);
   $('#modal-default').on('show.bs.modal', function(){
   })
-
-  $('.bootstrap-switch-handle-on').html('Ya');
-  $('.bootstrap-switch-handle-off').html('Tidak');
 
   $('#rencana > a').attr('class','nav-link active');
   $('#rencana').attr('class','nav-item menu-is-opening menu-open');
@@ -44,44 +45,80 @@ $(function () {
   $('#kriteria > a > i').addClass('text-info');
 
 
-  $('#add-laporan').on('click', function(){
-    $('#modal-default').modal({
+  $('#add-data-1').on('click', function(){
+    $('#modal-kriteria').modal({
       show: true
     });
-    $('#id').val('');
-    $('.modal-title').html('<i class="fas fa-file"></i> Tambah Laporan');
-    $('#username').attr('disabled', false);
-    $('#password').attr('disabled', false);
-    $("#judul").val('');
-    $("#deskripsi").summernote('reset');
-    $("#tanggal").val('');
-    $("#jenis").val('');
-    $("#url").val('');
+    $('[name="profile-input"]').val('');
+    $(".summernote").summernote('reset');
+    $('#id_profile').val('');
+    // $('.modal-title').html('<i class="fas fa-file"></i> Tambah Laporan');
+    // $('#username').attr('disabled', false);
+    // $('#password').attr('disabled', false);
+    // $("#judul").val('');
+    // $("#tanggal").val('');
+    // $("#jenis").val('');
+    // $("#url").val('');
 
   });
 
-  $('#save-laporan').on('click', function(){
-    savedata(st);
+  $('#save-data-1').on('click', function(){
+    savedata('1');
   });
 
-  loaddata();
+  $('[name="profile-input"]').on("summernote.change", function (e) { 
+    
+    var profile = $('[name="profile-input"]')
+    var disab = []
+    for (let i = 0; i < profile.length; i++) {
+      var elem = profile[i];
+      if(elem.value){
+        disab.push(elem.id)
+      }
+    }
+
+    if(disab.length == '6'){
+      $('#save-data-1').prop('disabled', false)
+    }else{
+      $('#save-data-1').prop('disabled', true)
+    }
+  });
+
+  $('[name="profile-input"]').keyup(function(e){
+    
+    var profile = $('[name="profile-input"]')
+    var disab = []
+    for (let i = 0; i < profile.length; i++) {
+      var elem = profile[i];
+      if(elem.value){
+        disab.push(elem.id)
+      }
+    }
+
+    if(disab.length == '6'){
+      $('#save-data-1').prop('disabled', false)
+    }else{
+      $('#save-data-1').prop('disabled', true)
+    }
+  })
+
+  loaddata('data_profil_usulan');
 
 });
 
-    function loaddata(){
+    function loaddata(param){
       
       $.ajax({
           type: 'post',
           dataType: 'json',
-          url: 'getglobal',
+          url: 'getcriteria',
           data : {
-                  param       : 'data_laporan',
-                  type        : 'laporan',
+                  param       : param,
            },
           success: function(result){
             
             if(result.code == 1){
-                  var dt = $('#listlaporan').DataTable({
+                  var dt = $('#list_1').DataTable({
                     destroy: true,
                     paging: true,
                     lengthChange: false,
@@ -94,33 +131,18 @@ $(function () {
                     aaData: result.data,
                       aoColumns: [
                           { 'mDataProp': 'id', 'width':'5%'},
-                          { 'mDataProp': 'judul'},
-                          { 'mDataProp': 'deskripsi'},
-                          { 'mDataProp': 'tanggal'},
-                          { 'mDataProp': 'jenis'},
-                          { 'mDataProp': 'url'},
+                          { 'mDataProp': 'tpst'},
+                          { 'mDataProp': 'desa'},
+                          { 'mDataProp': 'kecamatan'},
+                          { 'mDataProp': 'kabupaten'},
+                          { 'mDataProp': 'uraian'},
+                          { 'mDataProp': 'direktif'},
                           { 'mDataProp': 'id'},
                       ],
                       order: [[0, 'ASC']],
                       aoColumnDefs:[
                           {
-                              mRender: function (data, type, row){
-                                  var $rowData = '';
-                                  $rowData += `<a target="blank_" href="`+row.url+`">Download</a>`;
-                                  
-                                  return $rowData;
-                              },
-                              aTargets: [5]
-                          },
-                          {
-                              mRender: function (data, type, row){
-                                  var stat = row.stat;
-                                  
-                                  if(stat == 1){
-                                    var st = `<a class="dropdown-item" href="#" onclick="updatepublish(`+row.id+`,0)"><i class="fas fa-sign-out-alt"></i> No Publish</a>`
-                                  }else{
-                                    var st = `<a class="dropdown-item" href="#" onclick="updatepublish(`+row.id+`,1)"><i class="fas fa-sign-out-alt"></i> Publish</a>`;
-                                  }
+                              mRender: function (data, type, row){                                  
                                   var $rowData = '';
                                       $rowData += `
                                       <div class="btn-group">
@@ -129,16 +151,14 @@ $(function () {
                                         <span class="sr-only">Toggle Dropdown</span>
                                       </button>
                                       <div class="dropdown-menu" role="menu">
-                                        <a class="dropdown-item" href="#" onclick="editdong('`+row.id+`','`+row.judul+`','`+row.deskripsi+`','`+row.tanggal+`','`+row.jenis+`','`+row.url+`')"><i class="far fa-edit"></i> Edit</a>
-                                        <a class="dropdown-item" href="#" onclick="deleteData(`+row.id+`)"><i class="far fa-trash-alt"></i> Hapus</a>
-                                        <div class="dropdown-divider"></div>
-                                        `+st+`
+                                        <a class="dropdown-item" href="#" onclick="editprofile(${row.id},'${row.tpst}', '${row.desa}', '${row.kecamatan}', '${row.kabupaten}', '${row.uraian}', '${row.direktif}')"><i class="far fa-edit"></i> Edit</a>
+                                        <a class="dropdown-item" href="#" onclick="deleteData(${row.id}, 'data_profil_usulan')"><i class="far fa-trash-alt"></i> Hapus</a>
                                       </div>
                                     </div>`;
     
                                   return $rowData;
                               },
-                              aTargets: [6]
+                              aTargets: [7]
                           }
                       ],
     
@@ -168,77 +188,73 @@ $(function () {
                       }
                   });
               }else{
-                $('#listlaporan').DataTable()
+                var table = $('#list_1').DataTable()
+                table.clear().draw();
               }
     
           }
       });
     }
 
-    function savedata(st){
+    function savedata(param){
 
       var formData = new FormData();
-      formData.append('judul', $('#judul').val());
-      formData.append('deskripsi', $('#deskripsi').val());
-      formData.append('tanggal', $('#tanggal').val());
-      formData.append('jenis', $('#jenis').val());
-      formData.append('url', $('#url').val());
-            
-      var stat;
-        switch (st) {
-          case false:
-              stat = '0';
-            break;
-          default:
-              stat = '1'
+      if(param == '1'){
+          var profile = $('[name="profile-input"]')
+          for (let i = 0; i < profile.length; i++) {
+            var elem = profile[i];
+            formData.append(elem.id, elem.value);
+          }
+          formData.append('table', 'data_profil_usulan')
+          if($('#id_profile').val()){
+            formData.append('id', $('#id_profile').val())
+          }
+          if($('#id_profile').val()){
+            var baseurl = 'updateCriteria';
+            var msg = 'Update Data Profile Usulan Lokasi';
+          }else{
+            var baseurl = 'saveCriteria';
+            var msg = 'Tambah Data Profile Usulan Lokasi';
+          }
         }
 
-        if($('#id').val()){
-          var baseurl = 'updatelaporan';
-          var msg = 'Update Laporan';
+          $.ajax({
+            type: 'post',
+            url: baseurl,
+            dataType: 'json',
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: formData,
+            async:false,
+              success: function(result){
+                Swal.fire({
+                  title: 'Sukses!',
+                  text: msg,
+                  icon: 'success',
+                  showConfirmButton: false,
+                  timer: 1500
+                });
 
-        }else{
-          var baseurl = 'saveLaporan';
-          var msg = 'Tambah Laporan';
-        }
-
-        $.ajax({
-          type: 'post',
-          url: baseurl,
-          dataType: 'json',
-          cache: false,
-          contentType: false,
-          processData: false,
-          data: formData,
-          async:false,
-            success: function(result){
-              Swal.fire({
-                title: 'Sukses!',
-                text: msg,
-                icon: 'success',
-                showConfirmButton: false,
-                timer: 1500
-              });
-
-              $('#modal-default').modal('hide');
-              loaddata();
-            }
+                $('.modal').modal('hide');
+                loaddata('data_profil_usulan');
+              }
           });
         };
 
-function editdong(id, judul, deskripsi, tanggal, jenis, url){
-  $('#add-laporan').trigger('click');
-  $('.modal-title').html('Edit Lapaoran');
-  $('#id').val(id);
-  $('#judul').val(judul);
-  $('#deskripsi').summernote('code', deskripsi);
-  $('#tanggal').val(new Date(tanggal));
-  $('#jenis').val(jenis);
-  $('#url').val(url);
+function editprofile(id, tpst, desa, kecamatan, kabupaten, uraian, direktif){
+  $('#add-data-1').trigger('click');
+  $('#id_profile').val(id);
+  $('#tpst').val(tpst);
+  $('#desa').val(desa);
+  $('#kecamatan').val(kecamatan);
+  $('#kabupaten').val(kabupaten);
+  $('#uraian').summernote('code', uraian);
+  $('#direktif').val(direktif);
 
 }
 
-function deleteData(id)
+function deleteData(id, table)
 {
   const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
@@ -249,7 +265,7 @@ function deleteData(id)
   });
 
   swalWithBootstrapButtons.fire({
-    title: 'Anda Yakin, hapus laporan ini?',
+    title: 'Anda Yakin, hapus data ini?',
     text: "",
     icon: 'warning',
     showCancelButton: true,
@@ -261,20 +277,21 @@ function deleteData(id)
     $.ajax({
       type: 'post',
       dataType: 'json',
-      url: 'deletelaporan',
+      url: 'deletecriteria',
       data : {
               id    : id,
+              table : table
             },
       success: function(data)
       {
         Swal.fire({
           title: 'Sukses!',
-          text: 'Hapus Laporan',
+          text: 'Hapus Data',
           icon: 'success',
           showConfirmButton: false,
           timer: 1500
         });
-        loaddata();
+        loaddata(table);
       }
     });
   }

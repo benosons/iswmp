@@ -121,6 +121,18 @@ class Model_data extends CI_Model {
 
     }
 
+    public function updateCriteria($params = NULL)
+    {
+        $valid = true;
+        $table = $params->table;
+        unset($params->table);
+        $this->db->where('id', $params->id); 
+        $this->db->update($table, $params);
+        // print_r($this->db->last_query());die;
+        return $valid;
+
+    }
+
     public function updatefile($params = NULL)
     {
         $valid = true;
@@ -172,6 +184,11 @@ class Model_data extends CI_Model {
         // $idx = $this->db->escape_str($id);
         $this->db->where('id', $id->id);
         $this->db->delete('data_peta');
+    }
+    public function deletecriteria($param)
+    {
+        $this->db->where('id', $param->id);
+        $this->db->delete($param->table);
     }
 
     public function deleteberita($id)
