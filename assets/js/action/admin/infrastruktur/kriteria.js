@@ -46,24 +46,28 @@ $(function () {
 
 
   $('#add-data-1').on('click', function(){
-    $('#modal-kriteria').modal({
+    $('#modal-1').modal({
       show: true
     });
     $('[name="profile-input"]').val('');
     $(".summernote").summernote('reset');
-    $('#id_profile').val('');
-    // $('.modal-title').html('<i class="fas fa-file"></i> Tambah Laporan');
-    // $('#username').attr('disabled', false);
-    // $('#password').attr('disabled', false);
-    // $("#judul").val('');
-    // $("#tanggal").val('');
-    // $("#jenis").val('');
-    // $("#url").val('');
+    $('#id_1').val('');
+  });
 
+  $('#add-data-2').on('click', function(){
+    $('#modal-2').modal({
+      show: true
+    });
+    $('[name="rencana-input"]').val('');
+    $(".summernote").summernote('reset');
+    $('#id_2').val('');
   });
 
   $('#save-data-1').on('click', function(){
-    savedata('1');
+    savedata('data_profil_usulan');
+  });
+  $('#save-data-2').on('click', function(){
+    savedata('data_rencana_pembagian');
   });
 
   $('[name="profile-input"]').on("summernote.change", function (e) { 
@@ -103,6 +107,9 @@ $(function () {
   })
 
   loaddata('data_profil_usulan');
+  $('#custom-2').on('click', function(){
+    loaddata('data_rencana_pembagian');
+  })
 
 });
 
@@ -118,79 +125,172 @@ $(function () {
           success: function(result){
             
             if(result.code == 1){
-                  var dt = $('#list_1').DataTable({
-                    destroy: true,
-                    paging: true,
-                    lengthChange: false,
-                    searching: true,
-                    ordering: true,
-                    info: true,
-                    autoWidth: false,
-                    responsive: false,
-                    pageLength: 10,
-                    aaData: result.data,
-                      aoColumns: [
-                          { 'mDataProp': 'id', 'width':'5%'},
-                          { 'mDataProp': 'tpst'},
-                          { 'mDataProp': 'desa'},
-                          { 'mDataProp': 'kecamatan'},
-                          { 'mDataProp': 'kabupaten'},
-                          { 'mDataProp': 'uraian'},
-                          { 'mDataProp': 'direktif'},
-                          { 'mDataProp': 'id'},
-                      ],
-                      order: [[0, 'ASC']],
-                      aoColumnDefs:[
-                          {
-                              mRender: function (data, type, row){                                  
-                                  var $rowData = '';
-                                      $rowData += `
-                                      <div class="btn-group">
-                                      <button type="button" class="btn btn-info">Action</button>
-                                      <button type="button" class="btn btn-info dropdown-toggle dropdown-icon" data-toggle="dropdown">
-                                        <span class="sr-only">Toggle Dropdown</span>
-                                      </button>
-                                      <div class="dropdown-menu" role="menu">
-                                        <a class="dropdown-item" href="#" onclick="editprofile(${row.id},'${row.tpst}', '${row.desa}', '${row.kecamatan}', '${row.kabupaten}', '${row.uraian}', '${row.direktif}')"><i class="far fa-edit"></i> Edit</a>
-                                        <a class="dropdown-item" href="#" onclick="deleteData(${row.id}, 'data_profil_usulan')"><i class="far fa-trash-alt"></i> Hapus</a>
-                                      </div>
-                                    </div>`;
-    
-                                  return $rowData;
-                              },
-                              aTargets: [7]
-                          }
-                      ],
-    
-                      fnRowCallback: function(nRow, aData, iDisplayIndex, iDisplayIndexFull){
-                          var index = iDisplayIndexFull + 1;
-                          $('td:eq(0)', nRow).html(' '+index);
-                          return  ;
-                      },
-    
-                      fnInitComplete: function () {
-                          var that = this;
-                          var td ;
-                          var tr ;
-    
-                          this.$('td').click( function () {
-                              td = this;
-                          });
-                          this.$('tr').click( function () {
-                              tr = this;
-                          });
-    
-    
-                          $('#listproj_filter input').bind('keyup', function (e) {
-                              return this.value;
-                          });
-    
-                      }
-                  });
-              }else{
-                var table = $('#list_1').DataTable()
-                table.clear().draw();
+              if(param == 'data_profil_usulan'){
+                var dt = $('#list_1').DataTable({
+                  destroy: true,
+                  paging: true,
+                  lengthChange: false,
+                  searching: true,
+                  ordering: true,
+                  info: true,
+                  autoWidth: false,
+                  responsive: false,
+                  pageLength: 10,
+                  aaData: result.data,
+                    aoColumns: [
+                        { 'mDataProp': 'id', 'width':'5%'},
+                        { 'mDataProp': 'tpst'},
+                        { 'mDataProp': 'desa'},
+                        { 'mDataProp': 'kecamatan'},
+                        { 'mDataProp': 'kabupaten'},
+                        { 'mDataProp': 'uraian'},
+                        { 'mDataProp': 'direktif'},
+                        { 'mDataProp': 'id'},
+                    ],
+                    order: [[0, 'ASC']],
+                    aoColumnDefs:[
+                        {
+                            mRender: function (data, type, row){                                  
+                                var $rowData = '';
+                                    $rowData += `
+                                    <div class="btn-group">
+                                    <button type="button" class="btn btn-info">Action</button>
+                                    <button type="button" class="btn btn-info dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                      <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <div class="dropdown-menu" role="menu">
+                                      <a class="dropdown-item" href="#" onclick="editprofile(${row.id},'${row.tpst}', '${row.desa}', '${row.kecamatan}', '${row.kabupaten}', '${row.uraian}', '${row.direktif}')"><i class="far fa-edit"></i> Edit</a>
+                                      <a class="dropdown-item" href="#" onclick="deleteData(${row.id}, 'data_profil_usulan')"><i class="far fa-trash-alt"></i> Hapus</a>
+                                    </div>
+                                  </div>`;
+      
+                                return $rowData;
+                            },
+                            aTargets: [7]
+                        }
+                    ],
+      
+                    fnRowCallback: function(nRow, aData, iDisplayIndex, iDisplayIndexFull){
+                        var index = iDisplayIndexFull + 1;
+                        $('td:eq(0)', nRow).html(' '+index);
+                        return  ;
+                    },
+      
+                    fnInitComplete: function () {
+                        var that = this;
+                        var td ;
+                        var tr ;
+      
+                        this.$('td').click( function () {
+                            td = this;
+                        });
+                        this.$('tr').click( function () {
+                            tr = this;
+                        });
+      
+      
+                        $('#listproj_filter input').bind('keyup', function (e) {
+                            return this.value;
+                        });
+      
+                    }
+                });
               }
+
+              if(param == 'data_rencana_pembagian'){
+                var dt = $('#list_2').DataTable({
+                  destroy: true,
+                  paging: true,
+                  lengthChange: false,
+                  searching: true,
+                  ordering: true,
+                  info: true,
+                  autoWidth: false,
+                  responsive: false,
+                  pageLength: 10,
+                  aaData: result.data,
+                    aoColumns: [
+                        { 'mDataProp': 'id', 'width':'5%'},
+                        { 'mDataProp': 'studi'},
+                        { 'mDataProp': 'ded'},
+                        { 'mDataProp': 'dok'},
+                        { 'mDataProp': 'bangunan'},
+                        { 'mDataProp': 'lahan'},
+                        { 'mDataProp': 'mesin'},
+                        { 'mDataProp': 'operator'},
+                        { 'mDataProp': 'offtaker'},
+                        { 'mDataProp': 'id'},
+                    ],
+                    order: [[0, 'ASC']],
+                    aoColumnDefs:[
+                        {
+                            mRender: function (data, type, row){                                  
+                                var $rowData = 
+                                [
+                                  '-',
+                                  'Pemerintah Pusat (APBN)',
+                                  'Pemerintah Provinsi (APBD Provinsi)',
+                                  'Pemerintah Kabupaten',
+                                  'Kota (APBD Kab/Kota)',
+                                  'Badan Usaha'
+                                ]
+      
+                                return $rowData[data];
+                            },
+                            aTargets: [1, 2, 3, 4, 5, 6, 7, 8]
+                        },
+                        {
+                            mRender: function (data, type, row){                                  
+                                var $rowData = '';
+                                    $rowData += `
+                                    <div class="btn-group">
+                                    <button type="button" class="btn btn-info">Action</button>
+                                    <button type="button" class="btn btn-info dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                      <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <div class="dropdown-menu" role="menu">
+                                      <a class="dropdown-item" href="#" onclick="editrencana('${row.id}', '${row.studi}', '${row.ded}', '${row.dok}', '${row.bangunan}', '${row.lahan}', '${row.mesin}', '${row.operator}', '${row.offtaker}')"><i class="far fa-edit"></i> Edit</a>
+                                      <a class="dropdown-item" href="#" onclick="deleteData(${row.id}, 'data_rencana_pembagian')"><i class="far fa-trash-alt"></i> Hapus</a>
+                                    </div>
+                                  </div>`;
+      
+                                return $rowData;
+                            },
+                            aTargets: [9]
+                        }
+                    ],
+      
+                    fnRowCallback: function(nRow, aData, iDisplayIndex, iDisplayIndexFull){
+                        var index = iDisplayIndexFull + 1;
+                        $('td:eq(0)', nRow).html(' '+index);
+                        return  ;
+                    },
+      
+                    fnInitComplete: function () {
+                        var that = this;
+                        var td ;
+                        var tr ;
+      
+                        this.$('td').click( function () {
+                            td = this;
+                        });
+                        this.$('tr').click( function () {
+                            tr = this;
+                        });
+      
+      
+                        $('#listproj_filter input').bind('keyup', function (e) {
+                            return this.value;
+                        });
+      
+                    }
+                });
+              }
+                    
+            }else{
+              var table = $('#list_1').DataTable()
+              table.clear().draw();
+            }
     
           }
       });
@@ -199,22 +299,41 @@ $(function () {
     function savedata(param){
 
       var formData = new FormData();
-      if(param == '1'){
+      if(param == 'data_profil_usulan'){
           var profile = $('[name="profile-input"]')
           for (let i = 0; i < profile.length; i++) {
             var elem = profile[i];
             formData.append(elem.id, elem.value);
           }
-          formData.append('table', 'data_profil_usulan')
-          if($('#id_profile').val()){
-            formData.append('id', $('#id_profile').val())
+          formData.append('table', param)
+          if($('#id_1').val()){
+            formData.append('id', $('#id_1').val())
           }
-          if($('#id_profile').val()){
+          if($('#id_1').val()){
             var baseurl = 'updateCriteria';
             var msg = 'Update Data Profile Usulan Lokasi';
           }else{
             var baseurl = 'saveCriteria';
             var msg = 'Tambah Data Profile Usulan Lokasi';
+          }
+        }
+
+      if(param == 'data_rencana_pembagian'){
+          var rencana = $('[name="rencana-input"]')
+          for (let i = 0; i < rencana.length; i++) {
+            var elem = rencana[i];
+            formData.append(elem.id, elem.value);
+          }
+          formData.append('table', param)
+          if($('#id_2').val()){
+            formData.append('id', $('#id_2').val())
+          }
+          if($('#id_2').val()){
+            var baseurl = 'updateCriteria';
+            var msg = 'Update Data Rencana Pembagian Dukungan Kegiatan';
+          }else{
+            var baseurl = 'saveCriteria';
+            var msg = 'Tambah Data Rencana Pembagian Dukungan Kegiatan';
           }
         }
 
@@ -237,21 +356,33 @@ $(function () {
                 });
 
                 $('.modal').modal('hide');
-                loaddata('data_profil_usulan');
+                loaddata(param);
               }
           });
         };
 
 function editprofile(id, tpst, desa, kecamatan, kabupaten, uraian, direktif){
   $('#add-data-1').trigger('click');
-  $('#id_profile').val(id);
+  $('#id_1').val(id);
   $('#tpst').val(tpst);
   $('#desa').val(desa);
   $('#kecamatan').val(kecamatan);
   $('#kabupaten').val(kabupaten);
   $('#uraian').summernote('code', uraian);
   $('#direktif').val(direktif);
+}
 
+function editrencana(id, studi, ded, dok, bangunan, lahan, mesin, operator, offtaker){
+  $('#add-data-2').trigger('click');
+  $('#id_2').val(id);
+  $('#studi').val(studi);
+  $('#ded').val(ded);
+  $('#dok').val(dok);
+  $('#bangunan').val(bangunan);
+  $('#lahan').val(lahan);
+  $('#mesin').val(mesin);
+  $('#operator').val(operator);
+  $('#offtaker').val(offtaker);
 }
 
 function deleteData(id, table)
