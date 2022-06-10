@@ -12,6 +12,8 @@ $(function () {
     theme: 'bootstrap4'
   })
 
+  $('.datatable').DataTable()
+
   //Date picker
   $('#reservationdate').datetimepicker({
     format: 'L'

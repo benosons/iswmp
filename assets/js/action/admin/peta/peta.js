@@ -331,7 +331,7 @@ function editdong(id, latitude, longitude, nama, alamat, kabupaten, kecamatan, d
   $('#nama').val(nama);
   var alamatnya = alamat.replace(/~/g, '<');
   var alamat_1 = alamatnya.replace(/`/g, '"');
-  console.log(alamat);
+  
   $('#alamat').summernote('code', alamat_1);
   $('#kecamatan').val(kecamatan);
   $('#desa').val(desa);
