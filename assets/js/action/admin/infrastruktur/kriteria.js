@@ -99,6 +99,16 @@ $(function () {
 		$("#id_5").val("");
 	});
 
+	$("#add-data-6").on("click", function () {
+		$("#modal-6").modal({
+			show: true,
+		});
+		$('[name="pendetailan-input"]').val(0).trigger("change");
+		$('[name="teknis-input"]').val("");
+		$(".summernote").summernote("reset");
+		$("#id_6").val("");
+	});
+
 	$("#save-data-1").on("click", function () {
 		savedata("data_profil_usulan");
 	});
@@ -117,6 +127,10 @@ $(function () {
 
 	$("#save-data-5").on("click", function () {
 		savedata("data_status_usulan");
+	});
+
+	$("#save-data-6").on("click", function () {
+		savedata("data_pendetailan");
 	});
 
 	$('[name="profile-input"]').on("summernote.change", function (e) {
@@ -165,6 +179,9 @@ $(function () {
 	});
 	$("#custom-5").on("click", function () {
 		loaddata("data_status_usulan");
+	});
+	$("#custom-6").on("click", function () {
+		loaddata("data_pendetailan");
 	});
 });
 
@@ -642,6 +659,294 @@ function loaddata(param) {
 						},
 					});
 				}
+
+				if (param == "data_pendetailan") {
+					var dt = $("#list_6").DataTable({
+						destroy: true,
+						paging: true,
+						lengthChange: false,
+						searching: true,
+						ordering: true,
+						info: true,
+						autoWidth: false,
+						responsive: false,
+						pageLength: 10,
+						aaData: result.data,
+						aoColumns: [
+							{ mDataProp: "id", width: "5%" },
+							{ mDataProp: "pengelola" },
+							{ mDataProp: "akses" },
+							{ mDataProp: "jalan" },
+							{ mDataProp: "listrik" },
+							{ mDataProp: "air" },
+							{ mDataProp: "partisipasi" },
+							{ mDataProp: "jarak" },
+							{ mDataProp: "resistensi" },
+							{ mDataProp: "bangunan_detail" },
+							{ mDataProp: "banjir" },
+							{ mDataProp: "ssk" },
+							{ mDataProp: "ptmp" },
+							{ mDataProp: "das" },
+							{ mDataProp: "luas_lahan" },
+							// { mDataProp: "topografi" },
+							{ mDataProp: "id" },
+						],
+						order: [[0, "ASC"]],
+						aoColumnDefs: [
+							{
+								mRender: function (data, type, row) {
+									var $rowData = [
+										"-",
+										"UPTD PPK BLUD",
+										"UPTD",
+										"Proses Pembentukan UPTD",
+										"Surat Kesanggupan Pembentukan Institusi Pengelola",
+										"Belum ada Institusi Khusus",
+									];
+
+									return $rowData[row.pengelola];
+								},
+								aTargets: [1],
+							},
+							{
+								mRender: function (data, type, row) {
+									var $rowData = [
+										"-",
+										"Kualitas Layak, Aspal atau Beton, Mudah Dijangkau",
+										"Kualitas Kurang, Aspal atau Beton, Mudah Dijangkau",
+										"Kualitas Kurang, Aspal atau Beton, Sulit Dijangkau",
+										"Ada Rencana Pengembangan Jalan",
+										"Belum ada Rencana Pengembangan Jalan",
+									];
+
+									return $rowData[row.akses];
+								},
+								aTargets: [2],
+							},
+							{
+								mRender: function (data, type, row) {
+									var $rowData = [
+										"-",
+										">5 m",
+										"4 - 5 m",
+										"3 - 4 m",
+										"2-3 m",
+										"< 2 m",
+									];
+
+									return $rowData[row.jalan];
+								},
+								aTargets: [3],
+							},
+							{
+								mRender: function (data, type, row) {
+									var $rowData = [
+										"-",
+										"Ada Akses Listrik & Instalasi",
+										"Hanya Ada Akses Listrik",
+										"Belum ada akses jaringan listrik tetapi sanggup menyediakan jaringan listrik pada saat konstruksi dimulai",
+										"Belum ada akses jaringan listrik tetapi ada rencana pengembangan jaringan dan instalasi listriknya",
+										"Belum ada akses jaringan listrik ",
+									];
+
+									return $rowData[row.listrik];
+								},
+								aTargets: [4],
+							},
+							{
+								mRender: function (data, type, row) {
+									var $rowData = [
+										"-",
+										"Memiliki akses langsung dengan badan air penerima",
+										"Badan air penerima terhalangi lahan bukan milik TPST tetapi masih ada akses untuk outlet ke badan air penerima",
+										"Badan air penerima terhalangi lahan bukan milik TPST dan tidak ada akses untuk outlet ke badan air penerima",
+									];
+
+									return $rowData[row.air];
+								},
+								aTargets: [5],
+							},
+							{
+								mRender: function (data, type, row) {
+									var $rowData = [
+										"-",
+										"Dukungan langsung dengan inisiatif dari masyarakat dan atau sudah ada infrastruktur sampah eksisting",
+										"Menerima berdasarkan hasil sosialisasi dan edukasi",
+										"Sudah dilakukan sosialisasi dan masyarakat menerima dengan syarat",
+										"Sudah dilakukan sosialisasi namun masyarakat menolak",
+										"Belum dilakukan sosialisasi (ada potensi penerimaan maupun penolakkan)",
+									];
+
+									return $rowData[row.partisipasi];
+								},
+								aTargets: [6],
+							},
+							{
+								mRender: function (data, type, row) {
+									var $rowData = [
+										"-",
+										"> 200 m",
+										"150 - 200 m",
+										"100 - 150 m",
+										"50 - 100 m",
+										"Berbatasan langsung dengan aktivitas masyarakat",
+									];
+
+									return $rowData[row.jarak];
+								},
+								aTargets: [7],
+							},
+							{
+								mRender: function (data, type, row) {
+									var $rowData = [
+										"-",
+										"Lahan kosong",
+										"Lahan digarap pemda (ada aktivitas eksisting)",
+										"Lahan produktif, ada penggarap mengizinkan",
+										"Lahan produktif, ada penggarap mengizinkan dengan syarat penggantian",
+										"Ada penggarap dan penggarap tidak mengizinkan",
+									];
+
+									return $rowData[row.resistensi];
+								},
+								aTargets: [8],
+							},
+							{
+								mRender: function (data, type, row) {
+									var $rowData = [
+										"-",
+										"Tidak ada Bangunan di atas Lahan",
+										"Terdapat Bangunan Pemerintah dan dapat di lakukan penghapusan aset",
+										"Terdapat Bangunan Tanpa Izin",
+										"Terdapat Bangunan Tanpa Izin dengan Syarat Penggantian",
+										"Terdapat Bangunan yang Tidak dapat dibongkar",
+									];
+
+									return $rowData[row.bangunan_detail];
+								},
+								aTargets: [9],
+							},
+							{
+								mRender: function (data, type, row) {
+									var $rowData = [
+										"-",
+										"Tidak termasuk Kawasan Banjir",
+										"Kawasan Banjir 50 Tahunan",
+										"Kawasan Banjir 10 Tahunan",
+										"Kawasan Banjir 5 Tahunan",
+										"Kawasan Banjir 2 Tahunan",
+									];
+
+									return $rowData[row.banjir];
+								},
+								aTargets: [10],
+							},
+							{
+								mRender: function (data, type, row) {
+									var $rowData = [
+										"-",
+										"Kegiatan sudah tercantum dalam SSK terupdate 5 tahun terakhir",
+										"Kegiatan sudah tercantum dalam SSK tapi belum dimutahirkan dalam 5 tahun terakhir",
+										"Kegiatan tidak tercantum dalam SSK",
+									];
+
+									return $rowData[row.ssk];
+								},
+								aTargets: [11],
+							},
+							{
+								mRender: function (data, type, row) {
+									var $rowData = [
+										"-",
+										"Lokasi kegiatan sudah tercantum dalam Masterplan atau PTMP persampahan terupdate 5 tahun terakhir",
+										"Lokasi kegiatan sudah tercantum dalam Masterplan atau PTMP persampahan tapi belum direview dalam 5 tahun terakhir",
+										"Belum ada",
+									];
+
+									return $rowData[row.ptmp];
+								},
+								aTargets: [12],
+							},
+							{
+								mRender: function (data, type, row) {
+									var $rowData = [
+										"-",
+										"Lokasi infrastruktur dan seluruh wilayah pelayanannya berada di dalam batas administrasi DAS Citarum",
+										"Lokasi infrastruktur di dalam batas administrasi DAS Citarum dan sebagian wilayah pelayanannya berada di luar batas administrasi DAS Citarum",
+										"Lokasi infrastruktur berada di luar batas administrasi DAS Citarum tetapi sebagian wilayah pelayanannya berada di dalam batas administrasi DAS Citarum",
+										"Lokasi infrastruktur berada di dalam batas administrasi DAS Citarum dan wilayah pelayanannya berada di luar batas administrasi DAS Citarum",
+										"Lokasi infrastruktur dan wilayah pelayanannya berada di luar batas administrasi DAS Citarum",
+									];
+
+									return $rowData[row.das];
+								},
+								aTargets: [13],
+							},
+							{
+								mRender: function (data, type, row) {
+									var $rowData = [
+										"-",
+										"> 5000 m2",
+										"3000 - 5000 m2",
+										"1500 - 3000 m2",
+										"1000 - 1500 m2",
+										"< 1000 m2",
+									];
+
+									return $rowData[row.luas_lahan];
+								},
+								aTargets: [14],
+							},
+							{
+								mRender: function (data, type, row) {
+									var $rowData = "";
+									$rowData += `
+                                    <div class="btn-group">
+                                    <button type="button" class="btn btn-info">Action</button>
+                                    <button type="button" class="btn btn-info dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                      <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <div class="dropdown-menu" role="menu">
+                                      <a class="dropdown-item" href="#" onclick="editpendetailan('${row.id}', '${row.pengelola}', '${row.akses}', '${row.jalan}', '${row.listrik}', '${row.air}', '${row.partisipasi}', '${row.jarak}', '${row.resistensi}', '${row.bangunan_detail}', '${row.banjir}', '${row.ssk}', '${row.ptmp}', '${row.das}', '${row.luas_lahan}')"><i class="far fa-edit"></i> Edit</a>
+                                      <a class="dropdown-item" href="#" onclick="deleteData(${row.id}, 'data_pendetailan')"><i class="far fa-trash-alt"></i> Hapus</a>
+                                    </div>
+                                  </div>`;
+
+									return $rowData;
+								},
+								aTargets: [15],
+							},
+						],
+
+						fnRowCallback: function (
+							nRow,
+							aData,
+							iDisplayIndex,
+							iDisplayIndexFull
+						) {
+							var index = iDisplayIndexFull + 1;
+							$("td:eq(0)", nRow).html(" " + index);
+							return;
+						},
+
+						fnInitComplete: function () {
+							var that = this;
+							var td;
+							var tr;
+
+							this.$("td").click(function () {
+								td = this;
+							});
+							this.$("tr").click(function () {
+								tr = this;
+							});
+
+							$("#listproj_filter input").bind("keyup", function (e) {
+								return this.value;
+							});
+						},
+					});
+				}
 			} else {
 				var table = $("#list_1").DataTable();
 				table.clear().draw();
@@ -747,6 +1052,25 @@ function savedata(param) {
 		}
 	}
 
+	if (param == "data_pendetailan") {
+		var pendetailan = $('[name="pendetailan-input"]');
+		for (let i = 0; i < pendetailan.length; i++) {
+			var elem = pendetailan[i];
+			formData.append(elem.id, elem.value);
+		}
+		formData.append("table", param);
+		if ($("#id_6").val()) {
+			formData.append("id", $("#id_6").val());
+		}
+		if ($("#id_6").val()) {
+			var baseurl = "updateCriteria";
+			var msg = "Update Data Pendetailan Readiness Criteria  ";
+		} else {
+			var baseurl = "saveCriteria";
+			var msg = "Tambah Data Pendetailan Readiness Criteria  ";
+		}
+	}
+
 	$.ajax({
 		type: "post",
 		url: baseurl,
@@ -849,6 +1173,41 @@ function editusulan(id, usulan) {
 	$("#add-data-5").trigger("click");
 	$("#id_5").val(id);
 	$("#usulan").val(usulan).trigger("change");
+}
+
+function editpendetailan(
+	id,
+	pengelola,
+	akses,
+	jalan,
+	listrik,
+	air,
+	partisipasi,
+	jarak,
+	resistensi,
+	bangunan,
+	banjir,
+	ssk,
+	ptmp,
+	das,
+	luas_lahan
+) {
+	$("#add-data-6").trigger("click");
+	$("#id_6").val(id);
+	$("#pengelola").val(pengelola).trigger("change");
+	$("#akses").val(akses).trigger("change");
+	$("#jalan").val(jalan).trigger("change");
+	$("#listrik").val(listrik).trigger("change");
+	$("#air").val(air).trigger("change");
+	$("#partisipasi").val(partisipasi).trigger("change");
+	$("#jarak").val(jarak).trigger("change");
+	$("#resistensi").val(resistensi).trigger("change");
+	$("#bangunan_detail").val(bangunan).trigger("change");
+	$("#banjir").val(banjir).trigger("change");
+	$("#ssk").val(ssk).trigger("change");
+	$("#ptmp").val(ptmp).trigger("change");
+	$("#das").val(das).trigger("change");
+	$("#luas_lahan").val(luas_lahan).trigger("change");
 }
 
 function deleteData(id, table) {

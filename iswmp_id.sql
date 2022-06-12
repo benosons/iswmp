@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 12, 2022 at 07:43 AM
+-- Generation Time: Jun 12, 2022 at 08:47 AM
 -- Server version: 5.7.33
 -- PHP Version: 7.4.19
 
@@ -205,6 +205,41 @@ INSERT INTO `data_laporan` (`id`, `judul`, `deskripsi`, `tanggal`, `create_by`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `data_pendetailan`
+--
+
+CREATE TABLE `data_pendetailan` (
+  `id` int(11) NOT NULL,
+  `pengelola` varchar(255) NOT NULL,
+  `akses` varchar(255) NOT NULL,
+  `jalan` varchar(255) NOT NULL,
+  `listrik` varchar(255) NOT NULL,
+  `air` varchar(255) NOT NULL,
+  `partisipasi` varchar(255) NOT NULL,
+  `jarak` varchar(255) NOT NULL,
+  `resistensi` varchar(255) NOT NULL,
+  `bangunan_detail` varchar(255) NOT NULL,
+  `banjir` varchar(255) NOT NULL,
+  `ssk` varchar(255) NOT NULL,
+  `ptmp` varchar(255) NOT NULL,
+  `das` varchar(255) NOT NULL,
+  `luas_lahan` varchar(255) NOT NULL,
+  `create_by` varchar(255) NOT NULL,
+  `update_by` varchar(255) DEFAULT NULL,
+  `create_date` datetime NOT NULL,
+  `update_date` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `data_pendetailan`
+--
+
+INSERT INTO `data_pendetailan` (`id`, `pengelola`, `akses`, `jalan`, `listrik`, `air`, `partisipasi`, `jarak`, `resistensi`, `bangunan_detail`, `banjir`, `ssk`, `ptmp`, `das`, `luas_lahan`, `create_by`, `update_by`, `create_date`, `update_date`) VALUES
+(2, '2', '2', '2', '2', '2', '2', '2', '2', '2', '2', '2', '2', '2', '2', '1', '1', '2022-06-12 08:44:43', '2022-06-12 08:44:43');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `data_pengaduan`
 --
 
@@ -360,13 +395,6 @@ CREATE TABLE `data_status_usulan` (
   `create_date` datetime NOT NULL,
   `update_date` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `data_status_usulan`
---
-
-INSERT INTO `data_status_usulan` (`id`, `usulan`, `create_by`, `update_by`, `create_date`, `update_date`) VALUES
-(1, '3', '1', '1', '2022-06-12 06:42:20', '2022-06-12 06:42:57');
 
 -- --------------------------------------------------------
 
@@ -603,6 +631,12 @@ ALTER TABLE `data_laporan`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
+-- Indexes for table `data_pendetailan`
+--
+ALTER TABLE `data_pendetailan`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `data_pengaduan`
 --
 ALTER TABLE `data_pengaduan`
@@ -707,6 +741,12 @@ ALTER TABLE `data_kelengkapan`
 --
 ALTER TABLE `data_laporan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `data_pendetailan`
+--
+ALTER TABLE `data_pendetailan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `data_pengaduan`

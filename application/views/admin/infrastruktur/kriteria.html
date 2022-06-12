@@ -346,37 +346,42 @@
 												</div>
 												<hr />
 												<input id="param" value="" hidden />
-												<table
-													class="table table-bordered table-hover datatable"
-													id="list_6"
-												>
-													<thead>
-														<tr>
-															<th>No</th>
-															<th>Kesiapan Lembaga Pengelola</th>
-															<th>Ketersediaan akses jalan</th>
-															<th>Lebar Jalan</th>
-															<th>Ketersediaan Jaringan listrik</th>
-															<th>Badan air penerima</th>
-															<th>Partisipasi Masyarakat</th>
-															<th>
-																Jarak terdekat dengan Aktivitas Masyarakat
-															</th>
-															<th>Resistensi terhadap lahan garapan</th>
-															<th>Bangunan di Atas Lahan</th>
-															<th>
-																Potensi banjir yang ada di Kawasan Rencana TPST
-															</th>
-															<th>Kesesuaian Dokumen SSK</th>
-															<th>Kesesuaian dengan Rencana Induk/ PTMP</th>
-															<th>Lokasi Rencana Infrastruktur terhadap</th>
-															<th>Delineasi DAS CItarum</th>
-															<th>Luas Lahan</th>
-															<th>Topografi</th>
-															<th></th>
-														</tr>
-													</thead>
-												</table>
+												<div class="table-responsive">
+													<table
+														class="table table-bordered table-hover datatable"
+														id="list_6"
+													>
+														<thead>
+															<tr>
+																<th>No</th>
+																<th>Kesiapan Lembaga Pengelola</th>
+																<th>Ketersediaan akses jalan</th>
+																<th>Lebar Jalan</th>
+																<th>Ketersediaan Jaringan listrik</th>
+																<th>Badan air penerima</th>
+																<th>Partisipasi Masyarakat</th>
+																<th>
+																	Jarak terdekat dengan Aktivitas Masyarakat
+																</th>
+																<th>Resistensi terhadap lahan garapan</th>
+																<th>Bangunan di Atas Lahan</th>
+																<th>
+																	Potensi banjir yang ada di Kawasan Rencana
+																	TPST
+																</th>
+																<th>Kesesuaian Dokumen SSK</th>
+																<th>Kesesuaian dengan Rencana Induk/ PTMP</th>
+																<th>
+																	Lokasi Rencana Infrastruktur terhadap
+																	Delineasi DAS CItarum
+																</th>
+																<th>Luas Lahan</th>
+																<!-- <th>Topografi</th> -->
+																<th></th>
+															</tr>
+														</thead>
+													</table>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -1010,7 +1015,7 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<input id="id_4" hidden />
+					<input id="id_6" hidden />
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group">
@@ -1176,25 +1181,6 @@
 									class="form-control select2bs4"
 								>
 									<option value="0">-Pilih-</option>
-									<option value="1">> 200 m</option>
-									<option value="2">150 - 200 m</option>
-									<option value="3">100 - 150 m</option>
-									<option value="4">50 - 100 m</option>
-									<option value="5">
-										Berbatasan langsung dengan aktivitas masyarakat
-									</option>
-								</select>
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="form-group">
-								<label>Bangunan di Atas Lahan <code>*</code>:</label>
-								<select
-									id="bangunan"
-									name="pendetailan-input"
-									class="form-control select2bs4"
-								>
-									<option value="0">-Pilih-</option>
 									<option value="1">Lahan kosong</option>
 									<option value="2">
 										Lahan digarap pemda (ada aktivitas eksisting)
@@ -1208,6 +1194,30 @@
 									</option>
 									<option value="5">
 										Ada penggarap dan penggarap tidak mengizinkan
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Bangunan di Atas Lahan <code>*</code>:</label>
+								<select
+									id="bangunan_detail"
+									name="pendetailan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">Tidak ada Bangunan di atas Lahan</option>
+									<option value="2">
+										Terdapat Bangunan Pemerintah dan dapat di lakukan
+										penghapusan aset
+									</option>
+									<option value="3">Terdapat Bangunan Tanpa Izin</option>
+									<option value="4">
+										Terdapat Bangunan Tanpa Izin dengan Syarat Penggantian
+									</option>
+									<option value="5">
+										Terdapat Bangunan yang Tidak dapat dibongkar
 									</option>
 								</select>
 							</div>
@@ -1241,18 +1251,15 @@
 									class="form-control select2bs4"
 								>
 									<option value="0">-Pilih-</option>
-									<option value="1">Tidak ada Bangunan di atas Lahan</option>
+									<option value="1">
+										Kegiatan sudah tercantum dalam SSK terupdate 5 tahun
+										terakhir
+									</option>
 									<option value="2">
-										Terdapat Bangunan Pemerintah dan dapat di lakukan
-										penghapusan aset
+										Kegiatan sudah tercantum dalam SSK tapi belum dimutahirkan
+										dalam 5 tahun terakhir
 									</option>
-									<option value="3">Terdapat Bangunan Tanpa Izin</option>
-									<option value="4">
-										Terdapat Bangunan Tanpa Izin dengan Syarat Penggantian
-									</option>
-									<option value="5">
-										Terdapat Bangunan yang Tidak dapat dibongkar
-									</option>
+									<option value="3">Kegiatan tidak tercantum dalam SSK</option>
 								</select>
 							</div>
 						</div>
@@ -1262,7 +1269,83 @@
 									>Kesesuaian dengan Rencana Induk/ PTMP <code>*</code>:</label
 								>
 								<select
-									id="ssk"
+									id="ptmp"
+									name="pendetailan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">
+										Lokasi kegiatan sudah tercantum dalam Masterplan atau PTMP
+										persampahan terupdate 5 tahun terakhir
+									</option>
+									<option value="2">
+										Lokasi kegiatan sudah tercantum dalam Masterplan atau PTMP
+										persampahan tapi belum direview dalam 5 tahun terakhir
+									</option>
+									<option value="3">Belum ada</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Lokasi Rencana Infrastruktur terhadap Delineasi DAS CItarum
+									<code>*</code>:</label
+								>
+								<select
+									id="das"
+									name="pendetailan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">
+										Lokasi infrastruktur dan seluruh wilayah pelayanannya berada
+										di dalam batas administrasi DAS Citarum
+									</option>
+									<option value="2">
+										Lokasi infrastruktur di dalam batas administrasi DAS Citarum
+										dan sebagian wilayah pelayanannya berada di luar batas
+										administrasi DAS Citarum
+									</option>
+									<option value="3">
+										Lokasi infrastruktur berada di luar batas administrasi DAS
+										Citarum tetapi sebagian wilayah pelayanannya berada di dalam
+										batas administrasi DAS Citarum
+									</option>
+									<option value="4">
+										Lokasi infrastruktur berada di dalam batas administrasi DAS
+										Citarum dan wilayah pelayanannya berada di luar batas
+										administrasi DAS Citarum
+									</option>
+									<option value="5">
+										Lokasi infrastruktur dan wilayah pelayanannya berada di luar
+										batas administrasi DAS Citarum
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Luas Lahan <code>*</code>:</label>
+								<select
+									id="luas_lahan"
+									name="pendetailan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">> 5000 m2</option>
+									<option value="2">3000 - 5000 m2</option>
+									<option value="3">1500 - 3000 m2</option>
+									<option value="4">1000 - 1500 m2</option>
+									<option value="5">< 1000 m2</option>
+								</select>
+							</div>
+						</div>
+						<!-- <div class="col-md-12">
+							<div class="form-group">
+								<label>Tipografi <code>*</code>:</label>
+								<select
+									id="tipografi"
 									name="pendetailan-input"
 									class="form-control select2bs4"
 								>
@@ -1281,12 +1364,22 @@
 									</option>
 								</select>
 							</div>
-						</div>
+						</div> -->
 					</div>
 				</div>
+				<!-- <option value="0">-Pilih-</option>
+				<option value="1">Tidak ada Bangunan di atas Lahan</option>
+				<option value="2">
+					Terdapat Bangunan Pemerintah dan dapat di lakukan penghapusan aset
+				</option>
+				<option value="3">Terdapat Bangunan Tanpa Izin</option>
+				<option value="4">
+					Terdapat Bangunan Tanpa Izin dengan Syarat Penggantian
+				</option>
+				<option value="5">Terdapat Bangunan yang Tidak dapat dibongkar</option> -->
 				<div class="modal-footer">
 					<!-- <button type="button" class="btn btn-primary">Tutup</button> -->
-					<button id="save-data-4" type="button" class="btn btn-success">
+					<button id="save-data-6" type="button" class="btn btn-success">
 						<i class="fas fa-check"> </i> Simpan
 					</button>
 				</div>
