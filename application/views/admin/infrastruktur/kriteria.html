@@ -1,427 +1,1308 @@
 {% extends "admin/layout.html" %} {% block content %}
 <style>
-  .custom-file-label::after {
-    width: 100%;
-  }
+	.custom-file-label::after {
+		width: 100%;
+	}
 </style>
 <section class="content-header">
-  <div class="container-fluid">
-    <div class="row mb-2">
-      <div class="col-sm-8">
-        <h1><i class="nav-icon fa fa-clone"></i> Tahap Perencanaan</h1>
-      </div>
-      <div class="col-sm-4">
-        <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="#">Readiness Criteria</a></li>
-          <li class="breadcrumb-item active">List data</li>
-        </ol>
-      </div>
-    </div>
-  </div><!-- /.container-fluid -->
+	<div class="container-fluid">
+		<div class="row mb-2">
+			<div class="col-sm-8">
+				<h1><i class="nav-icon fa fa-clone"></i> Tahap Perencanaan</h1>
+			</div>
+			<div class="col-sm-4">
+				<ol class="breadcrumb float-sm-right">
+					<li class="breadcrumb-item"><a href="#">Readiness Criteria</a></li>
+					<li class="breadcrumb-item active">List data</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+	<!-- /.container-fluid -->
 </section>
 
 <!-- Main content -->
 <section class="content">
+	<!-- Default box -->
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12">
+				<div class="card card-lightblue card-outline">
+					<div class="card-header">
+						<h1 class="card-title">Penilaian Readiness Criteria Lahan</h1>
 
-  <!-- Default box -->
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-12">
-        <div class="card card-lightblue card-outline">
-          <div class="card-header">
-            <h1 class="card-title">Penilaian Readiness Criteria Lahan</h1>
+						<div class="card-tools">
+							<div class="input-group input-group-sm"></div>
+						</div>
+					</div>
+					<div class="card-body">
+						<div class="row">
+							<div class="col-12 col-sm-12">
+								<div class="card card-lightblue card-outline card-outline-tabs">
+									<div class="card-header p-0 border-bottom-0">
+										<ul
+											class="nav nav-tabs"
+											id="custom-tabs-four-tab"
+											role="tablist"
+										>
+											<li class="nav-item">
+												<a
+													class="nav-link active"
+													id="custom-1"
+													data-toggle="pill"
+													href="#tab_1"
+													role="tab"
+													aria-controls="custom-tabs-four-home"
+													aria-selected="true"
+													>Profil Usulan</a
+												>
+											</li>
+											<li class="nav-item">
+												<a
+													class="nav-link"
+													id="custom-2"
+													data-toggle="pill"
+													href="#tab_2"
+													role="tab"
+													aria-controls="custom-tabs-four-profile"
+													aria-selected="false"
+													>Rencana Pembagian</a
+												>
+											</li>
+											<li class="nav-item">
+												<a
+													class="nav-link"
+													id="custom-3"
+													data-toggle="pill"
+													href="#tab_3"
+													role="tab"
+													aria-controls="custom-tabs-four-messages"
+													aria-selected="false"
+													>Rencana Teknis</a
+												>
+											</li>
+											<li class="nav-item">
+												<a
+													class="nav-link"
+													id="custom-4"
+													data-toggle="pill"
+													href="#tab_4"
+													role="tab"
+													aria-controls="custom-tabs-four-settings"
+													aria-selected="false"
+													>Kelengkapan</a
+												>
+											</li>
+											<li class="nav-item">
+												<a
+													class="nav-link"
+													id="custom-5"
+													data-toggle="pill"
+													href="#tab_5"
+													role="tab"
+													aria-controls="custom-tabs-four-settings"
+													aria-selected="false"
+													>Status Usulan</a
+												>
+											</li>
+											<li class="nav-item">
+												<a
+													class="nav-link"
+													id="custom-6"
+													data-toggle="pill"
+													href="#tab_6"
+													role="tab"
+													aria-controls="custom-tabs-four-settings"
+													aria-selected="false"
+													>Pendetailan</a
+												>
+											</li>
+										</ul>
+									</div>
+									<div class="card-body">
+										<div class="tab-content" id="custom-tabs-four-tabContent">
+											<div
+												class="tab-pane fade show active"
+												id="tab_1"
+												role="tabpanel"
+												aria-labelledby="custom-tabs-four-home-tab"
+											>
+												<div class="row">
+													<div class="col-sm-10">
+														<h3>1. Profil Usulan Lokasi</h3>
+													</div>
+													<div class="col-sm-2">
+														<div
+															class="btn btn-success pull-right"
+															id="add-data-1"
+														>
+															<i class="fas fa-plus"></i
+															><span> Tambah Data</span>
+														</div>
+													</div>
+												</div>
+												<hr />
+												<input id="param" value="" hidden />
+												<table
+													class="table table-bordered table-hover datatable"
+													id="list_1"
+												>
+													<thead>
+														<tr>
+															<th>No</th>
+															<th>Jenis Infrastruktur</th>
+															<th>Desa/Kelurahan</th>
+															<th>Kecamatan</th>
+															<th>Kabupaten/Kota</th>
+															<th>Deskripsi Urgensi</th>
+															<th>Jenis Usulan</th>
+															<th></th>
+														</tr>
+													</thead>
+												</table>
+											</div>
+											<div
+												class="tab-pane fade"
+												id="tab_2"
+												role="tabpanel"
+												aria-labelledby="custom-tabs-four-profile-tab"
+											>
+												<div class="row">
+													<div class="col-sm-10">
+														<h3>2. Rencana Pembagian Dukungan Kegiatan</h3>
+													</div>
+													<div class="col-sm-2">
+														<div
+															class="btn btn-success pull-right"
+															id="add-data-2"
+														>
+															<i class="fas fa-plus"></i
+															><span> Tambah Data</span>
+														</div>
+													</div>
+												</div>
+												<hr />
+												<input id="param" value="" hidden />
+												<table
+													class="table table-bordered table-hover datatable"
+													id="list_2"
+												>
+													<thead>
+														<tr>
+															<th>No</th>
+															<th>Studi FS</th>
+															<th>DED</th>
+															<th>Dokumen</th>
+															<th>Bangunan</th>
+															<th>Lahan</th>
+															<th>Mesin&Peralatan</th>
+															<th>Operator</th>
+															<th>Offtaker</th>
+															<th></th>
+														</tr>
+													</thead>
+												</table>
+											</div>
+											<div
+												class="tab-pane fade"
+												id="tab_3"
+												role="tabpanel"
+												aria-labelledby="custom-tabs-four-messages-tab"
+											>
+												<div class="row">
+													<div class="col-sm-10">
+														<h3>
+															3. Rencana Teknis Operasionalisasi Infrastruktur
+														</h3>
+													</div>
+													<div class="col-sm-2">
+														<div
+															class="btn btn-success pull-right"
+															id="add-data-3"
+														>
+															<i class="fas fa-plus"></i
+															><span> Tambah Data</span>
+														</div>
+													</div>
+												</div>
+												<hr />
+												<input id="param" value="" hidden />
+												<table
+													class="table table-bordered table-hover datatable"
+													id="list_3"
+												>
+													<thead>
+														<tr>
+															<th>No</th>
+															<th>Ketersediaan</th>
+															<th>Kapasitas</th>
+															<th>teknologi</th>
+															<th>Keberadaan</th>
+															<th>Jenis</th>
+															<th>Kerjasama</th>
+															<th>Kesanggupan</th>
+															<th></th>
+														</tr>
+													</thead>
+												</table>
+											</div>
+											<div
+												class="tab-pane fade"
+												id="tab_4"
+												role="tabpanel"
+												aria-labelledby="custom-tabs-four-settings-tab"
+											>
+												<div class="row">
+													<div class="col-sm-10">
+														<h3>4. Kelengkapan Readiness Criteria (Kunci)</h3>
+													</div>
+													<div class="col-sm-2">
+														<div
+															class="btn btn-success pull-right"
+															id="add-data-4"
+														>
+															<i class="fas fa-plus"></i
+															><span> Tambah Data</span>
+														</div>
+													</div>
+												</div>
+												<hr />
+												<input id="param" value="" hidden />
+												<table
+													class="table table-bordered table-hover datatable"
+													id="list_4"
+												>
+													<thead>
+														<tr>
+															<th>No</th>
+															<th>Surat Minat</th>
+															<th>Status Lahan</th>
+															<th>Tata Ruang</th>
+															<th>Kesiapan Menerima Aset</th>
+															<th>Penyediaan Alokasi Anggaran</th>
+															<th>Sosialisasi dan penyusunan Dok Lingkungan</th>
+															<th></th>
+														</tr>
+													</thead>
+												</table>
+											</div>
+											<div
+												class="tab-pane fade"
+												id="tab_5"
+												role="tabpanel"
+												aria-labelledby="custom-tabs-four-settings-tab"
+											>
+												<div class="row">
+													<div class="col-sm-10">
+														<h3>5. Status Usulan</h3>
+													</div>
+													<div class="col-sm-2">
+														<div
+															class="btn btn-success pull-right"
+															id="add-data-5"
+														>
+															<i class="fas fa-plus"></i
+															><span> Tambah Data</span>
+														</div>
+													</div>
+												</div>
+												<hr />
+												<input id="param" value="" hidden />
+												<table
+													class="table table-bordered table-hover datatable"
+													id="list_5"
+												>
+													<thead>
+														<tr>
+															<th>No</th>
+															<th>
+																Status Usulan Lahan Konstruksi (update per
+																Maret-Juni-Sept-Des)
+															</th>
+															<th></th>
+														</tr>
+													</thead>
+												</table>
+											</div>
+											<div
+												class="tab-pane fade"
+												id="tab_6"
+												role="tabpanel"
+												aria-labelledby="custom-tabs-four-settings-tab"
+											>
+												<div class="row">
+													<div class="col-sm-10">
+														<h3>6. Pendetailan Readiness Criteria</h3>
+													</div>
+													<div class="col-sm-2">
+														<div
+															class="btn btn-success pull-right"
+															id="add-data-6"
+														>
+															<i class="fas fa-plus"></i
+															><span> Tambah Data</span>
+														</div>
+													</div>
+												</div>
+												<hr />
+												<input id="param" value="" hidden />
+												<table
+													class="table table-bordered table-hover datatable"
+													id="list_6"
+												>
+													<thead>
+														<tr>
+															<th>No</th>
+															<th>Kesiapan Lembaga Pengelola</th>
+															<th>Ketersediaan akses jalan</th>
+															<th>Lebar Jalan</th>
+															<th>Ketersediaan Jaringan listrik</th>
+															<th>Badan air penerima</th>
+															<th>Partisipasi Masyarakat</th>
+															<th>
+																Jarak terdekat dengan Aktivitas Masyarakat
+															</th>
+															<th>Resistensi terhadap lahan garapan</th>
+															<th>Bangunan di Atas Lahan</th>
+															<th>
+																Potensi banjir yang ada di Kawasan Rencana TPST
+															</th>
+															<th>Kesesuaian Dokumen SSK</th>
+															<th>Kesesuaian dengan Rencana Induk/ PTMP</th>
+															<th>Lokasi Rencana Infrastruktur terhadap</th>
+															<th>Delineasi DAS CItarum</th>
+															<th>Luas Lahan</th>
+															<th>Topografi</th>
+															<th></th>
+														</tr>
+													</thead>
+												</table>
+											</div>
+										</div>
+									</div>
+									<!-- /.card -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-            <div class="card-tools">
-              <div class="input-group input-group-sm">
-                  
-              </div>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-12 col-sm-12">
-                <div class="card card-lightblue card-outline card-outline-tabs">
-                  <div class="card-header p-0 border-bottom-0">
-                    <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
-                      <li class="nav-item">
-                        <a class="nav-link active" id="custom-1" data-toggle="pill" href="#tab_1" role="tab" aria-controls="custom-tabs-four-home" aria-selected="true">Profil Usulan</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" id="custom-2" data-toggle="pill" href="#tab_2" role="tab" aria-controls="custom-tabs-four-profile" aria-selected="false">Rencana Pembagian</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" id="custom-3" data-toggle="pill" href="#tab_3" role="tab" aria-controls="custom-tabs-four-messages" aria-selected="false">Rencana Teknis</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" id="custom-4" data-toggle="pill" href="#tab_4" role="tab" aria-controls="custom-tabs-four-settings" aria-selected="false">Kelengkapan</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" id="custom-5" data-toggle="pill" href="#tab_5" role="tab" aria-controls="custom-tabs-four-settings" aria-selected="false">Status Usulan</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" id="custom-6" data-toggle="pill" href="#tab_6" role="tab" aria-controls="custom-tabs-four-settings" aria-selected="false">Pendetailan</a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="card-body">
-                    <div class="tab-content" id="custom-tabs-four-tabContent">
-                      <div class="tab-pane fade show active" id="tab_1" role="tabpanel" aria-labelledby="custom-tabs-four-home-tab">
-                          <div class="row">
-                            <div class="col-sm-10">
-                              <h3>1. Profil Usulan Lokasi</h3>
+	<div class="modal fade" id="modal-1">
+		<div class="modal-dialog modal-lg card card-primary card-outline">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title">1. Profil Usulan Lokasi</h3>
+					<button
+						type="button"
+						class="close"
+						data-dismiss="modal"
+						aria-label="Close"
+					>
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<input id="id_1" hidden />
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>TPST <code>*</code>:</label>
+								<input
+									id="tpst"
+									name="profile-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>NAMA DESA/KELURAHAN <code>*</code>:</label>
+								<input
+									id="desa"
+									name="profile-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>NAMA KECAMATAN <code>*</code>:</label>
+								<input
+									id="kecamatan"
+									name="profile-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>NAMA KABUPATEN/KOTA <code>*</code>:</label>
+								<input
+									id="kabupaten"
+									name="profile-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>URAIAN <code>*</code>:</label>
+								<textarea
+									class="summernote"
+									name="profile-input"
+									id="uraian"
+									name="profile-input"
+								>
+								</textarea>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>DIREKTIF/NON-DIREKTIF <code>*</code>:</label>
+								<input
+									id="direktif"
+									name="profile-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-primary">Tutup</button> -->
+					<button id="save-data-1" type="button" class="btn btn-success">
+						<i class="fas fa-check"> </i> Simpan
+					</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
 
-                            </div>
-                            <div class="col-sm-2">
-                              <div class="btn btn-success pull-right" id="add-data-1">
-                                <i class="fas fa-plus"></i><span> Tambah Data</span>
-                              </div>
-                            </div>
-                          </div>
-                          <hr/>
-                          <input id="param" value="" hidden>
-                          <table class="table table-bordered table-hover datatable" id="list_1">
-                              <thead>
-                                  <tr>
-                                      <th>
-                                          No
-                                      </th>
-                                      <th>
-                                        Jenis Infrastruktur
-                                      </th>
-                                      <th>
-                                        Desa/Kelurahan
-                                      </th>
-                                      <th>
-                                        Kecamatan
-                                      </th>
-                                      <th>
-                                        Kabupaten/Kota
-                                      </th>
-                                      <th>
-                                        Deskripsi Urgensi
-                                      </th>
-                                      <th>
-                                        Jenis Usulan
-                                      </th>
-                                      <th>
-                                        
-                                      </th>
-                                  </tr>
-                              </thead>
-                          </table>
+	<div class="modal fade" id="modal-2">
+		<div class="modal-dialog modal-lg card card-primary card-outline">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title">2. Rencana Pembagian Dukungan Kegiata</h3>
+					<button
+						type="button"
+						class="close"
+						data-dismiss="modal"
+						aria-label="Close"
+					>
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<input id="id_2" hidden />
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Studi FS TPST <code>*</code>:</label>
+								<select
+									id="studi"
+									name="rencana-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">Pemerintah Pusat (APBN)</option>
+									<option value="2">Pemerintah Provinsi (APBD Provinsi)</option>
+									<option value="3">Pemerintah Kabupaten</option>
+									<option value="4">Kota (APBD Kab/Kota)</option>
+									<option value="5">Badan Usaha</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>DED TPST <code>*</code>:</label>
+								<select
+									id="ded"
+									name="rencana-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">Pemerintah Pusat (APBN)</option>
+									<option value="2">Pemerintah Provinsi (APBD Provinsi)</option>
+									<option value="3">Pemerintah Kabupaten</option>
+									<option value="4">Kota (APBD Kab/Kota)</option>
+									<option value="5">Badan Usaha</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Dokumen Lingkungan <code>*</code>:</label>
+								<select
+									id="dok"
+									name="rencana-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">Pemerintah Pusat (APBN)</option>
+									<option value="2">Pemerintah Provinsi (APBD Provinsi)</option>
+									<option value="3">Pemerintah Kabupaten</option>
+									<option value="4">Kota (APBD Kab/Kota)</option>
+									<option value="5">Badan Usaha</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Bangunan TPST <code>*</code>:</label>
+								<select
+									id="bangunan"
+									name="rencana-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">Pemerintah Pusat (APBN)</option>
+									<option value="2">Pemerintah Provinsi (APBD Provinsi)</option>
+									<option value="3">Pemerintah Kabupaten</option>
+									<option value="4">Kota (APBD Kab/Kota)</option>
+									<option value="5">Badan Usaha</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Lahan TPST <code>*</code>:</label>
+								<select
+									id="lahan"
+									name="rencana-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">Pemerintah Pusat (APBN)</option>
+									<option value="2">Pemerintah Provinsi (APBD Provinsi)</option>
+									<option value="3">Pemerintah Kabupaten</option>
+									<option value="4">Kota (APBD Kab/Kota)</option>
+									<option value="5">Badan Usaha</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Mesin dan Peralatan Operasional <code>*</code>:</label>
+								<select
+									id="mesin"
+									name="rencana-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">Pemerintah Pusat (APBN)</option>
+									<option value="2">Pemerintah Provinsi (APBD Provinsi)</option>
+									<option value="3">Pemerintah Kabupaten</option>
+									<option value="4">Kota (APBD Kab/Kota)</option>
+									<option value="5">Badan Usaha</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Operator Pengelola TPST <code>*</code>:</label>
+								<select
+									id="operator"
+									name="rencana-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">Pemerintah Pusat (APBN)</option>
+									<option value="2">Pemerintah Provinsi (APBD Provinsi)</option>
+									<option value="3">Pemerintah Kabupaten</option>
+									<option value="4">Kota (APBD Kab/Kota)</option>
+									<option value="5">Badan Usaha</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Offtaker Olahan Sampah <code>*</code>:</label>
+								<select
+									id="offtaker"
+									name="rencana-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">Pemerintah Pusat (APBN)</option>
+									<option value="2">Pemerintah Provinsi (APBD Provinsi)</option>
+									<option value="3">Pemerintah Kabupaten</option>
+									<option value="4">Kota (APBD Kab/Kota)</option>
+									<option value="5">Badan Usaha</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-primary">Tutup</button> -->
+					<button id="save-data-2" type="button" class="btn btn-success">
+						<i class="fas fa-check"> </i> Simpan
+					</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
 
-                      </div>
-                      <div class="tab-pane fade" id="tab_2" role="tabpanel" aria-labelledby="custom-tabs-four-profile-tab">
-                        <div class="row">
-                          <div class="col-sm-10">
-                            <h3>2. Rencana Pembagian Dukungan Kegiatan</h3>
+	<div class="modal fade" id="modal-3">
+		<div class="modal-dialog modal-lg card card-primary card-outline">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title">
+						3. Rencana Teknis Operasionalisasi Infrastruktur
+					</h3>
+					<button
+						type="button"
+						class="close"
+						data-dismiss="modal"
+						aria-label="Close"
+					>
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<input id="id_3" hidden />
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Ketersediaan Lahan (Luas Lahan M2) <code>*</code>:</label
+								>
+								<input
+									id="ketersediaan"
+									name="teknis-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Kapasitas Perencanaan <code>*</code>:</label>
+								<select
+									id="kapasitas"
+									name="teknis-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">1-5 ton per hari</option>
+									<option value="2">6-20 ton per hari</option>
+									<option value="3">21-50 ton per hari</option>
+									<option value="4">51-100 ton per hari</option>
+									<option value="5">>100 ton per hari</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Jenis Teknologi yg akan digunakan <code>*</code>:</label>
+								<input
+									id="teknologi"
+									name="teknis-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Keberadaan Offtaker Produk olah sampah <code>*</code>:</label
+								>
+								<select
+									id="keberadaan"
+									name="teknis-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">
+										Ada offtaker di lingkup desa atau kelurahan yang sama
+									</option>
+									<option value="2">
+										Ada offtaker di lingkup kecamatan yang sama
+									</option>
+									<option value="3">
+										Ada offtaker di lingkup kabupaten yang sama
+									</option>
+									<option value="4">
+										Ada offtaker di lingkup provinsi yang sama tetapi berbeda
+										kota atau kabupaten
+									</option>
+									<option value="5">Tidak ada offtaker</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Jenis Offtaker <code>*</code>:</label>
+								<input
+									id="jenis_offtaker"
+									name="teknis-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Kerjasama dengan offtaker <code>*</code>:</label>
+								<select
+									id="kerjasama"
+									name="teknis-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">
+										Ada MoU antara Pemda dengan offtaker produk olah sampah
+									</option>
+									<option value="2">
+										Sedang dalam proses MoU atau pendekatan dengan offtaker
+										produk olah sampah
+									</option>
+									<option value="3">
+										Ada kesempatan Pemda untuk bekerjasama dengan offtaker
+										produk olah sampah
+									</option>
+									<option value="4">
+										Belum ada MoU atau pendekatan dengan offtaker produk olah
+										sampah
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Kesanggupan pelaksanaan TKDN mesin/alat yang akan digunakan
+									<code>*</code>:</label
+								>
+								<select
+									id="kesanggupan"
+									name="teknis-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">
+										Ada kesanggupan TKDN yang dipersyaratkan pemerintah
+									</option>
+									<option value="2">
+										Tidak ada kesanggupan TKDN yang dipersyaratkan pemerintah
+									</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-primary">Tutup</button> -->
+					<button id="save-data-3" type="button" class="btn btn-success">
+						<i class="fas fa-check"> </i> Simpan
+					</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
 
-                          </div>
-                          <div class="col-sm-2">
-                            <div class="btn btn-success pull-right" id="add-data-2">
-                              <i class="fas fa-plus"></i><span> Tambah Data</span>
-                            </div>
-                          </div>
-                        </div>
-                        <hr/>
-                        <input id="param" value="" hidden>
-                        <table class="table table-bordered table-hover datatable" id="list_2">
-                            <thead>
-                                <tr>
-                                    <th>
-                                      No
-                                    </th>
-                                    <th>
-                                      Studi FS
-                                    </th>
-                                    <th>
-                                      DED
-                                    </th>
-                                    <th>
-                                      Dokumen
-                                    </th>
-                                    <th>
-                                      Bangunan
-                                    </th>
-                                    <th>
-                                      Lahan
-                                    </th>
-                                    <th>
-                                      Mesin&Peralatan
-                                    </th>
-                                    <th>
-                                      Operator
-                                    </th>
-                                    <th>
-                                      Offtaker
-                                    </th>
-                                    <th>
-                                      
-                                    </th>
-                                </tr>
-                            </thead>
-                        </table>
-                      </div>
-                      <div class="tab-pane fade" id="tab_3" role="tabpanel" aria-labelledby="custom-tabs-four-messages-tab">
-                        <div class="btn btn-success" id="add-data-3">
-                          <i class="fas fa-plus"></i><span> Tambah Data</span>
-                        </div>
-                        <hr/>
-                        <input id="param" value="" hidden>
-                        <table class="table table-bordered table-hover datatable" id="list_3">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        No
-                                    </th>
-                                    <th>
-                                      Kapasitas
-                                    </th>
-                                    <th>
-                                      teknologi
-                                    </th>
-                                    <th>
-                                      Keberadaan
-                                    </th>
-                                    <th>
-                                      Jenis
-                                    </th>
-                                    <th>
-                                      Kerjasama
-                                    </th>
-                                    <th>
-                                      Kesanggupan
-                                    </th>
-                                </tr>
-                            </thead>
-                        </table>
-                      </div>
-                      <div class="tab-pane fade" id="tab_4" role="tabpanel" aria-labelledby="custom-tabs-four-settings-tab">
-                        Pellentesque vestibulum commodo nibh nec blandit. Maecenas neque magna, iaculis tempus turpis ac, ornare sodales tellus. Mauris eget blandit dolor. Quisque tincidunt venenatis vulputate. Morbi euismod molestie tristique. Vestibulum consectetur dolor a vestibulum pharetra. Donec interdum placerat urna nec pharetra. Etiam eget dapibus orci, eget aliquet urna. Nunc at consequat diam. Nunc et felis ut nisl commodo dignissim. In hac habitasse platea dictumst. Praesent imperdiet accumsan ex sit amet facilisis.
-                      </div>
-                      <div class="tab-pane fade" id="tab_5" role="tabpanel" aria-labelledby="custom-tabs-four-settings-tab">
-                        Pellentesque vestibulum commodo nibh nec blandit. Maecenas neque magna, iaculis tempus turpis ac, ornare sodales tellus. Mauris eget blandit dolor. Quisque tincidunt venenatis vulputate. Morbi euismod molestie tristique. Vestibulum consectetur dolor a vestibulum pharetra. Donec interdum placerat urna nec pharetra. Etiam eget dapibus orci, eget aliquet urna. Nunc at consequat diam. Nunc et felis ut nisl commodo dignissim. In hac habitasse platea dictumst. Praesent imperdiet accumsan ex sit amet facilisis.
-                      </div>
-                      <div class="tab-pane fade" id="tab_6" role="tabpanel" aria-labelledby="custom-tabs-four-settings-tab">
-                        Pellentesque vestibulum commodo nibh nec blandit. Maecenas neque magna, iaculis tempus turpis ac, ornare sodales tellus. Mauris eget blandit dolor. Quisque tincidunt venenatis vulputate. Morbi euismod molestie tristique. Vestibulum consectetur dolor a vestibulum pharetra. Donec interdum placerat urna nec pharetra. Etiam eget dapibus orci, eget aliquet urna. Nunc at consequat diam. Nunc et felis ut nisl commodo dignissim. In hac habitasse platea dictumst. Praesent imperdiet accumsan ex sit amet facilisis.
-                      </div>
-                    </div>
-                  </div>
-                  <!-- /.card -->
-                </div>
-              </div>
-            </div>
-            
-      </div>
-    </div>
-  </div>
-</div>
-</div>
+	<div class="modal fade" id="modal-4">
+		<div class="modal-dialog modal-lg card card-primary card-outline">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title">4. Kelengkapan Readiness Criteria (Kunci)</h3>
+					<button
+						type="button"
+						class="close"
+						data-dismiss="modal"
+						aria-label="Close"
+					>
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<input id="id_4" hidden />
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Ketersediaan surat minat <code>*</code>:</label>
+								<select
+									id="minat"
+									name="kelengkapan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">Ada</option>
+									<option value="2">Tidak Ada</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Status lahan <code>*</code>:</label>
+								<select
+									id="status_lahan"
+									name="kelengkapan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">Ada</option>
+									<option value="2">Tidak Ada</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Kesesuaian tata ruang <code>*</code>:</label>
+								<select
+									id="kesesuaian"
+									name="kelengkapan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">Ada</option>
+									<option value="2">Tidak Ada</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Kesiapan menerima aset <code>*</code>:</label>
+								<select
+									id="kesiapan"
+									name="kelengkapan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">Ada</option>
+									<option value="2">Tidak Ada</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Kesiapan penyediaaan alokasi anggaran <code>*</code>:</label
+								>
+								<select
+									id="kesiapan_anggaran"
+									name="kelengkapan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">Ada</option>
+									<option value="2">Tidak Ada</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Kesiapan melakukan sosialisasi dan penyusunan dokumen
+									lingkungan <code>*</code>:</label
+								>
+								<select
+									id="kesiapan_sosialisasi"
+									name="kelengkapan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">Ada</option>
+									<option value="2">Tidak Ada</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-primary">Tutup</button> -->
+					<button id="save-data-4" type="button" class="btn btn-success">
+						<i class="fas fa-check"> </i> Simpan
+					</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
 
-<div class="modal fade" id="modal-1">
-  <div class="modal-dialog modal-lg card card-primary card-outline">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 class="modal-title">1. Profil Usulan Lokasi</h3>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <input id="id_1" hidden>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>TPST <code>*</code>:</label>
-                <input id="tpst" name="profile-input" type="text" class="form-control" placeholder="...">
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>NAMA DESA/KELURAHAN <code>*</code>:</label>
-                <input id="desa" name="profile-input" type="text" class="form-control" placeholder="...">
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>NAMA KECAMATAN <code>*</code>:</label>
-                <input id="kecamatan" name="profile-input" type="text" class="form-control" placeholder="...">
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>NAMA KABUPATEN/KOTA <code>*</code>:</label>
-                <input id="kabupaten" name="profile-input" type="text" class="form-control" placeholder="...">
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>URAIAN <code>*</code>:</label>
-                <textarea class="summernote" name="profile-input" id="uraian" name="profile-input" >
-                  
-                </textarea>
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>DIREKTIF/NON-DIREKTIF <code>*</code>:</label>
-                <input id="direktif" name="profile-input" type="text" class="form-control" placeholder="...">
-              </div>
-            </div>
-            
-          </div>
+	<div class="modal fade" id="modal-5">
+		<div class="modal-dialog modal-lg card card-primary card-outline">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title">5. Status Usulan</h3>
+					<button
+						type="button"
+						class="close"
+						data-dismiss="modal"
+						aria-label="Close"
+					>
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<input id="id_5" hidden />
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Status Usulan Lahan Konstruksi (update per
+									Maret-Juni-Sept-Des) <code>*</code>:</label
+								>
+								<select
+									id="usulan"
+									name="usulan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">Siap dilaksanakan konstruksi</option>
+									<option value="2">
+										Bisa dilaksanakan namun perlu melengkapi RC
+									</option>
+									<option value="3">Belum bisa dilaksanakan konstruksi</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-primary">Tutup</button> -->
+					<button id="save-data-5" type="button" class="btn btn-success">
+						<i class="fas fa-check"> </i> Simpan
+					</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
 
-      </div>
-      <div class="modal-footer">
-        <!-- <button type="button" class="btn btn-primary">Tutup</button> -->
-        <button id="save-data-1" type="button" class="btn btn-success"><i class="fas fa-check"> </i> Simpan</button>
-      </div>
-    </div>
-    <!-- /.modal-content -->
-  </div>
-  <!-- /.modal-dialog -->
-</div>
-
-<div class="modal fade" id="modal-2">
-  <div class="modal-dialog modal-lg card card-primary card-outline">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 class="modal-title">2. Rencana Pembagian Dukungan Kegiata</h3>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <input id="id_2" hidden>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>Studi FS TPST <code>*</code>:</label>
-                <select id="studi" name="rencana-input" class="form-control select2bs4">
-                  <option value="0">-Pilih-</option>
-                  <option value="1"> Pemerintah Pusat (APBN) </option>
-                  <option value="2"> Pemerintah Provinsi (APBD Provinsi) </option>
-                  <option value="3"> Pemerintah Kabupaten </option>
-                  <option value="4"> Kota (APBD Kab/Kota) </option>
-                  <option value="5"> Badan Usaha </option>
-                </select>
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>DED TPST <code>*</code>:</label>
-                <select id="ded" name="rencana-input" class="form-control select2bs4">
-                  <option value="0">-Pilih-</option>
-                  <option value="1"> Pemerintah Pusat (APBN) </option>
-                  <option value="2"> Pemerintah Provinsi (APBD Provinsi) </option>
-                  <option value="3"> Pemerintah Kabupaten </option>
-                  <option value="4"> Kota (APBD Kab/Kota) </option>
-                  <option value="5"> Badan Usaha </option>
-                </select>
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>Dokumen Lingkungan <code>*</code>:</label>
-                <select id="dok" name="rencana-input" class="form-control select2bs4">
-                  <option value="0">-Pilih-</option>
-                  <option value="1"> Pemerintah Pusat (APBN) </option>
-                  <option value="2"> Pemerintah Provinsi (APBD Provinsi) </option>
-                  <option value="3"> Pemerintah Kabupaten </option>
-                  <option value="4"> Kota (APBD Kab/Kota) </option>
-                  <option value="5"> Badan Usaha </option>
-                </select>
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>Bangunan TPST <code>*</code>:</label>
-                <select id="bangunan" name="rencana-input" class="form-control select2bs4">
-                  <option value="0">-Pilih-</option>
-                  <option value="1"> Pemerintah Pusat (APBN) </option>
-                  <option value="2"> Pemerintah Provinsi (APBD Provinsi) </option>
-                  <option value="3"> Pemerintah Kabupaten </option>
-                  <option value="4"> Kota (APBD Kab/Kota) </option>
-                  <option value="5"> Badan Usaha </option>
-                </select>
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>Lahan TPST <code>*</code>:</label>
-                <select id="lahan" name="rencana-input" class="form-control select2bs4">
-                  <option value="0">-Pilih-</option>
-                  <option value="1"> Pemerintah Pusat (APBN) </option>
-                  <option value="2"> Pemerintah Provinsi (APBD Provinsi) </option>
-                  <option value="3"> Pemerintah Kabupaten </option>
-                  <option value="4"> Kota (APBD Kab/Kota) </option>
-                  <option value="5"> Badan Usaha </option>
-                </select>
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>Mesin dan Peralatan Operasional <code>*</code>:</label>
-                <select id="mesin" name="rencana-input" class="form-control select2bs4">
-                  <option value="0">-Pilih-</option>
-                  <option value="1"> Pemerintah Pusat (APBN) </option>
-                  <option value="2"> Pemerintah Provinsi (APBD Provinsi) </option>
-                  <option value="3"> Pemerintah Kabupaten </option>
-                  <option value="4"> Kota (APBD Kab/Kota) </option>
-                  <option value="5"> Badan Usaha </option>
-                </select>
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>Operator Pengelola TPST <code>*</code>:</label>
-                <select id="operator" name="rencana-input" class="form-control select2bs4">
-                  <option value="0">-Pilih-</option>
-                  <option value="1"> Pemerintah Pusat (APBN) </option>
-                  <option value="2"> Pemerintah Provinsi (APBD Provinsi) </option>
-                  <option value="3"> Pemerintah Kabupaten </option>
-                  <option value="4"> Kota (APBD Kab/Kota) </option>
-                  <option value="5"> Badan Usaha </option>
-                </select>
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>Offtaker Olahan Sampah <code>*</code>:</label>
-                <select id="offtaker" name="rencana-input" class="form-control select2bs4">
-                  <option value="0">-Pilih-</option>
-                  <option value="1"> Pemerintah Pusat (APBN) </option>
-                  <option value="2"> Pemerintah Provinsi (APBD Provinsi) </option>
-                  <option value="3"> Pemerintah Kabupaten </option>
-                  <option value="4"> Kota (APBD Kab/Kota) </option>
-                  <option value="5"> Badan Usaha </option>
-                </select>
-              </div>
-            </div>
-            
-          </div>
-
-      </div>
-      <div class="modal-footer">
-        <!-- <button type="button" class="btn btn-primary">Tutup</button> -->
-        <button id="save-data-2" type="button" class="btn btn-success"><i class="fas fa-check"> </i> Simpan</button>
-      </div>
-    </div>
-    <!-- /.modal-content -->
-  </div>
-  <!-- /.modal-dialog -->
-</div>
-
+	<div class="modal fade" id="modal-6">
+		<div class="modal-dialog modal-lg card card-primary card-outline">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title">6. Pendetailan Readiness Criteria</h3>
+					<button
+						type="button"
+						class="close"
+						data-dismiss="modal"
+						aria-label="Close"
+					>
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<input id="id_4" hidden />
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Kesiapan Lembaga Pengelola <code>*</code>:</label>
+								<select
+									id="pengelola"
+									name="pendetailan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">UPTD PPK BLUD</option>
+									<option value="2">UPTD</option>
+									<option value="3">
+										Surat Kesanggupan Pembentukan Institusi Pengelola
+									</option>
+									<option value="4">Belum ada Institusi Khusus</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Ketersediaan akses jalan <code>*</code>:</label>
+								<select
+									id="akses"
+									name="pendetailan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">
+										Kualitas Layak, Aspal atau Beton, Mudah Dijangkau
+									</option>
+									<option value="2">
+										Kualitas Kurang, Aspal atau Beton, Mudah Dijangkau/Kualitas
+										Kurang, Aspal atau Beton, Sulit Dijangkau
+									</option>
+									<option value="3">Ada Rencana Pengembangan Jalan</option>
+									<option value="4">
+										Belum ada Rencana Pengembangan Jalan
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Lebar Jalan <code>*</code>:</label>
+								<select
+									id="jalan"
+									name="pendetailan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">>5 m</option>
+									<option value="2">4 - 5 m</option>
+									<option value="3">3 - 4 m</option>
+									<option value="4">2-3 m</option>
+									<option value="5">< 2 m</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Ketersediaan Jaringan listrik<code>*</code>:</label>
+								<select
+									id="listrik"
+									name="pendetailan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">Ada Akses Listrik & Instalasi</option>
+									<option value="2">Hanya Ada Akses Listrik</option>
+									<option value="3">
+										Belum ada akses jaringan listrik tetapi sanggup menyediakan
+										jaringan listrik pada saat konstruksi dimulai
+									</option>
+									<option value="4">
+										Belum ada akses jaringan listrik tetapi ada rencana
+										pengembangan jaringan dan instalasi
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Badan air penerima <code>*</code>:</label>
+								<select
+									id="air"
+									name="pendetailan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">
+										Memiliki akses langsung dengan badan air penerima
+									</option>
+									<option value="2">
+										Badan air penerima terhalangi lahan bukan milik TPST tetapi
+										masih ada akses untuk outlet ke badan air penerima
+									</option>
+									<option value="3">
+										Badan air penerima terhalangi lahan bukan milik TPST dan
+										tidak ada akses untuk outlet ke badan air penerima
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Partisipasi Masyarakat<code>*</code>:</label>
+								<select
+									id="partisipasi"
+									name="pendetailan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">
+										Dukungan langsung dengan inisiatif dari masyarakat dan atau
+										sudah ada infrastruktur sampah eksisting
+									</option>
+									<option value="2">
+										Menerima berdasarkan hasil sosialisasi dan edukasi
+									</option>
+									<option value="3">
+										Sudah dilakukan sosialisasi dan masyarakat menerima dengan
+										syarat
+									</option>
+									<option value="4">
+										Sudah dilakukan sosialisasi namun masyarakat menolak
+									</option>
+									<option value="5">
+										Belum dilakukan sosialisasi (ada potensi penerimaan maupun
+										penolakkan)
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Jarak terdekat dengan Aktivitas
+									Masyarakat<code>*</code>:</label
+								>
+								<select
+									id="jarak"
+									name="pendetailan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">> 200 m</option>
+									<option value="2">150 - 200 m</option>
+									<option value="3">100 - 150 m</option>
+									<option value="4">50 - 100 m</option>
+									<option value="5">
+										Berbatasan langsung dengan aktivitas masyarakat
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Resistensi terhadap lahan garapan <code>*</code>:</label>
+								<select
+									id="resistensi"
+									name="pendetailan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">> 200 m</option>
+									<option value="2">150 - 200 m</option>
+									<option value="3">100 - 150 m</option>
+									<option value="4">50 - 100 m</option>
+									<option value="5">
+										Berbatasan langsung dengan aktivitas masyarakat
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Bangunan di Atas Lahan <code>*</code>:</label>
+								<select
+									id="bangunan"
+									name="pendetailan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">Lahan kosong</option>
+									<option value="2">
+										Lahan digarap pemda (ada aktivitas eksisting)
+									</option>
+									<option value="3">
+										Lahan produktif, ada penggarap mengizinkan
+									</option>
+									<option value="4">
+										Lahan produktif, ada penggarap mengizinkan dengan syarat
+										penggantian
+									</option>
+									<option value="5">
+										Ada penggarap dan penggarap tidak mengizinkan
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Potensi banjir yang ada di Kawasan Rencana TPST
+									<code>*</code>:</label
+								>
+								<select
+									id="banjir"
+									name="pendetailan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">Tidak termasuk Kawasan Banjir</option>
+									<option value="2">Kawasan Banjir 50 Tahunan</option>
+									<option value="3">Kawasan Banjir 10 Tahunan</option>
+									<option value="4">Kawasan Banjir 5 Tahunan</option>
+									<option value="5">Kawasan Banjir 2 Tahunan</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Kesesuaian Dokumen SSK <code>*</code>:</label>
+								<select
+									id="ssk"
+									name="pendetailan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">Tidak ada Bangunan di atas Lahan</option>
+									<option value="2">
+										Terdapat Bangunan Pemerintah dan dapat di lakukan
+										penghapusan aset
+									</option>
+									<option value="3">Terdapat Bangunan Tanpa Izin</option>
+									<option value="4">
+										Terdapat Bangunan Tanpa Izin dengan Syarat Penggantian
+									</option>
+									<option value="5">
+										Terdapat Bangunan yang Tidak dapat dibongkar
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Kesesuaian dengan Rencana Induk/ PTMP <code>*</code>:</label
+								>
+								<select
+									id="ssk"
+									name="pendetailan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">Tidak ada Bangunan di atas Lahan</option>
+									<option value="2">
+										Terdapat Bangunan Pemerintah dan dapat di lakukan
+										penghapusan aset
+									</option>
+									<option value="3">Terdapat Bangunan Tanpa Izin</option>
+									<option value="4">
+										Terdapat Bangunan Tanpa Izin dengan Syarat Penggantian
+									</option>
+									<option value="5">
+										Terdapat Bangunan yang Tidak dapat dibongkar
+									</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-primary">Tutup</button> -->
+					<button id="save-data-4" type="button" class="btn btn-success">
+						<i class="fas fa-check"> </i> Simpan
+					</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
 </section>
 
 <!-- /.content -->
 
-
-{% endblock %}
-{% block js %}
+{% endblock %} {% block js %}
 <script>
-$(function () {
-  bsCustomFileInput.init();
-});
+	$(function () {
+		bsCustomFileInput.init();
+	});
 </script>
 {% endblock %}
