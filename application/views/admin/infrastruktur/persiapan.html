@@ -1,646 +1,928 @@
 {% extends "admin/layout.html" %} {% block content %}
 <style>
-  .custom-file-label::after {
-    width: 100%;
-  }
+	.custom-file-label::after {
+		width: 100%;
+	}
 </style>
 <section class="content-header">
-  <div class="container-fluid">
-    <div class="row mb-2">
-      <div class="col-sm-8">
-        <h1><i class="nav-icon fa fa-clone"></i> Tahap Pelaksanaan Kegiatan</h1>
-      </div>
-      <div class="col-sm-4">
-        <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="#">Persiapan Pelaksanaan Program kegiatan</a></li>
-          <li class="breadcrumb-item active">List data</li>
-        </ol>
-      </div>
-    </div>
-  </div><!-- /.container-fluid -->
+	<div class="container-fluid">
+		<div class="row mb-2">
+			<div class="col-sm-8">
+				<h1><i class="nav-icon fa fa-clone"></i> Tahap Pelaksanaan Kegiatan</h1>
+			</div>
+			<div class="col-sm-4">
+				<ol class="breadcrumb float-sm-right">
+					<li class="breadcrumb-item">
+						<a href="#">Persiapan Pelaksanaan Program kegiatan</a>
+					</li>
+					<li class="breadcrumb-item active">List data</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+	<!-- /.container-fluid -->
 </section>
 
 <!-- Main content -->
 <section class="content">
+	<!-- Default box -->
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12">
+				<div class="card card-lightblue card-outline">
+					<div class="card-header">
+						<h1 class="card-title">
+							Persiapan Pelaksanaan Program/ Kegiatan (Pengadaan Barang dan
+							Jasa)
+						</h1>
 
-  <!-- Default box -->
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-12">
-        <div class="card card-lightblue card-outline">
-          <div class="card-header">
-            <h1 class="card-title">Persiapan Pelaksanaan Program/ Kegiatan (Pengadaan Barang dan Jasa)</h1>
+						<div class="card-tools">
+							<div class="input-group input-group-sm"></div>
+						</div>
+					</div>
+					<div class="card-body">
+						<div class="row">
+							<div class="col-12 col-sm-12">
+								<div class="card card-lightblue card-outline card-outline-tabs">
+									<div class="card-header p-0 border-bottom-0">
+										<ul
+											class="nav nav-tabs"
+											id="custom-tabs-four-tab"
+											role="tablist"
+										>
+											<li class="nav-item">
+												<a
+													class="nav-link active"
+													id="custom-1"
+													data-toggle="pill"
+													href="#tab_1"
+													role="tab"
+													aria-controls="custom-tabs-four-home"
+													aria-selected="true"
+													>Nama Kegiatan</a
+												>
+											</li>
+											<li class="nav-item">
+												<a
+													class="nav-link"
+													id="custom-2"
+													data-toggle="pill"
+													href="#tab_2"
+													role="tab"
+													aria-controls="custom-tabs-four-profile"
+													aria-selected="false"
+													>Penganggaran</a
+												>
+											</li>
+											<li class="nav-item">
+												<a
+													class="nav-link"
+													id="custom-3"
+													data-toggle="pill"
+													href="#tab_3"
+													role="tab"
+													aria-controls="custom-tabs-four-messages"
+													aria-selected="false"
+													>KAK</a
+												>
+											</li>
+											<li class="nav-item">
+												<a
+													class="nav-link"
+													id="custom-4"
+													data-toggle="pill"
+													href="#tab_4"
+													role="tab"
+													aria-controls="custom-tabs-four-settings"
+													aria-selected="false"
+													>Pagu Anggaran</a
+												>
+											</li>
+											<li class="nav-item">
+												<a
+													class="nav-link"
+													id="custom-5"
+													data-toggle="pill"
+													href="#tab_5"
+													role="tab"
+													aria-controls="custom-tabs-four-settings"
+													aria-selected="false"
+													>Dokumen Seleksi</a
+												>
+											</li>
+											<li class="nav-item">
+												<a
+													class="nav-link"
+													id="custom-6"
+													data-toggle="pill"
+													href="#tab_6"
+													role="tab"
+													aria-controls="custom-tabs-four-settings"
+													aria-selected="false"
+													>NoL WB</a
+												>
+											</li>
+											<li class="nav-item">
+												<a
+													class="nav-link"
+													id="custom-7"
+													data-toggle="pill"
+													href="#tab_7"
+													role="tab"
+													aria-controls="custom-tabs-four-settings"
+													aria-selected="false"
+													>Profil Tender</a
+												>
+											</li>
+											<li class="nav-item">
+												<a
+													class="nav-link"
+													id="custom-8"
+													data-toggle="pill"
+													href="#tab_8"
+													role="tab"
+													aria-controls="custom-tabs-four-settings"
+													aria-selected="false"
+													>Pengadaan Barang/Jasa</a
+												>
+											</li>
+										</ul>
+									</div>
+									<div class="card-body">
+										<div class="tab-content" id="custom-tabs-four-tabContent">
+											<div
+												class="tab-pane fade show active"
+												id="tab_1"
+												role="tabpanel"
+												aria-labelledby="custom-tabs-four-home-tab"
+											>
+												<div class="row">
+													<div class="col-sm-10">
+														<h3>1. Nama Kegiatan</h3>
+													</div>
+													<div class="col-sm-2">
+														<div
+															class="btn btn-success pull-right"
+															id="add-data-1"
+														>
+															<i class="fas fa-plus"></i
+															><span> Tambah Data</span>
+														</div>
+													</div>
+												</div>
+												<hr />
+												<input id="param" value="" hidden />
+												<table
+													class="table table-bordered table-hover datatable"
+													id="list_1"
+												>
+													<thead>
+														<tr>
+															<th>No</th>
+															<th>Tahun Anggaran</th>
+															<th>Nama Paket</th>
+															<th>Sumber dana</th>
+															<th>Lokasi Pekerjaan</th>
+															<th>Skema Pembiayaan</th>
+															<th>Skema Pembiayaan Lain</th>
+															<th>Jenis Kontrak</th>
+															<th></th>
+														</tr>
+													</thead>
+												</table>
+											</div>
+											<div
+												class="tab-pane fade"
+												id="tab_2"
+												role="tabpanel"
+												aria-labelledby="custom-tabs-four-profile-tab"
+											>
+												<div class="row">
+													<div class="col-sm-10">
+														<h3>2. Penganggaran (DIPA)</h3>
+													</div>
+													<div class="col-sm-2">
+														<div
+															class="btn btn-success pull-right"
+															id="add-data-2"
+														>
+															<i class="fas fa-plus"></i
+															><span> Tambah Data</span>
+														</div>
+													</div>
+												</div>
+												<hr />
+												<input id="param" value="" hidden />
+												<table
+													class="table table-bordered table-hover datatable"
+													id="list_2"
+												>
+													<thead>
+														<tr>
+															<th>No</th>
+															<th>Status Dokumen</th>
+															<th></th>
+														</tr>
+													</thead>
+												</table>
+											</div>
+											<div
+												class="tab-pane fade"
+												id="tab_3"
+												role="tabpanel"
+												aria-labelledby="custom-tabs-four-profile-tab"
+											>
+												<div class="row">
+													<div class="col-sm-10">
+														<h3>3. Pembuatan KAK</h3>
+													</div>
+													<div class="col-sm-2">
+														<div
+															class="btn btn-success pull-right"
+															id="add-data-3"
+														>
+															<i class="fas fa-plus"></i
+															><span> Tambah Data</span>
+														</div>
+													</div>
+												</div>
+												<hr />
+												<input id="param" value="" hidden />
+												<table
+													class="table table-bordered table-hover datatable"
+													id="list_3"
+												>
+													<thead>
+														<tr>
+															<th>No</th>
+															<th>Status Dokumen</th>
+															<th></th>
+														</tr>
+													</thead>
+												</table>
+											</div>
+											<div
+												class="tab-pane fade"
+												id="tab_4"
+												role="tabpanel"
+												aria-labelledby="custom-tabs-four-profile-tab"
+											>
+												<div class="row">
+													<div class="col-sm-10">
+														<h3>4. Pembuatan Pagu Anggaran/RAB/HPS</h3>
+													</div>
+													<div class="col-sm-2">
+														<div
+															class="btn btn-success pull-right"
+															id="add-data-4"
+														>
+															<i class="fas fa-plus"></i
+															><span> Tambah Data</span>
+														</div>
+													</div>
+												</div>
+												<hr />
+												<input id="param" value="" hidden />
+												<table
+													class="table table-bordered table-hover datatable"
+													id="list_4"
+												>
+													<thead>
+														<tr>
+															<th>No</th>
+															<th>Status Dokumen</th>
+															<th></th>
+														</tr>
+													</thead>
+												</table>
+											</div>
+											<div
+												class="tab-pane fade"
+												id="tab_5"
+												role="tabpanel"
+												aria-labelledby="custom-tabs-four-profile-tab"
+											>
+												<div class="row">
+													<div class="col-sm-10">
+														<h3>5. Dokumen Seleksi Konsultan</h3>
+													</div>
+													<div class="col-sm-2">
+														<div
+															class="btn btn-success pull-right"
+															id="add-data-5"
+														>
+															<i class="fas fa-plus"></i
+															><span> Tambah Data</span>
+														</div>
+													</div>
+												</div>
+												<hr />
+												<input id="param" value="" hidden />
+												<table
+													class="table table-bordered table-hover datatable"
+													id="list_5"
+												>
+													<thead>
+														<tr>
+															<th>No</th>
+															<th>Status Dokumen</th>
+															<th></th>
+														</tr>
+													</thead>
+												</table>
+											</div>
+											<div
+												class="tab-pane fade"
+												id="tab_6"
+												role="tabpanel"
+												aria-labelledby="custom-tabs-four-profile-tab"
+											>
+												<div class="row">
+													<div class="col-sm-10">
+														<h3>6. NoL WB</h3>
+													</div>
+													<div class="col-sm-2">
+														<div
+															class="btn btn-success pull-right"
+															id="add-data-6"
+														>
+															<i class="fas fa-plus"></i
+															><span> Tambah Data</span>
+														</div>
+													</div>
+												</div>
+												<hr />
+												<input id="param" value="" hidden />
+												<table
+													class="table table-bordered table-hover datatable"
+													id="list_6"
+												>
+													<thead>
+														<tr>
+															<th>No</th>
+															<th>Status Dokumen</th>
+															<th></th>
+														</tr>
+													</thead>
+												</table>
+											</div>
+											<div
+												class="tab-pane fade"
+												id="tab_7"
+												role="tabpanel"
+												aria-labelledby="custom-tabs-four-profile-tab"
+											>
+												<div class="row">
+													<div class="col-sm-10">
+														<h3>7. Profil Tender</h3>
+													</div>
+													<div class="col-sm-2">
+														<div
+															class="btn btn-success pull-right"
+															id="add-data-7"
+														>
+															<i class="fas fa-plus"></i
+															><span> Tambah Data</span>
+														</div>
+													</div>
+												</div>
+												<hr />
+												<input id="param" value="" hidden />
+												<div class="table-responsive">
+													<table
+														class="table table-bordered table-hover datatable"
+														id="list_7"
+													>
+														<thead>
+															<tr>
+																<th>No</th>
+																<th>Tahun Anggaran</th>
+																<th>Nama Paket</th>
+																<th>Sumber dana</th>
+																<th>K/L/PD</th>
+																<th>Satuan Kerja</th>
+																<th>Jenis Pengadaan</th>
+																<th>Jenis Pengadaan Lain</th>
+																<th>Nilai Pagu Paket</th>
+																<th>Lokasi Pekerjaan</th>
+																<th></th>
+															</tr>
+														</thead>
+													</table>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- /.card -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-            <div class="card-tools">
-              <div class="input-group input-group-sm">
-                  
-              </div>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-12 col-sm-12">
-                <div class="card card-lightblue card-outline card-outline-tabs">
-                  <div class="card-header p-0 border-bottom-0">
-                    <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
-                      <li class="nav-item">
-                        <a class="nav-link active" id="custom-1" data-toggle="pill" href="#tab_1" role="tab" aria-controls="custom-tabs-four-home" aria-selected="true">Nama Kegiatan</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" id="custom-2" data-toggle="pill" href="#tab_2" role="tab" aria-controls="custom-tabs-four-profile" aria-selected="false">Penganggaran</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" id="custom-3" data-toggle="pill" href="#tab_3" role="tab" aria-controls="custom-tabs-four-messages" aria-selected="false">KAK</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" id="custom-4" data-toggle="pill" href="#tab_4" role="tab" aria-controls="custom-tabs-four-settings" aria-selected="false">Pagu Anggaran</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" id="custom-5" data-toggle="pill" href="#tab_5" role="tab" aria-controls="custom-tabs-four-settings" aria-selected="false">Dokumen Seleksi</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" id="custom-6" data-toggle="pill" href="#tab_6" role="tab" aria-controls="custom-tabs-four-settings" aria-selected="false">NoL WB</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" id="custom-7" data-toggle="pill" href="#tab_7" role="tab" aria-controls="custom-tabs-four-settings" aria-selected="false">Profil Tender</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" id="custom-8" data-toggle="pill" href="#tab_8" role="tab" aria-controls="custom-tabs-four-settings" aria-selected="false">Pengadaan Barang/Jasa</a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="card-body">
-                    <div class="tab-content" id="custom-tabs-four-tabContent">
-                      <div class="tab-pane fade show active" id="tab_1" role="tabpanel" aria-labelledby="custom-tabs-four-home-tab">
-                          <div class="row">
-                            <div class="col-sm-10">
-                              <h3>1. Nama Kegiatan</h3>
+	<div class="modal fade" id="modal-1">
+		<div class="modal-dialog modal-lg card card-primary card-outline">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title">1. Nama Kegiatani</h3>
+					<button
+						type="button"
+						class="close"
+						data-dismiss="modal"
+						aria-label="Close"
+					>
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<input id="id_1" hidden />
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Tahun Anggaran <code>*</code>:</label>
+								<input
+									id="tahun"
+									name="kegiatan-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Nama Paket <code>*</code>:</label>
+								<input
+									id="paket"
+									name="kegiatan-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Sumber dana <code>*</code>:</label>
+								<select
+									id="dana"
+									name="kegiatan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">APBN MURNI</option>
+									<option value="2">APBN LOAN</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Lokasi Pekerjaan <code>*</code>:</label>
+								<input
+									id="lokasi"
+									name="kegiatan-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Skema Pembiayaan<code>*</code>:</label>
+								<select
+									id="skema"
+									name="kegiatan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">Full Loan</option>
+									<option value="2">Ada kerjasama dengan badan usaha</option>
+									<option value="3">Lainnya</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12" id="div-skema">
+							<div class="form-group">
+								<label>Masukan Skema Pembiayaan <code>*</code>:</label>
+								<input
+									id="skema2"
+									name="kegiatan-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+									value=""
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Jenis Kontrak<code>*</code>:</label>
+								<select
+									id="kontrak"
+									name="kegiatan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">Kontrak payung</option>
+									<option value="2">Perjanjian Kerja Sama</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-primary">Tutup</button> -->
+					<button id="save-data-1" type="button" class="btn btn-success">
+						<i class="fas fa-check"> </i> Simpan
+					</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
 
-                            </div>
-                            <div class="col-sm-2">
-                              <div class="btn btn-success pull-right" id="add-data-1">
-                                <i class="fas fa-plus"></i><span> Tambah Data</span>
-                              </div>
-                            </div>
-                          </div>
-                          <hr/>
-                          <input id="param" value="" hidden>
-                          <table class="table table-bordered table-hover datatable" id="list_1">
-                              <thead>
-                                  <tr>
-                                      <th>
-                                          No
-                                      </th>
-                                      <th>
-                                        Jenis Infrastruktur
-                                      </th>
-                                      <th>
-                                        Desa/Kelurahan
-                                      </th>
-                                      <th>
-                                        Kecamatan
-                                      </th>
-                                      <th>
-                                        Kabupaten/Kota
-                                      </th>
-                                      <th>
-                                        Deskripsi Urgensi
-                                      </th>
-                                      <th>
-                                        Jenis Usulan
-                                      </th>
-                                      <th>
-                                        
-                                      </th>
-                                  </tr>
-                              </thead>
-                          </table>
+	<div class="modal fade" id="modal-2">
+		<div class="modal-dialog modal-lg card card-primary card-outline">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title">2. Penganggaran (DIPA)</h3>
+					<button
+						type="button"
+						class="close"
+						data-dismiss="modal"
+						aria-label="Close"
+					>
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<input id="id_2" hidden />
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Status dokumen <code>*</code>:</label>
+								<select
+									id="stat_anggaran"
+									name="anggaran-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">Sudah</option>
+									<option value="2">Belum</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-primary">Tutup</button> -->
+					<button id="save-data-2" type="button" class="btn btn-success">
+						<i class="fas fa-check"> </i> Simpan
+					</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
 
-                      </div>
-                      <div class="tab-pane fade" id="tab_2" role="tabpanel" aria-labelledby="custom-tabs-four-profile-tab">
-                        <div class="row">
-                          <div class="col-sm-10">
-                            <h3>2. Penganggaran (DIPA)</h3>
+	<div class="modal fade" id="modal-3">
+		<div class="modal-dialog modal-lg card card-primary card-outline">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title">3. Pembuatan KAK</h3>
+					<button
+						type="button"
+						class="close"
+						data-dismiss="modal"
+						aria-label="Close"
+					>
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<input id="id_3" hidden />
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Status dokumen <code>*</code>:</label>
+								<select
+									id="stat_kak"
+									name="kak-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">Sudah</option>
+									<option value="2">Belum</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-primary">Tutup</button> -->
+					<button id="save-data-3" type="button" class="btn btn-success">
+						<i class="fas fa-check"> </i> Simpan
+					</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
 
-                          </div>
-                          <div class="col-sm-2">
-                            <div class="btn btn-success pull-right" id="add-data-2">
-                              <i class="fas fa-plus"></i><span> Tambah Data</span>
-                            </div>
-                          </div>
-                        </div>
-                        <hr/>
-                        <input id="param" value="" hidden>
-                        <table class="table table-bordered table-hover datatable" id="list_2">
-                            <thead>
-                                <tr>
-                                    <th>
-                                      No
-                                    </th>
-                                    <th>
-                                      Studi FS
-                                    </th>
-                                    <th>
-                                      DED
-                                    </th>
-                                    <th>
-                                      Dokumen
-                                    </th>
-                                    <th>
-                                      Bangunan
-                                    </th>
-                                    <th>
-                                      Lahan
-                                    </th>
-                                    <th>
-                                      Mesin&Peralatan
-                                    </th>
-                                    <th>
-                                      Operator
-                                    </th>
-                                    <th>
-                                      Offtaker
-                                    </th>
-                                    <th>
-                                      
-                                    </th>
-                                </tr>
-                            </thead>
-                        </table>
-                      </div>
-                      <div class="tab-pane fade" id="tab_3" role="tabpanel" aria-labelledby="custom-tabs-four-profile-tab">
-                        <div class="row">
-                          <div class="col-sm-10">
-                            <h3>3. Pembuatan KAK</h3>
+	<div class="modal fade" id="modal-4">
+		<div class="modal-dialog modal-lg card card-primary card-outline">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title">4. Pembuatan Pagu Anggaran/RAB/HPS</h3>
+					<button
+						type="button"
+						class="close"
+						data-dismiss="modal"
+						aria-label="Close"
+					>
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<input id="id_4" hidden />
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Status dokumen <code>*</code>:</label>
+								<select
+									id="stat_pagu"
+									name="pagu-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">Sudah</option>
+									<option value="2">Belum</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-primary">Tutup</button> -->
+					<button id="save-data-4" type="button" class="btn btn-success">
+						<i class="fas fa-check"> </i> Simpan
+					</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
 
-                          </div>
-                          <div class="col-sm-2">
-                            <div class="btn btn-success pull-right" id="add-data-3">
-                              <i class="fas fa-plus"></i><span> Tambah Data</span>
-                            </div>
-                          </div>
-                        </div>
-                        <hr/>
-                        <input id="param" value="" hidden>
-                        <table class="table table-bordered table-hover datatable" id="list_3">
-                            <thead>
-                                <tr>
-                                    <th>
-                                      No
-                                    </th>
-                                    <th>
-                                      Studi FS
-                                    </th>
-                                    <th>
-                                      DED
-                                    </th>
-                                    <th>
-                                      Dokumen
-                                    </th>
-                                    <th>
-                                      Bangunan
-                                    </th>
-                                    <th>
-                                      Lahan
-                                    </th>
-                                    <th>
-                                      Mesin&Peralatan
-                                    </th>
-                                    <th>
-                                      Operator
-                                    </th>
-                                    <th>
-                                      Offtaker
-                                    </th>
-                                    <th>
-                                      
-                                    </th>
-                                </tr>
-                            </thead>
-                        </table>
-                      </div>
-                      <div class="tab-pane fade" id="tab_4" role="tabpanel" aria-labelledby="custom-tabs-four-profile-tab">
-                        <div class="row">
-                          <div class="col-sm-10">
-                            <h3>4. Pembuatan Pagu Anggaran/RAB/HPS</h3>
+	<div class="modal fade" id="modal-5">
+		<div class="modal-dialog modal-lg card card-primary card-outline">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title">5. Dokumen Seleksi Konsultan</h3>
+					<button
+						type="button"
+						class="close"
+						data-dismiss="modal"
+						aria-label="Close"
+					>
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<input id="id_5" hidden />
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Status dokumen <code>*</code>:</label>
+								<select
+									id="stat_seleksi"
+									name="seleksi-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">Sudah</option>
+									<option value="2">Belum</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-primary">Tutup</button> -->
+					<button id="save-data-5" type="button" class="btn btn-success">
+						<i class="fas fa-check"> </i> Simpan
+					</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
 
-                          </div>
-                          <div class="col-sm-2">
-                            <div class="btn btn-success pull-right" id="add-data-4">
-                              <i class="fas fa-plus"></i><span> Tambah Data</span>
-                            </div>
-                          </div>
-                        </div>
-                        <hr/>
-                        <input id="param" value="" hidden>
-                        <table class="table table-bordered table-hover datatable" id="list_4">
-                            <thead>
-                                <tr>
-                                    <th>
-                                      No
-                                    </th>
-                                    <th>
-                                      Studi FS
-                                    </th>
-                                    <th>
-                                      DED
-                                    </th>
-                                    <th>
-                                      Dokumen
-                                    </th>
-                                    <th>
-                                      Bangunan
-                                    </th>
-                                    <th>
-                                      Lahan
-                                    </th>
-                                    <th>
-                                      Mesin&Peralatan
-                                    </th>
-                                    <th>
-                                      Operator
-                                    </th>
-                                    <th>
-                                      Offtaker
-                                    </th>
-                                    <th>
-                                      
-                                    </th>
-                                </tr>
-                            </thead>
-                        </table>
-                      </div>
-                      <div class="tab-pane fade" id="tab_5" role="tabpanel" aria-labelledby="custom-tabs-four-profile-tab">
-                        <div class="row">
-                          <div class="col-sm-10">
-                            <h3>5. Dokumen Seleksi Konsultan</h3>
+	<div class="modal fade" id="modal-6">
+		<div class="modal-dialog modal-lg card card-primary card-outline">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title">6. NoL WB</h3>
+					<button
+						type="button"
+						class="close"
+						data-dismiss="modal"
+						aria-label="Close"
+					>
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<input id="id_6" hidden />
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Status dokumen <code>*</code>:</label>
+								<select
+									id="stat_wb"
+									name="wb-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">Sudah</option>
+									<option value="2">Belum</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-primary">Tutup</button> -->
+					<button id="save-data-6" type="button" class="btn btn-success">
+						<i class="fas fa-check"> </i> Simpan
+					</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
 
-                          </div>
-                          <div class="col-sm-2">
-                            <div class="btn btn-success pull-right" id="add-data-5">
-                              <i class="fas fa-plus"></i><span> Tambah Data</span>
-                            </div>
-                          </div>
-                        </div>
-                        <hr/>
-                        <input id="param" value="" hidden>
-                        <table class="table table-bordered table-hover datatable" id="list_5">
-                            <thead>
-                                <tr>
-                                    <th>
-                                      No
-                                    </th>
-                                    <th>
-                                      Studi FS
-                                    </th>
-                                    <th>
-                                      DED
-                                    </th>
-                                    <th>
-                                      Dokumen
-                                    </th>
-                                    <th>
-                                      Bangunan
-                                    </th>
-                                    <th>
-                                      Lahan
-                                    </th>
-                                    <th>
-                                      Mesin&Peralatan
-                                    </th>
-                                    <th>
-                                      Operator
-                                    </th>
-                                    <th>
-                                      Offtaker
-                                    </th>
-                                    <th>
-                                      
-                                    </th>
-                                </tr>
-                            </thead>
-                        </table>
-                      </div>
-                      <div class="tab-pane fade" id="tab_6" role="tabpanel" aria-labelledby="custom-tabs-four-profile-tab">
-                        <div class="row">
-                          <div class="col-sm-10">
-                            <h3>6. Dokumen Seleksi Konsultan</h3>
-
-                          </div>
-                          <div class="col-sm-2">
-                            <div class="btn btn-success pull-right" id="add-data-6">
-                              <i class="fas fa-plus"></i><span> Tambah Data</span>
-                            </div>
-                          </div>
-                        </div>
-                        <hr/>
-                        <input id="param" value="" hidden>
-                        <table class="table table-bordered table-hover datatable" id="list_6">
-                            <thead>
-                                <tr>
-                                    <th>
-                                      No
-                                    </th>
-                                    <th>
-                                      Studi FS
-                                    </th>
-                                    <th>
-                                      DED
-                                    </th>
-                                    <th>
-                                      Dokumen
-                                    </th>
-                                    <th>
-                                      Bangunan
-                                    </th>
-                                    <th>
-                                      Lahan
-                                    </th>
-                                    <th>
-                                      Mesin&Peralatan
-                                    </th>
-                                    <th>
-                                      Operator
-                                    </th>
-                                    <th>
-                                      Offtaker
-                                    </th>
-                                    <th>
-                                      
-                                    </th>
-                                </tr>
-                            </thead>
-                        </table>
-                      </div>
-                      <div class="tab-pane fade" id="tab_7" role="tabpanel" aria-labelledby="custom-tabs-four-profile-tab">
-                        <div class="row">
-                          <div class="col-sm-10">
-                            <h3>7. NoL WB</h3>
-
-                          </div>
-                          <div class="col-sm-2">
-                            <div class="btn btn-success pull-right" id="add-data-6">
-                              <i class="fas fa-plus"></i><span> Tambah Data</span>
-                            </div>
-                          </div>
-                        </div>
-                        <hr/>
-                        <input id="param" value="" hidden>
-                        <table class="table table-bordered table-hover datatable" id="list_6">
-                            <thead>
-                                <tr>
-                                    <th>
-                                      No
-                                    </th>
-                                    <th>
-                                      Studi FS
-                                    </th>
-                                    <th>
-                                      DED
-                                    </th>
-                                    <th>
-                                      Dokumen
-                                    </th>
-                                    <th>
-                                      Bangunan
-                                    </th>
-                                    <th>
-                                      Lahan
-                                    </th>
-                                    <th>
-                                      Mesin&Peralatan
-                                    </th>
-                                    <th>
-                                      Operator
-                                    </th>
-                                    <th>
-                                      Offtaker
-                                    </th>
-                                    <th>
-                                      
-                                    </th>
-                                </tr>
-                            </thead>
-                        </table>
-                      </div>
-                      
-                    </div>
-                  </div>
-                  <!-- /.card -->
-                </div>
-              </div>
-            </div>
-            
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-
-<div class="modal fade" id="modal-1">
-  <div class="modal-dialog modal-lg card card-primary card-outline">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 class="modal-title">1. Profil Usulan Lokasi</h3>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <input id="id_1" hidden>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>TPST <code>*</code>:</label>
-                <input id="tpst" name="profile-input" type="text" class="form-control" placeholder="...">
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>NAMA DESA/KELURAHAN <code>*</code>:</label>
-                <input id="desa" name="profile-input" type="text" class="form-control" placeholder="...">
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>NAMA KECAMATAN <code>*</code>:</label>
-                <input id="kecamatan" name="profile-input" type="text" class="form-control" placeholder="...">
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>NAMA KABUPATEN/KOTA <code>*</code>:</label>
-                <input id="kabupaten" name="profile-input" type="text" class="form-control" placeholder="...">
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>URAIAN <code>*</code>:</label>
-                <textarea class="summernote" name="profile-input" id="uraian" name="profile-input" >
-                  
-                </textarea>
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>DIREKTIF/NON-DIREKTIF <code>*</code>:</label>
-                <input id="direktif" name="profile-input" type="text" class="form-control" placeholder="...">
-              </div>
-            </div>
-            
-          </div>
-
-      </div>
-      <div class="modal-footer">
-        <!-- <button type="button" class="btn btn-primary">Tutup</button> -->
-        <button id="save-data-1" type="button" class="btn btn-success"><i class="fas fa-check"> </i> Simpan</button>
-      </div>
-    </div>
-    <!-- /.modal-content -->
-  </div>
-  <!-- /.modal-dialog -->
-</div>
-
-<div class="modal fade" id="modal-2">
-  <div class="modal-dialog modal-lg card card-primary card-outline">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 class="modal-title">2. Rencana Pembagian Dukungan Kegiata</h3>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <input id="id_2" hidden>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>Studi FS TPST <code>*</code>:</label>
-                <select id="studi" name="rencana-input" class="form-control select2bs4">
-                  <option value="0">-Pilih-</option>
-                  <option value="1"> Pemerintah Pusat (APBN) </option>
-                  <option value="2"> Pemerintah Provinsi (APBD Provinsi) </option>
-                  <option value="3"> Pemerintah Kabupaten </option>
-                  <option value="4"> Kota (APBD Kab/Kota) </option>
-                  <option value="5"> Badan Usaha </option>
-                </select>
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>DED TPST <code>*</code>:</label>
-                <select id="ded" name="rencana-input" class="form-control select2bs4">
-                  <option value="0">-Pilih-</option>
-                  <option value="1"> Pemerintah Pusat (APBN) </option>
-                  <option value="2"> Pemerintah Provinsi (APBD Provinsi) </option>
-                  <option value="3"> Pemerintah Kabupaten </option>
-                  <option value="4"> Kota (APBD Kab/Kota) </option>
-                  <option value="5"> Badan Usaha </option>
-                </select>
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>Dokumen Lingkungan <code>*</code>:</label>
-                <select id="dok" name="rencana-input" class="form-control select2bs4">
-                  <option value="0">-Pilih-</option>
-                  <option value="1"> Pemerintah Pusat (APBN) </option>
-                  <option value="2"> Pemerintah Provinsi (APBD Provinsi) </option>
-                  <option value="3"> Pemerintah Kabupaten </option>
-                  <option value="4"> Kota (APBD Kab/Kota) </option>
-                  <option value="5"> Badan Usaha </option>
-                </select>
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>Bangunan TPST <code>*</code>:</label>
-                <select id="bangunan" name="rencana-input" class="form-control select2bs4">
-                  <option value="0">-Pilih-</option>
-                  <option value="1"> Pemerintah Pusat (APBN) </option>
-                  <option value="2"> Pemerintah Provinsi (APBD Provinsi) </option>
-                  <option value="3"> Pemerintah Kabupaten </option>
-                  <option value="4"> Kota (APBD Kab/Kota) </option>
-                  <option value="5"> Badan Usaha </option>
-                </select>
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>Lahan TPST <code>*</code>:</label>
-                <select id="lahan" name="rencana-input" class="form-control select2bs4">
-                  <option value="0">-Pilih-</option>
-                  <option value="1"> Pemerintah Pusat (APBN) </option>
-                  <option value="2"> Pemerintah Provinsi (APBD Provinsi) </option>
-                  <option value="3"> Pemerintah Kabupaten </option>
-                  <option value="4"> Kota (APBD Kab/Kota) </option>
-                  <option value="5"> Badan Usaha </option>
-                </select>
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>Mesin dan Peralatan Operasional <code>*</code>:</label>
-                <select id="mesin" name="rencana-input" class="form-control select2bs4">
-                  <option value="0">-Pilih-</option>
-                  <option value="1"> Pemerintah Pusat (APBN) </option>
-                  <option value="2"> Pemerintah Provinsi (APBD Provinsi) </option>
-                  <option value="3"> Pemerintah Kabupaten </option>
-                  <option value="4"> Kota (APBD Kab/Kota) </option>
-                  <option value="5"> Badan Usaha </option>
-                </select>
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>Operator Pengelola TPST <code>*</code>:</label>
-                <select id="operator" name="rencana-input" class="form-control select2bs4">
-                  <option value="0">-Pilih-</option>
-                  <option value="1"> Pemerintah Pusat (APBN) </option>
-                  <option value="2"> Pemerintah Provinsi (APBD Provinsi) </option>
-                  <option value="3"> Pemerintah Kabupaten </option>
-                  <option value="4"> Kota (APBD Kab/Kota) </option>
-                  <option value="5"> Badan Usaha </option>
-                </select>
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>Offtaker Olahan Sampah <code>*</code>:</label>
-                <select id="offtaker" name="rencana-input" class="form-control select2bs4">
-                  <option value="0">-Pilih-</option>
-                  <option value="1"> Pemerintah Pusat (APBN) </option>
-                  <option value="2"> Pemerintah Provinsi (APBD Provinsi) </option>
-                  <option value="3"> Pemerintah Kabupaten </option>
-                  <option value="4"> Kota (APBD Kab/Kota) </option>
-                  <option value="5"> Badan Usaha </option>
-                </select>
-              </div>
-            </div>
-            
-          </div>
-
-      </div>
-      <div class="modal-footer">
-        <!-- <button type="button" class="btn btn-primary">Tutup</button> -->
-        <button id="save-data-2" type="button" class="btn btn-success"><i class="fas fa-check"> </i> Simpan</button>
-      </div>
-    </div>
-    <!-- /.modal-content -->
-  </div>
-  <!-- /.modal-dialog -->
-</div>
-
+	<div class="modal fade" id="modal-7">
+		<div class="modal-dialog modal-lg card card-primary card-outline">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title">7. Profil Tender</h3>
+					<button
+						type="button"
+						class="close"
+						data-dismiss="modal"
+						aria-label="Close"
+					>
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<input id="id_7" hidden />
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Tahun Anggaran <code>*</code>:</label>
+								<input
+									id="tahun_tender"
+									name="tender-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Nama Paket <code>*</code>:</label>
+								<input
+									id="paket_tender"
+									name="tender-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Sumber dana <code>*</code>:</label>
+								<select
+									id="dana_tender"
+									name="tender-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">APBN MURNI</option>
+									<option value="2">APBN LOAN</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>K/L/PD<code>*</code>:</label>
+								<input
+									id="klpd_tender"
+									name="tender-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Satuan Kerja<code>*</code>:</label>
+								<input
+									id="satuan_tender"
+									name="tender-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Jenis Pengadaan<code>*</code>:</label>
+								<select
+									id="pengadaan_tender"
+									name="tender-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">Pekerjaan Konstruksi</option>
+									<option value="2">Jasa Konsultansi Badan Usaha</option>
+									<option value="3">Lainnya</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12" id="div-pengadaan">
+							<div class="form-group">
+								<label>Masukan Jenis Pengadaan <code>*</code>:</label>
+								<input
+									id="pengadaan_tender2"
+									name="tender-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+									value=""
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Nilai Pagu <code>*</code>:</label>
+								<input
+									id="nilai_tender"
+									name="tender-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Lokasi Pekerjaan <code>*</code>:</label>
+								<input
+									id="lokasi_tender"
+									name="tender-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-primary">Tutup</button> -->
+					<button id="save-data-7" type="button" class="btn btn-success">
+						<i class="fas fa-check"> </i> Simpan
+					</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
 </section>
 
 <!-- /.content -->
 
-
-{% endblock %}
-{% block js %}
+{% endblock %} {% block js %}
 <script>
-$(function () {
-  bsCustomFileInput.init();
-});
+	$(function () {
+		bsCustomFileInput.init();
+	});
 </script>
 {% endblock %}
