@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 13, 2022 at 05:21 AM
+-- Generation Time: Jun 13, 2022 at 01:20 PM
 -- Server version: 5.7.33
 -- PHP Version: 7.4.19
 
@@ -545,6 +545,28 @@ CREATE TABLE `data_status_usulan` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `data_stat_pelaksanaan_barang_jasa`
+--
+
+CREATE TABLE `data_stat_pelaksanaan_barang_jasa` (
+  `id` int(11) NOT NULL,
+  `stat_pelaksanaan` varchar(255) NOT NULL,
+  `create_by` varchar(255) NOT NULL,
+  `update_by` varchar(255) DEFAULT NULL,
+  `create_date` datetime NOT NULL,
+  `update_date` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `data_stat_pelaksanaan_barang_jasa`
+--
+
+INSERT INTO `data_stat_pelaksanaan_barang_jasa` (`id`, `stat_pelaksanaan`, `create_by`, `update_by`, `create_date`, `update_date`) VALUES
+(3, '1', '1', '1', '2022-06-13 13:19:49', '2022-06-13 13:19:49');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `data_video`
 --
 
@@ -877,6 +899,12 @@ ALTER TABLE `data_status_usulan`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `data_stat_pelaksanaan_barang_jasa`
+--
+ALTER TABLE `data_stat_pelaksanaan_barang_jasa`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `data_video`
 --
 ALTER TABLE `data_video`
@@ -1029,6 +1057,12 @@ ALTER TABLE `data_seleksi`
 --
 ALTER TABLE `data_status_usulan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `data_stat_pelaksanaan_barang_jasa`
+--
+ALTER TABLE `data_stat_pelaksanaan_barang_jasa`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `data_video`

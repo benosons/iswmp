@@ -143,7 +143,19 @@
 													role="tab"
 													aria-controls="custom-tabs-four-settings"
 													aria-selected="false"
-													>Pengadaan Barang/Jasa</a
+													>Proses Pengadaan Barang/Jasa</a
+												>
+											</li>
+											<li class="nav-item">
+												<a
+													class="nav-link"
+													id="custom-9"
+													data-toggle="pill"
+													href="#tab_9"
+													role="tab"
+													aria-controls="custom-tabs-four-settings"
+													aria-selected="false"
+													>Status Pelaksanaan Pengadaan Barang/Jasa</a
 												>
 											</li>
 										</ul>
@@ -405,6 +417,101 @@
 																<th>Jenis Pengadaan Lain</th>
 																<th>Nilai Pagu Paket</th>
 																<th>Lokasi Pekerjaan</th>
+																<th></th>
+															</tr>
+														</thead>
+													</table>
+												</div>
+											</div>
+											<div
+												class="tab-pane fade"
+												id="tab_8"
+												role="tabpanel"
+												aria-labelledby="custom-tabs-four-profile-tab"
+											>
+												<div class="row">
+													<div class="col-sm-10">
+														<h3>8. Proses Pengadaan Barang dan Jasa</h3>
+													</div>
+													<div class="col-sm-2">
+														<div
+															class="btn btn-success pull-right"
+															id="add-data-8"
+														>
+															<i class="fas fa-plus"></i
+															><span> Tambah Data</span>
+														</div>
+													</div>
+												</div>
+												<hr />
+												<input id="param" value="" hidden />
+												<div class="table-responsive">
+													<table
+														class="table table-bordered table-hover datatable"
+														id="list_8"
+													>
+														<thead>
+															<tr>
+																<th>No</th>
+																<th>
+																	Pengumuman Pascakualifikasi (konstruksi)
+																</th>
+																<th>Download Dokumen Pemilihan</th>
+																<th>Pemberian Penjelasan</th>
+																<th>Upload Dokumen Penawaran</th>
+																<th>Pembukaan dan Evaluasi Penawaran</th>
+																<th>Pembuktian Kualifikasi</th>
+																<th>
+																	Pengumuman Hasil Evaluasi Administrasi dan
+																	Teknis
+																</th>
+																<th>Masa Sanggah</th>
+																<th>Pembukaan dan Evaluasi Penawaran</th>
+																<th>Klarifikasi Teknis dan Negosiasi</th>
+																<th>Penetapan Pemenang</th>
+																<th>Pengumuman Pemenang</th>
+																<th>Surat Penunjukan Penyedia Barang/Jasa</th>
+																<th>Penandatanganan Kontrak</th>
+																<th></th>
+															</tr>
+														</thead>
+													</table>
+												</div>
+											</div>
+											<div
+												class="tab-pane fade"
+												id="tab_9"
+												role="tabpanel"
+												aria-labelledby="custom-tabs-four-profile-tab"
+											>
+												<div class="row">
+													<div class="col-sm-10">
+														<h3>9. Status Pelaksanaan Pengadaan Barang/Jasa</h3>
+													</div>
+													<div class="col-sm-2">
+														<div
+															class="btn btn-success pull-right"
+															id="add-data-9"
+														>
+															<i class="fas fa-plus"></i
+															><span> Tambah Data</span>
+														</div>
+													</div>
+												</div>
+												<hr />
+												<input id="param" value="" hidden />
+												<div class="table-responsive">
+													<table
+														class="table table-bordered table-hover datatable"
+														id="list_9"
+													>
+														<thead>
+															<tr>
+																<th>No</th>
+																<th>
+																	Status Pelaksanaan Pengadaan Barang/Jasa
+																	Kegiatan
+																</th>
 																<th></th>
 															</tr>
 														</thead>
@@ -907,6 +1014,460 @@
 				<div class="modal-footer">
 					<!-- <button type="button" class="btn btn-primary">Tutup</button> -->
 					<button id="save-data-7" type="button" class="btn btn-success">
+						<i class="fas fa-check"> </i> Simpan
+					</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+
+	<div class="modal fade" id="modal-8">
+		<div class="modal-dialog modal-lg card card-primary card-outline">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title">8. Proses Pengadaan Barang/Jasa</h3>
+					<button
+						type="button"
+						class="close"
+						data-dismiss="modal"
+						aria-label="Close"
+					>
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<input id="id_8" hidden />
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Pengumuman Pascakualifikasi (konstruksi)
+									<code>*</code>:</label
+								>
+								<input
+									id="kontruksi1"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+								<input
+									id="kontruksi2"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+								<input
+									id="kontruksi3"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Download Dokumen Pemilihan <code>*</code>:</label>
+								<input
+									id="dokumen1"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+								<input
+									id="dokumen2"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+								<input
+									id="dokumen3"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Pemberian Penjelasan <code>*</code>:</label>
+								<input
+									id="penjelasan1"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+								<input
+									id="penjelasan2"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+								<input
+									id="penjelasan3"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Upload Dokumen Penawaran<code>*</code>:</label>
+								<input
+									id="penawaran1"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+								<input
+									id="penawaran2"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+								<input
+									id="penawaran3"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Pembukaan dan Evaluasi Penawaran<code>*</code>:</label>
+								<input
+									id="pembukaan1"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+								<input
+									id="pembukaan2"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+								<input
+									id="pembukaan3"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Pembuktian Kualifikasi<code>*</code>:</label>
+								<input
+									id="kualifikasi1"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+								<input
+									id="kualifikasi2"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+								<input
+									id="kualifikasi3"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+						<div class="col-md-12" id="div-pengadaan">
+							<div class="form-group">
+								<label
+									>Pengumuman Hasil Evaluasi Administrasi dan Teknis
+									<code>*</code>:</label
+								>
+								<input
+									id="pengumuman1"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+								<input
+									id="pengumuman2"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+								<input
+									id="pengumuman3"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Masa Sanggah <code>*</code>:</label>
+								<input
+									id="sanggah1"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+								<input
+									id="sanggah2"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+								<input
+									id="sanggah3"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Pembukaan dan Evaluasi Penawaran <code>*</code>:</label>
+								<input
+									id="evaluasi_penawaran1"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+								<input
+									id="evaluasi_penawaran2"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+								<input
+									id="evaluasi_penawaran3"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Klarifikasi Teknis dan Negosiasi<code>*</code>:</label>
+								<input
+									id="klarifikasi1"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+								<input
+									id="klarifikasi2"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+								<input
+									id="klarifikasi3"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Penetapan Pemenang<code>*</code>:</label>
+								<input
+									id="penetapan1"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+								<input
+									id="penetapan2"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+								<input
+									id="penetapan3"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Pengumuman Pemenang<code>*</code>:</label>
+								<input
+									id="pengumuman_pemenang1"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+								<input
+									id="pengumuman_pemenang2"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+								<input
+									id="pengumuman_pemenang3"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Surat Penunjukan Penyedia Barang/Jasa<code>*</code>:</label
+								>
+								<input
+									id="surat_penunjukkan1"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+								<input
+									id="surat_penunjukkan2"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+								<input
+									id="surat_penunjukkan3"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Penandatanganan Kontrak<code>*</code>:</label>
+								<input
+									id="penandatanganan1"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+								<input
+									id="penandatanganan2"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+								<input
+									id="penandatanganan3"
+									name="proses-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-primary">Tutup</button> -->
+					<button id="save-data-7" type="button" class="btn btn-success">
+						<i class="fas fa-check"> </i> Simpan
+					</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+
+	<div class="modal fade" id="modal-9">
+		<div class="modal-dialog modal-lg card card-primary card-outline">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title">
+						9. Status Pelaksanaan Pengadaan Barang / Jasa
+					</h3>
+					<button
+						type="button"
+						class="close"
+						data-dismiss="modal"
+						aria-label="Close"
+					>
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<input id="id_9" hidden />
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Status Pelaksanaan Pengadaan Barang/Jasa Kegiatan
+									<code>*</code>:</label
+								>
+								<select
+									id="stat_pelaksanaan"
+									name="stat-pelaksanaan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">Masih dalam jadwal</option>
+									<option value="2">perlu percepatan pelaksanaan</option>
+									<option value="3">perlu perhatian khusus</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-primary">Tutup</button> -->
+					<button id="save-data-9" type="button" class="btn btn-success">
 						<i class="fas fa-check"> </i> Simpan
 					</button>
 				</div>

@@ -132,6 +132,24 @@ $(function () {
 		$("#id_7").val("");
 	});
 
+	$("#add-data-8").on("click", function () {
+		$("#modal-8").modal({
+			show: true,
+		});
+
+		// $("#stat_wb").val(0).trigger("change");
+		$("#id_8").val("");
+	});
+
+	$("#add-data-9").on("click", function () {
+		$("#modal-9").modal({
+			show: true,
+		});
+
+		$("#stat_pelaksanaan").val(0).trigger("change");
+		$("#id_9").val("");
+	});
+
 	$("#save-data-1").on("click", function () {
 		savedata("data_nama_kegiatan");
 	});
@@ -160,6 +178,14 @@ $(function () {
 		savedata("data_profil_tender");
 	});
 
+	$("#save-data-8").on("click", function () {
+		savedata("data_proses_barang_jasa");
+	});
+
+	$("#save-data-9").on("click", function () {
+		savedata("data_stat_pelaksanaan_barang_jasa");
+	});
+
 	loaddata("data_nama_kegiatan");
 
 	$("#custom-2").on("click", function () {
@@ -184,6 +210,14 @@ $(function () {
 
 	$("#custom-7").on("click", function () {
 		loaddata("data_profil_tender");
+	});
+
+	$("#custom-8").on("click", function () {
+		loaddata("data_proses_barang_jasa");
+	});
+
+	$("#custom-9").on("click", function () {
+		loaddata("data_stat_pelaksanaan_barang_jasa");
 	});
 });
 
@@ -820,6 +854,201 @@ function loaddata(param) {
 						},
 					});
 				}
+
+				// if (param == "data_proses_barang_jasa") {
+				// 	var dt = $("#list_8").DataTable({
+				// 		destroy: true,
+				// 		paging: true,
+				// 		lengthChange: false,
+				// 		searching: true,
+				// 		ordering: true,
+				// 		info: true,
+				// 		autoWidth: false,
+				// 		responsive: false,
+				// 		pageLength: 10,
+				// 		aaData: result.data,
+				// 		aoColumns: [
+				// 			{ mDataProp: "id", width: "5%" },
+				// 			{ mDataProp: "tahun_tender" },
+				// 			{ mDataProp: "paket_tender" },
+				// 			{ mDataProp: "dana_tender" },
+				// 			{ mDataProp: "klpd_tender" },
+				// 			{ mDataProp: "satuan_tender" },
+				// 			{ mDataProp: "pengadaan_tender" },
+				// 			{ mDataProp: "pengadaan_tender2" },
+				// 			{ mDataProp: "nilai_tender" },
+				// 			{ mDataProp: "lokasi_tender" },
+				// 			{ mDataProp: "id" },
+				// 		],
+				// 		order: [[0, "ASC"]],
+				// 		aoColumnDefs: [
+				// 			{
+				// 				mRender: function (data, type, row) {
+				// 					var $rowData = ["-", "APBN MURNI", "APBN LOAN"];
+
+				// 					return $rowData[row.dana_tender];
+				// 				},
+				// 				aTargets: [3],
+				// 			},
+				// 			{
+				// 				mRender: function (data, type, row) {
+				// 					var $rowData = [
+				// 						"-",
+				// 						"Pekerjaan Konstruksi",
+				// 						"Jasa Konsultansi Badan Usaha",
+				// 						"lainnya",
+				// 					];
+
+				// 					return $rowData[row.pengadaan_tender];
+				// 				},
+				// 				aTargets: [6],
+				// 			},
+				// 			{
+				// 				mRender: function (data, type, row) {
+				// 					var $rowData = "";
+				// 					if (row.pengadaan_tender2 == "") {
+				// 						$rowData = "-";
+				// 					} else {
+				// 						$rowData = row.pengadaan_tender2;
+				// 					}
+
+				// 					return $rowData;
+				// 				},
+				// 				aTargets: [7],
+				// 			},
+				// 			{
+				// 				mRender: function (data, type, row) {
+				// 					var $rowData = "";
+				// 					$rowData += `
+				//                             <div class="btn-group">
+				//                             <button type="button" class="btn btn-info">Action</button>
+				//                             <button type="button" class="btn btn-info dropdown-toggle dropdown-icon" data-toggle="dropdown">
+				//                               <span class="sr-only">Toggle Dropdown</span>
+				//                             </button>
+				//                             <div class="dropdown-menu" role="menu">
+				//                               <a class="dropdown-item" href="#" onclick="edittender('${row.id}', '${row.tahun_tender}', '${row.paket_tender}', '${row.dana_tender}', '${row.klpd_tender}', '${row.satuan_tender}', '${row.pengadaan_tender}','${row.pengadaan_tender2}', '${row.nilai_tender}', '${row.lokasi_tender}')"><i class="far fa-edit"></i> Edit</a>
+				//                               <a class="dropdown-item" href="#" onclick="deleteData(${row.id}, 'data_profil_tender')"><i class="far fa-trash-alt"></i> Hapus</a>
+				//                             </div>
+				//                           </div>`;
+
+				// 					return $rowData;
+				// 				},
+				// 				aTargets: [10],
+				// 			},
+				// 		],
+
+				// 		fnRowCallback: function (
+				// 			nRow,
+				// 			aData,
+				// 			iDisplayIndex,
+				// 			iDisplayIndexFull
+				// 		) {
+				// 			var index = iDisplayIndexFull + 1;
+				// 			$("td:eq(0)", nRow).html(" " + index);
+				// 			return;
+				// 		},
+
+				// 		fnInitComplete: function () {
+				// 			var that = this;
+				// 			var td;
+				// 			var tr;
+
+				// 			this.$("td").click(function () {
+				// 				td = this;
+				// 			});
+				// 			this.$("tr").click(function () {
+				// 				tr = this;
+				// 			});
+
+				// 			$("#listproj_filter input").bind("keyup", function (e) {
+				// 				return this.value;
+				// 			});
+				// 		},
+				// 	});
+				// }
+
+				if (param == "data_stat_pelaksanaan_barang_jasa") {
+					var dt = $("#list_9").DataTable({
+						destroy: true,
+						paging: true,
+						lengthChange: false,
+						searching: true,
+						ordering: true,
+						info: true,
+						autoWidth: false,
+						responsive: false,
+						pageLength: 10,
+						aaData: result.data,
+						aoColumns: [
+							{ mDataProp: "id", width: "5%" },
+							{ mDataProp: "stat_pelaksanaan" },
+							{ mDataProp: "id" },
+						],
+						order: [[0, "ASC"]],
+						aoColumnDefs: [
+							{
+								mRender: function (data, type, row) {
+									var $rowData = [
+										"-",
+										"Masih dalam jadwal",
+										"perlu percepatan pelaksanaan",
+										"perlu perhatian khusus",
+									];
+
+									return $rowData[row.stat_pelaksanaan];
+								},
+								aTargets: [1],
+							},
+							{
+								mRender: function (data, type, row) {
+									var $rowData = "";
+									$rowData += `
+                                    <div class="btn-group">
+                                    <button type="button" class="btn btn-info">Action</button>
+                                    <button type="button" class="btn btn-info dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                      <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <div class="dropdown-menu" role="menu">
+                                      <a class="dropdown-item" href="#" onclick="editstatpelaksanaan('${row.id}', '${row.stat_pelaksanaan}')"><i class="far fa-edit"></i> Edit</a>
+                                      <a class="dropdown-item" href="#" onclick="deleteData(${row.id}, 'data_stat_pelaksanaan_barang_jasa')"><i class="far fa-trash-alt"></i> Hapus</a>
+                                    </div>
+                                  </div>`;
+
+									return $rowData;
+								},
+								aTargets: [2],
+							},
+						],
+
+						fnRowCallback: function (
+							nRow,
+							aData,
+							iDisplayIndex,
+							iDisplayIndexFull
+						) {
+							var index = iDisplayIndexFull + 1;
+							$("td:eq(0)", nRow).html(" " + index);
+							return;
+						},
+
+						fnInitComplete: function () {
+							var that = this;
+							var td;
+							var tr;
+
+							this.$("td").click(function () {
+								td = this;
+							});
+							this.$("tr").click(function () {
+								tr = this;
+							});
+
+							$("#listproj_filter input").bind("keyup", function (e) {
+								return this.value;
+							});
+						},
+					});
+				}
 			} else {
 				var table = $("#list_1").DataTable();
 				table.clear().draw();
@@ -963,6 +1192,44 @@ function savedata(param) {
 		}
 	}
 
+	// if (param == "data_proses_barang_jasa") {
+	// 	var tender = $('[name="tender-input"]');
+	// 	for (let i = 0; i < tender.length; i++) {
+	// 		var elem = tender[i];
+	// 		formData.append(elem.id, elem.value);
+	// 	}
+	// 	formData.append("table", param);
+	// 	if ($("#id_7").val()) {
+	// 		formData.append("id", $("#id_7").val());
+	// 	}
+	// 	if ($("#id_7").val()) {
+	// 		var baseurl = "updateCriteria";
+	// 		var msg = "Update Data Profil Tender  ";
+	// 	} else {
+	// 		var baseurl = "saveCriteria";
+	// 		var msg = "Tambah Data Profil Tender  ";
+	// 	}
+	// }
+
+	if (param == "data_stat_pelaksanaan_barang_jasa") {
+		var stat_pelaksanaan = $('[name="stat-pelaksanaan-input"]');
+		for (let i = 0; i < stat_pelaksanaan.length; i++) {
+			var elem = stat_pelaksanaan[i];
+			formData.append(elem.id, elem.value);
+		}
+		formData.append("table", param);
+		if ($("#id_9").val()) {
+			formData.append("id", $("#id_9").val());
+		}
+		if ($("#id_9").val()) {
+			var baseurl = "updateCriteria";
+			var msg = "Update Data Status Pelaksanaan Pengadaan Barang/Jasa  ";
+		} else {
+			var baseurl = "saveCriteria";
+			var msg = "Tambah Data Status Pelaksanaan Pengadaan Barang/Jasa  ";
+		}
+	}
+
 	$.ajax({
 		type: "post",
 		url: baseurl,
@@ -1060,6 +1327,41 @@ function edittender(
 	}
 	$("#nilai_tender").val(nilai);
 	$("#lokasi_tender").val(lokasi);
+}
+
+// function editproses(
+// 	id,
+// 	tahunt,
+// 	pakett,
+// 	danat,
+// 	klpd,
+// 	satuan,
+// 	pengadaan,
+// 	pengadaan2,
+// 	nilai,
+// 	lokasi
+// ) {
+// 	$("#add-data-7").trigger("click");
+// 	$("#id_7").val(id);
+// 	$("#tahun_tender").val(tahunt);
+// 	$("#paket_tender").val(pakett);
+// 	$("#dana_tender").val(danat).trigger("change");
+// 	$("#klpd_tender").val(klpd);
+// 	$("#satuan_tender").val(satuan);
+// 	if (pengadaan == "3") {
+// 		$("#pengadaan_tender").val(3).trigger("change");
+// 		$("#pengadaan_tender2").val(pengadaan2);
+// 	} else {
+// 		$("#pengadaan_tender").val(pengadaan).trigger("change");
+// 	}
+// 	$("#nilai_tender").val(nilai);
+// 	$("#lokasi_tender").val(lokasi);
+// }
+
+function editstatpelaksanaan(id, stat_pelaksanaan) {
+	$("#add-data-9").trigger("click");
+	$("#id_9").val(id);
+	$("#stat_pelaksanaan").val(stat_pelaksanaan).trigger("change");
 }
 
 function deleteData(id, table) {
