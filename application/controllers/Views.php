@@ -232,6 +232,16 @@ class Views extends CI_Controller {
 		$this->twig->display('frontend/tujuan.html', $this->content);
 	}
 
+	public function latar()
+	{
+		$this->twig->display('frontend/latar.html', $this->content);
+	}
+
+	public function struktur()
+	{
+		$this->twig->display('frontend/struktur.html', $this->content);
+	}
+
 	public function indikator()
 	{
 		$this->twig->display('frontend/indikator.html', $this->content);

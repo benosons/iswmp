@@ -79,6 +79,8 @@ $route['^(peta)(/:any)?$'] = "views/$0";
 $route['^(pengaduan)(/:any)?$'] = "views/$0";
 $route['^(embedlaporan)(/:any)?$'] = "views/$0";
 $route['^(monitoring)(/:any)?$'] = "views/$0";
+$route['^(latar)(/:any)?$'] = "views/$0";
+$route['^(struktur)(/:any)?$'] = "views/$0";
 // infrastruktur
 $route['^(kriteria)(/:any)?$'] = "views/$0";
 $route['^(persiapan)(/:any)?$'] = "views/$0";
