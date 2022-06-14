@@ -54,14 +54,14 @@
                             <li><a href="gallery-simple.html#" title="">Beranda</a></li>
                             <li>Progres ISWMP</li>
                         </ul>
-                        <h2 class="page-title">Monitoring <span>Bali</span></h2>
+                        <h2 class="page-title">MONITORING <span>{{ param }}</span></h2>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section><!-- page top title with bread crumb -->
-
+{% if param == 'BALI' %}
 <section id="contact">
     <div class="gap nogap">
         <div class="container">
@@ -98,5 +98,24 @@
         </div>
     </div>
 </section>
+{% endif %}
+
+{% if param == 'CITARUM' %}
+<section id="contact">
+    <div class="gap nogap">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="heading-2 margin-btm">
+                    </div>
+                    <div class="contact-page">
+                            <iframe width="1024" height="1060" src="https://sipsn.menlhk.go.id/sipsn/"></iframe> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
 
 {% endblock %}
