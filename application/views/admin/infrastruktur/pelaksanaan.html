@@ -263,8 +263,8 @@
 															<th>No</th>
 															<th>Bulan</th>
 															<th>Minggu</th>
-															<th>Progres Fisik (%)</th>
-															<th>Akumulasi Progres Fisik (%)</th>
+															<th>Progres Keuangan (%)</th>
+															<th>Akumulasi Progres Keuangan (%)</th>
 															<th></th>
 														</tr>
 													</thead>
@@ -769,7 +769,7 @@
 								<label>Bulan <code>*</code>:</label>
 								<input
 									id="bulan_fisik"
-									name="profil-input"
+									name="fisik-input"
 									type="text"
 									class="form-control"
 									placeholder="..."
@@ -781,7 +781,7 @@
 								<label>Minggu <code>*</code>:</label>
 								<input
 									id="minggu_fisik"
-									name="profil-input"
+									name="fisik-input"
 									type="text"
 									class="form-control"
 									placeholder="..."
@@ -793,7 +793,7 @@
 								<label>Progres Fisik (%) <code>*</code>:</label>
 								<input
 									id="progres_fisik"
-									name="profil-input"
+									name="fisik-input"
 									type="text"
 									class="form-control"
 									placeholder="..."
@@ -805,7 +805,7 @@
 								<label>Akumulasi Progres Fisik (%) <code>*</code>:</label>
 								<input
 									id="akumulasi_fisik"
-									name="profil-input"
+									name="fisik-input"
 									type="text"
 									class="form-control"
 									placeholder="..."
@@ -848,7 +848,7 @@
 								<label>Bulan <code>*</code>:</label>
 								<input
 									id="bulan_keuangan"
-									name="profil-input"
+									name="keuangan-input"
 									type="text"
 									class="form-control"
 									placeholder="..."
@@ -860,7 +860,7 @@
 								<label>Minggu <code>*</code>:</label>
 								<input
 									id="minggu_keuangan"
-									name="profil-input"
+									name="keuangan-input"
 									type="text"
 									class="form-control"
 									placeholder="..."
@@ -872,7 +872,7 @@
 								<label>Progres Keuangan (%) <code>*</code>:</label>
 								<input
 									id="progres_keuangan"
-									name="profil-input"
+									name="keuangan-input"
 									type="text"
 									class="form-control"
 									placeholder="..."
@@ -884,7 +884,7 @@
 								<label>Akumulasi Progres Keuangan (%) <code>*</code>:</label>
 								<input
 									id="akumulasi_keuangan"
-									name="profil-input"
+									name="keuangan-input"
 									type="text"
 									class="form-control"
 									placeholder="..."
@@ -909,7 +909,7 @@
 		<div class="modal-dialog modal-lg card card-primary card-outline">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h3 class="modal-title">4. Pembuatan Pagu Anggaran/RAB/HPS</h3>
+					<h3 class="modal-title">4. Pelaksanaan Kontrak</h3>
 					<button
 						type="button"
 						class="close"
@@ -924,15 +924,262 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group">
-								<label>Status dokumen <code>*</code>:</label>
+								<label>Penyerahan lokasi pekerjaan <code>*</code>:</label>
 								<select
-									id="stat_pagu"
-									name="pagu-input"
+									id="penyerahan"
+									name="pelaksanaan-input"
 									class="form-control select2bs4"
 								>
 									<option value="0">-Pilih-</option>
-									<option value="1">Sudah</option>
-									<option value="2">Belum</option>
+									<option value="1">
+										Dilakukan penyerahan lokasi setelah penandatanganan kontrak
+										dan sebelum SPMK
+									</option>
+									<option value="2">
+										Dilakukan penyerahan lokasi sebelum penandatanganan kontrak
+										atau setelah SPMK/
+									</option>
+									<option value="3">
+										Tidak dilakukan penyerahan lokasi kerja/
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Rapat persiapan pelaksanaan kontrak (pre-construction
+									meeting/PCM)<code>*</code>:</label
+								>
+								<select
+									id="pcm"
+									name="pelaksanaan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">
+										Melakukan rapat persiapan pelaksanaan kontrak maksimal 7
+										hari setelah SPMK dan sebelum dimulainya pelaksanaan
+										pekerjaan
+									</option>
+									<option value="2">
+										Melakukan rapat persiapan pelaksanaan kontrak lebih dari 7
+										hari setelah SPMK
+									</option>
+									<option value="3">
+										Tidak melakukan rapat persiapan pelaksanaan kontrak
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Mobilisasi sumber daya (material, alat, tenaga
+									kerja)<code>*</code>:</label
+								>
+								<select
+									id="mobilisasi"
+									name="pelaksanaan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">
+										Penyedia Jasa melakukan mobilisasi sumber daya (material,
+										alat, tenaga kerja) sebelum 14 hari kalender sejak
+										diterbitkan SPMK
+									</option>
+									<option value="2">
+										Penyedia Jasa melakukan mobilisasi sumber daya (material,
+										alat, tenaga kerja) dalam kurun waktu 14-30 hari kalender
+										sejak diterbitkan SPMK
+									</option>
+									<option value="3">
+										Penyedia Jasa melakukan mobilisasi sumber daya (material,
+										alat, tenaga kerja) lebih dari 30 hari kalender sejak
+										diterbitkan SPMK
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Pemeriksaan bersama (Mutual Check)<code>*</code>:</label>
+								<select
+									id="mutual"
+									name="pelaksanaan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">
+										Melakukan pemeriksaan bersama (Mutual Check) dan dihadiri
+										oleh pengendali pekerjaan atau direksi teknis
+									</option>
+									<option value="2">
+										Melakukan pemeriksaan bersama (Mutual Check) tetapi tidak
+										dihadiri oleh pengendali pekerjaan atau direksi teknis
+									</option>
+									<option value="3">
+										Tidak melakukan pemeriksaan bersama (Mutual Check)
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Permohonan izin memulai pekerjaan (Request of
+									Work)<code>*</code>:</label
+								>
+								<select
+									id="izin"
+									name="pelaksanaan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">
+										Terdapat permohonan izin memulai pekerjaan (Request of Work)
+										dan sudah ada surat persetujuan memulai pekerjaan (Approval
+										of Work)
+									</option>
+									<option value="2">
+										Terdapat permohonan izin memulai pekerjaan (Request of Work)
+										tetapi belum ada surat persetujuan memulai pekerjaan
+										(Approval of Work)
+									</option>
+									<option value="3">
+										Tidak ada permohonan izin memulai pekerjaan (Request of
+										Work)
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Ketersediaan laporan pelaksanaan
+									pekerjaan<code>*</code>:</label
+								>
+								<select
+									id="ketersediaan"
+									name="pelaksanaan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">
+										Terdapat laporan pelaksanaan pekerjaan yang disusun dan
+										disampaikan tepat waktu (harian, mingguan, bulanan)
+									</option>
+									<option value="2">
+										Terdapat laporan pelaksanaan pekerjaan tetapi disusun dan
+										disampaikan tidak tepat waktu (harian atau mingguan atau
+										bulanan)
+									</option>
+									<option value="3">
+										Tidak ada laporan pelaksanaan pekerjaan
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Ketersediaan shop drawing dan asbuild
+									drawing<code>*</code>:</label
+								>
+								<select
+									id="drawing"
+									name="pelaksanaan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">
+										Terdapat shop drawing dan asbuild drawing dan sudah
+										ditandatangani PPK dan Penyedia Jasa
+									</option>
+									<option value="2">
+										Terdapat shop drawing dan asbuild drawing tetapi belum
+										ditandatangani PPK dan/atau Penyedia Jasa
+									</option>
+									<option value="3">
+										Tidak terdapat shop drawing dan asbuild drawing
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Kesesuaian realisasi progres fisik dengan rencana
+									fisik<code>*</code>:</label
+								>
+								<select
+									id="realisasi_fisik"
+									name="pelaksanaan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">
+										Sesuai atau lebih cepat dengan rencana fisik
+									</option>
+									<option value="2">
+										Terdapat keterlambatan progres fisik s.d 10% terhadap
+										rencana fisik
+									</option>
+									<option value="3">
+										Terdapat keterlambatan progres fisik diatas 10% terhadap
+										rencana fisik
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Kesesuaian realisasi progres keuangan dengan rencana
+									keuangan<code>*</code>:</label
+								>
+								<select
+									id="realisasi_keuangan"
+									name="pelaksanaan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">
+										Realisasi progres keuangan sesuai atau deviasi positif
+										terhadap rencana keuangan
+									</option>
+									<option value="2">
+										Realisasi progres keuangan deviasi minus 10-20% terhadap
+										rencana keuangan
+									</option>
+									<option value="3">
+										Realisasi progres keuangan deviasi minus > 20 % terhadap
+										rencana keuangan
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Kesesuaian mesin/alat pengolahan sampah yang
+									digunakan<code>*</code>:</label
+								>
+								<select
+									id="mesin_alat"
+									name="pelaksanaan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">
+										Terdapat Berita Acara Perubahan Mesin dan Alat yang
+										digunakan berkaitan dengan Perubahan Kontrak
+									</option>
+									<option value="2">
+										Tidak ada berita acara perubahan mesin dan alat yang
+										digunakan berkaitan dengan perubahan kontrak
+									</option>
 								</select>
 							</div>
 						</div>
@@ -954,7 +1201,9 @@
 		<div class="modal-dialog modal-lg card card-primary card-outline">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h3 class="modal-title">5. Dokumen Seleksi Konsultan</h3>
+					<h3 class="modal-title">
+						5. Pelaksanaan Sistem Manajemen Keselamatan Konstruksi
+					</h3>
 					<button
 						type="button"
 						class="close"
@@ -969,15 +1218,71 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group">
-								<label>Status dokumen <code>*</code>:</label>
+								<label
+									>Kesiapan penyelenggaraan Sistem Manajemen Keselamatan
+									Konstruksi (sesuai Permen PUPR No. 10 Tahun
+									2021)<code>*</code>:</label
+								>
 								<select
-									id="stat_seleksi"
-									name="seleksi-input"
+									id="penyelenggaraan"
+									name="manajemen-input"
 									class="form-control select2bs4"
 								>
 									<option value="0">-Pilih-</option>
-									<option value="1">Sudah</option>
-									<option value="2">Belum</option>
+									<option value="1">
+										Telah melakukan semua kegiatan Sistem Manajemen Keselamatan
+										Konstruksi
+									</option>
+									<option value="2">
+										Hanya melakukan sebagian kegiatan Sistem Manajemen
+										Keselamatan Konstruksi
+									</option>
+									<option value="3">
+										Tidak melakukan kegiatan Sistem Manajemen Keselamatan
+										Konstruksi
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Kesesuaian rencana dengan pelaksanaan Sistem Manajemen
+									Keselamatan Konstruksi <code>*</code>:</label
+								>
+								<select
+									id="rencana"
+									name="manajemen-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">
+										Melakukan inspeksi rutin (harian,mingguan,bulanan)
+									</option>
+									<option value="2">
+										Melakukan inspeksi tetapi tidak rutin (bersifat insidental
+										saja)
+									</option>
+									<option value="3">Tidak melakukan inspeksi</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Ketersediaan Laporan K3 <code>*</code>:</label>
+								<select
+									id="k3"
+									name="manajemen-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">
+										Terdapat laporan bulanan pelaksanaan K3
+									</option>
+									<option value="2">
+										Terdapat laporan pelaksanan K3 tetapi tidak rutin
+									</option>
+									<option value="3">Tidak ada laporan pelaksaaan K3</option>
 								</select>
 							</div>
 						</div>
@@ -999,7 +1304,7 @@
 		<div class="modal-dialog modal-lg card card-primary card-outline">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h3 class="modal-title">6. NoL WB</h3>
+					<h3 class="modal-title">6. Kondisi Khusus</h3>
 					<button
 						type="button"
 						class="close"
@@ -1014,15 +1319,52 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group">
-								<label>Status dokumen <code>*</code>:</label>
+								<label
+									>Sosialisasi kepada masyarakat di sekitar lokasi kegiatan
+									<code>*</code>:</label
+								>
 								<select
-									id="stat_wb"
-									name="wb-input"
+									id="sosialisasi"
+									name="kondisi-input"
 									class="form-control select2bs4"
 								>
 									<option value="0">-Pilih-</option>
-									<option value="1">Sudah</option>
-									<option value="2">Belum</option>
+									<option value="1">
+										Sudah dilakukan sosialisasi kepada masyarakat di sekitar
+										lokasi kegiatan
+									</option>
+									<option value="2">
+										Belum dilakukan sosialisasi kepada masyarakat di sekitar
+										lokasi kegiatan
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Tindak lanjut permasalahan pelaksanaan pekerjaan
+									<code>*</code>:</label
+								>
+								<select
+									id="tindaklanjut"
+									name="kondisi-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">
+										Tidak ada keterlambatan waktu pelaksanaan pekerjaan
+									</option>
+									<option value="2">
+										Terdapat keterlambatan pekerjaan tetapi sudah dilakukan
+										penanganan keterlambatan sesuai peraturan atau dokumen
+										kontrak
+									</option>
+									<option value="3">
+										Terdapat keterlambatan pekerjaan tetapi tidak dilakukan
+										penanganan keterlambatan sesuai peraturan atau dokumen
+										kontrak
+									</option>
 								</select>
 							</div>
 						</div>
@@ -1044,7 +1386,7 @@
 		<div class="modal-dialog modal-lg card card-primary card-outline">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h3 class="modal-title">7. Profil profil</h3>
+					<h3 class="modal-title">7. Uji Coba</h3>
 					<button
 						type="button"
 						class="close"
@@ -1059,116 +1401,74 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group">
-								<label>Tahun Anggaran <code>*</code>:</label>
-								<input
-									id="tahun_profil"
-									name="profil-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="form-group">
-								<label>Nama Paket <code>*</code>:</label>
-								<input
-									id="paket_profil"
-									name="profil-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="form-group">
-								<label>Sumber dana <code>*</code>:</label>
+								<label
+									>Pengujian akhir pekerjaan (Test on Completion)
+									<code>*</code>:</label
+								>
 								<select
-									id="dana_profil"
-									name="profil-input"
+									id="pengujian"
+									name="uji-input"
 									class="form-control select2bs4"
 								>
 									<option value="0">-Pilih-</option>
-									<option value="1">APBN MURNI</option>
-									<option value="2">APBN LOAN</option>
+									<option value="1">
+										Dilakukan pengujian akhir pekerjaan dan hasil pemeriksaaan
+										telah sesuai dengan ketentuan yang tercantum dalam kontrak
+									</option>
+									<option value="2">
+										Dilakukan pengujian akhir pekerjaan tetapi masih terdapat
+										cacat mutu dan/atau cacat fungsi yang belum diperbaiki
+									</option>
+									<option value="3">
+										Tidak dilakukan pengujian akhir pekerjaan
+									</option>
 								</select>
 							</div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
-								<label>K/L/PD<code>*</code>:</label>
-								<input
-									id="klpd_profil"
-									name="profil-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="form-group">
-								<label>Satuan Kerja<code>*</code>:</label>
-								<input
-									id="satuan_profil"
-									name="profil-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="form-group">
-								<label>Jenis Pengadaan<code>*</code>:</label>
+								<label
+									>Ketersediaan SOP (Standart Operational Procedure)
+									<code>*</code>:</label
+								>
 								<select
-									id="pengadaan_profil"
-									name="profil-input"
+									id="sop"
+									name="uji-input"
 									class="form-control select2bs4"
 								>
 									<option value="0">-Pilih-</option>
-									<option value="1">Pekerjaan Konstruksi</option>
-									<option value="2">Jasa Konsultansi Badan Usaha</option>
-									<option value="3">Lainnya</option>
+									<option value="1">
+										Dokumen SOP (Standart Operational Procedure) sudah ada dan
+										telah diperbaharui berdasarkan sistem yang ada dari
+										infrastruktur terbangun
+									</option>
+									<option value="2">
+										Dokumen SOP (Standart Operational Procedure) sudah ada
+										tetapi belum diperbaharui berdasarkan sistem yang ada dari
+										infrastruktur terbangun
+									</option>
+									<option value="3">
+										Belum ada SOP (Standart Operational Procedure) atau SOP
+										sedang disusun dari infrastruktur terbangun
+									</option>
 								</select>
 							</div>
 						</div>
-						<div class="col-md-12" id="div-pengadaan">
-							<div class="form-group">
-								<label>Masukan Jenis Pengadaan <code>*</code>:</label>
-								<input
-									id="pengadaan_profil2"
-									name="profil-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-									value=""
-								/>
-							</div>
-						</div>
 						<div class="col-md-12">
 							<div class="form-group">
-								<label>Nilai Pagu <code>*</code>:</label>
-								<input
-									id="nilai_profil"
-									name="profil-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="form-group">
-								<label>Lokasi Pekerjaan <code>*</code>:</label>
-								<input
-									id="lokasi_profil"
-									name="profil-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
+								<label
+									>Kualitas produk hasil olahan sampah <code>*</code>:</label
+								>
+								<select
+									id="kualitas"
+									name="uji-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">Baik</option>
+									<option value="2">Sedang</option>
+									<option value="3">Buruk</option>
+								</select>
 							</div>
 						</div>
 					</div>
@@ -1189,7 +1489,7 @@
 		<div class="modal-dialog modal-lg card card-primary card-outline">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h3 class="modal-title">8. Proses Pengadaan Barang/Jasa</h3>
+					<h3 class="modal-title">8. Status Pelaksanaan Kegiatan</h3>
 					<button
 						type="button"
 						class="close"
@@ -1204,424 +1504,21 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group">
-								<label
-									>Pengumuman Pascakualifikasi (konstruksi)
-									<code>*</code>:</label
-								>
-								<input
-									id="kontruksi1"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-								<input
-									id="kontruksi2"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-								<input
-									id="kontruksi3"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="form-group">
-								<label>Download Dokumen Pemilihan <code>*</code>:</label>
-								<input
-									id="dokumen1"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-								<input
-									id="dokumen2"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-								<input
-									id="dokumen3"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="form-group">
-								<label>Pemberian Penjelasan <code>*</code>:</label>
-								<input
-									id="penjelasan1"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-								<input
-									id="penjelasan2"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-								<input
-									id="penjelasan3"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="form-group">
-								<label>Upload Dokumen Penawaran<code>*</code>:</label>
-								<input
-									id="penawaran1"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-								<input
-									id="penawaran2"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-								<input
-									id="penawaran3"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="form-group">
-								<label>Pembukaan dan Evaluasi Penawaran<code>*</code>:</label>
-								<input
-									id="pembukaan1"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-								<input
-									id="pembukaan2"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-								<input
-									id="pembukaan3"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="form-group">
-								<label>Pembuktian Kualifikasi<code>*</code>:</label>
-								<input
-									id="kualifikasi1"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-								<input
-									id="kualifikasi2"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-								<input
-									id="kualifikasi3"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-							</div>
-						</div>
-						<div class="col-md-12" id="div-pengadaan">
-							<div class="form-group">
-								<label
-									>Pengumuman Hasil Evaluasi Administrasi dan Teknis
-									<code>*</code>:</label
-								>
-								<input
-									id="pengumuman1"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-								<input
-									id="pengumuman2"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-								<input
-									id="pengumuman3"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="form-group">
-								<label>Masa Sanggah <code>*</code>:</label>
-								<input
-									id="sanggah1"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-								<input
-									id="sanggah2"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-								<input
-									id="sanggah3"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="form-group">
-								<label>Pembukaan dan Evaluasi Penawaran <code>*</code>:</label>
-								<input
-									id="evaluasi_penawaran1"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-								<input
-									id="evaluasi_penawaran2"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-								<input
-									id="evaluasi_penawaran3"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="form-group">
-								<label>Klarifikasi Teknis dan Negosiasi<code>*</code>:</label>
-								<input
-									id="klarifikasi1"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-								<input
-									id="klarifikasi2"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-								<input
-									id="klarifikasi3"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="form-group">
-								<label>Penetapan Pemenang<code>*</code>:</label>
-								<input
-									id="penetapan1"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-								<input
-									id="penetapan2"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-								<input
-									id="penetapan3"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="form-group">
-								<label>Pengumuman Pemenang<code>*</code>:</label>
-								<input
-									id="pengumuman_pemenang1"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-								<input
-									id="pengumuman_pemenang2"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-								<input
-									id="pengumuman_pemenang3"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="form-group">
-								<label
-									>Surat Penunjukan Penyedia Barang/Jasa<code>*</code>:</label
-								>
-								<input
-									id="surat_penunjukkan1"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-								<input
-									id="surat_penunjukkan2"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-								<input
-									id="surat_penunjukkan3"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="form-group">
-								<label>Penandatanganan Kontrak<code>*</code>:</label>
-								<input
-									id="penandatanganan1"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-								<input
-									id="penandatanganan2"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-								<input
-									id="penandatanganan3"
-									name="proses-input"
-									type="text"
-									class="form-control"
-									placeholder="..."
-								/>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="modal-footer">
-					<!-- <button type="button" class="btn btn-primary">Tutup</button> -->
-					<button id="save-data-7" type="button" class="btn btn-success">
-						<i class="fas fa-check"> </i> Simpan
-					</button>
-				</div>
-			</div>
-			<!-- /.modal-content -->
-		</div>
-		<!-- /.modal-dialog -->
-	</div>
-
-	<div class="modal fade" id="modal-9">
-		<div class="modal-dialog modal-lg card card-primary card-outline">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h3 class="modal-title">
-						9. Status Pelaksanaan Pengadaan Barang / Jasa
-					</h3>
-					<button
-						type="button"
-						class="close"
-						data-dismiss="modal"
-						aria-label="Close"
-					>
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<input id="id_9" hidden />
-					<div class="row">
-						<div class="col-md-12">
-							<div class="form-group">
-								<label
-									>Status Pelaksanaan Pengadaan Barang/Jasa Kegiatan
-									<code>*</code>:</label
-								>
+								<label>Status Pelaksanaan Kegiatan<code>*</code>:</label>
 								<select
-									id="stat_pelaksanaan"
-									name="stat-pelaksanaan-input"
+									id="status_pelaksanaan"
+									name="statuspelaksanaan-input"
 									class="form-control select2bs4"
 								>
 									<option value="0">-Pilih-</option>
-									<option value="1">Masih dalam jadwal</option>
-									<option value="2">perlu percepatan pelaksanaan</option>
-									<option value="3">perlu perhatian khusus</option>
+									<option value="1">Pelaksanaan kegiatan berjalan baik</option>
+									<option value="2">
+										Pelaksanaan kegiatan berjalan baik, tetapi perlu perhatian
+									</option>
+									<option value="3">
+										Pelaksanaan kegiatan tidak berjalan baik dan perlu perhatian
+										khusus
+									</option>
 								</select>
 							</div>
 						</div>
@@ -1629,7 +1526,7 @@
 				</div>
 				<div class="modal-footer">
 					<!-- <button type="button" class="btn btn-primary">Tutup</button> -->
-					<button id="save-data-9" type="button" class="btn btn-success">
+					<button id="save-data-8" type="button" class="btn btn-success">
 						<i class="fas fa-check"> </i> Simpan
 					</button>
 				</div>
