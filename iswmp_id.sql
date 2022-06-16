@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 13, 2022 at 01:20 PM
+-- Generation Time: Jun 16, 2022 at 03:28 AM
 -- Server version: 5.7.33
 -- PHP Version: 7.4.19
 
@@ -200,6 +200,29 @@ INSERT INTO `data_kelengkapan` (`id`, `minat`, `status_lahan`, `kesesuaian`, `ke
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `data_kondisi_khusus`
+--
+
+CREATE TABLE `data_kondisi_khusus` (
+  `id` int(11) NOT NULL,
+  `sosialisasi` varchar(255) NOT NULL,
+  `tindaklanjut` varchar(255) NOT NULL,
+  `create_by` varchar(255) NOT NULL,
+  `update_by` varchar(255) DEFAULT NULL,
+  `create_date` datetime NOT NULL,
+  `update_date` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `data_kondisi_khusus`
+--
+
+INSERT INTO `data_kondisi_khusus` (`id`, `sosialisasi`, `tindaklanjut`, `create_by`, `update_by`, `create_date`, `update_date`) VALUES
+(1, '1', '1', '1', '1', '2022-06-16 03:17:12', '2022-06-16 03:17:12');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `data_laporan`
 --
 
@@ -273,6 +296,37 @@ CREATE TABLE `data_pagu` (
 
 INSERT INTO `data_pagu` (`id`, `stat_pagu`, `create_by`, `update_by`, `create_date`, `update_date`) VALUES
 (2, '2', '1', '1', '2022-06-13 04:30:14', '2022-06-13 04:30:14');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `data_pelaksanaan_kontrak`
+--
+
+CREATE TABLE `data_pelaksanaan_kontrak` (
+  `id` int(11) NOT NULL,
+  `penyerahan` varchar(255) NOT NULL,
+  `pcm` varchar(255) NOT NULL,
+  `mobilisasi` varchar(255) NOT NULL,
+  `mutual` varchar(255) NOT NULL,
+  `izin` varchar(255) NOT NULL,
+  `ketersediaan` varchar(255) NOT NULL,
+  `drawing` varchar(255) NOT NULL,
+  `realisasi_fisik` varchar(255) NOT NULL,
+  `realisasi_keuangan` varchar(255) NOT NULL,
+  `mesin_alat` varchar(255) NOT NULL,
+  `create_by` varchar(150) NOT NULL,
+  `update_by` varchar(255) DEFAULT NULL,
+  `create_date` datetime NOT NULL,
+  `update_date` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `data_pelaksanaan_kontrak`
+--
+
+INSERT INTO `data_pelaksanaan_kontrak` (`id`, `penyerahan`, `pcm`, `mobilisasi`, `mutual`, `izin`, `ketersediaan`, `drawing`, `realisasi_fisik`, `realisasi_keuangan`, `mesin_alat`, `create_by`, `update_by`, `create_date`, `update_date`) VALUES
+(3, '3', '3', '3', '3', '3', '3', '3', '3', '3', '2', '1', '1', '2022-06-16 02:52:59', '2022-06-16 02:52:59');
 
 -- --------------------------------------------------------
 
@@ -392,6 +446,40 @@ INSERT INTO `data_peta` (`id`, `latitude`, `longitude`, `nama`, `alamat`, `kabup
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `data_profil_kegiatan`
+--
+
+CREATE TABLE `data_profil_kegiatan` (
+  `id` int(11) NOT NULL,
+  `tahun_profil` varchar(255) NOT NULL,
+  `paket_profil` varchar(255) NOT NULL,
+  `dana_profil` varchar(255) NOT NULL,
+  `klpd_profil` varchar(255) NOT NULL,
+  `satuan_profil` varchar(255) NOT NULL,
+  `nilai_profil` varchar(255) NOT NULL,
+  `lokasi_profil` varchar(255) NOT NULL,
+  `koordinat_profil` varchar(255) NOT NULL,
+  `kontrak_profil` varchar(255) NOT NULL,
+  `tanggal_profil` varchar(255) NOT NULL,
+  `addendum1` varchar(255) NOT NULL,
+  `addendum2` varchar(255) NOT NULL,
+  `addendum3` varchar(255) NOT NULL,
+  `create_by` varchar(255) NOT NULL,
+  `update_by` varchar(255) DEFAULT NULL,
+  `create_date` datetime NOT NULL,
+  `update_date` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `data_profil_kegiatan`
+--
+
+INSERT INTO `data_profil_kegiatan` (`id`, `tahun_profil`, `paket_profil`, `dana_profil`, `klpd_profil`, `satuan_profil`, `nilai_profil`, `lokasi_profil`, `koordinat_profil`, `kontrak_profil`, `tanggal_profil`, `addendum1`, `addendum2`, `addendum3`, `create_by`, `update_by`, `create_date`, `update_date`) VALUES
+(1, '2019', 'paket', '1', 'K', 'satuan', '70', 'lokasi', '12341231', '2', '2412312', '1,sen', '2,sab', '3,sel', '1', '1', '2022-06-16 01:54:43', '2022-06-16 01:54:43');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `data_profil_tender`
 --
 
@@ -446,6 +534,56 @@ CREATE TABLE `data_profil_usulan` (
 INSERT INTO `data_profil_usulan` (`id`, `tpst`, `desa`, `kecamatan`, `kabupaten`, `uraian`, `direktif`, `create_by`, `update_by`, `create_date`, `update_date`) VALUES
 (2, 'e', 'r', 't', 'twqeqw', '123124', 'teqweqwe', '1', '1', '2022-06-10 14:04:08', '2022-06-10 14:32:06'),
 (3, 'eqwe', 'qweqw', 'eqwe', 'eqwe', '<p>qwew<br></p>', 'eqweqweqw', '1', '1', '2022-06-10 14:32:27', '2022-06-10 14:32:27');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `data_progres_fisik`
+--
+
+CREATE TABLE `data_progres_fisik` (
+  `id` int(11) NOT NULL,
+  `bulan_fisik` varchar(255) NOT NULL,
+  `minggu_fisik` varchar(255) NOT NULL,
+  `progres_fisik` varchar(255) NOT NULL,
+  `akumulasi_fisik` varchar(255) NOT NULL,
+  `create_by` varchar(255) NOT NULL,
+  `update_by` varchar(255) DEFAULT NULL,
+  `create_date` datetime NOT NULL,
+  `update_date` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `data_progres_fisik`
+--
+
+INSERT INTO `data_progres_fisik` (`id`, `bulan_fisik`, `minggu_fisik`, `progres_fisik`, `akumulasi_fisik`, `create_by`, `update_by`, `create_date`, `update_date`) VALUES
+(2, 'feb', '3', '50%', '45%', '1', '1', '2022-06-16 02:09:33', '2022-06-16 02:09:33');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `data_progres_keuangan`
+--
+
+CREATE TABLE `data_progres_keuangan` (
+  `id` int(11) NOT NULL,
+  `bulan_keuangan` varchar(255) NOT NULL,
+  `minggu_keuangan` varchar(255) NOT NULL,
+  `progres_keuangan` varchar(255) NOT NULL,
+  `akumulasi_keuangan` varchar(255) NOT NULL,
+  `create_by` varchar(255) NOT NULL,
+  `update_by` varchar(255) DEFAULT NULL,
+  `create_date` datetime NOT NULL,
+  `update_date` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `data_progres_keuangan`
+--
+
+INSERT INTO `data_progres_keuangan` (`id`, `bulan_keuangan`, `minggu_keuangan`, `progres_keuangan`, `akumulasi_keuangan`, `create_by`, `update_by`, `create_date`, `update_date`) VALUES
+(2, 'mar', '2', '12%', '10%', '1', '1', '2022-06-16 02:33:10', '2022-06-16 02:33:10');
 
 -- --------------------------------------------------------
 
@@ -530,6 +668,52 @@ INSERT INTO `data_seleksi` (`id`, `stat_seleksi`, `create_by`, `update_by`, `cre
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `data_sistem_manajemen`
+--
+
+CREATE TABLE `data_sistem_manajemen` (
+  `id` int(11) NOT NULL,
+  `penyelenggaraan` varchar(255) NOT NULL,
+  `rencana` varchar(255) NOT NULL,
+  `k3` varchar(255) NOT NULL,
+  `create_by` varchar(255) NOT NULL,
+  `update_by` varchar(255) NOT NULL,
+  `create_date` datetime NOT NULL,
+  `update_date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `data_sistem_manajemen`
+--
+
+INSERT INTO `data_sistem_manajemen` (`id`, `penyelenggaraan`, `rencana`, `k3`, `create_by`, `update_by`, `create_date`, `update_date`) VALUES
+(2, '3', '3', '3', '1', '1', '2022-06-16 02:59:06', '2022-06-16 02:59:06');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `data_status_kegiatan`
+--
+
+CREATE TABLE `data_status_kegiatan` (
+  `id` int(11) NOT NULL,
+  `status_pelaksanaan` varchar(255) NOT NULL,
+  `create_by` varchar(255) NOT NULL,
+  `update_by` varchar(255) DEFAULT NULL,
+  `create_date` datetime NOT NULL,
+  `update_date` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `data_status_kegiatan`
+--
+
+INSERT INTO `data_status_kegiatan` (`id`, `status_pelaksanaan`, `create_by`, `update_by`, `create_date`, `update_date`) VALUES
+(1, '3', '1', '1', '2022-06-16 03:27:02', '2022-06-16 03:27:02');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `data_status_usulan`
 --
 
@@ -563,6 +747,30 @@ CREATE TABLE `data_stat_pelaksanaan_barang_jasa` (
 
 INSERT INTO `data_stat_pelaksanaan_barang_jasa` (`id`, `stat_pelaksanaan`, `create_by`, `update_by`, `create_date`, `update_date`) VALUES
 (3, '1', '1', '1', '2022-06-13 13:19:49', '2022-06-13 13:19:49');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `data_uji_coba`
+--
+
+CREATE TABLE `data_uji_coba` (
+  `id` int(11) NOT NULL,
+  `pengujian` varchar(255) NOT NULL,
+  `sop` varchar(255) NOT NULL,
+  `kualitas` varchar(255) NOT NULL,
+  `create_by` varchar(255) NOT NULL,
+  `update_by` varchar(255) DEFAULT NULL,
+  `create_date` datetime NOT NULL,
+  `update_date` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `data_uji_coba`
+--
+
+INSERT INTO `data_uji_coba` (`id`, `pengujian`, `sop`, `kualitas`, `create_by`, `update_by`, `create_date`, `update_date`) VALUES
+(1, '1', '1', '1', '1', '1', '2022-06-16 03:23:20', '2022-06-16 03:23:20');
 
 -- --------------------------------------------------------
 
@@ -821,6 +1029,12 @@ ALTER TABLE `data_kelengkapan`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `data_kondisi_khusus`
+--
+ALTER TABLE `data_kondisi_khusus`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `data_laporan`
 --
 ALTER TABLE `data_laporan`
@@ -836,6 +1050,12 @@ ALTER TABLE `data_nama_kegiatan`
 -- Indexes for table `data_pagu`
 --
 ALTER TABLE `data_pagu`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `data_pelaksanaan_kontrak`
+--
+ALTER TABLE `data_pelaksanaan_kontrak`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -863,6 +1083,12 @@ ALTER TABLE `data_peta`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
+-- Indexes for table `data_profil_kegiatan`
+--
+ALTER TABLE `data_profil_kegiatan`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `data_profil_tender`
 --
 ALTER TABLE `data_profil_tender`
@@ -873,6 +1099,18 @@ ALTER TABLE `data_profil_tender`
 --
 ALTER TABLE `data_profil_usulan`
   ADD PRIMARY KEY (`id`) USING BTREE;
+
+--
+-- Indexes for table `data_progres_fisik`
+--
+ALTER TABLE `data_progres_fisik`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `data_progres_keuangan`
+--
+ALTER TABLE `data_progres_keuangan`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `data_rencana_pembagian`
@@ -893,6 +1131,18 @@ ALTER TABLE `data_seleksi`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `data_sistem_manajemen`
+--
+ALTER TABLE `data_sistem_manajemen`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `data_status_kegiatan`
+--
+ALTER TABLE `data_status_kegiatan`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `data_status_usulan`
 --
 ALTER TABLE `data_status_usulan`
@@ -902,6 +1152,12 @@ ALTER TABLE `data_status_usulan`
 -- Indexes for table `data_stat_pelaksanaan_barang_jasa`
 --
 ALTER TABLE `data_stat_pelaksanaan_barang_jasa`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `data_uji_coba`
+--
+ALTER TABLE `data_uji_coba`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -972,13 +1228,19 @@ ALTER TABLE `data_jadwal`
 -- AUTO_INCREMENT for table `data_kak`
 --
 ALTER TABLE `data_kak`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `data_kelengkapan`
 --
 ALTER TABLE `data_kelengkapan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `data_kondisi_khusus`
+--
+ALTER TABLE `data_kondisi_khusus`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `data_laporan`
@@ -990,13 +1252,19 @@ ALTER TABLE `data_laporan`
 -- AUTO_INCREMENT for table `data_nama_kegiatan`
 --
 ALTER TABLE `data_nama_kegiatan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `data_pagu`
 --
 ALTER TABLE `data_pagu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `data_pelaksanaan_kontrak`
+--
+ALTER TABLE `data_pelaksanaan_kontrak`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `data_pendetailan`
@@ -1014,13 +1282,19 @@ ALTER TABLE `data_pengaduan`
 -- AUTO_INCREMENT for table `data_penganggaran`
 --
 ALTER TABLE `data_penganggaran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `data_peta`
 --
 ALTER TABLE `data_peta`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `data_profil_kegiatan`
+--
+ALTER TABLE `data_profil_kegiatan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `data_profil_tender`
@@ -1033,6 +1307,18 @@ ALTER TABLE `data_profil_tender`
 --
 ALTER TABLE `data_profil_usulan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `data_progres_fisik`
+--
+ALTER TABLE `data_progres_fisik`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `data_progres_keuangan`
+--
+ALTER TABLE `data_progres_keuangan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `data_rencana_pembagian`
@@ -1050,6 +1336,18 @@ ALTER TABLE `data_rencana_teknis`
 -- AUTO_INCREMENT for table `data_seleksi`
 --
 ALTER TABLE `data_seleksi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `data_sistem_manajemen`
+--
+ALTER TABLE `data_sistem_manajemen`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `data_status_kegiatan`
+--
+ALTER TABLE `data_status_kegiatan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
@@ -1065,6 +1363,12 @@ ALTER TABLE `data_stat_pelaksanaan_barang_jasa`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `data_uji_coba`
+--
+ALTER TABLE `data_uji_coba`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `data_video`
 --
 ALTER TABLE `data_video`
@@ -1074,7 +1378,7 @@ ALTER TABLE `data_video`
 -- AUTO_INCREMENT for table `data_wb`
 --
 ALTER TABLE `data_wb`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `kota`

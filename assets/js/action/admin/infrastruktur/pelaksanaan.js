@@ -114,7 +114,7 @@ $(function () {
 	});
 
 	$("#save-data-2").on("click", function () {
-		savedata("data_progres_fisk");
+		savedata("data_progres_fisik");
 	});
 
 	$("#save-data-3").on("click", function () {
@@ -175,7 +175,7 @@ function loaddata(param) {
 		},
 		success: function (result) {
 			if (result.code == 1) {
-				if (param == "data_profil_usulan") {
+				if (param == "data_profil_kegiatan") {
 					var dt = $("#list_1").DataTable({
 						destroy: true,
 						paging: true,
@@ -189,18 +189,143 @@ function loaddata(param) {
 						aaData: result.data,
 						aoColumns: [
 							{ mDataProp: "id", width: "5%" },
-							{ mDataProp: "tpst" },
-							{ mDataProp: "desa" },
-							{ mDataProp: "kecamatan" },
-							{ mDataProp: "kabupaten" },
-							{ mDataProp: "uraian" },
-							{ mDataProp: "direktif" },
+							{ mDataProp: "tahun_profil" },
+							{ mDataProp: "paket_profil" },
+							{ mDataProp: "dana_profil" },
+							{ mDataProp: "klpd_profil" },
+							{ mDataProp: "satuan_profil" },
+							{ mDataProp: "nilai_profil" },
+							{ mDataProp: "lokasi_profil" },
+							{ mDataProp: "koordinat_profil" },
+							{ mDataProp: "kontrak_profil" },
+							{ mDataProp: "tanggal_profil" },
+							{ mDataProp: "addendum1_profil" },
+							{ mDataProp: "addendum2_profil" },
+							{ mDataProp: "addendum3_profil" },
 							{ mDataProp: "id" },
 						],
 						order: [[0, "ASC"]],
 						aoColumnDefs: [
 							{
 								mRender: function (data, type, row) {
+									var $rowData = ["-", "APBN MURNI", "APBN LOAN"];
+
+									return $rowData[data];
+								},
+								aTargets: [3],
+							},
+							{
+								mRender: function (data, type, row) {
+									var $rowData = ["-", "Lumpsum", "Harga Satuan", "Gabungan"];
+
+									return $rowData[data];
+								},
+								aTargets: [9],
+							},
+							{
+								mRender: function (data, type, row) {
+									var dat = row.addendum1.split(",");
+									var $rowData = "";
+									$rowData +=
+										`<div class="card">
+                                  <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                     <p class="text-primary text-sm">
+                                        Nilai Kontrak : 
+                                      </p>
+                                      <p class="d-flex flex-column">
+                                        <span class="text-muted"> ` +
+										dat[0] +
+										`</span>
+                                      </p>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                     <p class="text-primary text-sm">
+                                        Waktu Pelaksanaan :
+                                      </p>
+                                      <p class="d-flex flex-column ">
+                                        <span class="text-muted">` +
+										dat[1] +
+										`</span>
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>`;
+									return $rowData;
+								},
+								aTargets: [11],
+							},
+							{
+								mRender: function (data, type, row) {
+									var dat = row.addendum2.split(",");
+									var $rowData = "";
+									$rowData +=
+										`<div class="card">
+                                  <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                            <p class="text-primary text-sm">
+                                        Nilai Kontrak : 
+                                      </p>
+                                      <p class="d-flex flex-column">
+                                        <span class="text-muted"> ` +
+										dat[0] +
+										`</span>
+                                      </p>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                     <p class="text-primary text-sm">
+                                        Waktu Pelaksanaan :
+                                      </p>
+                                      <p class="d-flex flex-column ">
+                                        <span class="text-muted">` +
+										dat[1] +
+										`</span>
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>`;
+									return $rowData;
+								},
+								aTargets: [12],
+							},
+							{
+								mRender: function (data, type, row) {
+									var dat = row.addendum3.split(",");
+									var $rowData = "";
+									$rowData +=
+										`<div class="card">
+                                  <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                            <p class="text-primary text-sm">
+                                        Nilai Kontrak : 
+                                      </p>
+                                      <p class="d-flex flex-column">
+                                        <span class="text-muted"> ` +
+										dat[0] +
+										`</span>
+                                      </p>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                     <p class="text-primary text-sm">
+                                        Waktu Pelaksanaan :
+                                      </p>
+                                      <p class="d-flex flex-column ">
+                                        <span class="text-muted">` +
+										dat[1] +
+										`</span>
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>`;
+									return $rowData;
+								},
+								aTargets: [13],
+							},
+							{
+								mRender: function (data, type, row) {
+									var addendum1 = row.addendum1.split(",");
+									var addendum2 = row.addendum2.split(",");
+									var addendum3 = row.addendum3.split(",");
 									var $rowData = "";
 									$rowData += `
                                     <div class="btn-group">
@@ -209,14 +334,14 @@ function loaddata(param) {
                                       <span class="sr-only">Toggle Dropdown</span>
                                     </button>
                                     <div class="dropdown-menu" role="menu">
-                                      <a class="dropdown-item" href="#" onclick="editprofile(${row.id},'${row.tpst}', '${row.desa}', '${row.kecamatan}', '${row.kabupaten}', '${row.uraian}', '${row.direktif}')"><i class="far fa-edit"></i> Edit</a>
-                                      <a class="dropdown-item" href="#" onclick="deleteData(${row.id}, 'data_profil_usulan')"><i class="far fa-trash-alt"></i> Hapus</a>
+                                      <a class="dropdown-item" href="#" onclick="editprofile(${row.id},'${row.tahun_profil}', '${row.paket_profil}', '${row.dana_profil}', '${row.klpd_profil}', '${row.satuan_profil}', '${row.nilai_profil}', '${row.lokasi_profil}', '${row.koordinat_profil}', '${row.kontrak_profil}', '${row.tanggal_profil}', '${addendum1[0]}', '${addendum1[1]}', '${addendum2[0]}', '${addendum2[1]}', '${addendum3[0]}', '${addendum3[1]}')"><i class="far fa-edit"></i> Edit</a>
+                                      <a class="dropdown-item" href="#" onclick="deleteData(${row.id}, 'data_profil_kegiatan')"><i class="far fa-trash-alt"></i> Hapus</a>
                                     </div>
                                   </div>`;
 
 									return $rowData;
 								},
-								aTargets: [7],
+								aTargets: [14],
 							},
 						],
 
@@ -250,7 +375,7 @@ function loaddata(param) {
 					});
 				}
 
-				if (param == "data_rencana_pembagian") {
+				if (param == "data_progres_fisik") {
 					var dt = $("#list_2").DataTable({
 						destroy: true,
 						paging: true,
@@ -264,33 +389,14 @@ function loaddata(param) {
 						aaData: result.data,
 						aoColumns: [
 							{ mDataProp: "id", width: "5%" },
-							{ mDataProp: "studi" },
-							{ mDataProp: "ded" },
-							{ mDataProp: "dok" },
-							{ mDataProp: "bangunan" },
-							{ mDataProp: "lahan" },
-							{ mDataProp: "mesin" },
-							{ mDataProp: "operator" },
-							{ mDataProp: "offtaker" },
+							{ mDataProp: "bulan_fisik" },
+							{ mDataProp: "minggu_fisik" },
+							{ mDataProp: "progres_fisik" },
+							{ mDataProp: "akumulasi_fisik" },
 							{ mDataProp: "id" },
 						],
 						order: [[0, "ASC"]],
 						aoColumnDefs: [
-							{
-								mRender: function (data, type, row) {
-									var $rowData = [
-										"-",
-										"Pemerintah Pusat (APBN)",
-										"Pemerintah Provinsi (APBD Provinsi)",
-										"Pemerintah Kabupaten",
-										"Kota (APBD Kab/Kota)",
-										"Badan Usaha",
-									];
-
-									return $rowData[data];
-								},
-								aTargets: [1, 2, 3, 4, 5, 6, 7, 8],
-							},
 							{
 								mRender: function (data, type, row) {
 									var $rowData = "";
@@ -301,14 +407,14 @@ function loaddata(param) {
                                       <span class="sr-only">Toggle Dropdown</span>
                                     </button>
                                     <div class="dropdown-menu" role="menu">
-                                      <a class="dropdown-item" href="#" onclick="editrencana('${row.id}', '${row.studi}', '${row.ded}', '${row.dok}', '${row.bangunan}', '${row.lahan}', '${row.mesin}', '${row.operator}', '${row.offtaker}')"><i class="far fa-edit"></i> Edit</a>
-                                      <a class="dropdown-item" href="#" onclick="deleteData(${row.id}, 'data_rencana_pembagian')"><i class="far fa-trash-alt"></i> Hapus</a>
+                                      <a class="dropdown-item" href="#" onclick="editfisik('${row.id}', '${row.bulan_fisik}', '${row.minggu_fisik}', '${row.progres_fisik}', '${row.akumulasi_fisik}')"><i class="far fa-edit"></i> Edit</a>
+                                      <a class="dropdown-item" href="#" onclick="deleteData(${row.id}, 'data_progres_fisik')"><i class="far fa-trash-alt"></i> Hapus</a>
                                     </div>
                                   </div>`;
 
 									return $rowData;
 								},
-								aTargets: [9],
+								aTargets: [5],
 							},
 						],
 
@@ -342,7 +448,7 @@ function loaddata(param) {
 					});
 				}
 
-				if (param == "data_rencana_teknis") {
+				if (param == "data_progres_keuangan") {
 					var dt = $("#list_3").DataTable({
 						destroy: true,
 						paging: true,
@@ -356,73 +462,14 @@ function loaddata(param) {
 						aaData: result.data,
 						aoColumns: [
 							{ mDataProp: "id", width: "5%" },
-							{ mDataProp: "ketersediaan" },
-							{ mDataProp: "kapasitas" },
-							{ mDataProp: "teknologi" },
-							{ mDataProp: "keberadaan" },
-							{ mDataProp: "jenis_offtaker" },
-							{ mDataProp: "kerjasama" },
-							{ mDataProp: "kesanggupan" },
+							{ mDataProp: "bulan_keuangan" },
+							{ mDataProp: "minggu_keuangan" },
+							{ mDataProp: "progres_keuangan" },
+							{ mDataProp: "akumulasi_keuangan" },
 							{ mDataProp: "id" },
 						],
 						order: [[0, "ASC"]],
 						aoColumnDefs: [
-							{
-								mRender: function (data, type, row) {
-									var $rowData = [
-										"-",
-										"1-5 ton per hari",
-										"6-20 ton per hari",
-										"21-50 ton per hari",
-										"51-100 ton per hari",
-										">100 ton per hari",
-									];
-
-									return $rowData[row.kapasitas];
-								},
-								aTargets: [2],
-							},
-							{
-								mRender: function (data, type, row) {
-									var $rowData = [
-										"-",
-										"Ada offtaker di lingkup desa atau kelurahan yang sama",
-										"Ada offtaker di lingkup kecamatan yang sama",
-										"Ada offtaker di lingkup kabupaten yang sama",
-										"Ada offtaker di lingkup provinsi yang sama tetapi berbeda kota atau kabupaten",
-										"Tidak ada offtaker",
-									];
-
-									return $rowData[row.keberadaan];
-								},
-								aTargets: [4],
-							},
-							{
-								mRender: function (data, type, row) {
-									var $rowData = [
-										"-",
-										"Ada MoU antara Pemda dengan offtaker produk olah sampah",
-										"Sedang dalam proses MoU atau pendekatan dengan offtaker produk olah sampah",
-										"Ada kesempatan Pemda untuk bekerjasama dengan offtaker produk olah sampah",
-										"Belum ada MoU atau pendekatan dengan offtaker produk olah sampah",
-									];
-
-									return $rowData[row.kerjasama];
-								},
-								aTargets: [6],
-							},
-							{
-								mRender: function (data, type, row) {
-									var $rowData = [
-										"-",
-										"Ada kesanggupan TKDN yang dipersyaratkan pemerintah",
-										"Tidak ada kesanggupan TKDN yang dipersyaratkan pemerintah",
-									];
-
-									return $rowData[row.kesanggupan];
-								},
-								aTargets: [7],
-							},
 							{
 								mRender: function (data, type, row) {
 									var $rowData = "";
@@ -433,14 +480,14 @@ function loaddata(param) {
                                       <span class="sr-only">Toggle Dropdown</span>
                                     </button>
                                     <div class="dropdown-menu" role="menu">
-                                      <a class="dropdown-item" href="#" onclick="editteknis('${row.id}', '${row.ketersediaan}', '${row.kapasitas}', '${row.teknologi}', '${row.keberadaan}', '${row.jenis_offtaker}', '${row.kerjasama}', '${row.kesanggupan}')"><i class="far fa-edit"></i> Edit</a>
-                                      <a class="dropdown-item" href="#" onclick="deleteData(${row.id}, 'data_rencana_teknis')"><i class="far fa-trash-alt"></i> Hapus</a>
+                                      <a class="dropdown-item" href="#" onclick="editkeuangan('${row.id}', '${row.bulan_keuangan}', '${row.minggu_keuangan}', '${row.progres_keuangan}', '${row.akumulasi_keuangan}')"><i class="far fa-edit"></i> Edit</a>
+                                      <a class="dropdown-item" href="#" onclick="deleteData(${row.id}, 'data_progres_keuangan')"><i class="far fa-trash-alt"></i> Hapus</a>
                                     </div>
                                   </div>`;
 
 									return $rowData;
 								},
-								aTargets: [8],
+								aTargets: [5],
 							},
 						],
 
@@ -474,7 +521,7 @@ function loaddata(param) {
 					});
 				}
 
-				if (param == "data_kelengkapan") {
+				if (param == "data_pelaksanaan_kontrak") {
 					var dt = $("#list_4").DataTable({
 						destroy: true,
 						paging: true,
@@ -488,23 +535,148 @@ function loaddata(param) {
 						aaData: result.data,
 						aoColumns: [
 							{ mDataProp: "id", width: "5%" },
-							{ mDataProp: "minat" },
-							{ mDataProp: "status_lahan" },
-							{ mDataProp: "kesesuaian" },
-							{ mDataProp: "kesiapan" },
-							{ mDataProp: "kesiapan_anggaran" },
-							{ mDataProp: "kesiapan_sosialisasi" },
+							{ mDataProp: "penyerahan" },
+							{ mDataProp: "pcm" },
+							{ mDataProp: "mobilisasi" },
+							{ mDataProp: "mutual" },
+							{ mDataProp: "izin" },
+							{ mDataProp: "ketersediaan" },
+							{ mDataProp: "drawing" },
+							{ mDataProp: "realisasi_fisik" },
+							{ mDataProp: "realisasi_keuangan" },
+							{ mDataProp: "mesin_alat" },
 							{ mDataProp: "id" },
 						],
 						order: [[0, "ASC"]],
 						aoColumnDefs: [
 							{
 								mRender: function (data, type, row) {
-									var $rowData = ["-", "Ada", "Tidak Ada"];
+									var $rowData = [
+										"-",
+										"Dilakukan penyerahan lokasi setelah penandatanganan kontrak dan sebelum SPMK",
+										"Dilakukan penyerahan lokasi sebelum penandatanganan kontrak atau setelah SPMK",
+										"Tidak dilakukan penyerahan lokasi kerja",
+									];
 
 									return $rowData[data];
 								},
-								aTargets: [1, 2, 3, 4, 5, 6],
+								aTargets: [1],
+							},
+							{
+								mRender: function (data, type, row) {
+									var $rowData = [
+										"-",
+										"Melakukan rapat persiapan pelaksanaan kontrak  maksimal 7 hari setelah SPMK dan sebelum dimulainya pelaksanaan pekerjaan",
+										"Melakukan rapat persiapan pelaksanaan kontrak lebih dari 7 hari setelah SPMK",
+										"Tidak melakukan rapat persiapan pelaksanaan kontrak",
+									];
+
+									return $rowData[data];
+								},
+								aTargets: [2],
+							},
+							{
+								mRender: function (data, type, row) {
+									var $rowData = [
+										"-",
+										"Penyedia Jasa melakukan mobilisasi sumber daya (material, alat, tenaga kerja) sebelum 14 hari kalender sejak diterbitkan SPMK",
+										"Penyedia Jasa melakukan mobilisasi sumber daya (material, alat, tenaga kerja) dalam kurun waktu 14-30 hari kalender sejak diterbitkan SPMK",
+										"Penyedia Jasa melakukan mobilisasi sumber daya (material, alat, tenaga kerja) lebih dari 30 hari kalender sejak diterbitkan SPMK",
+									];
+
+									return $rowData[data];
+								},
+								aTargets: [3],
+							},
+							{
+								mRender: function (data, type, row) {
+									var $rowData = [
+										"-",
+										"Melakukan pemeriksaan bersama (Mutual Check) dan dihadiri oleh pengendali pekerjaan atau direksi teknis",
+										"Melakukan pemeriksaan bersama (Mutual Check) tetapi tidak dihadiri oleh pengendali pekerjaan atau direksi teknis",
+										"Tidak melakukan pemeriksaan bersama (Mutual Check)",
+									];
+
+									return $rowData[data];
+								},
+								aTargets: [4],
+							},
+							{
+								mRender: function (data, type, row) {
+									var $rowData = [
+										"-",
+										"Terdapat permohonan izin memulai pekerjaan (Request of Work) dan sudah ada surat persetujuan memulai pekerjaan (Approval of Work)",
+										"Terdapat permohonan izin memulai pekerjaan (Request of Work) tetapi belum ada surat persetujuan memulai pekerjaan (Approval of Work)",
+										"Tidak ada permohonan izin memulai pekerjaan (Request of Work)",
+									];
+
+									return $rowData[data];
+								},
+								aTargets: [5],
+							},
+							{
+								mRender: function (data, type, row) {
+									var $rowData = [
+										"-",
+										"Terdapat laporan pelaksanaan pekerjaan yang disusun dan disampaikan tepat waktu (harian, mingguan, bulanan)",
+										"Terdapat laporan pelaksanaan pekerjaan tetapi disusun dan disampaikan tidak tepat waktu (harian atau mingguan atau bulanan)",
+										"Tidak ada laporan pelaksanaan pekerjaan",
+									];
+
+									return $rowData[data];
+								},
+								aTargets: [6],
+							},
+							{
+								mRender: function (data, type, row) {
+									var $rowData = [
+										"-",
+										"Terdapat shop drawing dan asbuild drawing  dan sudah ditandatangani PPK dan Penyedia Jasa",
+										"Terdapat shop drawing dan asbuild drawing tetapi belum ditandatangani PPK dan/atau Penyedia Jasa",
+										"Tidak terdapat shop drawing dan asbuild drawing",
+									];
+
+									return $rowData[data];
+								},
+								aTargets: [7],
+							},
+							{
+								mRender: function (data, type, row) {
+									var $rowData = [
+										"-",
+										"Sesuai atau lebih cepat dengan rencana fisik",
+										"Terdapat keterlambatan progres fisik s.d 10% terhadap rencana fisik",
+										"Terdapat keterlambatan progres fisik diatas 10% terhadap rencana fisik",
+									];
+
+									return $rowData[data];
+								},
+								aTargets: [8],
+							},
+							{
+								mRender: function (data, type, row) {
+									var $rowData = [
+										"-",
+										"Realisasi progres keuangan sesuai atau deviasi positif terhadap rencana keuangan",
+										"Realisasi progres keuangan deviasi minus 10-20% terhadap rencana keuangan",
+										"Realisasi progres keuangan deviasi minus > 20 % terhadap rencana keuangan",
+									];
+
+									return $rowData[data];
+								},
+								aTargets: [9],
+							},
+							{
+								mRender: function (data, type, row) {
+									var $rowData = [
+										"-",
+										"Terdapat Berita Acara Perubahan Mesin dan Alat yang digunakan berkaitan dengan Perubahan Kontrak",
+										"Tidak ada berita acara perubahan mesin dan alat yang digunakan berkaitan dengan perubahan kontrak",
+									];
+
+									return $rowData[data];
+								},
+								aTargets: [10],
 							},
 							{
 								mRender: function (data, type, row) {
@@ -516,14 +688,14 @@ function loaddata(param) {
                                       <span class="sr-only">Toggle Dropdown</span>
                                     </button>
                                     <div class="dropdown-menu" role="menu">
-                                      <a class="dropdown-item" href="#" onclick="editkelengkapan('${row.id}', '${row.minat}', '${row.status_lahan}', '${row.kesesuaian}', '${row.kesiapan}', '${row.kesiapan_anggaran}', '${row.kesiapan_sosialisasi}')"><i class="far fa-edit"></i> Edit</a>
-                                      <a class="dropdown-item" href="#" onclick="deleteData(${row.id}, 'data_kelengkapan')"><i class="far fa-trash-alt"></i> Hapus</a>
+                                      <a class="dropdown-item" href="#" onclick="editkontrak('${row.id}', '${row.penyerahan}', '${row.pcm}', '${row.mobilisasi}', '${row.mutual}', '${row.izin}', '${row.ketersediaan}', '${row.drawing}', '${row.realisasi_fisik}', '${row.realisasi_keuangan}', '${row.mesin_alat}')"><i class="far fa-edit"></i> Edit</a>
+                                      <a class="dropdown-item" href="#" onclick="deleteData(${row.id}, 'data_pelaksanaan_kontrak')"><i class="far fa-trash-alt"></i> Hapus</a>
                                     </div>
                                   </div>`;
 
 									return $rowData;
 								},
-								aTargets: [7],
+								aTargets: [11],
 							},
 						],
 
@@ -557,7 +729,7 @@ function loaddata(param) {
 					});
 				}
 
-				if (param == "data_status_usulan") {
+				if (param == "data_sistem_manajemen") {
 					var dt = $("#list_5").DataTable({
 						destroy: true,
 						paging: true,
@@ -571,7 +743,9 @@ function loaddata(param) {
 						aaData: result.data,
 						aoColumns: [
 							{ mDataProp: "id", width: "5%" },
-							{ mDataProp: "usulan" },
+							{ mDataProp: "penyelenggaraan" },
+							{ mDataProp: "rencana" },
+							{ mDataProp: "k3" },
 							{ mDataProp: "id" },
 						],
 						order: [[0, "ASC"]],
@@ -580,14 +754,40 @@ function loaddata(param) {
 								mRender: function (data, type, row) {
 									var $rowData = [
 										"-",
-										"Siap dilaksanakan konstruksi",
-										"Bisa dilaksanakan namun perlu melengkapi RC",
-										"Belum bisa dilaksanakan konstruksi",
+										"Telah melakukan semua kegiatan Sistem Manajemen Keselamatan Konstruksi",
+										"Hanya melakukan sebagian kegiatan Sistem Manajemen Keselamatan Konstruksi",
+										"Tidak melakukan kegiatan Sistem Manajemen Keselamatan Konstruksi",
 									];
 
 									return $rowData[data];
 								},
 								aTargets: [1],
+							},
+							{
+								mRender: function (data, type, row) {
+									var $rowData = [
+										"-",
+										"Melakukan inspeksi rutin (harian,mingguan,bulanan)",
+										"Melakukan inspeksi tetapi tidak rutin (bersifat insidental saja)",
+										"Tidak melakukan inspeksi",
+									];
+
+									return $rowData[data];
+								},
+								aTargets: [2],
+							},
+							{
+								mRender: function (data, type, row) {
+									var $rowData = [
+										"-",
+										"Terdapat laporan bulanan pelaksanaan K3",
+										"Terdapat laporan pelaksanan K3 tetapi tidak rutin",
+										"Tidak ada laporan pelaksaaan K3",
+									];
+
+									return $rowData[data];
+								},
+								aTargets: [3],
 							},
 							{
 								mRender: function (data, type, row) {
@@ -599,14 +799,14 @@ function loaddata(param) {
                                       <span class="sr-only">Toggle Dropdown</span>
                                     </button>
                                     <div class="dropdown-menu" role="menu">
-                                      <a class="dropdown-item" href="#" onclick="editusulan('${row.id}', '${row.usulan}')"><i class="far fa-edit"></i> Edit</a>
-                                      <a class="dropdown-item" href="#" onclick="deleteData(${row.id}, 'data_status_usulan')"><i class="far fa-trash-alt"></i> Hapus</a>
+                                      <a class="dropdown-item" href="#" onclick="editmanajemen('${row.id}', '${row.penyelenggaraan}', '${row.rencana}', '${row.k3}')"><i class="far fa-edit"></i> Edit</a>
+                                      <a class="dropdown-item" href="#" onclick="deleteData(${row.id}, 'data_sistem_manajemen')"><i class="far fa-trash-alt"></i> Hapus</a>
                                     </div>
                                   </div>`;
 
 									return $rowData;
 								},
-								aTargets: [2],
+								aTargets: [4],
 							},
 						],
 
@@ -640,7 +840,7 @@ function loaddata(param) {
 					});
 				}
 
-				if (param == "data_pendetailan") {
+				if (param == "data_kondisi_khusus") {
 					var dt = $("#list_6").DataTable({
 						destroy: true,
 						paging: true,
@@ -654,21 +854,8 @@ function loaddata(param) {
 						aaData: result.data,
 						aoColumns: [
 							{ mDataProp: "id", width: "5%" },
-							{ mDataProp: "pengelola" },
-							{ mDataProp: "akses" },
-							{ mDataProp: "jalan" },
-							{ mDataProp: "listrik" },
-							{ mDataProp: "air" },
-							{ mDataProp: "partisipasi" },
-							{ mDataProp: "jarak" },
-							{ mDataProp: "resistensi" },
-							{ mDataProp: "bangunan_detail" },
-							{ mDataProp: "banjir" },
-							{ mDataProp: "ssk" },
-							{ mDataProp: "ptmp" },
-							{ mDataProp: "das" },
-							{ mDataProp: "luas_lahan" },
-							// { mDataProp: "topografi" },
+							{ mDataProp: "sosialisasi" },
+							{ mDataProp: "tindaklanjut" },
 							{ mDataProp: "id" },
 						],
 						order: [[0, "ASC"]],
@@ -677,14 +864,11 @@ function loaddata(param) {
 								mRender: function (data, type, row) {
 									var $rowData = [
 										"-",
-										"UPTD PPK BLUD",
-										"UPTD",
-										"Proses Pembentukan UPTD",
-										"Surat Kesanggupan Pembentukan Institusi Pengelola",
-										"Belum ada Institusi Khusus",
+										"Sudah dilakukan sosialisasi kepada masyarakat di sekitar lokasi kegiatan",
+										"Belum dilakukan sosialisasi kepada masyarakat di sekitar lokasi kegiatan",
 									];
 
-									return $rowData[row.pengelola];
+									return $rowData[data];
 								},
 								aTargets: [1],
 							},
@@ -692,190 +876,14 @@ function loaddata(param) {
 								mRender: function (data, type, row) {
 									var $rowData = [
 										"-",
-										"Kualitas Layak, Aspal atau Beton, Mudah Dijangkau",
-										"Kualitas Kurang, Aspal atau Beton, Mudah Dijangkau",
-										"Kualitas Kurang, Aspal atau Beton, Sulit Dijangkau",
-										"Ada Rencana Pengembangan Jalan",
-										"Belum ada Rencana Pengembangan Jalan",
+										"Tidak ada keterlambatan waktu pelaksanaan pekerjaan",
+										"Terdapat keterlambatan pekerjaan tetapi sudah dilakukan penanganan keterlambatan sesuai peraturan atau dokumen kontrak",
+										"Terdapat keterlambatan pekerjaan tetapi tidak dilakukan penanganan keterlambatan sesuai peraturan atau dokumen kontrak",
 									];
 
-									return $rowData[row.akses];
+									return $rowData[data];
 								},
 								aTargets: [2],
-							},
-							{
-								mRender: function (data, type, row) {
-									var $rowData = [
-										"-",
-										">5 m",
-										"4 - 5 m",
-										"3 - 4 m",
-										"2-3 m",
-										"< 2 m",
-									];
-
-									return $rowData[row.jalan];
-								},
-								aTargets: [3],
-							},
-							{
-								mRender: function (data, type, row) {
-									var $rowData = [
-										"-",
-										"Ada Akses Listrik & Instalasi",
-										"Hanya Ada Akses Listrik",
-										"Belum ada akses jaringan listrik tetapi sanggup menyediakan jaringan listrik pada saat konstruksi dimulai",
-										"Belum ada akses jaringan listrik tetapi ada rencana pengembangan jaringan dan instalasi listriknya",
-										"Belum ada akses jaringan listrik ",
-									];
-
-									return $rowData[row.listrik];
-								},
-								aTargets: [4],
-							},
-							{
-								mRender: function (data, type, row) {
-									var $rowData = [
-										"-",
-										"Memiliki akses langsung dengan badan air penerima",
-										"Badan air penerima terhalangi lahan bukan milik TPST tetapi masih ada akses untuk outlet ke badan air penerima",
-										"Badan air penerima terhalangi lahan bukan milik TPST dan tidak ada akses untuk outlet ke badan air penerima",
-									];
-
-									return $rowData[row.air];
-								},
-								aTargets: [5],
-							},
-							{
-								mRender: function (data, type, row) {
-									var $rowData = [
-										"-",
-										"Dukungan langsung dengan inisiatif dari masyarakat dan atau sudah ada infrastruktur sampah eksisting",
-										"Menerima berdasarkan hasil sosialisasi dan edukasi",
-										"Sudah dilakukan sosialisasi dan masyarakat menerima dengan syarat",
-										"Sudah dilakukan sosialisasi namun masyarakat menolak",
-										"Belum dilakukan sosialisasi (ada potensi penerimaan maupun penolakkan)",
-									];
-
-									return $rowData[row.partisipasi];
-								},
-								aTargets: [6],
-							},
-							{
-								mRender: function (data, type, row) {
-									var $rowData = [
-										"-",
-										"> 200 m",
-										"150 - 200 m",
-										"100 - 150 m",
-										"50 - 100 m",
-										"Berbatasan langsung dengan aktivitas masyarakat",
-									];
-
-									return $rowData[row.jarak];
-								},
-								aTargets: [7],
-							},
-							{
-								mRender: function (data, type, row) {
-									var $rowData = [
-										"-",
-										"Lahan kosong",
-										"Lahan digarap pemda (ada aktivitas eksisting)",
-										"Lahan produktif, ada penggarap mengizinkan",
-										"Lahan produktif, ada penggarap mengizinkan dengan syarat penggantian",
-										"Ada penggarap dan penggarap tidak mengizinkan",
-									];
-
-									return $rowData[row.resistensi];
-								},
-								aTargets: [8],
-							},
-							{
-								mRender: function (data, type, row) {
-									var $rowData = [
-										"-",
-										"Tidak ada Bangunan di atas Lahan",
-										"Terdapat Bangunan Pemerintah dan dapat di lakukan penghapusan aset",
-										"Terdapat Bangunan Tanpa Izin",
-										"Terdapat Bangunan Tanpa Izin dengan Syarat Penggantian",
-										"Terdapat Bangunan yang Tidak dapat dibongkar",
-									];
-
-									return $rowData[row.bangunan_detail];
-								},
-								aTargets: [9],
-							},
-							{
-								mRender: function (data, type, row) {
-									var $rowData = [
-										"-",
-										"Tidak termasuk Kawasan Banjir",
-										"Kawasan Banjir 50 Tahunan",
-										"Kawasan Banjir 10 Tahunan",
-										"Kawasan Banjir 5 Tahunan",
-										"Kawasan Banjir 2 Tahunan",
-									];
-
-									return $rowData[row.banjir];
-								},
-								aTargets: [10],
-							},
-							{
-								mRender: function (data, type, row) {
-									var $rowData = [
-										"-",
-										"Kegiatan sudah tercantum dalam SSK terupdate 5 tahun terakhir",
-										"Kegiatan sudah tercantum dalam SSK tapi belum dimutahirkan dalam 5 tahun terakhir",
-										"Kegiatan tidak tercantum dalam SSK",
-									];
-
-									return $rowData[row.ssk];
-								},
-								aTargets: [11],
-							},
-							{
-								mRender: function (data, type, row) {
-									var $rowData = [
-										"-",
-										"Lokasi kegiatan sudah tercantum dalam Masterplan atau PTMP persampahan terupdate 5 tahun terakhir",
-										"Lokasi kegiatan sudah tercantum dalam Masterplan atau PTMP persampahan tapi belum direview dalam 5 tahun terakhir",
-										"Belum ada",
-									];
-
-									return $rowData[row.ptmp];
-								},
-								aTargets: [12],
-							},
-							{
-								mRender: function (data, type, row) {
-									var $rowData = [
-										"-",
-										"Lokasi infrastruktur dan seluruh wilayah pelayanannya berada di dalam batas administrasi DAS Citarum",
-										"Lokasi infrastruktur di dalam batas administrasi DAS Citarum dan sebagian wilayah pelayanannya berada di luar batas administrasi DAS Citarum",
-										"Lokasi infrastruktur berada di luar batas administrasi DAS Citarum tetapi sebagian wilayah pelayanannya berada di dalam batas administrasi DAS Citarum",
-										"Lokasi infrastruktur berada di dalam batas administrasi DAS Citarum dan wilayah pelayanannya berada di luar batas administrasi DAS Citarum",
-										"Lokasi infrastruktur dan wilayah pelayanannya berada di luar batas administrasi DAS Citarum",
-									];
-
-									return $rowData[row.das];
-								},
-								aTargets: [13],
-							},
-							{
-								mRender: function (data, type, row) {
-									var $rowData = [
-										"-",
-										"> 5000 m2",
-										"3000 - 5000 m2",
-										"1500 - 3000 m2",
-										"1000 - 1500 m2",
-										"< 1000 m2",
-									];
-
-									return $rowData[row.luas_lahan];
-								},
-								aTargets: [14],
 							},
 							{
 								mRender: function (data, type, row) {
@@ -887,14 +895,203 @@ function loaddata(param) {
                                       <span class="sr-only">Toggle Dropdown</span>
                                     </button>
                                     <div class="dropdown-menu" role="menu">
-                                      <a class="dropdown-item" href="#" onclick="editpendetailan('${row.id}', '${row.pengelola}', '${row.akses}', '${row.jalan}', '${row.listrik}', '${row.air}', '${row.partisipasi}', '${row.jarak}', '${row.resistensi}', '${row.bangunan_detail}', '${row.banjir}', '${row.ssk}', '${row.ptmp}', '${row.das}', '${row.luas_lahan}')"><i class="far fa-edit"></i> Edit</a>
-                                      <a class="dropdown-item" href="#" onclick="deleteData(${row.id}, 'data_pendetailan')"><i class="far fa-trash-alt"></i> Hapus</a>
+                                      <a class="dropdown-item" href="#" onclick="editkondisi('${row.id}', '${row.sosialisasi}', '${row.tindaklanjut}')"><i class="far fa-edit"></i> Edit</a>
+                                      <a class="dropdown-item" href="#" onclick="deleteData(${row.id}, 'data_kondisi_khusus')"><i class="far fa-trash-alt"></i> Hapus</a>
                                     </div>
                                   </div>`;
 
 									return $rowData;
 								},
-								aTargets: [15],
+								aTargets: [3],
+							},
+						],
+
+						fnRowCallback: function (
+							nRow,
+							aData,
+							iDisplayIndex,
+							iDisplayIndexFull
+						) {
+							var index = iDisplayIndexFull + 1;
+							$("td:eq(0)", nRow).html(" " + index);
+							return;
+						},
+
+						fnInitComplete: function () {
+							var that = this;
+							var td;
+							var tr;
+
+							this.$("td").click(function () {
+								td = this;
+							});
+							this.$("tr").click(function () {
+								tr = this;
+							});
+
+							$("#listproj_filter input").bind("keyup", function (e) {
+								return this.value;
+							});
+						},
+					});
+				}
+
+				if (param == "data_uji_coba") {
+					var dt = $("#list_7").DataTable({
+						destroy: true,
+						paging: true,
+						lengthChange: false,
+						searching: true,
+						ordering: true,
+						info: true,
+						autoWidth: false,
+						responsive: false,
+						pageLength: 10,
+						aaData: result.data,
+						aoColumns: [
+							{ mDataProp: "id", width: "5%" },
+							{ mDataProp: "pengujian" },
+							{ mDataProp: "sop" },
+							{ mDataProp: "kualitas" },
+							{ mDataProp: "id" },
+						],
+						order: [[0, "ASC"]],
+						aoColumnDefs: [
+							{
+								mRender: function (data, type, row) {
+									var $rowData = [
+										"-",
+										"Dilakukan pengujian akhir pekerjaan dan hasil pemeriksaaan telah sesuai dengan ketentuan yang tercantum dalam kontrak",
+										"Dilakukan pengujian akhir pekerjaan tetapi masih terdapat cacat mutu dan/atau cacat fungsi yang belum diperbaiki",
+										"Tidak dilakukan pengujian akhir pekerjaan",
+									];
+
+									return $rowData[data];
+								},
+								aTargets: [1],
+							},
+							{
+								mRender: function (data, type, row) {
+									var $rowData = [
+										"-",
+										"Dokumen SOP (Standart Operational Procedure) sudah ada dan telah diperbaharui berdasarkan sistem yang ada dari infrastruktur terbangun",
+										"Dokumen SOP (Standart Operational Procedure) sudah ada tetapi belum diperbaharui berdasarkan sistem yang ada dari infrastruktur terbangun",
+										"Belum ada SOP (Standart Operational Procedure) atau SOP sedang disusun dari infrastruktur terbangun",
+									];
+
+									return $rowData[data];
+								},
+								aTargets: [2],
+							},
+							{
+								mRender: function (data, type, row) {
+									var $rowData = ["-", "Baik", "Sedang", "Buruk"];
+
+									return $rowData[data];
+								},
+								aTargets: [3],
+							},
+							{
+								mRender: function (data, type, row) {
+									var $rowData = "";
+									$rowData += `
+                                    <div class="btn-group">
+                                    <button type="button" class="btn btn-info">Action</button>
+                                    <button type="button" class="btn btn-info dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                      <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <div class="dropdown-menu" role="menu">
+                                      <a class="dropdown-item" href="#" onclick="edituji('${row.id}', '${row.pengujian}', '${row.sop}', '${row.kualitas}')"><i class="far fa-edit"></i> Edit</a>
+                                      <a class="dropdown-item" href="#" onclick="deleteData(${row.id}, 'data_uji_coba')"><i class="far fa-trash-alt"></i> Hapus</a>
+                                    </div>
+                                  </div>`;
+
+									return $rowData;
+								},
+								aTargets: [4],
+							},
+						],
+
+						fnRowCallback: function (
+							nRow,
+							aData,
+							iDisplayIndex,
+							iDisplayIndexFull
+						) {
+							var index = iDisplayIndexFull + 1;
+							$("td:eq(0)", nRow).html(" " + index);
+							return;
+						},
+
+						fnInitComplete: function () {
+							var that = this;
+							var td;
+							var tr;
+
+							this.$("td").click(function () {
+								td = this;
+							});
+							this.$("tr").click(function () {
+								tr = this;
+							});
+
+							$("#listproj_filter input").bind("keyup", function (e) {
+								return this.value;
+							});
+						},
+					});
+				}
+
+				if (param == "data_status_kegiatan") {
+					var dt = $("#list_8").DataTable({
+						destroy: true,
+						paging: true,
+						lengthChange: false,
+						searching: true,
+						ordering: true,
+						info: true,
+						autoWidth: false,
+						responsive: false,
+						pageLength: 10,
+						aaData: result.data,
+						aoColumns: [
+							{ mDataProp: "id", width: "5%" },
+							{ mDataProp: "status_pelaksanaan" },
+							{ mDataProp: "id" },
+						],
+						order: [[0, "ASC"]],
+						aoColumnDefs: [
+							{
+								mRender: function (data, type, row) {
+									var $rowData = [
+										"-",
+										"Pelaksanaan kegiatan berjalan baik",
+										"Pelaksanaan kegiatan berjalan baik, tetapi perlu perhatian",
+										"Pelaksanaan kegiatan tidak berjalan baik dan perlu perhatian khusus",
+									];
+
+									return $rowData[data];
+								},
+								aTargets: [1],
+							},
+							{
+								mRender: function (data, type, row) {
+									var $rowData = "";
+									$rowData += `
+                                    <div class="btn-group">
+                                    <button type="button" class="btn btn-info">Action</button>
+                                    <button type="button" class="btn btn-info dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                      <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <div class="dropdown-menu" role="menu">
+                                      <a class="dropdown-item" href="#" onclick="editstatus('${row.id}', '${row.status_pelaksanaan}')"><i class="far fa-edit"></i> Edit</a>
+                                      <a class="dropdown-item" href="#" onclick="deleteData(${row.id}, 'data_status_kegiatan')"><i class="far fa-trash-alt"></i> Hapus</a>
+                                    </div>
+                                  </div>`;
+
+									return $rowData;
+								},
+								aTargets: [2],
 							},
 						],
 
@@ -937,29 +1134,53 @@ function loaddata(param) {
 
 function savedata(param) {
 	var formData = new FormData();
-	if (param == "data_profil_usulan") {
-		var profile = $('[name="profile-input"]');
+	if (param == "data_profil_kegiatan") {
+		var profile = $('[name="profil-input"]');
 		for (let i = 0; i < profile.length; i++) {
 			var elem = profile[i];
 			formData.append(elem.id, elem.value);
 		}
+		var addendum1 = $("input[name^=addendum1-input]")
+			.map(function (idx, elem) {
+				return $(elem).val();
+			})
+			.get()
+			.join(",");
+		formData.append("addendum1", addendum1);
+
+		var addendum2 = $("input[name^=addendum2-input]")
+			.map(function (idx, elem) {
+				return $(elem).val();
+			})
+			.get()
+			.join(",");
+		formData.append("addendum2", addendum2);
+
+		var addendum3 = $("input[name^=addendum3-input]")
+			.map(function (idx, elem) {
+				return $(elem).val();
+			})
+			.get()
+			.join(",");
+		formData.append("addendum3", addendum3);
+
 		formData.append("table", param);
 		if ($("#id_1").val()) {
 			formData.append("id", $("#id_1").val());
 		}
 		if ($("#id_1").val()) {
 			var baseurl = "updateCriteria";
-			var msg = "Update Data Profile Usulan Lokasi";
+			var msg = "Update Data Profile Pelaksanaan Kegiatan";
 		} else {
 			var baseurl = "saveCriteria";
-			var msg = "Tambah Data Profile Usulan Lokasi";
+			var msg = "Tambah Data Profile Pelaksanaan Kegiatan";
 		}
 	}
 
-	if (param == "data_rencana_pembagian") {
-		var rencana = $('[name="rencana-input"]');
-		for (let i = 0; i < rencana.length; i++) {
-			var elem = rencana[i];
+	if (param == "data_progres_fisik") {
+		var fisik = $('[name="fisik-input"]');
+		for (let i = 0; i < fisik.length; i++) {
+			var elem = fisik[i];
 			formData.append(elem.id, elem.value);
 		}
 		formData.append("table", param);
@@ -968,17 +1189,17 @@ function savedata(param) {
 		}
 		if ($("#id_2").val()) {
 			var baseurl = "updateCriteria";
-			var msg = "Update Data Rencana Pembagian Dukungan Kegiatan";
+			var msg = "Update Data Progres Fisik ";
 		} else {
 			var baseurl = "saveCriteria";
-			var msg = "Tambah Data Rencana Pembagian Dukungan Kegiatan";
+			var msg = "Tambah Data Progres Fisik ";
 		}
 	}
 
-	if (param == "data_rencana_teknis") {
-		var teknis = $('[name="teknis-input"]');
-		for (let i = 0; i < teknis.length; i++) {
-			var elem = teknis[i];
+	if (param == "data_progres_keuangan") {
+		var keuangan = $('[name="keuangan-input"]');
+		for (let i = 0; i < keuangan.length; i++) {
+			var elem = keuangan[i];
 			formData.append(elem.id, elem.value);
 		}
 		formData.append("table", param);
@@ -987,17 +1208,17 @@ function savedata(param) {
 		}
 		if ($("#id_3").val()) {
 			var baseurl = "updateCriteria";
-			var msg = "Update Data Rencana Teknis Operasionalisasi Infrastruktur";
+			var msg = "Update Data Progres Keuangan";
 		} else {
 			var baseurl = "saveCriteria";
-			var msg = "Tambah Data Rencana Teknis Operasionalisasi Infrastruktur";
+			var msg = "Tambah Data Progres Keuangan";
 		}
 	}
 
-	if (param == "data_kelengkapan") {
-		var kelengkapan = $('[name="kelengkapan-input"]');
-		for (let i = 0; i < kelengkapan.length; i++) {
-			var elem = kelengkapan[i];
+	if (param == "data_pelaksanaan_kontrak") {
+		var pelaksanaan = $('[name="pelaksanaan-input"]');
+		for (let i = 0; i < pelaksanaan.length; i++) {
+			var elem = pelaksanaan[i];
 			formData.append(elem.id, elem.value);
 		}
 		formData.append("table", param);
@@ -1006,17 +1227,17 @@ function savedata(param) {
 		}
 		if ($("#id_4").val()) {
 			var baseurl = "updateCriteria";
-			var msg = "Update Data Kelengkapan Readiness Criteria (Kunci)";
+			var msg = "Update Data Pelaksanaan Kontrak";
 		} else {
 			var baseurl = "saveCriteria";
-			var msg = "Tambah Data Kelengkapan Readiness Criteria (Kunci)";
+			var msg = "Tambah Data Pelaksanaan Kontrak";
 		}
 	}
 
-	if (param == "data_status_usulan") {
-		var usulan = $('[name="usulan-input"]');
-		for (let i = 0; i < usulan.length; i++) {
-			var elem = usulan[i];
+	if (param == "data_sistem_manajemen") {
+		var manajemen = $('[name="manajemen-input"]');
+		for (let i = 0; i < manajemen.length; i++) {
+			var elem = manajemen[i];
 			formData.append(elem.id, elem.value);
 		}
 		formData.append("table", param);
@@ -1025,17 +1246,19 @@ function savedata(param) {
 		}
 		if ($("#id_5").val()) {
 			var baseurl = "updateCriteria";
-			var msg = "Update Data Status Usulan ";
+			var msg =
+				"Update Data Pelaksanaan Sistem Manajemen Keselamatan Konstruksi ";
 		} else {
 			var baseurl = "saveCriteria";
-			var msg = "Tambah Data Status Usulan ";
+			var msg =
+				"Tambah Data Pelaksanaan Sistem Manajemen Keselamatan Konstruksi ";
 		}
 	}
 
-	if (param == "data_pendetailan") {
-		var pendetailan = $('[name="pendetailan-input"]');
-		for (let i = 0; i < pendetailan.length; i++) {
-			var elem = pendetailan[i];
+	if (param == "data_kondisi_khusus") {
+		var kondisi = $('[name="kondisi-input"]');
+		for (let i = 0; i < kondisi.length; i++) {
+			var elem = kondisi[i];
 			formData.append(elem.id, elem.value);
 		}
 		formData.append("table", param);
@@ -1044,10 +1267,48 @@ function savedata(param) {
 		}
 		if ($("#id_6").val()) {
 			var baseurl = "updateCriteria";
-			var msg = "Update Data Pendetailan Readiness Criteria  ";
+			var msg = "Update Data Kondisi Khusus  ";
 		} else {
 			var baseurl = "saveCriteria";
-			var msg = "Tambah Data Pendetailan Readiness Criteria  ";
+			var msg = "Tambah Data Kondisi Khusus  ";
+		}
+	}
+
+	if (param == "data_uji_coba") {
+		var uji = $('[name="uji-input"]');
+		for (let i = 0; i < uji.length; i++) {
+			var elem = uji[i];
+			formData.append(elem.id, elem.value);
+		}
+		formData.append("table", param);
+		if ($("#id_7").val()) {
+			formData.append("id", $("#id_7").val());
+		}
+		if ($("#id_7").val()) {
+			var baseurl = "updateCriteria";
+			var msg = "Update Data Uji Coba  ";
+		} else {
+			var baseurl = "saveCriteria";
+			var msg = "Tambah Data Uji Coba ";
+		}
+	}
+
+	if (param == "data_status_kegiatan") {
+		var statuspelaksanaan = $('[name="statuspelaksanaan-input"]');
+		for (let i = 0; i < statuspelaksanaan.length; i++) {
+			var elem = statuspelaksanaan[i];
+			formData.append(elem.id, elem.value);
+		}
+		formData.append("table", param);
+		if ($("#id_8").val()) {
+			formData.append("id", $("#id_8").val());
+		}
+		if ($("#id_8").val()) {
+			var baseurl = "updateCriteria";
+			var msg = "Update Data Status Pelaksanaan Kegiatan  ";
+		} else {
+			var baseurl = "saveCriteria";
+			var msg = "Tambah Data Status Pelaksanaan Kegiatan ";
 		}
 	}
 
@@ -1075,119 +1336,116 @@ function savedata(param) {
 	});
 }
 
-function editprofile(id, tpst, desa, kecamatan, kabupaten, uraian, direktif) {
+function editprofile(
+	id,
+	tahun,
+	paket,
+	dana,
+	klpd,
+	satuan,
+	nilai,
+	lokasi,
+	koordinat,
+	kontrak,
+	tanggal,
+	ad11,
+	ad12,
+	ad21,
+	ad22,
+	ad31,
+	ad32
+) {
 	$("#add-data-1").trigger("click");
 	$("#id_1").val(id);
-	$("#tpst").val(tpst);
-	$("#desa").val(desa);
-	$("#kecamatan").val(kecamatan);
-	$("#kabupaten").val(kabupaten);
-	$("#uraian").summernote("code", uraian);
-	$("#direktif").val(direktif);
+	$("#tahun_profil").val(tahun);
+	$("#paket_profil").val(paket);
+	$("#dana_profil").val(dana).trigger("change");
+	$("#klpd_profil").val(klpd);
+	$("#satuan_profil").val(satuan);
+	$("#nilai_profil").val(nilai);
+	$("#lokasi_profil").val(lokasi);
+	$("#koordinat_profil").val(koordinat);
+	$("#kontrak_profil").val(kontrak).trigger("change");
+	$("#tanggal_profil").val(tanggal);
+	$("#addendum1_profil1").val(ad11);
+	$("#addendum1_profil2").val(ad12);
+	$("#addendum2_profil1").val(ad21);
+	$("#addendum2_profil2").val(ad22);
+	$("#addendum3_profil1").val(ad31);
+	$("#addendum3_profil2").val(ad32);
 }
 
-function editrencana(
-	id,
-	studi,
-	ded,
-	dok,
-	bangunan,
-	lahan,
-	mesin,
-	operator,
-	offtaker
-) {
+function editfisik(id, bulan, minggu, progres, akumulasi) {
 	$("#add-data-2").trigger("click");
 	$("#id_2").val(id);
-	$("#studi").val(studi);
-	$("#ded").val(ded);
-	$("#dok").val(dok);
-	$("#bangunan").val(bangunan);
-	$("#lahan").val(lahan);
-	$("#mesin").val(mesin);
-	$("#operator").val(operator);
-	$("#offtaker").val(offtaker);
+	$("#bulan_fisik").val(bulan);
+	$("#minggu_fisik").val(minggu);
+	$("#progres_fisik").val(progres);
+	$("#akumulasi_fisik").val(akumulasi);
 }
 
-function editteknis(
-	id,
-	ketersediaan,
-	kapasitas,
-	teknologi,
-	keberadaan,
-	jenis_offtaker,
-	kerjasama,
-	kesanggupan
-) {
+function editkeuangan(id, bulan, minggu, progres, akumulasi) {
 	$("#add-data-3").trigger("click");
 	$("#id_3").val(id);
-	$("#ketersediaan").val(ketersediaan);
-	$("#kapasitas").val(kapasitas).trigger("change");
-	$("#teknologi").val(teknologi);
-	$("#keberadaan").val(keberadaan).trigger("change");
-	$("#jenis_offtaker").val(jenis_offtaker);
-	$("#kerjasama").val(kerjasama).trigger("change");
-	$("#kesanggupan").val(kesanggupan).trigger("change");
+	$("#bulan_keuangan").val(bulan);
+	$("#minggu_keuangan").val(minggu);
+	$("#progres_keuangan").val(progres);
+	$("#akumulasi_keuangan").val(akumulasi);
 }
-
-function editkelengkapan(
+function editkontrak(
 	id,
-	minat,
-	status_lahan,
-	kesesuaian,
-	kesiapan,
-	kesiapan_anggaran,
-	kesiapan_sosialisasi
+	penyerahan,
+	pcm,
+	mobilisasi,
+	mutual,
+	izin,
+	ketersediaan,
+	drawing,
+	realisasi_fisik,
+	realisasi_keuangan,
+	mesin_alat
 ) {
 	$("#add-data-4").trigger("click");
 	$("#id_4").val(id);
-	$("#minat").val(minat).trigger("change");
-	$("#status_lahan").val(status_lahan).trigger("change");
-	$("#kesesuaian").val(kesesuaian).trigger("change");
-	$("#kesiapan").val(kesiapan).trigger("change");
-	$("#kesiapan_anggaran").val(kesiapan_anggaran).trigger("change");
-	$("#kesiapan_sosialisasi").val(kesiapan_sosialisasi).trigger("change");
+	$("#penyerahan").val(penyerahan).trigger("change");
+	$("#pcm").val(pcm).trigger("change");
+	$("#mobilisasi").val(mobilisasi).trigger("change");
+	$("#mutual").val(mutual).trigger("change");
+	$("#izin").val(izin).trigger("change");
+	$("#ketersediaan").val(ketersediaan).trigger("change");
+	$("#drawing").val(drawing).trigger("change");
+	$("#realisasi_fisik").val(realisasi_fisik).trigger("change");
+	$("#realisasi_keuangan").val(realisasi_keuangan).trigger("change");
+	$("#mesin_alat").val(mesin_alat).trigger("change");
 }
 
-function editusulan(id, usulan) {
+function editmanajemen(id, penyelenggaraan, rencana, k3) {
 	$("#add-data-5").trigger("click");
 	$("#id_5").val(id);
-	$("#usulan").val(usulan).trigger("change");
+	$("#penyelenggaraan").val(penyelenggaraan).trigger("change");
+	$("#rencana").val(rencana).trigger("change");
+	$("#k3").val(k3).trigger("change");
 }
 
-function editpendetailan(
-	id,
-	pengelola,
-	akses,
-	jalan,
-	listrik,
-	air,
-	partisipasi,
-	jarak,
-	resistensi,
-	bangunan,
-	banjir,
-	ssk,
-	ptmp,
-	das,
-	luas_lahan
-) {
+function editkondisi(id, sosialisasi, tindaklanjut) {
 	$("#add-data-6").trigger("click");
 	$("#id_6").val(id);
-	$("#pengelola").val(pengelola).trigger("change");
-	$("#akses").val(akses).trigger("change");
-	$("#jalan").val(jalan).trigger("change");
-	$("#listrik").val(listrik).trigger("change");
-	$("#air").val(air).trigger("change");
-	$("#partisipasi").val(partisipasi).trigger("change");
-	$("#jarak").val(jarak).trigger("change");
-	$("#resistensi").val(resistensi).trigger("change");
-	$("#bangunan_detail").val(bangunan).trigger("change");
-	$("#banjir").val(banjir).trigger("change");
-	$("#ssk").val(ssk).trigger("change");
-	$("#ptmp").val(ptmp).trigger("change");
-	$("#das").val(das).trigger("change");
-	$("#luas_lahan").val(luas_lahan).trigger("change");
+	$("#sosialisasi").val(sosialisasi).trigger("change");
+	$("#tindaklanjut").val(tindaklanjut).trigger("change");
+}
+
+function edituji(id, pengujian, sop, kualitas) {
+	$("#add-data-7").trigger("click");
+	$("#id_7").val(id);
+	$("#pengujian").val(pengujian).trigger("change");
+	$("#sop").val(sop).trigger("change");
+	$("#kualitas").val(kualitas).trigger("change");
+}
+
+function editstatus(id, status) {
+	$("#add-data-8").trigger("click");
+	$("#id_8").val(id);
+	$("#status_pelaksanaan").val(status).trigger("change");
 }
 
 function deleteData(id, table) {

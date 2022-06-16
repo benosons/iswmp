@@ -169,30 +169,32 @@
 												</div>
 												<hr />
 												<input id="param" value="" hidden />
-												<table
-													class="table table-bordered table-hover datatable"
-													id="list_1"
-												>
-													<thead>
-														<tr>
-															<th>No</th>
-															<th>Tahun Anggaran</th>
-															<th>Nama Paket</th>
-															<th>Sumber dana</th>
-															<th>K/L/PD</th>
-															<th>Satuan Kerja</th>
-															<th>Nilai Pagu Paket</th>
-															<th>Lokasi Pekerjaan</th>
-															<th>Koordinat</th>
-															<th>Jenis Kontrak</th>
-															<th>Tanggal Kontrak</th>
-															<th>Addendum I</th>
-															<th>Addendum II</th>
-															<th>Addendum III</th>
-															<th></th>
-														</tr>
-													</thead>
-												</table>
+												<div class="table-responsive">
+													<table
+														class="table table-bordered table-hover datatable"
+														id="list_1"
+													>
+														<thead>
+															<tr>
+																<th>No</th>
+																<th>Tahun Anggaran</th>
+																<th>Nama Paket</th>
+																<th>Sumber dana</th>
+																<th>K/L/PD</th>
+																<th>Satuan Kerja</th>
+																<th>Nilai Pagu Paket</th>
+																<th>Lokasi Pekerjaan</th>
+																<th>Koordinat</th>
+																<th>Jenis Kontrak</th>
+																<th>Tanggal Kontrak</th>
+																<th>Addendum I</th>
+																<th>Addendum II</th>
+																<th>Addendum III</th>
+																<th></th>
+															</tr>
+														</thead>
+													</table>
+												</div>
 											</div>
 											<div
 												class="tab-pane fade"
@@ -292,49 +294,51 @@
 												</div>
 												<hr />
 												<input id="param" value="" hidden />
-												<table
-													class="table table-bordered table-hover datatable"
-													id="list_4"
-												>
-													<thead>
-														<tr>
-															<th>No</th>
-															<th>Penyerahan lokasi pekerjaan</th>
-															<th>
-																Rapat persiapan pelaksanaan kontrak
-																(pre-construction meeting/PCM)
-															</th>
-															<th>
-																Mobilisasi sumber daya (material, alat, tenaga
-																kerja)
-															</th>
-															<th>Pemeriksaan bersama (Mutual Check)</th>
-															<th>
-																Permohonan izin memulai pekerjaan (Request of
-																Work)
-															</th>
-															<th>
-																Ketersediaan laporan pelaksanaan pekerjaan
-															</th>
-															<th>
-																Ketersediaan shop drawing dan asbuild drawing
-															</th>
-															<th>
-																Kesesuaian realisasi progres fisik dengan
-																rencana fisik
-															</th>
-															<th>
-																Kesesuaian realisasi progres keuangan dengan
-																rencana keuangan
-															</th>
-															<th>
-																Kesesuaian mesin/alat pengolahan sampah yang
-																digunakan
-															</th>
-															<th></th>
-														</tr>
-													</thead>
-												</table>
+												<div class="table-responsive">
+													<table
+														class="table table-bordered table-hover datatable"
+														id="list_4"
+													>
+														<thead>
+															<tr>
+																<th>No</th>
+																<th>Penyerahan lokasi pekerjaan</th>
+																<th>
+																	Rapat persiapan pelaksanaan kontrak
+																	(pre-construction meeting/PCM)
+																</th>
+																<th>
+																	Mobilisasi sumber daya (material, alat, tenaga
+																	kerja)
+																</th>
+																<th>Pemeriksaan bersama (Mutual Check)</th>
+																<th>
+																	Permohonan izin memulai pekerjaan (Request of
+																	Work)
+																</th>
+																<th>
+																	Ketersediaan laporan pelaksanaan pekerjaan
+																</th>
+																<th>
+																	Ketersediaan shop drawing dan asbuild drawing
+																</th>
+																<th>
+																	Kesesuaian realisasi progres fisik dengan
+																	rencana fisik
+																</th>
+																<th>
+																	Kesesuaian realisasi progres keuangan dengan
+																	rencana keuangan
+																</th>
+																<th>
+																	Kesesuaian mesin/alat pengolahan sampah yang
+																	digunakan
+																</th>
+																<th></th>
+															</tr>
+														</thead>
+													</table>
+												</div>
 											</div>
 											<div
 												class="tab-pane fade"
@@ -665,7 +669,7 @@
 									<div class="col-md-6">
 										<input
 											id="addendum1_profil1"
-											name="profil-input"
+											name="addendum1-input[]"
 											type="text"
 											class="form-control"
 											placeholder="NILAI KONTRAK"
@@ -674,7 +678,7 @@
 									<div class="col-md-6">
 										<input
 											id="addendum1_profil2"
-											name="profil-input"
+											name="addendum1-input[]"
 											type="text"
 											class="form-control"
 											placeholder="WAKTU PELAKSANAAN TAMBAHAN"
@@ -690,7 +694,7 @@
 									<div class="col-md-6">
 										<input
 											id="addendum2_profil1"
-											name="profil-input"
+											name="addendum2-input[]"
 											type="text"
 											class="form-control"
 											placeholder="NILAI KONTRAK"
@@ -699,7 +703,7 @@
 									<div class="col-md-6">
 										<input
 											id="addendum2_profil2"
-											name="profil-input"
+											name="addendum2-input[]"
 											type="text"
 											class="form-control"
 											placeholder="WAKTU PELAKSANAAN TAMBAHAN"
@@ -715,7 +719,7 @@
 									<div class="col-md-6">
 										<input
 											id="addendum3_profil1"
-											name="profil-input"
+											name="addendum3-input[]"
 											type="text"
 											class="form-control"
 											placeholder="NILAI KONTRAK"
@@ -724,7 +728,7 @@
 									<div class="col-md-6">
 										<input
 											id="addendum3_profil2"
-											name="profil-input"
+											name="addendum3-input[]"
 											type="text"
 											class="form-control"
 											placeholder="WAKTU PELAKSANAAN TAMBAHAN"
