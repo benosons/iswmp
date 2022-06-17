@@ -92,48 +92,22 @@ $(function () {
                           { 'mDataProp': 'name'},
                           { 'mDataProp': 'email'},
                           { 'mDataProp': 'instansi'},
+                          { 'mDataProp': 'kota'},
+                          { 'mDataProp': 'tpst'},
                           { 'mDataProp': 'pengaduan'},
                       ],
                       order: [[0, 'ASC']],
-                      // aoColumnDefs:[
-                      //     {
-                      //         mRender: function (data, type, row){
-                      //             var $rowData = '';
-                      //             $rowData += `<a target="blank_" href="`+row.url+`">Download</a>`;
+                      aoColumnDefs:[
+                          {
+                              mRender: function (data, type, row){
+                                  var $rowData = '';
+                                  $rowData += `<button class="btn btn-default btn-xs btn-block" onClick="lihat('${row.pengaduan}')"><i class="fa fa-eye"></i> lihat</button>`;
                                   
-                      //             return $rowData;
-                      //         },
-                      //         aTargets: [5]
-                      //     },
-                      //     {
-                      //         mRender: function (data, type, row){
-                      //             var stat = row.stat;
-                                  
-                      //             if(stat == 1){
-                      //               var st = `<a class="dropdown-item" href="#" onclick="updatepublish(`+row.id+`,0)"><i class="fas fa-sign-out-alt"></i> No Publish</a>`
-                      //             }else{
-                      //               var st = `<a class="dropdown-item" href="#" onclick="updatepublish(`+row.id+`,1)"><i class="fas fa-sign-out-alt"></i> Publish</a>`;
-                      //             }
-                      //             var $rowData = '';
-                      //                 $rowData += `
-                      //                 <div class="btn-group">
-                      //                 <button type="button" class="btn btn-info">Action</button>
-                      //                 <button type="button" class="btn btn-info dropdown-toggle dropdown-icon" data-toggle="dropdown">
-                      //                   <span class="sr-only">Toggle Dropdown</span>
-                      //                 </button>
-                      //                 <div class="dropdown-menu" role="menu">
-                      //                   <a class="dropdown-item" href="#" onclick="editdong('`+row.id+`','`+row.judul+`','`+row.deskripsi+`','`+row.tanggal+`','`+row.jenis+`','`+row.url+`')"><i class="far fa-edit"></i> Edit</a>
-                      //                   <a class="dropdown-item" href="#" onclick="deleteData(`+row.id+`)"><i class="far fa-trash-alt"></i> Hapus</a>
-                      //                   <div class="dropdown-divider"></div>
-                      //                   `+st+`
-                      //                 </div>
-                      //               </div>`;
-    
-                      //             return $rowData;
-                      //         },
-                      //         aTargets: [6]
-                      //     }
-                      // ],
+                                  return $rowData;
+                              },
+                              aTargets: [6]
+                          },
+                      ],
     
                       fnRowCallback: function(nRow, aData, iDisplayIndex, iDisplayIndexFull){
                           var index = iDisplayIndexFull + 1;
@@ -306,4 +280,10 @@ function modaldetail(id,username,role,status,name,foto){
     $('#detail-username').html('username: <i>'+username+'</i>');
     $('#detail-status').html(stt);
     $('#detail-role').text(role);
+}
+
+
+function lihat(data){
+  $('#lihat-pengaduan').modal('show');
+  $('#ini-pengaduan').html(data);
 }

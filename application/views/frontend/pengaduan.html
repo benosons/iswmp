@@ -19,7 +19,7 @@
     </div>
 </section><!-- page top title with bread crumb -->
 
-<section id="contact">
+<section id="contacteg" style="padding-bottom: 50px;">
     <div class="gap nogap">
         <div class="container">
             <div class="row">
@@ -28,6 +28,8 @@
                     </div>
                     <div class="contact-page">
                         <div class="contact-form">
+                            <h3>Informasi pengaduan ISWMP (WA) - <a href="https://wa.me/6282116396536" target="_blank">+62 821-1639-6536</a></h3>
+                            <hr/>
                             <form method="post" action="/savePengaduan" id="contactform">
                                 <div class="row">
                                     <div class="col-sm-4">
@@ -38,6 +40,65 @@
                                     </div>
                                     <div class="col-sm-4">
                                         <input placeholder="Instansi *" id="instansi" type="text" name="instansi">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <select placeholder="Nama Kota *" id="kota" name="kota">
+                                            <option>Pilih Nama Kota *</option>
+                                            <option value="Kabupaten Bandung">Kabupaten Bandung </option>
+                                            <option value="Kabupaten Bandung Barat">Kabupaten Bandung Barat</option>
+                                            <option value="Kabupaten Bekasi">Kabupaten Bekasi</option>
+                                            <option value="Kabupaten Cianjur">Kabupaten Cianjur</option>
+                                            <option value="Kabupaten Karawang">Kabupaten Karawang</option>
+                                            <option value="Kabupaten Purwakarta">Kabupaten Purwakarta</option>
+                                            <option value="Kota Bandung">Kota Bandung</option>
+                                            <option value="Kota Cimahi">Kota Cimahi</option>
+                                            <option value="Kota Denpasar">Kota Denpasar</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <select class="nice-select" placeholder="Nama TPST *" id="tpst" name="tpst">
+                                            <!-- <option>Pilih Nama TPST *</option>
+                                            <option kota="Kabupaten Bandung" value="Cicukang Oxbow" >Cicukang Oxbow</option>
+                                            <option kota="Kabupaten Bandung" value="Citaliktik" >Citaliktik</option>
+                                            <option kota="Kabupaten Bandung" value="Ex TPA Babakan" >Ex TPA Babakan</option>
+                                            <option kota="Kabupaten Bandung" value="Jelekong" >Jelekong</option>
+                                            <option kota="Kabupaten Bandung" value="RPH Baleendah" >RPH Baleendah</option>
+                                            <option kota="Kabupaten Bandung" value="UPT BLK Disnaker" >UPT BLK Disnaker</option>
+                                            <option kota="Kabupaten Bandung" value="Wargamekar" >Wargamekar</option>
+                                            <option kota="Kabupaten Bandung Barat" value="Batujajar Timur" >Batujajar Timur</option>
+                                            <option kota="Kabupaten Bandung Barat" value="Cilame" >Cilame</option>
+                                            <option kota="Kabupaten Bandung Barat" value="Desa Suntenjaya" >Desa Suntenjaya</option>
+                                            <option kota="Kabupaten Bandung Barat" value="EX TPA Pasir Buluh" >EX TPA Pasir Buluh</option>
+                                            <option kota="Kabupaten Bandung Barat" value="Komplek Pemda" >Komplek Pemda</option>
+                                            <option kota="Kabupaten Bandung Barat" value="Komplek Perumahan Kota Baru Parahyangan" >Komplek Perumahan Kota Baru Parahyangan</option>
+                                            <option kota="Kabupaten Bekasi" value="Bantarjaya" >Bantarjaya</option>
+                                            <option kota="Kabupaten Bekasi" value="Kertamukti" >Kertamukti</option>
+                                            <option kota="Kabupaten Bekasi" value="Lenggahjaya" >Lenggahjaya</option>
+                                            <option kota="Kabupaten Bekasi" value="Sindangjaya" >Sindangjaya</option>
+                                            <option kota="Kabupaten Bekasi" value="Kedungwaringin" >Kedungwaringin</option>
+                                            <option kota="Kabupaten Cianjur" value="Bojong" >Bojong</option>
+                                            <option kota="Kabupaten Cianjur" value="Mekarsari" >Mekarsari</option>
+                                            <option kota="Kabupaten Cianjur" value="Bojongpicung" >Bojongpicung</option>
+                                            <option kota="Kabupaten Cianjur" value="Pasirembung" >Pasirembung</option>
+                                            <option kota="Kabupaten Karawang" value="Cirejag" >Cirejag</option>
+                                            <option kota="Kabupaten Karawang" value="Jayakerta" >Jayakerta</option>
+                                            <option kota="Kabupaten Karawang" value="Leuwisisir" >Leuwisisir</option>
+                                            <option kota="Kabupaten Karawang" value="Mekarjati" >Mekarjati</option>
+                                            <option kota="Kabupaten Purwakarta" value="Cikolotok" >Cikolotok</option>
+                                            <option kota="Kabupaten Purwakarta" value="Nagrak" >Nagrak</option>
+                                            <option kota="Kabupaten Purwakarta" value="Neglasari" >Neglasari</option>
+                                            <option kota="Kabupaten Purwakarta" value="Sukatani" >Sukatani</option>
+                                            <option kota="Kabupaten Purwakarta" value="Tehalsari" >Tehalsari</option>
+                                            <option kota="Kota Bandung" value="EX-TPA Cicabe" >EX-TPA Cicabe</option>
+                                            <option kota="Kota Bandung" value="Nyengseret" >Nyengseret</option>
+                                            <option kota="Kota Bandung" value="Tegalega" >Tegalega</option>
+                                            <option kota="Kota Cimahi" value="Kolonel Masturi" >Kolonel Masturi</option>
+                                            <option kota="Kota Cimahi" value="Lebak Saat Cipageran" >Lebak Saat Cipageran</option>
+                                            <option kota="Kota Denpasar" value="Kesiman Kertalangu" >Kesiman Kertalangu</option>
+                                            <option kota="Kota Denpasar" value="Padang Sambian" >Padang Sambian</option>
+                                            <option kota="Kota Denpasar" value="Tahura" >Tahura</option> -->
+
+                                        </select>
                                     </div>
                                     <div class="col-sm-12">
                                         <textarea id="pengaduan" cols="30" rows="8" placeholder="Pengaduan" name="pengaduan"></textarea>
