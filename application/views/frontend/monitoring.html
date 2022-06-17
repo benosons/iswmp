@@ -1,4 +1,5 @@
 {% extends "frontend/layout.html" %} {% block content %}
+<link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
 <style>
     #tab-outer {
   position:relative;
@@ -112,6 +113,279 @@
                     </div>
                 </div>
             </div>
+    </div>
+</section>
+{% endif %}
+
+{% if param == 'RC' %}
+<section id="contact">
+    <div class="gap nogap">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <br/>
+                    <table class="table table-bordered table-hover" id="rc">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Kabupaten / Kota</th>
+                                <th>Nama TPST</th>
+                                <th>Link RC</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Kabupaten Bandung</td>
+                                <td>Cicukang Oxbow</td>
+                                <td>Form RC</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Kabupaten Bandung</td>
+                                <td>Citaliktik</td>
+                                <td>Form RC</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Kabupaten Bandung</td>
+                                <td>Ex TPA Babakan</td>
+                                <td>Form RC</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Kabupaten Bandung</td>
+                                <td>Jelekong</td>
+                                <td>Form RC</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Kabupaten Bandung</td>
+                                <td>RPH Baleendah</td>
+                                <td>Form RC</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>Kabupaten Bandung</td>
+                                <td>UPT BLK Disnaker</td>
+                                <td>Form RC</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>Kabupaten Bandung</td>
+                                <td>Wargamekar</td>
+                                <td>Form RC</td>
+                            </tr>
+
+                            <tr>
+                                <td>8</td>
+                                <td>Kabupaten Bandung Barat</td>
+                                <td>Batujajar Timur</td>
+                                <td>Form RC</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>Kabupaten Bandung Barat</td>
+                                <td>Cilame</td>
+                                <td>Form RC</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>Kabupaten Bandung Barat</td>
+                                <td>Desa Suntenjaya</td>
+                                <td>Form RC</td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td>Kabupaten Bandung Barat</td>
+                                <td>EX TPA Pasir Buluh</td>
+                                <td>Form RC</td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td>Kabupaten Bandung Barat</td>
+                                <td>Komplek Pemda</td>
+                                <td>Form RC</td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td>Kabupaten Bandung Barat</td>
+                                <td>Komplek Perumahan Kota Baru Parahyangan</td>
+                                <td>Form RC</td>
+                            </tr>
+
+                            <tr>
+                                <td>14</td>
+                                <td>Kabupaten Bekasi</td>
+                                <td>Bantarjaya</td>
+                                <td>Form RC</td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>Kabupaten Bekasi</td>
+                                <td>Kertamukti</td>
+                                <td>Form RC</td>
+                            </tr>
+                            <tr>
+                                <td>16</td>
+                                <td>Kabupaten Bekasi</td>
+                                <td>Lenggahjaya</td>
+                                <td>Form RC</td>
+                            </tr>
+                            <tr>
+                                <td>17</td>
+                                <td>Kabupaten Bekasi</td>
+                                <td>Sindangjaya</td>
+                                <td>Form RC</td>
+                            </tr>
+                            <tr>
+                                <td>18</td>
+                                <td>Kabupaten Bekasi</td>
+                                <td>Kedungwaringin</td>
+                                <td>Form RC</td>
+                            </tr>
+
+                            <tr>
+                                <td>19</td>
+                                <td>Kabupaten Cianjur</td>
+                                <td>Bojong</td>
+                                <td>Form RC</td>
+                            </tr>
+                            <tr>
+                                <td>20</td>
+                                <td>Kabupaten Cianjur</td>
+                                <td>Mekarsari</td>
+                                <td>Form RC</td>
+                            </tr>
+                            <tr>
+                                <td>21</td>
+                                <td>Kabupaten Cianjur</td>
+                                <td>Bojongpicung</td>
+                                <td>Form RC</td>
+                            </tr>
+                            <tr>
+                                <td>22</td>
+                                <td>Kabupaten Cianjur</td>
+                                <td>Pasirembung</td>
+                                <td>Form RC</td>
+                            </tr>
+
+                            <tr>
+                                <td>23</td>
+                                <td>Kabupaten Karawang</td>
+                                <td>Cirejag</td>
+                                <td>Form RC</td>
+                            </tr>
+                            <tr>
+                                <td>24</td>
+                                <td>Kabupaten Karawang</td>
+                                <td>Jayakerta</td>
+                                <td>Form RC</td>
+                            </tr>
+                            <tr>
+                                <td>25</td>
+                                <td>Kabupaten Karawang</td>
+                                <td>Leuwisisir</td>
+                                <td>Form RC</td>
+                            </tr>
+                            <tr>
+                                <td>26</td>
+                                <td>Kabupaten Karawang</td>
+                                <td>Mekarjati</td>
+                                <td>Form RC</td>
+                            </tr>
+
+                            <tr>
+                                <td>27</td>
+                                <td>Kabupaten Purwakarta</td>
+                                <td>Cikolotok</td>
+                                <td>Form RC</td>
+                            </tr>
+                            <tr>
+                                <td>28</td>
+                                <td>Kabupaten Purwakarta</td>
+                                <td>Nagrak</td>
+                                <td>Form RC</td>
+                            </tr>
+                            <tr>
+                                <td>29</td>
+                                <td>Kabupaten Purwakarta</td>
+                                <td>Neglasari</td>
+                                <td>Form RC</td>
+                            </tr>
+                            <tr>
+                                <td>30</td>
+                                <td>Kabupaten Purwakarta</td>
+                                <td>Sukatani</td>
+                                <td>Form RC</td>
+                            </tr>
+                            <tr>
+                                <td>31</td>
+                                <td>Kabupaten Purwakarta</td>
+                                <td>Tehalsari</td>
+                                <td>Form RC</td>
+                            </tr>
+
+                            <tr>
+                                <td>32</td>
+                                <td>Kota Bandung</td>
+                                <td>EX-TPA Cicabe</td>
+                                <td>Form RC</td>
+                            </tr>
+                            <tr>
+                                <td>33</td>
+                                <td>Kota Bandung</td>
+                                <td>Nyengseret</td>
+                                <td>Form RC</td>
+                            </tr>
+                            <tr>
+                                <td>34</td>
+                                <td>Kota Bandung</td>
+                                <td>Tegalega</td>
+                                <td>Form RC</td>
+                            </tr>
+
+                            <tr>
+                                <td>35</td>
+                                <td>Kota Cimahi</td>
+                                <td>Kolonel Masturi</td>
+                                <td>Form RC</td>
+                            </tr>
+                            <tr>
+                                <td>36</td>
+                                <td>Kota Cimahi</td>
+                                <td>Lebak Saat Cipageran</td>
+                                <td>Form RC</td>
+                            </tr>
+
+                            <tr>
+                                <td>37</td>
+                                <td>Kota Cimahi</td>
+                                <td>Lebak Saat Cipageran</td>
+                                <td>Form RC</td>
+                            </tr>
+                            <tr>
+                                <td>38</td>
+                                <td>Kota Cimahi</td>
+                                <td>Lebak Saat Cipageran</td>
+                                <td>Form RC</td>
+                            </tr>
+                            <tr>
+                                <td>39</td>
+                                <td>Kota Cimahi</td>
+                                <td>Lebak Saat Cipageran</td>
+                                <td>Form RC</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br/>
+                </div>
+                <div class="col-md-12">
+                    <iframe src="https://drive.google.com/file/d/13z7NudjILZRal7L9phqTS9M_LgUyUAg6/preview" width="100%" height="1060"></iframe>
+                    
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 {% endif %}

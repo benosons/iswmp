@@ -11,4 +11,20 @@ $(function () {
         $(activeTab).show();
         return false;
     });
+
+    $('#rc').DataTable({
+        aoColumnDefs:[
+            {
+                mRender: function (data, type, row){
+                    var $rowData = '';
+                      $rowData += `
+                          <button id="" class="btn btn-primary" src="" alt="">Form RC</button>
+                        `;
+                    
+                    return $rowData;
+                },
+                aTargets: [3]
+            },
+        ],
+    });
 })

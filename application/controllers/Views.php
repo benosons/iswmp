@@ -350,8 +350,10 @@ class Views extends CI_Controller {
 		$this->content['script'] = $this->data['base_url'].'assets/js/action/frontend/monitoring.js';
 		if($this->input->get('param') == 'bali'){
 			$this->content['param'] = 'BALI';
-		}else{
+		}else if($this->input->get('param') == 'citarum'){
 			$this->content['param'] = 'CITARUM';
+		}else if($this->input->get('param') == 'rc'){
+			$this->content['param'] = 'RC';
 		}
 		$this->twig->display('frontend/monitoring.html', $this->content);
 	}
