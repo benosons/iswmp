@@ -8,15 +8,14 @@
 	<div class="container-fluid">
 		<div class="row mb-2">
 			<div class="col-sm-8">
-				<h1>
-					<i class="nav-icon fas fa-clone"></i> Tahap Pelaksanaan - Pelaksanaan
-					Program/ Kegiatan
-				</h1>
+				<h1><i class="nav-icon fa fa-clone"></i> Tahap Pelaksanaan Kegiatan</h1>
 			</div>
 			<div class="col-sm-4">
 				<ol class="breadcrumb float-sm-right">
-					<li class="breadcrumb-item"><a href="#">Pelaksanaan Program</a></li>
-					<li class="breadcrumb-item active">List Data</li>
+					<li class="breadcrumb-item">
+						<a href="#">Pelaksanaan Program/ Kegiatan</a>
+					</li>
+					<li class="breadcrumb-item active">List data</li>
 				</ol>
 			</div>
 		</div>
@@ -30,44 +29,502 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-12">
-				<div class="card card-navy card-outline">
+				<div class="card card-lightblue card-outline">
 					<div class="card-header">
-						<h3 class="card-title"></h3>
+						<h1 class="card-title">Pelaksanaan Program/ Kegiatan</h1>
 
 						<div class="card-tools">
-							<div class="input-group input-group-sm">
-								<div class="btn btn-info" id="add-laporan">
-									<i class="fas fa-plus"></i><span> Tambah Laporan</span>
-								</div>
-							</div>
+							<div class="input-group input-group-sm"></div>
 						</div>
 					</div>
 					<div class="card-body">
-						<input id="param" value="User" hidden />
-						<table class="table table-bordered table-hover" id="listlaporan">
-							<thead>
-								<tr>
-									<th>No</th>
-									<th>Judul</th>
-									<th>Deskripsi</th>
-									<th>Tanggal</th>
-									<th>Jenis Laporan</th>
-									<th>Download</th>
-									<th>Action</th>
-								</tr>
-							</thead>
-						</table>
+						<div class="row">
+							<div class="col-12 col-sm-12">
+								<div class="card card-lightblue card-outline card-outline-tabs">
+									<div class="card-header p-0 border-bottom-0">
+										<ul
+											class="nav nav-tabs"
+											id="custom-tabs-four-tab"
+											role="tablist"
+										>
+											<li class="nav-item">
+												<a
+													class="nav-link active"
+													id="custom-1"
+													data-toggle="pill"
+													href="#tab_1"
+													role="tab"
+													aria-controls="custom-tabs-four-home"
+													aria-selected="true"
+													>Profil Pelaksanaan Kegiatan</a
+												>
+											</li>
+											<li class="nav-item">
+												<a
+													class="nav-link"
+													id="custom-2"
+													data-toggle="pill"
+													href="#tab_2"
+													role="tab"
+													aria-controls="custom-tabs-four-profile"
+													aria-selected="false"
+													>Progres Fisik</a
+												>
+											</li>
+											<li class="nav-item">
+												<a
+													class="nav-link"
+													id="custom-3"
+													data-toggle="pill"
+													href="#tab_3"
+													role="tab"
+													aria-controls="custom-tabs-four-messages"
+													aria-selected="false"
+													>Progres Keuangan</a
+												>
+											</li>
+											<li class="nav-item">
+												<a
+													class="nav-link"
+													id="custom-4"
+													data-toggle="pill"
+													href="#tab_4"
+													role="tab"
+													aria-controls="custom-tabs-four-settings"
+													aria-selected="false"
+													>Pelaksanaan Kontrak</a
+												>
+											</li>
+											<li class="nav-item">
+												<a
+													class="nav-link"
+													id="custom-5"
+													data-toggle="pill"
+													href="#tab_5"
+													role="tab"
+													aria-controls="custom-tabs-four-settings"
+													aria-selected="false"
+													>Pelaksanaan Sistem Manajemen Keselamatan Konstruksi
+												</a>
+											</li>
+											<li class="nav-item">
+												<a
+													class="nav-link"
+													id="custom-6"
+													data-toggle="pill"
+													href="#tab_6"
+													role="tab"
+													aria-controls="custom-tabs-four-settings"
+													aria-selected="false"
+													>Kondisi Khusus</a
+												>
+											</li>
+											<li class="nav-item">
+												<a
+													class="nav-link"
+													id="custom-7"
+													data-toggle="pill"
+													href="#tab_7"
+													role="tab"
+													aria-controls="custom-tabs-four-settings"
+													aria-selected="false"
+													>Uji Coba</a
+												>
+											</li>
+											<li class="nav-item">
+												<a
+													class="nav-link"
+													id="custom-8"
+													data-toggle="pill"
+													href="#tab_8"
+													role="tab"
+													aria-controls="custom-tabs-four-settings"
+													aria-selected="false"
+													>Status Pelaksanaan Kegiatan</a
+												>
+											</li>
+										</ul>
+									</div>
+									<div class="card-body">
+										<div class="tab-content" id="custom-tabs-four-tabContent">
+											<div
+												class="tab-pane fade show active"
+												id="tab_1"
+												role="tabpanel"
+												aria-labelledby="custom-tabs-four-home-tab"
+											>
+												<div class="row">
+													<div class="col-sm-10">
+														<h3>1. Profil Pelaksanaan Kegiatan</h3>
+													</div>
+													<div class="col-sm-2">
+														<div
+															class="btn btn-success pull-right"
+															id="add-data-1"
+														>
+															<i class="fas fa-plus"></i
+															><span> Tambah Data</span>
+														</div>
+													</div>
+												</div>
+												<hr />
+												<input id="param" value="" hidden />
+												<div class="table-responsive">
+													<table
+														class="table table-bordered table-hover datatable"
+														id="list_1"
+													>
+														<thead>
+															<tr>
+																<th>No</th>
+																<th>Tahun Anggaran</th>
+																<th>Nama Paket</th>
+																<th>Sumber dana</th>
+																<th>K/L/PD</th>
+																<th>Satuan Kerja</th>
+																<th>Nilai Pagu Paket</th>
+																<th>Lokasi Pekerjaan</th>
+																<th>Koordinat</th>
+																<th>Jenis Kontrak</th>
+																<th>Tanggal Kontrak</th>
+																<th>Addendum I</th>
+																<th>Addendum II</th>
+																<th>Addendum III</th>
+																<th></th>
+															</tr>
+														</thead>
+													</table>
+												</div>
+											</div>
+											<div
+												class="tab-pane fade"
+												id="tab_2"
+												role="tabpanel"
+												aria-labelledby="custom-tabs-four-profile-tab"
+											>
+												<div class="row">
+													<div class="col-sm-10">
+														<h3>2. Progres Fisik</h3>
+													</div>
+													<div class="col-sm-2">
+														<div
+															class="btn btn-success pull-right"
+															id="add-data-2"
+														>
+															<i class="fas fa-plus"></i
+															><span> Tambah Data</span>
+														</div>
+													</div>
+												</div>
+												<hr />
+												<input id="param" value="" hidden />
+												<table
+													class="table table-bordered table-hover datatable"
+													id="list_2"
+												>
+													<thead>
+														<tr>
+															<th>No</th>
+															<th>Bulan</th>
+															<th>Minggu</th>
+															<th>Progres Fisik (%)</th>
+															<th>Akumulasi Progres Fisik (%)</th>
+															<th></th>
+														</tr>
+													</thead>
+												</table>
+											</div>
+											<div
+												class="tab-pane fade"
+												id="tab_3"
+												role="tabpanel"
+												aria-labelledby="custom-tabs-four-profile-tab"
+											>
+												<div class="row">
+													<div class="col-sm-10">
+														<h3>3. Progres Keuangan</h3>
+													</div>
+													<div class="col-sm-2">
+														<div
+															class="btn btn-success pull-right"
+															id="add-data-3"
+														>
+															<i class="fas fa-plus"></i
+															><span> Tambah Data</span>
+														</div>
+													</div>
+												</div>
+												<hr />
+												<input id="param" value="" hidden />
+												<table
+													class="table table-bordered table-hover datatable"
+													id="list_3"
+												>
+													<thead>
+														<tr>
+															<th>No</th>
+															<th>Bulan</th>
+															<th>Minggu</th>
+															<th>Progres Keuangan (%)</th>
+															<th>Akumulasi Progres Keuangan (%)</th>
+															<th></th>
+														</tr>
+													</thead>
+												</table>
+											</div>
+											<div
+												class="tab-pane fade"
+												id="tab_4"
+												role="tabpanel"
+												aria-labelledby="custom-tabs-four-profile-tab"
+											>
+												<div class="row">
+													<div class="col-sm-10">
+														<h3>4. Pelaksanaan Kontrak</h3>
+													</div>
+													<div class="col-sm-2">
+														<div
+															class="btn btn-success pull-right"
+															id="add-data-4"
+														>
+															<i class="fas fa-plus"></i
+															><span> Tambah Data</span>
+														</div>
+													</div>
+												</div>
+												<hr />
+												<input id="param" value="" hidden />
+												<div class="table-responsive">
+													<table
+														class="table table-bordered table-hover datatable"
+														id="list_4"
+													>
+														<thead>
+															<tr>
+																<th>No</th>
+																<th>Penyerahan lokasi pekerjaan</th>
+																<th>
+																	Rapat persiapan pelaksanaan kontrak
+																	(pre-construction meeting/PCM)
+																</th>
+																<th>
+																	Mobilisasi sumber daya (material, alat, tenaga
+																	kerja)
+																</th>
+																<th>Pemeriksaan bersama (Mutual Check)</th>
+																<th>
+																	Permohonan izin memulai pekerjaan (Request of
+																	Work)
+																</th>
+																<th>
+																	Ketersediaan laporan pelaksanaan pekerjaan
+																</th>
+																<th>
+																	Ketersediaan shop drawing dan asbuild drawing
+																</th>
+																<th>
+																	Kesesuaian realisasi progres fisik dengan
+																	rencana fisik
+																</th>
+																<th>
+																	Kesesuaian realisasi progres keuangan dengan
+																	rencana keuangan
+																</th>
+																<th>
+																	Kesesuaian mesin/alat pengolahan sampah yang
+																	digunakan
+																</th>
+																<th></th>
+															</tr>
+														</thead>
+													</table>
+												</div>
+											</div>
+											<div
+												class="tab-pane fade"
+												id="tab_5"
+												role="tabpanel"
+												aria-labelledby="custom-tabs-four-profile-tab"
+											>
+												<div class="row">
+													<div class="col-sm-10">
+														<h3>
+															5. Pelaksanaan Sistem Manajemen Keselamatan
+															Konstruksi
+														</h3>
+													</div>
+													<div class="col-sm-2">
+														<div
+															class="btn btn-success pull-right"
+															id="add-data-5"
+														>
+															<i class="fas fa-plus"></i
+															><span> Tambah Data</span>
+														</div>
+													</div>
+												</div>
+												<hr />
+												<input id="param" value="" hidden />
+												<table
+													class="table table-bordered table-hover datatable"
+													id="list_5"
+												>
+													<thead>
+														<tr>
+															<th>No</th>
+															<th>
+																Kesiapan penyelenggaraan Sistem Manajemen
+																Keselamatan Konstruksi (sesuai Permen PUPR No.
+																10 Tahun 2021)
+															</th>
+															<th>
+																Kesesuaian rencana dengan pelaksanaan Sistem
+																Manajemen Keselamatan Konstruksi
+															</th>
+															<th>Ketersediaan Laporan K3</th>
+														</tr>
+													</thead>
+												</table>
+											</div>
+											<div
+												class="tab-pane fade"
+												id="tab_6"
+												role="tabpanel"
+												aria-labelledby="custom-tabs-four-profile-tab"
+											>
+												<div class="row">
+													<div class="col-sm-10">
+														<h3>6. Kondisi Khusus</h3>
+													</div>
+													<div class="col-sm-2">
+														<div
+															class="btn btn-success pull-right"
+															id="add-data-6"
+														>
+															<i class="fas fa-plus"></i
+															><span> Tambah Data</span>
+														</div>
+													</div>
+												</div>
+												<hr />
+												<input id="param" value="" hidden />
+												<table
+													class="table table-bordered table-hover datatable"
+													id="list_6"
+												>
+													<thead>
+														<tr>
+															<th>No</th>
+															<th>
+																Sosialisasi kepada masyarakat di sekitar lokasi
+																kegiatan
+															</th>
+															<th>
+																Tindak lanjut permasalahan pelaksanaan pekerjaan
+															</th>
+															<th></th>
+														</tr>
+													</thead>
+												</table>
+											</div>
+											<div
+												class="tab-pane fade"
+												id="tab_7"
+												role="tabpanel"
+												aria-labelledby="custom-tabs-four-profile-tab"
+											>
+												<div class="row">
+													<div class="col-sm-10">
+														<h3>7. Uji Coba</h3>
+													</div>
+													<div class="col-sm-2">
+														<div
+															class="btn btn-success pull-right"
+															id="add-data-7"
+														>
+															<i class="fas fa-plus"></i
+															><span> Tambah Data</span>
+														</div>
+													</div>
+												</div>
+												<hr />
+												<input id="param" value="" hidden />
+												<div class="table-responsive">
+													<table
+														class="table table-bordered table-hover datatable"
+														id="list_7"
+													>
+														<thead>
+															<tr>
+																<th>No</th>
+																<th>
+																	Pengujian akhir pekerjaan (Test on Completion)
+																</th>
+																<th>
+																	Ketersediaan SOP (Standart Operational
+																	Procedure)
+																</th>
+																<th>Kualitas produk hasil olahan sampah</th>
+																<th></th>
+															</tr>
+														</thead>
+													</table>
+												</div>
+											</div>
+											<div
+												class="tab-pane fade"
+												id="tab_8"
+												role="tabpanel"
+												aria-labelledby="custom-tabs-four-profile-tab"
+											>
+												<div class="row">
+													<div class="col-sm-10">
+														<h3>8. Status Pelaksanaan Kegiatan</h3>
+													</div>
+													<div class="col-sm-2">
+														<div
+															class="btn btn-success pull-right"
+															id="add-data-8"
+														>
+															<i class="fas fa-plus"></i
+															><span> Tambah Data</span>
+														</div>
+													</div>
+												</div>
+												<hr />
+												<input id="param" value="" hidden />
+												<div class="table-responsive">
+													<table
+														class="table table-bordered table-hover datatable"
+														id="list_8"
+													>
+														<thead>
+															<tr>
+																<th>No</th>
+																<th>Status</th>
+																<th></th>
+															</tr>
+														</thead>
+													</table>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- /.card -->
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div class="modal fade" id="modal-default">
-		<div class="modal-dialog modal-lg card card-danger card-outline">
+	<div class="modal fade" id="modal-1">
+		<div class="modal-dialog modal-lg card card-primary card-outline">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title">Detail</h4>
+					<h3 class="modal-title">1. Profil Pelaksanaan Kegiatan</h3>
 					<button
 						type="button"
 						class="close"
@@ -78,87 +535,213 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<input id="id" hidden />
-					<input id="idfile" hidden />
+					<input id="id_1" hidden />
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group">
-								<label>Judul Laporan</label>
+								<label>Tahun Anggaran <code>*</code>:</label>
 								<input
-									id="judul"
-									name="laporan-input"
+									id="tahun_profil"
+									name="profil-input"
 									type="text"
 									class="form-control"
-									placeholder="judul laporan ..."
+									placeholder="..."
 								/>
 							</div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
-								<label>Deskripsi</label>
-								<textarea name="summernote" id="deskripsi"> </textarea>
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="form-group">
-								<label>Tanggal</label>
+								<label>Nama Paket <code>*</code>:</label>
 								<input
-									id="tanggal"
-									name="laporan-input"
-									type="date"
-									class="form-control"
-									for
-								/>
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="form-group">
-								<label>Jenis Laporan</label>
-								<input
-									id="jenis"
-									name="jenis-input"
+									id="paket_profil"
+									name="profil-input"
 									type="text"
 									class="form-control"
-									placeholder="jenis laporan ..."
+									placeholder="..."
 								/>
 							</div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
-								<label>Url Google Drive</label>
+								<label>Sumber dana <code>*</code>:</label>
+								<select
+									id="dana_profil"
+									name="profil-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">APBN MURNI</option>
+									<option value="2">APBN LOAN</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>K/L/PD<code>*</code>:</label>
 								<input
-									id="url"
-									name="url-input"
+									id="klpd_profil"
+									name="profil-input"
 									type="text"
 									class="form-control"
-									placeholder="url google drive ..."
+									placeholder="..."
 								/>
 							</div>
 						</div>
-					</div>
-
-					<div class="row">
 						<div class="col-md-12">
-							<label>Publikasi</label>
 							<div class="form-group">
+								<label>Satuan Kerja<code>*</code>:</label>
 								<input
-									id="stat"
-									type="checkbox"
-									name="user-input"
-									checked
-									data-bootstrap-switch
-									data-off-color="danger"
-									data-on-color="success"
-									data-on-label="Ready"
-									data-off-label="Not Ready"
+									id="satuan_profil"
+									name="profil-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
 								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Nilai Pagu <code>*</code>:</label>
+								<input
+									id="nilai_profil"
+									name="profil-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Lokasi Pekerjaan <code>*</code>:</label>
+								<input
+									id="lokasi_profil"
+									name="profil-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Koordinat<code>*</code>:</label>
+								<input
+									id="koordinat_profil"
+									name="profil-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Jenis Kontrak <code>*</code>:</label>
+								<select
+									id="kontrak_profil"
+									name="profil-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">Lumpsum</option>
+									<option value="2">Harga Satuan</option>
+									<option value="3">Gabungan</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Tanggal Kontrak <code>*</code>:</label>
+								<input
+									id="tanggal_profil"
+									name="profil-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Addendum I <code>*</code>:</label>
+								<div class="row">
+									<div class="col-md-6">
+										<input
+											id="addendum1_profil1"
+											name="addendum1-input[]"
+											type="text"
+											class="form-control"
+											placeholder="NILAI KONTRAK"
+										/>
+									</div>
+									<div class="col-md-6">
+										<input
+											id="addendum1_profil2"
+											name="addendum1-input[]"
+											type="text"
+											class="form-control"
+											placeholder="WAKTU PELAKSANAAN TAMBAHAN"
+										/>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Addendum II <code>*</code>:</label>
+								<div class="row">
+									<div class="col-md-6">
+										<input
+											id="addendum2_profil1"
+											name="addendum2-input[]"
+											type="text"
+											class="form-control"
+											placeholder="NILAI KONTRAK"
+										/>
+									</div>
+									<div class="col-md-6">
+										<input
+											id="addendum2_profil2"
+											name="addendum2-input[]"
+											type="text"
+											class="form-control"
+											placeholder="WAKTU PELAKSANAAN TAMBAHAN"
+										/>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Addendum III <code>*</code>:</label>
+								<div class="row">
+									<div class="col-md-6">
+										<input
+											id="addendum3_profil1"
+											name="addendum3-input[]"
+											type="text"
+											class="form-control"
+											placeholder="NILAI KONTRAK"
+										/>
+									</div>
+									<div class="col-md-6">
+										<input
+											id="addendum3_profil2"
+											name="addendum3-input[]"
+											type="text"
+											class="form-control"
+											placeholder="WAKTU PELAKSANAAN TAMBAHAN"
+										/>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="modal-footer">
 					<!-- <button type="button" class="btn btn-primary">Tutup</button> -->
-					<button id="save-laporan" type="button" class="btn btn-success">
+					<button id="save-data-1" type="button" class="btn btn-success">
 						<i class="fas fa-check"> </i> Simpan
 					</button>
 				</div>
@@ -168,12 +751,11 @@
 		<!-- /.modal-dialog -->
 	</div>
 
-	<!-- modal detail user -->
-	<div class="modal fade" id="modal-detail">
-		<div class="modal-dialog modal-sm card card-danger card-outline">
+	<div class="modal fade" id="modal-2">
+		<div class="modal-dialog modal-lg card card-primary card-outline">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title">Detail</h4>
+					<h3 class="modal-title">2. Progres Fisik</h3>
 					<button
 						type="button"
 						class="close"
@@ -184,42 +766,62 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<div class="card-body box-profile">
-						<div class="text-center">
-							<img
-								id="detail-foto"
-								class="profile-user-img img-fluid img-circle"
-								src="assets/img/users/default.jpg"
-								alt="User profile picture"
-							/>
+					<input id="id_2" hidden />
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Bulan <code>*</code>:</label>
+								<input
+									id="bulan_fisik"
+									name="fisik-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
 						</div>
-
-						<h3 class="profile-username text-center" id="detail-name">
-							Nina Mcintire
-						</h3>
-
-						<p class="text-muted text-center" id="detail-username">
-							Software Engineer
-						</p>
-
-						<ul class="list-group list-group-unbordered mb-3">
-							<li class="list-group-item">
-								<b>Status</b> <a class="float-right" id="detail-status">543</a>
-							</li>
-							<li class="list-group-item">
-								<b>Jenis User</b>
-								<a class="float-right" id="detail-role">13,287</a>
-							</li>
-						</ul>
-
-						<!-- <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a> -->
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Minggu <code>*</code>:</label>
+								<input
+									id="minggu_fisik"
+									name="fisik-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Progres Fisik (%) <code>*</code>:</label>
+								<input
+									id="progres_fisik"
+									name="fisik-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Akumulasi Progres Fisik (%) <code>*</code>:</label>
+								<input
+									id="akumulasi_fisik"
+									name="fisik-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
 					</div>
-					<!-- /.card-body -->
 				</div>
 				<div class="modal-footer">
 					<!-- <button type="button" class="btn btn-primary">Tutup</button> -->
-					<button type="button" class="btn btn-warning" data-dismiss="modal">
-						<i class="fas fa-times"> </i> Tutup
+					<button id="save-data-2" type="button" class="btn btn-success">
+						<i class="fas fa-check"> </i> Simpan
 					</button>
 				</div>
 			</div>
@@ -227,7 +829,716 @@
 		</div>
 		<!-- /.modal-dialog -->
 	</div>
-	<!-- /.card -->
+
+	<div class="modal fade" id="modal-3">
+		<div class="modal-dialog modal-lg card card-primary card-outline">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title">3. Progres Keuangan</h3>
+					<button
+						type="button"
+						class="close"
+						data-dismiss="modal"
+						aria-label="Close"
+					>
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<input id="id_3" hidden />
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Bulan <code>*</code>:</label>
+								<input
+									id="bulan_keuangan"
+									name="keuangan-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Minggu <code>*</code>:</label>
+								<input
+									id="minggu_keuangan"
+									name="keuangan-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Progres Keuangan (%) <code>*</code>:</label>
+								<input
+									id="progres_keuangan"
+									name="keuangan-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Akumulasi Progres Keuangan (%) <code>*</code>:</label>
+								<input
+									id="akumulasi_keuangan"
+									name="keuangan-input"
+									type="text"
+									class="form-control"
+									placeholder="..."
+								/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-primary">Tutup</button> -->
+					<button id="save-data-3" type="button" class="btn btn-success">
+						<i class="fas fa-check"> </i> Simpan
+					</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+
+	<div class="modal fade" id="modal-4">
+		<div class="modal-dialog modal-lg card card-primary card-outline">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title">4. Pelaksanaan Kontrak</h3>
+					<button
+						type="button"
+						class="close"
+						data-dismiss="modal"
+						aria-label="Close"
+					>
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<input id="id_4" hidden />
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Penyerahan lokasi pekerjaan <code>*</code>:</label>
+								<select
+									id="penyerahan"
+									name="pelaksanaan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">
+										Dilakukan penyerahan lokasi setelah penandatanganan kontrak
+										dan sebelum SPMK
+									</option>
+									<option value="2">
+										Dilakukan penyerahan lokasi sebelum penandatanganan kontrak
+										atau setelah SPMK/
+									</option>
+									<option value="3">
+										Tidak dilakukan penyerahan lokasi kerja/
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Rapat persiapan pelaksanaan kontrak (pre-construction
+									meeting/PCM)<code>*</code>:</label
+								>
+								<select
+									id="pcm"
+									name="pelaksanaan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">
+										Melakukan rapat persiapan pelaksanaan kontrak maksimal 7
+										hari setelah SPMK dan sebelum dimulainya pelaksanaan
+										pekerjaan
+									</option>
+									<option value="2">
+										Melakukan rapat persiapan pelaksanaan kontrak lebih dari 7
+										hari setelah SPMK
+									</option>
+									<option value="3">
+										Tidak melakukan rapat persiapan pelaksanaan kontrak
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Mobilisasi sumber daya (material, alat, tenaga
+									kerja)<code>*</code>:</label
+								>
+								<select
+									id="mobilisasi"
+									name="pelaksanaan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">
+										Penyedia Jasa melakukan mobilisasi sumber daya (material,
+										alat, tenaga kerja) sebelum 14 hari kalender sejak
+										diterbitkan SPMK
+									</option>
+									<option value="2">
+										Penyedia Jasa melakukan mobilisasi sumber daya (material,
+										alat, tenaga kerja) dalam kurun waktu 14-30 hari kalender
+										sejak diterbitkan SPMK
+									</option>
+									<option value="3">
+										Penyedia Jasa melakukan mobilisasi sumber daya (material,
+										alat, tenaga kerja) lebih dari 30 hari kalender sejak
+										diterbitkan SPMK
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Pemeriksaan bersama (Mutual Check)<code>*</code>:</label>
+								<select
+									id="mutual"
+									name="pelaksanaan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">
+										Melakukan pemeriksaan bersama (Mutual Check) dan dihadiri
+										oleh pengendali pekerjaan atau direksi teknis
+									</option>
+									<option value="2">
+										Melakukan pemeriksaan bersama (Mutual Check) tetapi tidak
+										dihadiri oleh pengendali pekerjaan atau direksi teknis
+									</option>
+									<option value="3">
+										Tidak melakukan pemeriksaan bersama (Mutual Check)
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Permohonan izin memulai pekerjaan (Request of
+									Work)<code>*</code>:</label
+								>
+								<select
+									id="izin"
+									name="pelaksanaan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">
+										Terdapat permohonan izin memulai pekerjaan (Request of Work)
+										dan sudah ada surat persetujuan memulai pekerjaan (Approval
+										of Work)
+									</option>
+									<option value="2">
+										Terdapat permohonan izin memulai pekerjaan (Request of Work)
+										tetapi belum ada surat persetujuan memulai pekerjaan
+										(Approval of Work)
+									</option>
+									<option value="3">
+										Tidak ada permohonan izin memulai pekerjaan (Request of
+										Work)
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Ketersediaan laporan pelaksanaan
+									pekerjaan<code>*</code>:</label
+								>
+								<select
+									id="ketersediaan"
+									name="pelaksanaan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">
+										Terdapat laporan pelaksanaan pekerjaan yang disusun dan
+										disampaikan tepat waktu (harian, mingguan, bulanan)
+									</option>
+									<option value="2">
+										Terdapat laporan pelaksanaan pekerjaan tetapi disusun dan
+										disampaikan tidak tepat waktu (harian atau mingguan atau
+										bulanan)
+									</option>
+									<option value="3">
+										Tidak ada laporan pelaksanaan pekerjaan
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Ketersediaan shop drawing dan asbuild
+									drawing<code>*</code>:</label
+								>
+								<select
+									id="drawing"
+									name="pelaksanaan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">
+										Terdapat shop drawing dan asbuild drawing dan sudah
+										ditandatangani PPK dan Penyedia Jasa
+									</option>
+									<option value="2">
+										Terdapat shop drawing dan asbuild drawing tetapi belum
+										ditandatangani PPK dan/atau Penyedia Jasa
+									</option>
+									<option value="3">
+										Tidak terdapat shop drawing dan asbuild drawing
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Kesesuaian realisasi progres fisik dengan rencana
+									fisik<code>*</code>:</label
+								>
+								<select
+									id="realisasi_fisik"
+									name="pelaksanaan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">
+										Sesuai atau lebih cepat dengan rencana fisik
+									</option>
+									<option value="2">
+										Terdapat keterlambatan progres fisik s.d 10% terhadap
+										rencana fisik
+									</option>
+									<option value="3">
+										Terdapat keterlambatan progres fisik diatas 10% terhadap
+										rencana fisik
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Kesesuaian realisasi progres keuangan dengan rencana
+									keuangan<code>*</code>:</label
+								>
+								<select
+									id="realisasi_keuangan"
+									name="pelaksanaan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">
+										Realisasi progres keuangan sesuai atau deviasi positif
+										terhadap rencana keuangan
+									</option>
+									<option value="2">
+										Realisasi progres keuangan deviasi minus 10-20% terhadap
+										rencana keuangan
+									</option>
+									<option value="3">
+										Realisasi progres keuangan deviasi minus > 20 % terhadap
+										rencana keuangan
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Kesesuaian mesin/alat pengolahan sampah yang
+									digunakan<code>*</code>:</label
+								>
+								<select
+									id="mesin_alat"
+									name="pelaksanaan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">
+										Terdapat Berita Acara Perubahan Mesin dan Alat yang
+										digunakan berkaitan dengan Perubahan Kontrak
+									</option>
+									<option value="2">
+										Tidak ada berita acara perubahan mesin dan alat yang
+										digunakan berkaitan dengan perubahan kontrak
+									</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-primary">Tutup</button> -->
+					<button id="save-data-4" type="button" class="btn btn-success">
+						<i class="fas fa-check"> </i> Simpan
+					</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+
+	<div class="modal fade" id="modal-5">
+		<div class="modal-dialog modal-lg card card-primary card-outline">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title">
+						5. Pelaksanaan Sistem Manajemen Keselamatan Konstruksi
+					</h3>
+					<button
+						type="button"
+						class="close"
+						data-dismiss="modal"
+						aria-label="Close"
+					>
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<input id="id_5" hidden />
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Kesiapan penyelenggaraan Sistem Manajemen Keselamatan
+									Konstruksi (sesuai Permen PUPR No. 10 Tahun
+									2021)<code>*</code>:</label
+								>
+								<select
+									id="penyelenggaraan"
+									name="manajemen-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">
+										Telah melakukan semua kegiatan Sistem Manajemen Keselamatan
+										Konstruksi
+									</option>
+									<option value="2">
+										Hanya melakukan sebagian kegiatan Sistem Manajemen
+										Keselamatan Konstruksi
+									</option>
+									<option value="3">
+										Tidak melakukan kegiatan Sistem Manajemen Keselamatan
+										Konstruksi
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Kesesuaian rencana dengan pelaksanaan Sistem Manajemen
+									Keselamatan Konstruksi <code>*</code>:</label
+								>
+								<select
+									id="rencana"
+									name="manajemen-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">
+										Melakukan inspeksi rutin (harian,mingguan,bulanan)
+									</option>
+									<option value="2">
+										Melakukan inspeksi tetapi tidak rutin (bersifat insidental
+										saja)
+									</option>
+									<option value="3">Tidak melakukan inspeksi</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Ketersediaan Laporan K3 <code>*</code>:</label>
+								<select
+									id="k3"
+									name="manajemen-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">
+										Terdapat laporan bulanan pelaksanaan K3
+									</option>
+									<option value="2">
+										Terdapat laporan pelaksanan K3 tetapi tidak rutin
+									</option>
+									<option value="3">Tidak ada laporan pelaksaaan K3</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-primary">Tutup</button> -->
+					<button id="save-data-5" type="button" class="btn btn-success">
+						<i class="fas fa-check"> </i> Simpan
+					</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+
+	<div class="modal fade" id="modal-6">
+		<div class="modal-dialog modal-lg card card-primary card-outline">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title">6. Kondisi Khusus</h3>
+					<button
+						type="button"
+						class="close"
+						data-dismiss="modal"
+						aria-label="Close"
+					>
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<input id="id_6" hidden />
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Sosialisasi kepada masyarakat di sekitar lokasi kegiatan
+									<code>*</code>:</label
+								>
+								<select
+									id="sosialisasi"
+									name="kondisi-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">
+										Sudah dilakukan sosialisasi kepada masyarakat di sekitar
+										lokasi kegiatan
+									</option>
+									<option value="2">
+										Belum dilakukan sosialisasi kepada masyarakat di sekitar
+										lokasi kegiatan
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Tindak lanjut permasalahan pelaksanaan pekerjaan
+									<code>*</code>:</label
+								>
+								<select
+									id="tindaklanjut"
+									name="kondisi-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">
+										Tidak ada keterlambatan waktu pelaksanaan pekerjaan
+									</option>
+									<option value="2">
+										Terdapat keterlambatan pekerjaan tetapi sudah dilakukan
+										penanganan keterlambatan sesuai peraturan atau dokumen
+										kontrak
+									</option>
+									<option value="3">
+										Terdapat keterlambatan pekerjaan tetapi tidak dilakukan
+										penanganan keterlambatan sesuai peraturan atau dokumen
+										kontrak
+									</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-primary">Tutup</button> -->
+					<button id="save-data-6" type="button" class="btn btn-success">
+						<i class="fas fa-check"> </i> Simpan
+					</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+
+	<div class="modal fade" id="modal-7">
+		<div class="modal-dialog modal-lg card card-primary card-outline">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title">7. Uji Coba</h3>
+					<button
+						type="button"
+						class="close"
+						data-dismiss="modal"
+						aria-label="Close"
+					>
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<input id="id_7" hidden />
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Pengujian akhir pekerjaan (Test on Completion)
+									<code>*</code>:</label
+								>
+								<select
+									id="pengujian"
+									name="uji-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">
+										Dilakukan pengujian akhir pekerjaan dan hasil pemeriksaaan
+										telah sesuai dengan ketentuan yang tercantum dalam kontrak
+									</option>
+									<option value="2">
+										Dilakukan pengujian akhir pekerjaan tetapi masih terdapat
+										cacat mutu dan/atau cacat fungsi yang belum diperbaiki
+									</option>
+									<option value="3">
+										Tidak dilakukan pengujian akhir pekerjaan
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Ketersediaan SOP (Standart Operational Procedure)
+									<code>*</code>:</label
+								>
+								<select
+									id="sop"
+									name="uji-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">
+										Dokumen SOP (Standart Operational Procedure) sudah ada dan
+										telah diperbaharui berdasarkan sistem yang ada dari
+										infrastruktur terbangun
+									</option>
+									<option value="2">
+										Dokumen SOP (Standart Operational Procedure) sudah ada
+										tetapi belum diperbaharui berdasarkan sistem yang ada dari
+										infrastruktur terbangun
+									</option>
+									<option value="3">
+										Belum ada SOP (Standart Operational Procedure) atau SOP
+										sedang disusun dari infrastruktur terbangun
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label
+									>Kualitas produk hasil olahan sampah <code>*</code>:</label
+								>
+								<select
+									id="kualitas"
+									name="uji-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">Baik</option>
+									<option value="2">Sedang</option>
+									<option value="3">Buruk</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-primary">Tutup</button> -->
+					<button id="save-data-7" type="button" class="btn btn-success">
+						<i class="fas fa-check"> </i> Simpan
+					</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+
+	<div class="modal fade" id="modal-8">
+		<div class="modal-dialog modal-lg card card-primary card-outline">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title">8. Status Pelaksanaan Kegiatan</h3>
+					<button
+						type="button"
+						class="close"
+						data-dismiss="modal"
+						aria-label="Close"
+					>
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<input id="id_8" hidden />
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Status Pelaksanaan Kegiatan<code>*</code>:</label>
+								<select
+									id="status_pelaksanaan"
+									name="statuspelaksanaan-input"
+									class="form-control select2bs4"
+								>
+									<option value="0">-Pilih-</option>
+									<option value="1">Pelaksanaan kegiatan berjalan baik</option>
+									<option value="2">
+										Pelaksanaan kegiatan berjalan baik, tetapi perlu perhatian
+									</option>
+									<option value="3">
+										Pelaksanaan kegiatan tidak berjalan baik dan perlu perhatian
+										khusus
+									</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-primary">Tutup</button> -->
+					<button id="save-data-8" type="button" class="btn btn-success">
+						<i class="fas fa-check"> </i> Simpan
+					</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
 </section>
 
 <!-- /.content -->
