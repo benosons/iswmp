@@ -1,0 +1,237 @@
+{% extends "frontend/layout.html" %} {% block content %}
+<link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+<style>
+    #tab-outer {
+  position:relative;
+  font:normal 12px Arial,Sans-Serif;    
+}
+
+#tab-outer * {
+  margin:0px 0px;
+  padding:0px 0px;    
+}
+
+#tab-wrapper {
+  list-style:none;
+  height:30px;
+}
+
+#tab-wrapper li {
+  margin:0px 0px 0px 2px;
+  float:left;
+  font-weight:bold;
+}
+
+#tab-wrapper li a {
+  display:block;
+  padding:0px 15px;
+  line-height:30px;
+  text-decoration:none;
+  color:white;
+  background-color:#58b9ff; 
+}
+
+#tab-wrapper li.active a {
+  background-color:#1c6295;
+}
+
+#tab-body > div {
+  background-color:#1c6295;
+  color:white;
+  padding:10px 15px;
+  border-bottom:4px solid #1c6295;
+  height:100%; /* Contoh */    
+}
+
+</style>
+<section>
+    <div class="gap no-bottom blackish low-opacity">
+        <div class="bg-image"><img src="assets/img/resources/pagetop.jpg" alt=""></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="page-top">
+                        <ul class="bread-crumb">
+                            <li><a href="gallery-simple.html#" title="">Beranda</a></li>
+                            <li>Peta</li>
+                        </ul>
+                        <h2 class="page-title">PETA <span>{{ param }}</span></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- page top title with bread crumb -->
+<section id="">
+    <div class="gap">
+        <div class="container">
+                 {% if param == 'CITARUM' %}
+                <div id="jabar" style="display: block;">
+                    <div class="footer-map">
+                        <img src="assets/img/iswmp-jabar.jpeg" alt="">
+                        <div class="pointer" style="left:49%; top:11.5%;" onclick="viewdata(1,1)"> <span></span>
+                            <div class="address-tooltip">
+                                <ul>
+                                    <li><i class="ion-ios-location"></i>Kabupaten Karawang</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pointer" style="left:44.4%; top:21.5%;" onclick="viewdata(2,1)"> <span></span>
+                            <div class="address-tooltip">
+                                <ul>
+                                    <li><i class="ion-ios-location"></i>Kabupaten Bekasi</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pointer" style="left:54.8%; top:44%;" onclick="viewdata(3,1)"> <span></span>
+                            <div class="address-tooltip">
+                                <ul>
+                                    <li><i class="ion-ios-location"></i>Kabupaten Purwakarta</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pointer" style="left:40.5%; top:55.3%;" onclick="viewdata(4,1)"> <span></span>
+                            <div class="address-tooltip">
+                                <ul>
+                                    <li><i class="ion-ios-location"></i>Kabupaten Cianjur</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pointer" style="left:61%; top:58.3%;" onclick="viewdata(5,1)"> <span></span>
+                            <div class="address-tooltip">
+                                <ul>
+                                    <li><i class="ion-ios-location"></i>Kabupaten Sumedang</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pointer" style="left:64.7%; top:61%;" onclick="viewdata(6,1)"> <span></span>
+                            <div class="address-tooltip">
+                                <ul>
+                                    <li><i class="ion-ios-location"></i>Kota Bandung</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pointer" style="left:58.9%; top:64%;" onclick="viewdata(7,1)"> <span></span>
+                            <div class="address-tooltip">
+                                <ul>
+                                    <li><i class="ion-ios-location"></i>Kota Cimahi</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pointer" style="left:47.6%; top:66.6%;" onclick="viewdata(8,1)"> <span></span>
+                            <div class="address-tooltip">
+                                <ul>
+                                    <li><i class="ion-ios-location"></i>Kabupaten Bandung Barat</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pointer" style="left:66.7%; top:70.9%;" onclick="viewdata(9,1)"> <span></span>
+                            <div class="address-tooltip">
+                                <ul>
+                                    <li><i class="ion-ios-location"></i>Kabupaten Bandung</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="peta-detail">
+                            <table id="data-peta" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            No
+                                        </th>
+                                        <th>
+                                            Kabupaten/Kota
+                                        </th>
+                                        <th>
+                                            LatLong
+                                        </th>
+                                        <th>
+                                            Nama
+                                        </th>
+                                        <th>
+                                            Alamat
+                                        </th>
+                                        <th>
+                                            Kapasitas
+                                        </th>
+                                        <th>
+                                            Luas
+                                        </th>
+                                        <th>
+                                            Progres
+                                        </th>
+                                    </tr>
+                                </thead>
+                            </table>
+                    </div>
+                </div>
+                {% endif %}
+                {% if param == 'DENPASAR' %}
+                <div id="bali" style="display: block;">
+                    <div class="footer-map">
+                        <img src="assets/img/iswmp-bali.jpeg" alt="" style="width: 100%;">
+                        <div class="pointer" style="left:62.6%; top:70.9%;" onclick="viewdata(1,2)"> <span></span>
+                            <div class="address-tooltip">
+                                <ul>
+                                    <li><i class="ion-ios-location"></i>Kota Denpasar</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pointer" style="left:57.5%; top:70%;" onclick="viewdata(2,2)"> <span></span>
+                            <div class="address-tooltip">
+                                <ul>
+                                    <li><i class="ion-ios-location"></i>Kota Denpasar</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pointer" style="left:58%; top:80%;" onclick="viewdata(3,2)"> <span></span>
+                            <div class="address-tooltip">
+                                <ul>
+                                    <li><i class="ion-ios-location"></i>Kota Denpasar</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="peta-detail-2">
+                            <table id="data-peta-2" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            No
+                                        </th>
+                                        <th>
+                                            Kabupaten/Kota
+                                        </th>
+                                        <th>
+                                            LatLong
+                                        </th>
+                                        <th>
+                                            Nama
+                                        </th>
+                                        <th>
+                                            Alamat
+                                        </th>
+                                        <th>
+                                            Kapasitas
+                                        </th>
+                                        <th>
+                                            Luas
+                                        </th>
+                                        <th>
+                                            Progres
+                                        </th>
+                                    </tr>
+                                </thead>
+                            </table>
+                    </div>
+                </div>
+                {% endif %}
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

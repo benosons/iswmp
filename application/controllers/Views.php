@@ -201,6 +201,7 @@ class Views extends CI_Controller {
 
 	public function peta()
 	{
+		
 		if ($this->logged) {
 			if($this->role == '10'){
 				$this->content['script'] = $this->data['base_url'].'assets/js/action/admin/peta/peta.js';
@@ -209,7 +210,14 @@ class Views extends CI_Controller {
 				redirect("dashboard");
 			}
 		}else{
-			redirect("logout");
+			if($this->input->get('param')){
+				
+				$this->content['script'] = $this->data['base_url'].'assets/js/action/frontend/peta.js';
+				$this->content['param'] = strtoupper($this->input->get('param'));
+				$this->twig->display('frontend/peta.html', $this->content);
+			}else{
+				redirect("logout");
+			}
 		}
 	}
 
