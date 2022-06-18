@@ -992,6 +992,20 @@ class Jsondata extends CI_Controller {
 
 	}
 
+	public function updatelaporan()
+	{
+
+		$params = (object)$this->input->post();
+		$params->update_by	 = $this->session->userdata('id');
+		$params->update_date = date("Y-m-d H:i:s");
+		
+		$data = $this->Model_data->updateLaporan($params);
+
+		header('Content-Type: application/json');
+		echo json_encode(array("status" => TRUE));
+
+	}
+
 	public function deletejadwal()
 	{
 

@@ -94,6 +94,7 @@ $(function () {
                           { 'mDataProp': 'tanggal'},
                           { 'mDataProp': 'jenis'},
                           { 'mDataProp': 'url'},
+                          { 'mDataProp': 'type'},
                           { 'mDataProp': 'id'},
                       ],
                       order: [[0, 'ASC']],
@@ -106,6 +107,18 @@ $(function () {
                                   return $rowData;
                               },
                               aTargets: [5]
+                          },
+                          {
+                              mRender: function (data, type, row){
+                                  var type = ['-','Laporan','Panduan']
+                                  var badge = ['-','primary','info']
+                                  
+                                  var $rowData = '';
+                                  $rowData += `<span class="right badge badge-${badge[row.type]}">${type[row.type]}</span>`;
+                                  
+                                  return $rowData;
+                              },
+                              aTargets: [6]
                           },
                           {
                               mRender: function (data, type, row){
@@ -124,7 +137,7 @@ $(function () {
                                         <span class="sr-only">Toggle Dropdown</span>
                                       </button>
                                       <div class="dropdown-menu" role="menu">
-                                        <a class="dropdown-item" href="#" onclick="editdong('`+row.id+`','`+row.judul+`','`+row.deskripsi+`','`+row.tanggal+`','`+row.jenis+`','`+row.url+`')"><i class="far fa-edit"></i> Edit</a>
+                                        <a class="dropdown-item" href="#" onclick="editdong('`+row.id+`','`+row.judul+`','`+row.deskripsi+`','`+row.tanggal+`','`+row.jenis+`','`+row.url+`','${row.type}')"><i class="far fa-edit"></i> Edit</a>
                                         <a class="dropdown-item" href="#" onclick="deleteData(`+row.id+`)"><i class="far fa-trash-alt"></i> Hapus</a>
                                         <div class="dropdown-divider"></div>
                                         `+st+`
@@ -133,7 +146,7 @@ $(function () {
     
                                   return $rowData;
                               },
-                              aTargets: [6]
+                              aTargets: [7]
                           }
                       ],
     
@@ -178,6 +191,7 @@ $(function () {
       formData.append('tanggal', $('#tanggal').val());
       formData.append('jenis', $('#jenis').val());
       formData.append('url', $('#url').val());
+      formData.append('type', $('#type').val());
             
       var stat;
         switch (st) {
@@ -191,6 +205,8 @@ $(function () {
         if($('#id').val()){
           var baseurl = 'updatelaporan';
           var msg = 'Update Laporan';
+
+          formData.append('id', $('#id').val());
 
         }else{
           var baseurl = 'saveLaporan';
@@ -221,7 +237,7 @@ $(function () {
           });
         };
 
-function editdong(id, judul, deskripsi, tanggal, jenis, url){
+function editdong(id, judul, deskripsi, tanggal, jenis, url, type){
   $('#add-laporan').trigger('click');
   $('.modal-title').html('Edit Lapaoran');
   $('#id').val(id);
@@ -230,6 +246,7 @@ function editdong(id, judul, deskripsi, tanggal, jenis, url){
   $('#tanggal').val(new Date(tanggal));
   $('#jenis').val(jenis);
   $('#url').val(url);
+  $('#type').val(type).trigger('change');
 
 }
 

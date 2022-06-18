@@ -133,6 +133,17 @@ class Model_data extends CI_Model {
 
     }
 
+    public function updateLaporan($params = NULL)
+    {
+        $valid = true;
+        
+        $this->db->where('id', $params->id); 
+        $this->db->update('data_laporan', $params);
+        // print_r($this->db->last_query());die;
+        return $valid;
+
+    }
+
     public function updatefile($params = NULL)
     {
         $valid = true;

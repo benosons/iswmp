@@ -102,6 +102,7 @@ $route['getpetawhere'] = 'jsondata/getpetawhere';
 $route['getcriteria'] = 'jsondata/getcriteria';
 $route['savedataberita'] = 'jsondata/savedataberita';
 $route['updateberita'] = 'jsondata/updateberita';
+$route['updatelaporan'] = 'jsondata/updatelaporan';
 $route['updatedataberita'] = 'jsondata/updatedataberita';
 $route['updatedatajadwal'] = 'jsondata/updatedatajadwal';
 $route['updatePeta'] = 'jsondata/updatePeta';

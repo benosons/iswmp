@@ -370,6 +370,8 @@ class Views extends CI_Controller {
 	{
 		if($this->input->get('param') == '2021'){
 			$this->twig->display('frontend/progres_2021.html', $this->content);
+		}else if($this->input->get('param') == '2022'){
+			$this->twig->display('frontend/progres_2022.html', $this->content);
 		}
 	}
 
