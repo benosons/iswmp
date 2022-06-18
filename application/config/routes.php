@@ -87,6 +87,7 @@ $route['^(persiapan)(/:any)?$'] = "views/$0";
 $route['^(pelaksanaan)(/:any)?$'] = "views/$0";
 $route['^(operasi)(/:any)?$'] = "views/$0";
 $route['^(evaluasi)(/:any)?$'] = "views/$0";
+$route['^(pedoman)(/:any)?$'] = "views/$0";
 
 $route['404'] = "views/page404";
 

@@ -218,9 +218,10 @@ class Jsondata extends CI_Controller {
 				$post = (object)$this->input->post();
 				$param =  $post->param;
 				$type =  $post->type;
-				$id =  $post->id;
+				$id =  $post->id ? "id = '$id'" : '';
+				$mode =  $post->mode ? 'type = 2' : '';
 				
-				$result = $this->Model_data->getwhere("*", $param, "id = '$id'");
+				$result = $this->Model_data->getwhere("*", $param, "$id $mode");
 				foreach ($result as $key => $value) {
 					$files = $this->Model_data->getfile($value->id, $type);
 					if(!empty($files)){

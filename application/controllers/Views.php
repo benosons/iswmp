@@ -381,6 +381,12 @@ class Views extends CI_Controller {
 		$this->twig->display('frontend/report.html', $this->content);
 	}
 
+	public function pedoman()
+	{
+		$this->content['script'] = $this->data['base_url'].'assets/js/action/frontend/pedoman.js';
+		$this->twig->display('frontend/pedoman.html', $this->content);
+	}
+
 	public function page404()
 	{
 		$this->twig->display('frontend/error/404.html', $this->content);
