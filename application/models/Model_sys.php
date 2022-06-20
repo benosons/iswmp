@@ -310,4 +310,30 @@ class Model_sys extends CI_Model {
 
     }
 
+    public function insertVisitor($ip, $date, $hits, $online, $time)
+    {
+
+        $this->db->set("ip", $ip);
+        $this->db->set("date", $date);
+        $this->db->set("hits", $hits);
+        $this->db->set("online", $online);
+        $this->db->set("time", $time);
+        
+        $valid = $this->db->insert('visitor');
+        return $valid;
+
+    }
+
+    public function selectVisitor($ip, $date)
+    {
+        $query = $this->db->query("SELECT * FROM visitor WHERE ip='".$ip."' AND date='".$date."'")->num_rows();
+        return $query;
+    }
+
+    public function updateVisitor($waktu, $ip, $date)
+    {
+        $query = $this->db->query("UPDATE visitor SET hits=hits+1, online='".$waktu."' WHERE ip='".$ip."' AND date='".$date."'");
+        return $query;
+    }
+
 }

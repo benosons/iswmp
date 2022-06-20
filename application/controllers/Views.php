@@ -23,6 +23,7 @@ class Views extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('Model_auth');
+		$this->load->model('Model_sys');
 		$this->logs = $this->session->all_userdata();
 		$this->logged = $this->session->userdata('userLogged');
 		$this->kategori = $this->session->userdata('kategori');
@@ -45,6 +46,46 @@ class Views extends CI_Controller {
 		$this->output->set_header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
 		$this->output->set_header('Pragma: no-cache');
 		$this->output->set_header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+		
+		$ip    = $this->input->ip_address(); // Mendapatkan IP user
+		$date  = date("Y-m-d"); // Mendapatkan tanggal sekarang
+		$waktu = time(); //
+		$timeinsert = date("Y-m-d H:i:s");
+		
+		if(!$this->logged){
+			// Cek berdasarkan IP, apakah user sudah pernah mengakses hari ini
+			$s = $this->Model_sys->selectVisitor($ip, $date);
+			// $s = $this->db->query("SELECT * FROM visitor WHERE ip='".$ip."' AND date='".$date."'")->num_rows();
+			$ss = isset($s)?($s):0;
+			
+			// Kalau belum ada, simpan data user tersebut ke database
+			if($ss == 0){
+				$data = $this->Model_sys->insertVisitor($ip, $date, '1', $waktu, $timeinsert);
+				return false;
+				// $this->db->query("INSERT INTO visitor(ip, date, hits, online, time) VALUES('".$ip."','".$date."','1','".$waktu."','".$timeinsert."')");
+			}
+			
+			// Jika sudah ada, update
+			else{
+				$data = $this->Model_sys->updateVisitor($waktu, $ip, $date);
+				return false;
+				// $this->db->query("UPDATE visitor SET hits=hits+1, online='".$waktu."' WHERE ip='".$ip."' AND date='".$date."'");
+			}		
+		}
+
+		$pengunjunghariini  = $this->db->query("SELECT * FROM visitor WHERE date='".$date."' GROUP BY ip")->num_rows(); // Hitung jumlah pengunjung
+ 
+		$dbpengunjung = $this->db->query("SELECT COUNT(hits) as hits FROM visitor")->row(); 
+		
+		$totalpengunjung = isset($dbpengunjung->hits)?($dbpengunjung->hits):0; // hitung total pengunjung
+		
+		$bataswaktu = time() - 300;
+		
+		$pengunjungonline  = $this->db->query("SELECT * FROM visitor WHERE online > '".$bataswaktu."'")->num_rows(); // hitung pengunjung online
+
+		$this->pengunjunghariini 	= $pengunjunghariini;
+		$this->totalpengunjung 		= $totalpengunjung;
+		$this->pengunjungonline 	= $pengunjungonline;
 
 	}
 
@@ -82,6 +123,9 @@ class Views extends CI_Controller {
 		{
 			if( $this->role == '10' || $this->role == '20' || $this->role == '30'){
 				$this->content['script'] = $this->data['base_url'].'assets/js/action/admin/index.js';
+				$this->content['pengunjunghariini'] = $this->pengunjunghariini;
+				$this->content['totalpengunjung'] = $this->totalpengunjung;
+				$this->content['pengunjungonline'] = $this->pengunjungonline;
 				$this->twig->display('admin/index.html', $this->content);
 			}else{
 				redirect("/");
