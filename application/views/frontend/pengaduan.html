@@ -1,5 +1,9 @@
 {% extends "frontend/layout.html" %} {% block content %}
-
+<style>
+ .btn-disabled{
+    background: #add2ed!important;
+ }
+</style>
 <section>
     <div class="gap no-bottom blackish low-opacity">
         <div class="bg-image"><img src="assets/img/resources/pagetop.jpg" alt=""></div>
@@ -103,8 +107,15 @@
                                     <div class="col-sm-12">
                                         <textarea id="pengaduan" cols="30" rows="8" placeholder="Pengaduan" name="pengaduan"></textarea>
                                     </div>
+                                    <div class="col-sm-3">
+                                        <hr/>
+                                        <div id="captcha">
+                                        </div>
+                                        <input type="text" placeholder="Captcha" id="cpatchaTextBox"/>
+                                        <br/>
+                                    </div>
                                     <div class="col-sm-12">
-                                        <button type="submit" id="submit" data-ripple="">submit</button>
+                                        <button class="btn-disabled" type="submit" id="submit" data-ripple="" disabled>submit</button>
                                         <img src="images/ajax-loader.gif" class="loader" alt="">
                                     </div>
                                 </div>	
