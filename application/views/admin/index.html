@@ -30,11 +30,39 @@
 							<div class="icon">
 								<i class="ion ion-person"></i>
 							</div>
-							<a href="#" class="small-box-footer">-</a>
+							<a href="#" class="small-box-footer">{{ "now"|date("d/M/Y") }}</a>
+					</div>
+				</div>
+
+				<div class="col-lg-4 col-6">
+				
+					<div class="small-box bg-primary">
+						<div class="inner">
+							<h3>{{pengunjungbulanini}}</h3>
+								<p>Pengunjung Bulan ini</p>
+							</div>
+							<div class="icon">
+								<i class="ion ion-person"></i>
+							</div>
+							<a href="#" class="small-box-footer">{{ "now"|date("m") }}</a>
+					</div>
+				</div>
+
+				<div class="col-lg-4 col-6">
+				
+					<div class="small-box bg-danger">
+						<div class="inner">
+							<h3>{{pengunjungtahunini}}</h3>
+								<p>Pengunjung Tahun ini</p>
+							</div>
+							<div class="icon">
+								<i class="ion ion-person"></i>
+							</div>
+							<a href="#" class="small-box-footer">{{"now"|date("Y")}}</a>
 					</div>
 				</div>
 				
-				<div class="col-lg-4 col-6">
+				<div class="col-lg-6 col-6">
 				
 					<div class="small-box bg-info">
 						<div class="inner">
@@ -48,7 +76,7 @@
 					</div>
 				</div>
 				
-				<div class="col-lg-4 col-6">
+				<div class="col-lg-6 col-6">
 				
 					<div class="small-box bg-success">
 						<div class="inner">

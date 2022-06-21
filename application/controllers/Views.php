@@ -51,6 +51,8 @@ class Views extends CI_Controller {
 		$date  = date("Y-m-d"); // Mendapatkan tanggal sekarang
 		$waktu = time(); //
 		$timeinsert = date("Y-m-d H:i:s");
+		$year = date("Y");
+		$month = date("m");
 		
 		if(!$this->logged){
 			// Cek berdasarkan IP, apakah user sudah pernah mengakses hari ini
@@ -74,6 +76,8 @@ class Views extends CI_Controller {
 		}
 
 		$pengunjunghariini  = $this->db->query("SELECT * FROM visitor WHERE date='".$date."' GROUP BY ip")->num_rows(); // Hitung jumlah pengunjung
+		$pengunjungbulanini  = $this->db->query("SELECT * FROM visitor WHERE MONTH(date)='".$month."'")->num_rows(); // Hitung jumlah pengunjung
+		$pengunjungtahunini  = $this->db->query("SELECT * FROM visitor WHERE YEAR(date)='".$year."'")->num_rows(); // Hitung jumlah pengunjung
  
 		$dbpengunjung = $this->db->query("SELECT COUNT(hits) as hits FROM visitor")->row(); 
 		
@@ -84,7 +88,10 @@ class Views extends CI_Controller {
 		$pengunjungonline  = $this->db->query("SELECT * FROM visitor WHERE online > '".$bataswaktu."'")->num_rows(); // hitung pengunjung online
 
 		$this->pengunjunghariini 	= $pengunjunghariini;
+		$this->pengunjungbulanini 	= $pengunjungbulanini;
+		$this->pengunjungtahunini 	= $pengunjungtahunini;
 		$this->totalpengunjung 		= $totalpengunjung;
+		$this->pengunjungonline 	= $pengunjungonline;
 		$this->pengunjungonline 	= $pengunjungonline;
 
 	}
@@ -124,6 +131,8 @@ class Views extends CI_Controller {
 			if( $this->role == '10' || $this->role == '20' || $this->role == '30'){
 				$this->content['script'] = $this->data['base_url'].'assets/js/action/admin/index.js';
 				$this->content['pengunjunghariini'] = $this->pengunjunghariini;
+				$this->content['pengunjungbulanini'] = $this->pengunjungbulanini;
+				$this->content['pengunjungtahunini'] = $this->pengunjungtahunini;
 				$this->content['totalpengunjung'] = $this->totalpengunjung;
 				$this->content['pengunjungonline'] = $this->pengunjungonline;
 				$this->twig->display('admin/index.html', $this->content);
